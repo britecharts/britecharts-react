@@ -11,7 +11,7 @@ const PATHS = {
 
 const commonConfig = {
     entry: {
-        stackedArea: PATHS.charts + '/stackedArea/stackedAreaComponent.js',
+        stackedArea: `${PATHS.charts}/stackedArea/stackedAreaComponent.js`,
     },
     output: {
         path: PATHS.build,
@@ -70,7 +70,7 @@ const developmentConfig = () => {
                     },
                 },
             ],
-        }
+        },
     };
 
     return Object.assign(

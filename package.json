@@ -13,9 +13,12 @@
     "build": "webpack --env production"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.0",
     "enzyme": "^2.9.1",
     "eslint": "^4.6.1",
+    "eslint-config-eventbrite": "^4.1.0",
     "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
     "html-webpack-plugin": "^2.30.1",
     "install": "^0.10.1",
     "nodemon": "^1.12.0",
