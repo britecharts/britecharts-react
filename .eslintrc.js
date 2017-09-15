@@ -5,17 +5,19 @@ module.exports = {
         es6: true,
         node: true,
     },
-    extends: 'eslint:recommended',
+    extends: 'eventbrite',
     parserOptions: {
         sourceType: 'module',
     },
     rules: {
-        'comma-dangle': ['error', 'always-multiline'],
         indent: ['error', 4],
         'linebreak-style': ['error', 'unix'],
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
         'no-unused-vars': ['warn'],
         'no-console': 0,
+
+        'import/unambiguous': 0,
+        'no-inline-comments': 0,
     },
 };
