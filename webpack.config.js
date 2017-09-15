@@ -44,13 +44,21 @@ const commonConfig = merge([
     }),
 ]);
 
-const productionConfig = merge([]);
+const productionConfig = merge([
+    parts.generateSourceMaps({ type: 'source-map' }),
+]);
 
 const developmentConfig = merge([
     parts.devServer({
         host: process.env.HOST,
         port: process.env.PORT,
     }),
+    {
+        output: {
+            devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
+        },
+    },
+    parts.generateSourceMaps({ type: 'cheap-module-eval-source-map' }),
 ]);
 
 

@@ -25,6 +25,7 @@ exports.devServer = ({ host, port } = {}) => ({
     },
 });
 
+
 exports.lintJavaScript = ({ include, exclude, options }) => ({
     module: {
         rules: [
@@ -39,4 +40,9 @@ exports.lintJavaScript = ({ include, exclude, options }) => ({
             },
         ],
     },
+});
+
+
+exports.generateSourceMaps = ({ type }) => ({
+  devtool: type,
 });
