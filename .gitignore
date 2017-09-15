@@ -12,6 +12,7 @@ lib-cov
 coverage
 
 # Builds
+.eslintcache
 
 # node-waf configuration
 

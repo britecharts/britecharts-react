@@ -1,1 +1,1 @@
-console.log('hello stacked area')
+console.log('hello stacked area');
