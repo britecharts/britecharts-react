@@ -5,7 +5,7 @@ module.exports = {
         es6: true,
         node: true,
     },
-    extends: 'eventbrite',
+    extends: 'eventbrite-react',
     parserOptions: {
         sourceType: 'module',
     },
