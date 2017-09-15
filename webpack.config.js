@@ -6,7 +6,7 @@ const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const PATHS = {
     charts: path.join(__dirname, 'src/charts'),
-    build: path.join(__dirname, 'build'),
+    lib: path.join(__dirname, 'lib'),
 };
 
 const commonConfig = {
@@ -14,7 +14,7 @@ const commonConfig = {
         stackedArea: `${PATHS.charts}/stackedArea/stackedAreaComponent.js`,
     },
     output: {
-        path: PATHS.build,
+        path: PATHS.lib,
         filename: '[name].js',
     },
     plugins: [
