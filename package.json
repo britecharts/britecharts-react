@@ -30,7 +30,8 @@
     "react-dev-utils": "^4.0.1",
     "webpack": "^3.5.6",
     "webpack-dashboard": "^1.0.0-5",
-    "webpack-dev-server": "^2.8.2"
+    "webpack-dev-server": "^2.8.2",
+    "webpack-merge": "^4.1.0"
   },
   "dependencies": {
     "britecharts": "^2.0.1"
