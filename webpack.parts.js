@@ -1,5 +1,6 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BabelWebpackPlugin = require('babel-minify-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 exports.devServer = ({ host, port } = {}) => ({
     devServer: {
@@ -59,5 +60,11 @@ exports.clean = (path) => ({
 exports.minifyJavaScript = () => ({
     plugins: [
         new BabelWebpackPlugin(),
+    ],
+});
+
+exports.bundleTreeChart = () => ({
+    plugins: [
+        new BundleAnalyzerPlugin()
     ],
 });
