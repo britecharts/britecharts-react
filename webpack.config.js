@@ -48,6 +48,7 @@ const productionConfig = merge([
     parts.generateSourceMaps({ type: 'source-map' }),
     parts.clean(PATHS.lib),
     parts.minifyJavaScript(),
+    parts.bundleTreeChart(),
 ]);
 
 const developmentConfig = merge([
