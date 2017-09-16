@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.0.0",
+    "babel-minify-webpack-plugin": "^0.2.0",
     "enzyme": "^2.9.1",
     "eslint": "^4.6.1",
     "eslint-config-eventbrite": "^4.1.0",
@@ -34,6 +35,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "britecharts": "^2.0.1"
+    "britecharts": "^2.0.1",
+    "clean-webpack-plugin": "^0.1.16"
   }
 }
