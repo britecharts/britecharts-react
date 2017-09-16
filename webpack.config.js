@@ -46,6 +46,8 @@ const commonConfig = merge([
 
 const productionConfig = merge([
     parts.generateSourceMaps({ type: 'source-map' }),
+    parts.clean(PATHS.lib),
+    parts.minifyJavaScript(),
 ]);
 
 const developmentConfig = merge([

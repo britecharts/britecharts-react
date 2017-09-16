@@ -1,3 +1,6 @@
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const BabelWebpackPlugin = require('babel-minify-webpack-plugin');
+
 exports.devServer = ({ host, port } = {}) => ({
     devServer: {
         // Enable history API fallback so HTML5 History API based
@@ -44,5 +47,17 @@ exports.lintJavaScript = ({ include, exclude, options }) => ({
 
 
 exports.generateSourceMaps = ({ type }) => ({
-  devtool: type,
+    devtool: type,
+});
+
+exports.clean = (path) => ({
+    plugins: [
+        new CleanWebpackPlugin([path]),
+    ],
+});
+
+exports.minifyJavaScript = () => ({
+    plugins: [
+        new BabelWebpackPlugin(),
+    ],
 });
