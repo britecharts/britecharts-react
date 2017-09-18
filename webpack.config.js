@@ -22,7 +22,22 @@ const CHARTS = {
     tooltip: `${PATHS.charts}/tooltip/tooltipComponent.js`,
 };
 
+const BABEL_LOADER_MODULE = {
+    rules: [
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env']
+                },
+            },
+        },
+    ],
+};
 
+// Configurations
 const commonSplittedConfig = merge([
     {
         entry: CHARTS,
@@ -73,6 +88,7 @@ const libraryUMDConfig = merge([
             library: ['britecharts-react', '[name]'],
             libraryTarget: 'umd'
         },
+        module: BABEL_LOADER_MODULE,
     },
     parts.generateSourceMaps({ type: 'source-map' }),
     parts.bundleTreeChart(),
@@ -104,6 +120,7 @@ const bundleConfig = merge([
             library: ['britecharts-react'],
             libraryTarget: 'umd',
         },
+        module: BABEL_LOADER_MODULE,
     },
     parts.generateSourceMaps({ type: 'source-map' }),
     parts.minifyJavaScript(),
