@@ -14,6 +14,8 @@ const PATHS = {
 
 const CHARTS = {
     stackedArea: `${PATHS.charts}/stackedArea/stackedAreaComponent.js`,
+    legend: `${PATHS.charts}/legend/legendComponent.js`,
+    tooltip: `${PATHS.charts}/tooltip/tooltipComponent.js`,
 };
 
 
