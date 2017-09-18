@@ -23,7 +23,7 @@ const CHARTS = {
 };
 
 
-const commonConfig = merge([
+const commonSplittedConfig = merge([
     {
         entry: CHARTS,
         output: {
@@ -65,7 +65,7 @@ const developmentConfig = merge([
 
 const libraryUMDConfig = merge([
     parts.clean(PATHS.lib),
-    commonConfig,
+    commonSplittedConfig,
     {
         output: {
             path: PATHS.umd,
@@ -81,7 +81,7 @@ const libraryUMDConfig = merge([
 
 const libraryESMConfig = merge([
     parts.clean(PATHS.lib),
-    commonConfig,
+    commonSplittedConfig,
     {
         output: {
             path: PATHS.esm,
@@ -121,5 +121,5 @@ module.exports = (env) => {
         ];
     }
 
-    return merge(commonConfig, developmentConfig);
+    return merge(commonSplittedConfig, developmentConfig);
 };
