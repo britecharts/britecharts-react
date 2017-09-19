@@ -2,6 +2,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BabelWebpackPlugin = require('babel-minify-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+
 exports.devServer = ({ host, port } = {}) => ({
     devServer: {
         // Enable history API fallback so HTML5 History API based
@@ -29,7 +30,6 @@ exports.devServer = ({ host, port } = {}) => ({
     },
 });
 
-
 exports.lintJavaScript = ({ include, exclude, options }) => ({
     module: {
         rules: [
@@ -41,6 +41,23 @@ exports.lintJavaScript = ({ include, exclude, options }) => ({
                 enforce: 'pre',
                 loader: 'eslint-loader',
                 options,
+            },
+        ],
+    },
+});
+
+exports.babelLoader = () => ({
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    },
+                },
             },
         ],
     },

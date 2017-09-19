@@ -1,6 +1,14 @@
-const component = 'legend';
+import React, {PureComponent} from 'react';
 
-console.log(`hello ${component}`);
+export default class Legend extends PureComponent {
 
+    render() {
+        let name = 'legend';
 
-export default component;
+        return (
+            <div>
+                {`hello ${name}`}
+            </div>
+        );
+    }
+}
