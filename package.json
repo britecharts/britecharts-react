@@ -1,17 +1,36 @@
 {
   "name": "britecharts-react",
-  "version": "1.0.0",
   "description": "Britecharts-react is a React wrapper for the Britecharts charting library",
   "main": "dist/britecharts-react.min.js",
   "browser": "dist/britecharts-react.min.js",
-  "repository": "git@github.com:eventbrite/britecharts-react.git",
-  "author": "Marcos Iglesias <golodhros@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eventbrite/britecharts-react.git",
+  },
+  "homepage": "https://eventbrite.github.io/britecharts-react/",
+  "bugs": {
+    "url": "https://github.com/eventbrite/britecharts-react/issues"
+  },
+  "keywords": [
+    "d3",
+    "react",
+    "charts",
+    "library",
+    "reactjs",
+    "graphs"
+  ],
+  "author": "Marcos Iglesias <golodhros@gmail.com> (http://www.marcosiglesias.com)",
+  "version": "1.0.0",
   "license": "Apache-2.0",
+  "files": [
+    "dist/",
+    "lib/"
+  ],
   "scripts": {
-    "lint": "eslint src/ webpack.*.js --cache",
-    "lint:fix": "eslint src/ webpack.*.js --cache --fix",
     "start": "webpack-dashboard -- nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
     "build": "webpack --env production",
+    "lint": "eslint src/ webpack.*.js --cache",
+    "lint:fix": "eslint src/ webpack.*.js --cache --fix",
     "test:jest:watch": "jest --watch",
     "test:jest": "jest"
   },
