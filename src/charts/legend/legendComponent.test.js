@@ -4,10 +4,10 @@ import { shallow, mount, render } from 'enzyme';
 import Legend from './LegendComponent';
 
 test('loads stuff', () => {
-    const wrapper = render(<Legend />);
+    const wrapper = mount(<Legend />);
 
-    let expected = true;
-    let actual = wrapper.contains('legend');
+    let expected = 'hello legend';
+    let actual = wrapper.text();
 
     expect(actual).toEqual(expected);
 });
