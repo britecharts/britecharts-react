@@ -17,25 +17,11 @@ const PATHS = {
 
 const BUNDLE = path.join(__dirname, 'src/charts/index.js');
 const CHARTS = {
-    stackedArea: `${PATHS.charts}/stackedArea/stackedAreaComponent.js`,
-    legend: `${PATHS.charts}/legend/legendComponent.js`,
-    tooltip: `${PATHS.charts}/tooltip/tooltipComponent.js`,
+    stackedArea: `${PATHS.charts}/stackedArea/StackedAreaComponent.js`,
+    legend: `${PATHS.charts}/legend/LegendComponent.js`,
+    tooltip: `${PATHS.charts}/tooltip/TooltipComponent.js`,
 };
 
-const BABEL_LOADER_MODULE = {
-    rules: [
-        {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['env']
-                },
-            },
-        },
-    ],
-};
 
 // Configurations
 const commonSplittedConfig = merge([
@@ -56,6 +42,11 @@ const commonSplittedConfig = merge([
             new WatchMissingNodeModulesPlugin(path.resolve('node_modules')),
             new DashboardPlugin({port: process.env.PORT}),
         ],
+        externals: {
+            'react/addons': true,
+            'react/lib/ExecutionEnvironment': true,
+            'react/lib/ReactContext': true,
+        },
     },
     parts.lintJavaScript({
         include: PATHS.charts,
@@ -75,6 +66,7 @@ const developmentConfig = merge([
             devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
         },
     },
+    parts.babelLoader(),
     parts.generateSourceMaps({ type: 'cheap-module-eval-source-map' }),
 ]);
 
@@ -88,8 +80,8 @@ const libraryUMDConfig = merge([
             library: ['britecharts-react', '[name]'],
             libraryTarget: 'umd'
         },
-        module: BABEL_LOADER_MODULE,
     },
+    parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
     parts.bundleTreeChart(),
     parts.minifyJavaScript(),
@@ -120,8 +112,8 @@ const bundleConfig = merge([
             library: ['britecharts-react'],
             libraryTarget: 'umd',
         },
-        module: BABEL_LOADER_MODULE,
     },
+    parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
     parts.minifyJavaScript(),
 ]);

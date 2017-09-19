@@ -20,5 +20,6 @@ module.exports = {
         'import/unambiguous': 0,
         'no-inline-comments': 0,
         'object-curly-spacing': 0,
+        'no-multiple-empty-lines': 0
     },
 };

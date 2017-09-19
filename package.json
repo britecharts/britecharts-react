@@ -18,9 +18,11 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
+    "babel-jest": "^21.0.2",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.2.0",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.16",
     "enzyme": "^2.9.1",
     "eslint": "^4.7.0",
@@ -36,6 +38,7 @@
     "nodemon": "^1.12.1",
     "npm": "^5.4.2",
     "react": "^15.6.1",
+    "react-addons-test-utils": "^15.6.0",
     "react-dev-utils": "^4.0.1",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
@@ -44,19 +47,23 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "britecharts": "^2.0.1"
+    "britecharts": "^2.0.1",
+    "react-dom": "^15.6.1"
   },
   "jest": {
-    "moduleFileExtensions": ["js"],
-    "moduleDirectories": ["node_modules", "shared"],
-
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "shared"
+    ],
     "testPathIgnorePatterns": [
-        "<rootDir>/node_modules/"
+      "<rootDir>/node_modules/"
     ],
     "moduleNameMapper": {
-      "^react(.*)$": "<rootDir>/vendor/react-master$1",
+      "^react(.*)$": "<rootDir>/node_modules/react/react.js",
       "^config$": "<rootDir>/configs/app-config.js",
-
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
       "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
     }
