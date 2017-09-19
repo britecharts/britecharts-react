@@ -14,8 +14,11 @@
     "build": "webpack --env production"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
+    "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-preset-env": "^1.6.0",
     "enzyme": "^2.9.1",
     "eslint": "^4.7.0",
     "eslint-config-eventbrite": "^4.1.0",
