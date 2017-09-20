@@ -1,24 +1,48 @@
 {
   "name": "britecharts-react",
-  "version": "1.0.0",
   "description": "Britecharts-react is a React wrapper for the Britecharts charting library",
   "main": "dist/britecharts-react.min.js",
   "browser": "dist/britecharts-react.min.js",
-  "repository": "git@github.com:eventbrite/britecharts-react.git",
-  "author": "Marcos Iglesias <golodhros@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eventbrite/britecharts-react.git"
+  },
+  "homepage": "https://eventbrite.github.io/britecharts-react/",
+  "bugs": {
+    "url": "https://github.com/eventbrite/britecharts-react/issues"
+  },
+  "keywords": [
+    "d3",
+    "react",
+    "charts",
+    "library",
+    "reactjs",
+    "graphs"
+  ],
+  "author": "Marcos Iglesias <golodhros@gmail.com> (http://www.marcosiglesias.com)",
+  "version": "1.0.0",
   "license": "Apache-2.0",
+  "files": [
+    "dist/",
+    "lib/"
+  ],
   "scripts": {
+    "start": "webpack-dashboard -- nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
+    "build": "webpack --env production",
     "lint": "eslint src/ webpack.*.js --cache",
     "lint:fix": "eslint src/ webpack.*.js --cache --fix",
-    "start": "webpack-dashboard -- nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
-    "build": "webpack --env production"
+    "test:jest:watch": "jest --watch",
+    "test:jest": "jest"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
+    "babel-jest": "^21.0.2",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.2.0",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.16",
     "enzyme": "^2.9.1",
     "eslint": "^4.7.0",
     "eslint-config-eventbrite": "^4.1.0",
@@ -29,10 +53,11 @@
     "eslint-plugin-react": "^7.3.0",
     "html-webpack-plugin": "^2.30.1",
     "install": "^0.10.1",
+    "jest": "^21.1.0",
     "nodemon": "^1.12.1",
     "npm": "^5.4.2",
-    "react": "^15.6.1",
     "react-dev-utils": "^4.0.1",
+    "react-test-renderer": "^15.6.1",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dashboard": "^1.0.0-6",
@@ -40,7 +65,16 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "britecharts": "^2.0.1",
-    "clean-webpack-plugin": "^0.1.16"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "britecharts": "^2.0.1"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ]
   }
 }

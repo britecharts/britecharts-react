@@ -1,9 +1,19 @@
 {
     "presets": [
-        ["env", {
-            "targets": {
-                "browsers": ["last 2 versions", "ie >= 10"]
+        "react",
+        [
+            "env",
+            {
+                "targets": {
+                    "browsers": ["last 2 versions", "ie >= 10"]
+                }
             }
-        }]
-    ]
+        ]
+    ],
+
+    "env": {
+        "test": {
+            "plugins": ["transform-es2015-modules-commonjs"]
+        }
+    }
 }
