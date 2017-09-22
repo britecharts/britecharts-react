@@ -65,9 +65,10 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "britecharts": "^2.0.1",
+    "d3-selection": "^1.1.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "britecharts": "^2.0.1"
+    "react-dom": "^15.6.1"
   },
   "jest": {
     "moduleDirectories": [
