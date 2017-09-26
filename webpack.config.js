@@ -17,9 +17,9 @@ const PATHS = {
 
 const BUNDLE = path.join(__dirname, 'src/charts/index.js');
 const CHARTS = {
-    stackedArea: `${PATHS.charts}/stackedArea/StackedAreaComponent.js`,
-    legend: `${PATHS.charts}/legend/LegendComponent.js`,
-    tooltip: `${PATHS.charts}/tooltip/TooltipComponent.js`,
+    StackedArea: `${PATHS.charts}/stackedArea/StackedAreaComponent.js`,
+    Legend: `${PATHS.charts}/legend/LegendComponent.js`,
+    Tooltip: `${PATHS.charts}/tooltip/TooltipComponent.js`,
 };
 
 
@@ -46,6 +46,18 @@ const commonSplittedConfig = merge([
             'react/addons': true,
             'react/lib/ExecutionEnvironment': true,
             'react/lib/ReactContext': true,
+            react: {
+                root: 'React',
+                commonjs2: 'react',
+                commonjs: 'react',
+                amd: 'react'
+            },
+            'react-dom': {
+                root: 'ReactDOM',
+                commonjs2: 'react-dom',
+                commonjs: 'react-dom',
+                amd: 'react-dom'
+            }
         },
     },
     parts.lintJavaScript({
@@ -96,6 +108,7 @@ const libraryESMConfig = merge([
             filename: '[name].min.js',
         },
     },
+    parts.babelReactLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
     parts.minifyJavaScript(),
 ]);

@@ -81,7 +81,7 @@ describe('Stacked Area Chart', () => {
         });
 
         it('should render a basic chart with data', () => {
-            const wrapper = shallow(<StackedArea data={dummyData()} />);
+            const wrapper = render(<StackedArea data={dummyData()} />);
 
             let expected = 1;
             let actual = wrapper.find('.stacked-area').length;
