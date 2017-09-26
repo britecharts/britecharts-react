@@ -28,7 +28,7 @@
   ],
   "scripts": {
     "start": "webpack-dashboard -- nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
-    "build": "webpack --env production",
+    "build": "webpack --env production --progress",
     "lint": "eslint src/ webpack.*.js --cache",
     "lint:fix": "eslint src/ webpack.*.js --cache --fix",
     "test:jest:watch": "jest --watch",
