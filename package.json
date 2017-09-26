@@ -64,11 +64,13 @@
     "webpack-dev-server": "^2.8.2",
     "webpack-merge": "^4.1.0"
   },
-  "dependencies": {
-    "britecharts": "^2.0.1",
-    "d3-selection": "^1.1.0",
+  "peerDependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
+  },
+  "dependencies": {
+    "britecharts": "^2.0.1",
+    "d3-selection": "^1.1.0"
   },
   "jest": {
     "moduleDirectories": [
