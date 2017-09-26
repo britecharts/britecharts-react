@@ -72,7 +72,7 @@ describe('Stacked Area Chart', () => {
     describe('render', () => {
 
         it('should render the chart container', () => {
-            const wrapper = shallow(<StackedArea />);
+            const wrapper = render(<StackedArea />);
 
             let expected = 1;
             let actual = wrapper.find('.stacked-area-container').length;
