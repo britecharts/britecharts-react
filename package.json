@@ -32,7 +32,9 @@
     "lint": "eslint src/ webpack.*.js --cache",
     "lint:fix": "eslint src/ webpack.*.js --cache --fix",
     "test:jest:watch": "jest --watch",
-    "test:jest": "jest"
+    "test:jest": "jest",
+    "storybook": "start-storybook -p 6006",
+    "build:storybook": "build-storybook -c .storybook -o docs"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -62,7 +64,10 @@
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dashboard": "^1.0.0-6",
     "webpack-dev-server": "^2.8.2",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "@storybook/react": "^3.2.10",
+    "@storybook/addon-actions": "^3.2.10",
+    "@storybook/addon-links": "^3.2.10"
   },
   "peerDependencies": {
     "react": "^15.6.1",

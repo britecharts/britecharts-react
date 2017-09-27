@@ -1,4 +1,4 @@
-import {stackedAreaChart} from 'britecharts';
+import stackedAreaChart from 'britecharts/dist/umd/stackedArea.min';
 import {select} from 'd3-selection';
 
 const stackedArea = {};
