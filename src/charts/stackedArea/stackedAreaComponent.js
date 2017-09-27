@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import stackedArea from './stackedAreaChart';
 
 
-export default class StackedArea extends PureComponent {
+export default class StackedArea extends React.Component {
 
     componentDidMount() {
         stackedArea.create(this._rootNode, {
