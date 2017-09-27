@@ -5,16 +5,20 @@ import stackedArea from './stackedAreaChart';
 export default class StackedArea extends PureComponent {
 
     componentDidMount() {
-        const el = this.getDOMNode();
-
-        stackedArea.create(el, {
+        stackedArea.create(this._rootNode, {
             data: this.props.data,
         });
     }
 
+    _setRef(componentNode) {
+        if (componentNode) {
+            this._rootNode = componentNode;
+        }
+    }
+
     render() {
         return (
-            <div className="stacked-area-container" />
+            <div className="stacked-area-container" ref={this._setRef.bind(this)} />
         );
     }
 }
