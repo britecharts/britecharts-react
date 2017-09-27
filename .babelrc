@@ -13,7 +13,10 @@
 
     "env": {
         "test": {
-            "plugins": ["transform-es2015-modules-commonjs"]
+            "plugins": [
+                "transform-class-properties",
+                "transform-es2015-modules-commonjs"
+            ]
         }
     }
 }
