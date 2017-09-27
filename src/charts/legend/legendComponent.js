@@ -6,9 +6,7 @@ export default class Legend extends PureComponent {
         let name = 'legend';
 
         return (
-            <div>
-                {`hello ${name}`}
-            </div>
+            <div>{`hello ${name}`}</div>
         );
     }
 }
