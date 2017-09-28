@@ -37,11 +37,15 @@
     "build:storybook": "build-storybook -c .storybook -o docs"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.2.10",
+    "@storybook/addon-links": "^3.2.10",
+    "@storybook/react": "^3.2.10",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
     "babel-jest": "^21.0.2",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.16",
@@ -58,22 +62,19 @@
     "jest": "^21.1.0",
     "nodemon": "^1.12.1",
     "npm": "^5.4.2",
+    "react": "^15.6.1",
     "react-dev-utils": "^4.0.1",
+    "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dashboard": "^1.0.0-6",
     "webpack-dev-server": "^2.8.2",
-    "webpack-merge": "^4.1.0",
-    "@storybook/react": "^3.2.10",
-    "@storybook/addon-actions": "^3.2.10",
-    "@storybook/addon-links": "^3.2.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "webpack-merge": "^4.1.0"
   },
   "peerDependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": ">=15",
+    "react-dom": ">=15"
   },
   "dependencies": {
     "britecharts": "^2.0.1",
