@@ -73,8 +73,8 @@
     "webpack-merge": "^4.1.0"
   },
   "peerDependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": ">=15",
+    "react-dom": ">=15"
   },
   "dependencies": {
     "britecharts": "^2.0.1",

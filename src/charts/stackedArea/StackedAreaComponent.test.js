@@ -43,7 +43,7 @@ describe('Stacked Area Chart', () => {
             it('should call the create method or the chart with the container as the first argument', () => {
                 const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
 
-                let expected = wrapper.node._rootNode;
+                let expected = wrapper.find('.stacked-area-container').getNode();
                 let actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
