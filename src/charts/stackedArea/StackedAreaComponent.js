@@ -4,8 +4,12 @@ import stackedArea from './stackedAreaChart';
 
 export default class StackedArea extends React.Component {
 
+    static defaultProps = {
+        chart: stackedArea,
+    }
+
     componentDidMount() {
-        stackedArea.create(this._rootNode, {
+        this.props.chart.create(this._rootNode, {
             data: this.props.data,
         });
     }
