@@ -95,5 +95,63 @@ describe('Stacked Area Chart Component', () => {
             });
         });
     });
+
+    describe('update', () => {
+
+        describe('when data changes', () => {
+            let createSpy;
+
+            beforeEach(() => {
+                createSpy = jest.spyOn(stackedArea, 'update');
+            });
+
+            afterEach(() => {
+                createSpy.mockReset();
+                createSpy.mockRestore();
+            });
+
+            it('should call the update method or the chart', () => {
+                const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+
+                // Changing properties should trigger a componentDidUpdate
+                wrapper.setProps({
+                    data: stackedAreaData.with2Sources(),
+                });
+
+                let expected = 1;
+                let actual = createSpy.mock.calls.length;
+
+                expect(actual).toEqual(expected);
+            });
+
+            it('should pass in the new data to the update method', () => {
+                const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+
+                // Changing properties should trigger a componentDidUpdate
+                wrapper.setProps({
+                    data: stackedAreaData.with2Sources(),
+                });
+
+                let expected = stackedAreaData.with2Sources().length;
+                let actual = createSpy.mock.calls[0][1].length;
+
+                expect(actual).toEqual(expected);
+            });
+
+            it('should pass in the new configuration to the update method', () => {
+                const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                const expected = 20;
+
+                // Changing properties should trigger a componentDidUpdate
+                wrapper.setProps({
+                    width: expected,
+                });
+
+                let actual = createSpy.mock.calls[0][2].width;
+
+                expect(actual).toEqual(expected);
+            });
+        });
+    });
 });
 
