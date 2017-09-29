@@ -17,7 +17,7 @@ const PATHS = {
 
 const BUNDLE = path.join(__dirname, 'src/charts/index.js');
 const CHARTS = {
-    StackedArea: `${PATHS.charts}/stackedArea/StackedAreaComponent.js`,
+    StackedArea: [ 'core-js/modules/es7.array.includes', `${PATHS.charts}/stackedArea/StackedAreaComponent.js`],
     Legend: `${PATHS.charts}/legend/LegendComponent.js`,
     Tooltip: `${PATHS.charts}/tooltip/TooltipComponent.js`,
 };
