@@ -23,4 +23,5 @@ storiesOf('Button', module)
     .add('with some test stuff', () => <Button>Testing baby</Button>);
 
 storiesOf('StackedArea', module)
-    .add('with 3 sources data', () => <StackedAreaComponent data={stackedAreaData.with3Sources()} />);
+    .add('with 3 sources data', () => <StackedAreaComponent data={stackedAreaData.with3Sources()} />)
+    .add('with 500px width and 200px height', () => <StackedAreaComponent data={stackedAreaData.with3Sources()} width={500} height={200} />);

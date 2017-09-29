@@ -1,22 +1,23 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 
 import StackedAreaComponent from './StackedAreaComponent';
 import { stackedAreaData } from '../../helpers/testData';
 
 import stackedArea from './stackedAreaChart';
 
-describe('Stacked Area Chart', () => {
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('Stacked Area Chart Component', () => {
 
     describe('render', () => {
 
-        it('should render the chart container', () => {
-            const wrapper = shallow(<StackedAreaComponent />);
 
-            let expected = 1;
-            let actual = wrapper.find('.stacked-area-container').length;
-
-            expect(actual).toEqual(expected);
+        describe('when data is not passed', () => {
+            it('should throw an error', () => {
+                expect(() => shallow(<StackedAreaComponent />)).toThrow();
+            });
         });
 
         describe('when data passed in', () => {
@@ -43,7 +44,7 @@ describe('Stacked Area Chart', () => {
             it('should call the create method or the chart with the container as the first argument', () => {
                 const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
 
-                let expected = wrapper.find('.stacked-area-container').getNode();
+                let expected = wrapper.find('.stacked-area-container').instance();
                 let actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
@@ -55,9 +56,43 @@ describe('Stacked Area Chart', () => {
                 mount(<StackedAreaComponent chart={stackedArea} data={dataSet} />);
 
                 let expectedData = dataSet;
-                let actualData = createSpy.mock.calls[0][1].data;
+                let actualData = createSpy.mock.calls[0][1];
 
                 expect(actualData).toEqual(expectedData);
+            });
+
+            it('should allow setting width', () => {
+                const dataSet = stackedAreaData.with3Sources();
+                let expected = 500;
+
+                mount(
+                    <StackedAreaComponent
+                        chart={stackedArea}
+                        data={dataSet}
+                        width={expected}
+                    />
+                );
+
+                let actual = createSpy.mock.calls[0][2].width;
+
+                expect(actual).toEqual(expected);
+            });
+
+            it('should allow setting height', () => {
+                const dataSet = stackedAreaData.with3Sources();
+                let expected = 500;
+
+                mount(
+                    <StackedAreaComponent
+                        chart={stackedArea}
+                        data={dataSet}
+                        height={expected}
+                    />
+                );
+
+                let actual = createSpy.mock.calls[0][2].height;
+
+                expect(actual).toEqual(expected);
             });
         });
     });
