@@ -4,11 +4,11 @@ import stackedArea from './stackedAreaChart';
 describe('Stacked Area Chart', () => {
     let anchor;
 
-    describe('create', () => {
+    beforeEach(() => {
+        anchor = document.createElement('div');
+    });
 
-        beforeEach(() => {
-            anchor = document.createElement('div');
-        });
+    describe('create', () => {
 
         describe('when incorrect arguments are used', () => {
 
@@ -130,6 +130,62 @@ describe('Stacked Area Chart', () => {
                 const actual = chart.grid();
 
                 expect(actual).toEqual(expected);
+            });
+        });
+    });
+
+    describe('update', () => {
+
+        describe('when updating data', () => {
+
+            describe('when new data is passed', () => {
+                it('should update the data in the container', () => {
+                    const firstDataSet = stackedAreaData.with3Sources();
+                    const secondDataSet = stackedAreaData.with2Sources();
+
+                    stackedArea.create(anchor, firstDataSet, {});
+                    stackedArea.update(anchor, secondDataSet, {});
+
+                    const expected = secondDataSet.length;
+                    const actual = anchor.__data__.length;
+
+                    expect(actual).toEqual(expected);
+                });
+            });
+
+            describe('when new data is not passed', () => {
+                it('should keep the data in the container', () => {
+                    const dataSet = stackedAreaData.with3Sources();
+
+                    stackedArea.create(anchor, dataSet, {});
+                    stackedArea.update(anchor, [], {});
+
+                    const expected = dataSet.length;
+                    const actual = anchor.__data__.length;
+
+                    expect(actual).toEqual(expected);
+                });
+            });
+        });
+
+        describe('when updating configuration', () => {
+
+            describe('when new configuration is passed', () => {
+                it('should update the configuration in the chart', () => {
+                    const expected = 500;
+                    const firstWidth = 200;
+                    const chart = stackedArea.create(
+                        anchor,
+                        stackedAreaData.with3Sources(),
+                        {width: firstWidth}
+                    );
+
+                    stackedArea.update(anchor, [], {width: expected});
+
+                    const actual = chart.width();
+
+                    expect(actual).toEqual(expected);
+                });
             });
         });
     });
