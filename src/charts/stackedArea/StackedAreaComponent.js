@@ -48,9 +48,9 @@ export default class StackedArea extends React.Component {
         this.props.chart.update(this._rootNode, this.props.data, this._getChartConfiguration());
     }
 
-    // componentWillUnmount() {
-    //     this.props.chart.destroy(this._rootNode);
-    // }
+    componentWillUnmount() {
+        this.props.chart.destroy(this._rootNode);
+    }
 
     /**
      * We want to remove the chart and data from the props in order to have a configuration object

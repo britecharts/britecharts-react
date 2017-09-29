@@ -153,5 +153,29 @@ describe('Stacked Area Chart Component', () => {
             });
         });
     });
+
+    describe('unmount', () => {
+        let createSpy;
+
+        beforeEach(() => {
+            createSpy = jest.spyOn(stackedArea, 'destroy');
+        });
+
+        afterEach(() => {
+            createSpy.mockReset();
+            createSpy.mockRestore();
+        });
+
+        it('should call the destroy method or the chart', () => {
+            const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+
+            wrapper.unmount();
+
+            let expected = 1;
+            let actual = createSpy.mock.calls.length;
+
+            expect(actual).toEqual(expected);
+        });
+    });
 });
 
