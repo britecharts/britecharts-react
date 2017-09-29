@@ -44,9 +44,9 @@ export default class StackedArea extends React.Component {
         this.props.chart.create(this._rootNode, this.props.data, this._getChartConfiguration());
     }
 
-    // componentDidUpdate() {
-    //     this.props.chart.update(this._rootNode, this.props.data, this._getChartConfiguration());
-    // }
+    componentDidUpdate() {
+        this.props.chart.update(this._rootNode, this.props.data, this._getChartConfiguration());
+    }
 
     // componentWillUnmount() {
     //     this.props.chart.destroy(this._rootNode);
