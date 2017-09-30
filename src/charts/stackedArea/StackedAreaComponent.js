@@ -5,15 +5,11 @@ import stackedArea from './stackedAreaChart';
 
 export default class StackedArea extends React.Component {
 
-    static defaultProps = {
-        chart: stackedArea,
-    }
-
     static PropTypes = {
         data: PropTypes.array.isRequired,
 
         axisTimeCombinations: PropTypes.number,
-        areaOpacity: PropTypes.object,
+        areaOpacity: PropTypes.number,
         aspectRatio: PropTypes.number,
         chart: PropTypes.func,
         colorSchema: PropTypes.arrayOf(PropTypes.string),
@@ -23,14 +19,23 @@ export default class StackedArea extends React.Component {
         isAnimated: PropTypes.bool,
         keyLabel: PropTypes.number,
         locale: PropTypes.string,
-        margin: PropTypes.object,
-        tooltipThreshold: PropTypes.object,
+        margin: PropTypes.shape({
+            top: PropTypes.number,
+            bottom: PropTypes.number,
+            left: PropTypes.number,
+            right: PropTypes.number,
+        }),
+        tooltipThreshold: PropTypes.number,
         valueLabel: PropTypes.number,
         width: PropTypes.number,
         xAxisCustomFormat: PropTypes.string,
         xAxisFormat: PropTypes.string,
         xTicks: PropTypes.number,
         yTicks: PropTypes.number,
+    }
+
+    static defaultProps = {
+        chart: stackedArea,
     }
 
     constructor(props) {
