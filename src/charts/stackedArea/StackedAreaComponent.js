@@ -10,11 +10,12 @@ export default class StackedArea extends React.Component {
     }
 
     static PropTypes = {
-        data: PropTypes.array.isRequired,
         axisTimeCombinations: PropTypes.number,
         areaOpacity: PropTypes.object,
         aspectRatio: PropTypes.number,
+        chart: PropTypes.func,
         colorSchema: PropTypes.arrayOf(PropTypes.string),
+        data: PropTypes.array.isRequired,
         dateLabel: PropTypes.number,
         grid: PropTypes.string,
         height: PropTypes.number,
