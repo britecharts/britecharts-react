@@ -1,78 +1,44 @@
 import stackedAreaChart from 'britecharts/dist/umd/stackedArea.min';
 import {select} from 'd3-selection';
-
-
-const validateConfiguration = (chart, configurationProperties) => {
-    let supportedMethods = Object.keys(chart.prototype.constructor);
-
-    let notSupportedMethods = configurationProperties
-        .filter((methodName) => !supportedMethods.includes(methodName));
-
-    if (notSupportedMethods.length) {
-        throw new Error(`Method not supported by Britecharts Stacked Area Chart: ${notSupportedMethods.join(' ')}`);
-    }
-};
-
-const validateContainer = (container) => {
-    if (container.empty()) {
-        throw Error('A root container is required');
-    }
-};
-
-const validateData = (data) => {
-    if (!data || !data.length) {
-        throw Error('Data must be defined');
-    }
-};
+import {validateConfiguration, validateContainer, validateData} from '../helpers/validation';
+import {applyConfiguration} from '../helpers/configuration';
 
 const stackedArea = {};
 let chart;
 
 stackedArea.create = (el, data, configuration = {}) => {
     let container = select(el);
-    let configurationProperties = Object.keys(configuration);
 
     chart = stackedAreaChart();
 
     validateContainer(container);
     validateData(data);
-    validateConfiguration(chart, configurationProperties);
+    validateConfiguration(chart, configuration);
 
-    // Sets up the chart with the passed configuration
-    configurationProperties.forEach((key) => {
-        if (configuration[key]) {
-            chart[key](configuration[key]);
-        }
-    });
+    let chartConfigured = applyConfiguration(chart, configuration);
 
     // Calls the chart with the container and dataset
-    container.datum(data).call(chart);
+    container.datum(data).call(chartConfigured);
 
-    return chart;
+    return chartConfigured;
 };
 
 stackedArea.update = (el, data, configuration = {}) => {
     let container = select(el);
-    let configurationProperties = Object.keys(configuration);
 
     validateContainer(container);
-    validateConfiguration(chart, configurationProperties);
+    validateConfiguration(chart, configuration);
 
-    // Sets up the passed configuration
-    configurationProperties.forEach((key) => {
-        if (configuration[key]) {
-            chart[key](configuration[key]);
-        }
-    });
+    let chartConfigured = applyConfiguration(chart, configuration);
 
     // Calls the chart with the container and dataset
     if (data && data.length) {
-        container.datum(data).call(chart);
+        container.datum(data).call(chartConfigured);
     } else {
-        container.call(chart);
+        container.call(chartConfigured);
     }
 
-    return chart;
+    return chartConfigured;
 };
 
 stackedArea.destroy = () => {
