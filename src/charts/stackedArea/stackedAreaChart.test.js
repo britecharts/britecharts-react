@@ -54,7 +54,7 @@ describe('Stacked Area Chart', () => {
                             stackedAreaData.with3Sources(),
                             {test: 'test'}
                         );
-                    }).toThrowError('Method not supported by Britecharts Stacked Area Chart: test');
+                    }).toThrowError('Method not supported by Britechart: test');
                 });
             });
         });
