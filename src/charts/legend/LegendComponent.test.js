@@ -32,7 +32,7 @@ describe('Legend Chart Component', () => {
             });
 
             it('should call the create method or the chart', () => {
-                mount(<LegendComponent chart={legendChart} data={legendData} />);
+                mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
 
                 let expected = 1;
                 let actual = createSpy.mock.calls.length;
@@ -41,7 +41,7 @@ describe('Legend Chart Component', () => {
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData} />);
+                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
 
                 let expected = wrapper.find('.legend-container').instance();
                 let actual = createSpy.mock.calls[0][0];
@@ -50,7 +50,7 @@ describe('Legend Chart Component', () => {
             });
 
             it('should call the create method or the chart with the configuration object as the second argument', () => {
-                const dataSet = legendData;
+                const dataSet = legendData.with6Points();
 
                 mount(<LegendComponent chart={legendChart} data={dataSet} />);
 
@@ -61,7 +61,7 @@ describe('Legend Chart Component', () => {
             });
 
             it('should allow setting width', () => {
-                const dataSet = legendData;
+                const dataSet = legendData.with6Points();
                 let expected = 500;
 
                 mount(
@@ -78,7 +78,7 @@ describe('Legend Chart Component', () => {
             });
 
             it('should allow setting height', () => {
-                const dataSet = legendData;
+                const dataSet = legendData.with6Points();
                 let expected = 500;
 
                 mount(
@@ -111,11 +111,11 @@ describe('Legend Chart Component', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData} />);
+                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: legendData,
+                    data: legendData.with6Points(),
                 });
 
                 let expected = 1;
@@ -125,21 +125,21 @@ describe('Legend Chart Component', () => {
             });
 
             it('should pass in the new data to the update method', () => {
-                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData} />);
+                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: legendData,
+                    data: legendData.with6Points(),
                 });
 
-                let expected = legendData.length;
+                let expected = legendData.with6Points().length;
                 let actual = createSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should pass in the new configuration to the update method', () => {
-                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData} />);
+                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -167,7 +167,7 @@ describe('Legend Chart Component', () => {
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<LegendComponent chart={legendChart} data={legendData} />);
+            const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
 
             wrapper.unmount();
 

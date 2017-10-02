@@ -17,7 +17,7 @@ describe('Legend Chart', () => {
                     expect(() => {
                         legendChart.create(
                             undefined,
-                            legendData,
+                            legendData.with6Points(),
                             {}
                         );
                     }).toThrowError('A root container is required');
@@ -51,7 +51,7 @@ describe('Legend Chart', () => {
                     expect(() => {
                         legendChart.create(
                             anchor,
-                            legendData,
+                            legendData.with6Points(),
                             {test: 'test'}
                         );
                     }).toThrowError('Method not supported by Britechart: test');
@@ -62,9 +62,9 @@ describe('Legend Chart', () => {
         describe('when proper arguments are passed', () => {
 
             it('should set data as a DOM property', () => {
-                const expected = legendData.length;
+                const expected = legendData.with6Points().length;
 
-                legendChart.create(anchor, legendData);
+                legendChart.create(anchor, legendData.with6Points());
 
                 const actual = anchor.__data__.length;
 
@@ -76,7 +76,7 @@ describe('Legend Chart', () => {
 
                 const chart = legendChart.create(
                     anchor,
-                    legendData,
+                    legendData.with6Points(),
                     {width: expected}
                 );
 
@@ -90,7 +90,7 @@ describe('Legend Chart', () => {
 
                 const chart = legendChart.create(
                     anchor,
-                    legendData,
+                    legendData.with6Points(),
                     {height: expected}
                 );
 
@@ -109,7 +109,7 @@ describe('Legend Chart', () => {
 
                 const chart = legendChart.create(
                     anchor,
-                    legendData,
+                    legendData.with6Points(),
                     {margin: expected}
                 );
 
@@ -126,8 +126,8 @@ describe('Legend Chart', () => {
 
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
-                    const firstDataSet = legendData;
-                    const secondDataSet = legendData;
+                    const firstDataSet = legendData.with6Points();
+                    const secondDataSet = legendData.with6Points();
 
                     legendChart.create(anchor, firstDataSet, {});
                     legendChart.update(anchor, secondDataSet, {});
@@ -141,7 +141,7 @@ describe('Legend Chart', () => {
 
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
-                    const dataSet = legendData;
+                    const dataSet = legendData.with6Points();
 
                     legendChart.create(anchor, dataSet, {});
                     legendChart.update(anchor, [], {});
@@ -162,7 +162,7 @@ describe('Legend Chart', () => {
                     const firstWidth = 200;
                     const chart = legendChart.create(
                         anchor,
-                        legendData,
+                        legendData.with6Points(),
                         {width: firstWidth}
                     );
 
