@@ -310,7 +310,7 @@ export const stackedAreaData = {
     with2Sources,
 };
 
-export const legendData = [
+const with6Points = () => [
     {
         name: 'Shiny',
         id: 1,
@@ -342,3 +342,7 @@ export const legendData = [
         quantity: 814
     }
 ];
+
+export const legendData = {
+    with6Points,
+};
