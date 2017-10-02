@@ -10,25 +10,15 @@ export default class Legend extends React.Component {
     }
 
     static PropTypes = {
-        data: PropTypes.array.isRequired,
-        axisTimeCombinations: PropTypes.number,
-        areaOpacity: PropTypes.object,
-        aspectRatio: PropTypes.number,
         colorSchema: PropTypes.arrayOf(PropTypes.string),
-        dateLabel: PropTypes.number,
-        grid: PropTypes.string,
         height: PropTypes.number,
-        isAnimated: PropTypes.bool,
-        keyLabel: PropTypes.number,
-        locale: PropTypes.string,
+        highlight: PropTypes.number,
+        isHorizontal: PropTypes.bool,
         margin: PropTypes.object,
-        tooltipThreshold: PropTypes.object,
-        valueLabel: PropTypes.number,
+        markerSize: PropTypes.number,
+        numberFormat: PropTypes.string,
         width: PropTypes.number,
-        xAxisCustomFormat: PropTypes.string,
-        xAxisFormat: PropTypes.string,
-        xTicks: PropTypes.number,
-        yTicks: PropTypes.number,
+        data: PropTypes.array.isRequired,
     }
 
     constructor(props) {
