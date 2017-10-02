@@ -30,14 +30,14 @@ storiesOf('StackedArea', module)
 storiesOf('Legend', module)
     .add('with 500x500 container', () => (
         <LegendComponent
-            data={legendData}
+            data={legendData.with6Points()}
             height={500}
             width={500}
         />
     ))
     .add('with vertical orientation and smaller dots', () => (
         <LegendComponent
-            data={legendData}
+            data={legendData.with6Points()}
             isHorizontal={true}
             markerSize={5}
         />
