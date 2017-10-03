@@ -20,7 +20,7 @@
     "graphs"
   ],
   "author": "Marcos Iglesias <golodhros@gmail.com> (http://www.marcosiglesias.com)",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "license": "Apache-2.0",
   "files": [
     "dist/",
@@ -34,7 +34,10 @@
     "test:watch": "jest --watch",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build:storybook": "build-storybook -c .storybook -o docs"
+    "build:storybook": "build-storybook -c .storybook -o docs",
+    "release": "grunt release:patch",
+    "release:minor": "grunt release:minor",
+    "release:major": "grunt release:major"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.10",
@@ -58,9 +61,12 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.3.0",
+    "grunt": "^1.0.1",
+    "grunt-release": "git://github.com/beevelop/grunt-release",
     "html-webpack-plugin": "^2.30.1",
     "install": "^0.10.1",
     "jest": "^21.1.0",
+    "load-grunt-tasks": "^3.5.2",
     "nodemon": "^1.12.1",
     "npm": "^5.4.2",
     "prop-types": "^15.6.0",
