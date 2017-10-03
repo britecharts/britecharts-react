@@ -1,7 +1,7 @@
-import { stackedAreaData } from '../../helpers/testData';
-import stackedArea from './stackedAreaChart';
+import { legendData } from '../../helpers/testData';
+import legendChart from './LegendChart';
 
-describe('Stacked Area Chart', () => {
+describe('Legend Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -15,9 +15,9 @@ describe('Stacked Area Chart', () => {
             describe('when the DOM element is not passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        stackedArea.create(
+                        legendChart.create(
                             undefined,
-                            stackedAreaData.with3Sources(),
+                            legendData.with6Points(),
                             {}
                         );
                     }).toThrowError('A root container is required');
@@ -27,7 +27,7 @@ describe('Stacked Area Chart', () => {
             describe('when the Data is not passed', () => {
                 it('should throw an error with undefined data', () => {
                     expect(() => {
-                        stackedArea.create(
+                        legendChart.create(
                             anchor,
                             undefined,
                             {}
@@ -37,7 +37,7 @@ describe('Stacked Area Chart', () => {
 
                 it('should throw an error with empty data', () => {
                     expect(() => {
-                        stackedArea.create(
+                        legendChart.create(
                             anchor,
                             [],
                             {}
@@ -49,9 +49,9 @@ describe('Stacked Area Chart', () => {
             describe('when a non-supported method is passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        stackedArea.create(
+                        legendChart.create(
                             anchor,
-                            stackedAreaData.with3Sources(),
+                            legendData.with6Points(),
                             {test: 'test'}
                         );
                     }).toThrowError('Method not supported by Britechart: test');
@@ -62,9 +62,9 @@ describe('Stacked Area Chart', () => {
         describe('when proper arguments are passed', () => {
 
             it('should set data as a DOM property', () => {
-                const expected = stackedAreaData.with3Sources().length;
+                const expected = legendData.with6Points().length;
 
-                stackedArea.create(anchor, stackedAreaData.with3Sources());
+                legendChart.create(anchor, legendData.with6Points());
 
                 const actual = anchor.__data__.length;
 
@@ -74,9 +74,9 @@ describe('Stacked Area Chart', () => {
             it('should set the width', () => {
                 const expected = 500;
 
-                const chart = stackedArea.create(
+                const chart = legendChart.create(
                     anchor,
-                    stackedAreaData.with3Sources(),
+                    legendData.with6Points(),
                     {width: expected}
                 );
 
@@ -88,9 +88,9 @@ describe('Stacked Area Chart', () => {
             it('should set the height', () => {
                 const expected = 600;
 
-                const chart = stackedArea.create(
+                const chart = legendChart.create(
                     anchor,
-                    stackedAreaData.with3Sources(),
+                    legendData.with6Points(),
                     {height: expected}
                 );
 
@@ -107,27 +107,13 @@ describe('Stacked Area Chart', () => {
                     right: 3,
                 };
 
-                const chart = stackedArea.create(
+                const chart = legendChart.create(
                     anchor,
-                    stackedAreaData.with3Sources(),
+                    legendData.with6Points(),
                     {margin: expected}
                 );
 
                 const actual = chart.margin();
-
-                expect(actual).toEqual(expected);
-            });
-
-            it('should set the grid', () => {
-                const expected = 'vertical';
-
-                const chart = stackedArea.create(
-                    anchor,
-                    stackedAreaData.with3Sources(),
-                    {grid: expected}
-                );
-
-                const actual = chart.grid();
 
                 expect(actual).toEqual(expected);
             });
@@ -140,11 +126,11 @@ describe('Stacked Area Chart', () => {
 
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
-                    const firstDataSet = stackedAreaData.with3Sources();
-                    const secondDataSet = stackedAreaData.with2Sources();
+                    const firstDataSet = legendData.with6Points();
+                    const secondDataSet = legendData.with6Points();
 
-                    stackedArea.create(anchor, firstDataSet, {});
-                    stackedArea.update(anchor, secondDataSet, {});
+                    legendChart.create(anchor, firstDataSet, {});
+                    legendChart.update(anchor, secondDataSet, {});
 
                     const expected = secondDataSet.length;
                     const actual = anchor.__data__.length;
@@ -155,10 +141,10 @@ describe('Stacked Area Chart', () => {
 
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
-                    const dataSet = stackedAreaData.with3Sources();
+                    const dataSet = legendData.with6Points();
 
-                    stackedArea.create(anchor, dataSet, {});
-                    stackedArea.update(anchor, [], {});
+                    legendChart.create(anchor, dataSet, {});
+                    legendChart.update(anchor, [], {});
 
                     const expected = dataSet.length;
                     const actual = anchor.__data__.length;
@@ -174,13 +160,13 @@ describe('Stacked Area Chart', () => {
                 it('should update the configuration in the chart', () => {
                     const expected = 500;
                     const firstWidth = 200;
-                    const chart = stackedArea.create(
+                    const chart = legendChart.create(
                         anchor,
-                        stackedAreaData.with3Sources(),
+                        legendData.with6Points(),
                         {width: firstWidth}
                     );
 
-                    stackedArea.update(anchor, [], {width: expected});
+                    legendChart.update(anchor, [], {width: expected});
 
                     const actual = chart.width();
 
