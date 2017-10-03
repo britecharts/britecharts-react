@@ -1,15 +1,15 @@
-import stackedAreaChart from 'britecharts/dist/umd/stackedArea.min';
+import legendChart from 'britecharts/dist/umd/legend.min';
 import {select} from 'd3-selection';
 import {validateConfiguration, validateContainer, validateData} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
-const stackedArea = {};
+const legend = {};
 let chart;
 
-stackedArea.create = (el, data, configuration = {}) => {
+legend.create = (el, data, configuration = {}) => {
     let container = select(el);
 
-    chart = stackedAreaChart();
+    chart = legendChart();
 
     validateContainer(container);
     validateData(data);
@@ -23,7 +23,7 @@ stackedArea.create = (el, data, configuration = {}) => {
     return chartConfigured;
 };
 
-stackedArea.update = (el, data, configuration = {}) => {
+legend.update = (el, data, configuration = {}) => {
     let container = select(el);
 
     validateContainer(container);
@@ -41,8 +41,8 @@ stackedArea.update = (el, data, configuration = {}) => {
     return chartConfigured;
 };
 
-stackedArea.destroy = () => {
+legend.destroy = () => {
     // Cleanup methods here
 };
 
-export default stackedArea;
+export default legend;
