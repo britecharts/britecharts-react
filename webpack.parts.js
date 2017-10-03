@@ -1,5 +1,5 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BabelWebpackPlugin = require('babel-minify-webpack-plugin');
+const BabelMinifyWebpackPlugin = require('babel-minify-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
@@ -90,7 +90,7 @@ exports.clean = (path) => ({
 
 exports.minifyJavaScript = () => ({
     plugins: [
-        new BabelWebpackPlugin(),
+        new BabelMinifyWebpackPlugin(),
     ],
 });
 
