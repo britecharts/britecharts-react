@@ -64,18 +64,3 @@ export default class TooltipComponent extends React.Component {
     }
 
 }
-
-
-// dateFormat string
-// dateLabel string
-// hide
-// locale string
-// nameLabel string
-// shouldShowDateInTitle
-// show
-// title String
-// topicLabel String
-// topicsOrder Array of strings
-// update(dataPoint, colorMapping, position)
-// valueFormat string
-// valueLabel string
