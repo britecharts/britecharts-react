@@ -1,0 +1,155 @@
+import React from 'react';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
+
+import TooltipComponent from './TooltipComponent';
+import tooltip from './tooltipChart';
+
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('Tooltip Component', () => {
+
+    describe('render', () => {
+        let createSpy;
+
+        beforeEach(() => {
+            createSpy = jest.spyOn(tooltip, 'create');
+        });
+
+        afterEach(() => {
+            createSpy.mockReset();
+            createSpy.mockRestore();
+        });
+
+        it('should call the create method or the chart', () => {
+            mount(<TooltipComponent chart={tooltip} />);
+
+            let expected = 1;
+            let actual = createSpy.mock.calls.length;
+
+            expect(actual).toEqual(expected);
+        });
+
+        it('should call the create method or the chart with the container as the first argument', () => {
+            const wrapper = mount(<TooltipComponent chart={tooltip} />);
+
+            let expected = wrapper.find('.tooltip-container').instance();
+            let actual = createSpy.mock.calls[0][0];
+
+            expect(actual).toEqual(expected);
+        });
+
+        it('should allow setting locale', () => {
+            let expected = 'en-US';
+
+            mount(
+                <TooltipComponent
+                    chart={tooltip}
+                    locale={expected}
+                />
+            );
+
+            let actual = createSpy.mock.calls[0][1].locale;
+
+            expect(actual).toEqual(expected);
+        });
+
+        it('should allow setting title', () => {
+            let expected = 'title';
+
+            mount(
+                <TooltipComponent
+                    chart={tooltip}
+                    title={expected}
+                />
+            );
+
+            let actual = createSpy.mock.calls[0][1].title;
+
+            expect(actual).toEqual(expected);
+        });
+    });
+
+    describe('update', () => {
+
+        describe('when data changes', () => {
+            let createSpy;
+
+            beforeEach(() => {
+                createSpy = jest.spyOn(tooltip, 'update');
+            });
+
+            afterEach(() => {
+                createSpy.mockReset();
+                createSpy.mockRestore();
+            });
+
+            it('should call the update method or the chart', () => {
+                const wrapper = mount(<TooltipComponent chart={tooltip} />);
+
+                // Changing properties should trigger a componentDidUpdate
+                wrapper.setProps({
+                    title: 'DummyTitle',
+                });
+
+                let expected = 1;
+                let actual = createSpy.mock.calls.length;
+
+                expect(actual).toEqual(expected);
+            });
+
+            xit('should pass in the new data to the update method', () => {
+                const wrapper = mount(<TooltipComponent chart={tooltip} />);
+
+                // Changing properties should trigger a componentDidUpdate
+                wrapper.setProps({
+                    data: 'hey',
+                });
+
+                let expected = 'hey';
+                let actual = createSpy.mock.calls[0][1].length;
+
+                expect(actual).toEqual(expected);
+            });
+
+            it('should pass in the new configuration to the update method', () => {
+                const wrapper = mount(<TooltipComponent chart={tooltip} />);
+                const expected = 'title';
+
+                // Changing properties should trigger a componentDidUpdate
+                wrapper.setProps({
+                    title: expected,
+                });
+
+                let actual = createSpy.mock.calls[0][1].title;
+
+                expect(actual).toEqual(expected);
+            });
+        });
+    });
+
+    describe('unmount', () => {
+        let createSpy;
+
+        beforeEach(() => {
+            createSpy = jest.spyOn(tooltip, 'destroy');
+        });
+
+        afterEach(() => {
+            createSpy.mockReset();
+            createSpy.mockRestore();
+        });
+
+        it('should call the destroy method or the chart', () => {
+            const wrapper = mount(<TooltipComponent chart={tooltip} />);
+
+            wrapper.unmount();
+
+            let expected = 1;
+            let actual = createSpy.mock.calls.length;
+
+            expect(actual).toEqual(expected);
+        });
+    });
+});
+
