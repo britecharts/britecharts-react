@@ -1,8 +1,13 @@
+import {britechartsCustomEvents} from '../constants';
+
+const isNotCustomEvent = (configName) => britechartsCustomEvents.indexOf(configName) === -1;
+
 export const validateConfiguration = (chart, configuration) => {
     let configurationProperties = Object.keys(configuration);
+    let configurationPropertiesWithoutEvents = configurationProperties.filter(isNotCustomEvent);
     let supportedMethods = Object.keys(chart.prototype.constructor);
 
-    let notSupportedMethods = configurationProperties
+    let notSupportedMethods = configurationPropertiesWithoutEvents
         .filter((methodName) => !supportedMethods.includes(methodName));
 
     if (notSupportedMethods.length) {
