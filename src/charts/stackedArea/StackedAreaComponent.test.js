@@ -177,5 +177,30 @@ describe('Stacked Area Chart Component', () => {
             expect(actual).toEqual(expected);
         });
     });
+
+    xdescribe('lifetime', () => {
+
+        describe('when mouse hover', () => {
+            let mockFn;
+
+            beforeEach(() => {
+                mockFn = jest.fn();
+            });
+
+            afterEach(() => {
+                mockFn.mockReset();
+                mockFn.mockRestore();
+            });
+
+            it('should call the mouse over function', () => {
+                let wrapper = mount(<StackedAreaComponent onMouseOver={mockFn} chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+
+                let expected = 1;
+                let actual = mockFn.mock.calls.length;
+
+                expect(actual).toEqual(expected);
+            });
+        });
+    });
 });
 

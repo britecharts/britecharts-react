@@ -57,6 +57,20 @@ describe('Stacked Area Chart', () => {
                     }).toThrowError('Method not supported by Britechart: test');
                 });
             });
+
+            describe('when wrong event handlers are passed', () => {
+                it('should throw ane error', () => {
+                    const callback = jest.fn();
+
+                    expect(() => {
+                        stackedArea.create(
+                            anchor,
+                            stackedAreaData.with3Sources(),
+                            {customFakeEvent: callback}
+                        );
+                    }).toThrowError('Method not supported by Britechart: customFakeEvent');
+                });
+            });
         });
 
         describe('when proper arguments are passed', () => {
@@ -130,6 +144,51 @@ describe('Stacked Area Chart', () => {
                 const actual = chart.grid();
 
                 expect(actual).toEqual(expected);
+            });
+
+            describe('when event handlers are passed', () => {
+
+                it('should set customMouseOver callback', () => {
+                    const expected = jest.fn();
+
+                    const chart = stackedArea.create(
+                        anchor,
+                        stackedAreaData.with3Sources(),
+                        {customMouseOver: expected}
+                    );
+
+                    const actual = chart.on('customMouseOver');
+
+                    expect(actual).toEqual(expected);
+                });
+
+                it('should set customMouseMove callback', () => {
+                    const expected = jest.fn();
+
+                    const chart = stackedArea.create(
+                        anchor,
+                        stackedAreaData.with3Sources(),
+                        {customMouseMove: expected}
+                    );
+
+                    const actual = chart.on('customMouseMove');
+
+                    expect(actual).toEqual(expected);
+                });
+
+                it('should set customMouseOut callback', () => {
+                    const expected = jest.fn();
+
+                    const chart = stackedArea.create(
+                        anchor,
+                        stackedAreaData.with3Sources(),
+                        {customMouseOut: expected}
+                    );
+
+                    const actual = chart.on('customMouseOut');
+
+                    expect(actual).toEqual(expected);
+                });
             });
         });
     });
