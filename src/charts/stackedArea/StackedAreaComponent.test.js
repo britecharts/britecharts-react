@@ -178,9 +178,9 @@ describe('Stacked Area Chart Component', () => {
         });
     });
 
-    xdescribe('lifetime', () => {
+    describe('lifetime', () => {
 
-        describe('when mouse hover', () => {
+        xdescribe('when mouse hover', () => {
             let mockFn;
 
             beforeEach(() => {
@@ -193,7 +193,7 @@ describe('Stacked Area Chart Component', () => {
             });
 
             it('should call the mouse over function', () => {
-                let wrapper = mount(<StackedAreaComponent onMouseOver={mockFn} chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                let wrapper = mount(<StackedAreaComponent customMouseOver={mockFn} chart={stackedArea} data={stackedAreaData.with3Sources()} />);
 
                 let expected = 1;
                 let actual = mockFn.mock.calls.length;

@@ -32,6 +32,10 @@ export default class StackedArea extends React.Component {
         xAxisFormat: PropTypes.string,
         xTicks: PropTypes.number,
         yTicks: PropTypes.number,
+
+        customMouseOver: PropTypes.func,
+        customMouseMove: PropTypes.func,
+        customMouseOut: PropTypes.func,
     }
 
     static defaultProps = {
