@@ -1,28 +1,31 @@
 import {britechartsCustomEvents} from '../constants';
 
-const isNotEventConfig = (configName) => britechartsCustomEvents.indexOf(configName) === -1;
 const isEventConfig = (configName) => britechartsCustomEvents.indexOf(configName) !== -1;
+const isNotEventConfig = (configName) => !isEventConfig(configName);
+
+const setChartProperty = (chart, configuration, key) => {
+    if (configuration[key]) {
+        chart[key](configuration[key]);
+    }
+};
+const setChartEventHandler = (chart, configuration, key) => {
+    if (configuration[key]) {
+        chart.on(key, configuration[key]);
+    }
+};
 
 export const applyConfiguration = (chart, configuration) => {
     let configurationProperties = Object.keys(configuration);
 
-    let configurationWithNoEvents = configurationProperties
-        .filter(isNotEventConfig);
+    // Regular properties
+    configurationProperties
+        .filter(isNotEventConfig)
+        .forEach(setChartProperty.bind(null, chart, configuration));
 
-    configurationWithNoEvents.forEach((key) => {
-        if (configuration[key]) {
-            chart[key](configuration[key]);
-        }
-    });
-
-    let configurationWithEvents = configurationProperties
-        .filter(isEventConfig);
-
-    configurationWithEvents.forEach((key) => {
-        if (configuration[key]) {
-            chart.on(key, configuration[key]);
-        }
-    });
+    // Event related properties
+    configurationProperties
+        .filter(isEventConfig)
+        .forEach(setChartEventHandler.bind(null, chart, configuration));
 
     return chart;
 };
