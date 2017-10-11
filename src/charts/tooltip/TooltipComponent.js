@@ -6,6 +6,8 @@ import tooltip from './tooltipChart';
 export default class TooltipComponent extends React.Component {
 
     static PropTypes = {
+        children: PropTypes.node.isRequired,
+
         dateFormat: PropTypes.string,
         dateLabel: PropTypes.string,
         locale: PropTypes.string,
@@ -22,8 +24,22 @@ export default class TooltipComponent extends React.Component {
         // update(dataPoint, colorMapping, position)
     }
 
+    static childContextTypes = {
+        customMouseOver: PropTypes.func,
+        customMouseMove: PropTypes.func,
+        customMouseOut: PropTypes.func,
+    }
+
     static defaultProps = {
         chart: tooltip,
+    }
+
+    getChildContext() {
+        return {
+            customMouseOver: () => console.log('mouseOver Context'),
+            customMouseMove: () => console.log('mouseMove Context'),
+            customMouseOut: () => console.log('mouseOut Context'),
+        };
     }
 
     componentDidMount() {
@@ -47,6 +63,7 @@ export default class TooltipComponent extends React.Component {
 
         delete configuration.data;
         delete configuration.chart;
+        delete configuration.children;
 
         return configuration;
     }
@@ -59,7 +76,10 @@ export default class TooltipComponent extends React.Component {
 
     render() {
         return (
-            <div className="tooltip-container" ref={this._setRef.bind(this)} />
+            <div className="tooltip-chart-wrapper">
+                {this.props.children}
+                <svg className="tooltip-container" ref={this._setRef.bind(this)} />
+            </div>
         );
     }
 

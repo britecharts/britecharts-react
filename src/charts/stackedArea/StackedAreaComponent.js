@@ -42,6 +42,12 @@ export default class StackedArea extends React.Component {
         chart: stackedArea,
     }
 
+    static contextTypes = {
+        customMouseOver: PropTypes.func,
+        customMouseMove: PropTypes.func,
+        customMouseOut: PropTypes.func,
+    }
+
     constructor(props) {
         super(props);
 
@@ -68,7 +74,7 @@ export default class StackedArea extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = {...this.props};
+        let configuration = {...this.props, ...this.context};
 
         delete configuration.data;
         delete configuration.chart;

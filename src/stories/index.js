@@ -38,11 +38,14 @@ storiesOf('StackedArea', module)
         />)
     );
 
-
 storiesOf('Tooltip', module)
     .add('with 3 sources data', () => <TooltipComponent data={stackedAreaData.with3Sources()} />)
-    .add('with 2 sources data', () => <TooltipComponent data={stackedAreaData.with2Sources()} title="Test Title" />);
-
+    .add('with 2 sources data', () => <TooltipComponent data={stackedAreaData.with2Sources()} title="Test Title" />)
+    .add('with 2 sources data and stackedArea', () => (
+        <TooltipComponent data={stackedAreaData.with2Sources()}>
+            <StackedAreaComponent data={stackedAreaData.with2Sources()} />
+        </TooltipComponent>
+    ));
 
 storiesOf('Legend', module)
     .add('with 500x500 container', () => (
