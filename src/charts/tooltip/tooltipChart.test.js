@@ -113,7 +113,7 @@ describe('Tooltip Chart', () => {
                         {title: firstTitle}
                     );
 
-                    tooltip.update(anchor, [], {title: expected});
+                    tooltip.update(anchor, {title: expected});
 
                     const actual = chart.title();
 

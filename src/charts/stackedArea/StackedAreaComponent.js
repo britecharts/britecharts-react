@@ -62,6 +62,7 @@ export default class StackedArea extends React.Component {
     }
 
     componentDidUpdate() {
+        console.log('stacked area didUpdate')
         this.props.chart.update(this._rootNode, this.props.data, this._getChartConfiguration());
     }
 

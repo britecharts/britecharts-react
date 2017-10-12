@@ -18,10 +18,6 @@ export default class TooltipComponent extends React.Component {
         valueFormat: PropTypes.string,
         valueLabel: PropTypes.string,
         topicsOrder: PropTypes.arrayOf(PropTypes.string),
-
-        // hide
-        // show
-        // update(dataPoint, colorMapping, position)
     }
 
     static childContextTypes = {
@@ -34,20 +30,32 @@ export default class TooltipComponent extends React.Component {
         chart: tooltip,
     }
 
+    state = {
+        isActive: false,
+        x: 0,
+        y: 0,
+        dataPoint: {},
+        topicColorMap: {}
+    }
+
     getChildContext() {
         return {
-            customMouseOver: () => console.log('mouseOver Context'),
-            customMouseMove: () => console.log('mouseMove Context'),
-            customMouseOut: () => console.log('mouseOut Context'),
+            customMouseMove: this._handleMouseMove.bind(this),
+            customMouseOut: this._handleMouseOut.bind(this),
+            customMouseOver: this._handleMouseOver.bind(this),
         };
     }
 
     componentDidMount() {
-        this.props.chart.create(this._rootNode, this._getChartConfiguration());
+        let tooltipContainer = this._rootNode.querySelector('.metadata-group .vertical-marker-container');
+
+        this.props.chart.create(tooltipContainer, this._getChartConfiguration());
     }
 
     componentDidUpdate() {
-        this.props.chart.update(this._rootNode, this._getChartConfiguration());
+        let tooltipContainer = this._rootNode.querySelector('.metadata-group .vertical-marker-container');
+
+        this.props.chart.update(tooltipContainer, this._getChartConfiguration(), this.state);
     }
 
     componentWillUnmount() {
@@ -68,6 +76,40 @@ export default class TooltipComponent extends React.Component {
         return configuration;
     }
 
+    _handleMouseMove(dataPoint, topicColorMap, x, y) {
+        // Update Tooltip State
+        this.setState((state) => ({
+            ...state,
+            dataPoint,
+            isActive: false,
+            topicColorMap,
+            x,
+            y,
+        }));
+
+        if (this.props.children.props.customMouseMove) {
+            this.props.children.props.customMouseMove(dataPoint, topicColorMap, x, y);
+        }
+    }
+
+    _handleMouseOut() {
+        // Update Tooltip State
+        this.setState((state) => ({...state, isActive: false}));
+
+        if (this.props.children.props.customMouseOut) {
+            this.props.children.props.customMouseOut();
+        }
+    }
+
+    _handleMouseOver() {
+        // Update Tooltip State
+        this.setState((state) => ({...state, isActive: true}));
+
+        if (this.props.children.props.customMouseOver) {
+            this.props.children.props.customMouseOver();
+        }
+    }
+
     _setRef(componentNode) {
         if (componentNode) {
             this._rootNode = componentNode;
@@ -76,9 +118,8 @@ export default class TooltipComponent extends React.Component {
 
     render() {
         return (
-            <div className="tooltip-chart-wrapper">
+            <div className="tooltip-chart-wrapper" ref={this._setRef.bind(this)} >
                 {this.props.children}
-                <svg className="tooltip-container" ref={this._setRef.bind(this)} />
             </div>
         );
     }
