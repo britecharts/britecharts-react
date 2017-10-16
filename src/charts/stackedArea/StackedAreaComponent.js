@@ -58,6 +58,7 @@ export default class StackedArea extends React.Component {
     }
 
     componentDidMount() {
+        console.log('stacked area didMount')
         this.props.chart.create(this._rootNode, this.props.data, this._getChartConfiguration());
     }
 

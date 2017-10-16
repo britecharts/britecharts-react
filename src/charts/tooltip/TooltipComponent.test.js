@@ -114,24 +114,6 @@ describe('Tooltip Component', () => {
                 expect(actual).toEqual(expected);
             });
 
-            xit('should pass in the new data to the update method', () => {
-                const wrapper = mount(
-                    <TooltipComponent chart={tooltip}>
-                        <FakeChart />
-                    </TooltipComponent>
-                );
-
-                // Changing properties should trigger a componentDidUpdate
-                wrapper.setProps({
-                    data: 'hey',
-                });
-
-                let expected = 'hey';
-                let actual = createSpy.mock.calls[0][1].length;
-
-                expect(actual).toEqual(expected);
-            });
-
             it('should pass in the new configuration to the update method', () => {
                 const wrapper = mount(
                     <TooltipComponent chart={tooltip}>
@@ -146,6 +128,24 @@ describe('Tooltip Component', () => {
                 });
 
                 let actual = createSpy.mock.calls[0][1].title;
+
+                expect(actual).toEqual(expected);
+            });
+
+            it('should pass in the new state to the update method', () => {
+                const wrapper = mount(
+                    <TooltipComponent chart={tooltip}>
+                        <FakeChart />
+                    </TooltipComponent>
+                );
+                let expected = true;
+
+                // Changing properties should trigger a componentDidUpdate
+                wrapper.setState({
+                    isActive: expected,
+                });
+
+                let actual = createSpy.mock.calls[0][2].isActive;
 
                 expect(actual).toEqual(expected);
             });
