@@ -42,12 +42,6 @@ export default class StackedArea extends React.Component {
         chart: stackedArea,
     }
 
-    static contextTypes = {
-        customMouseOver: PropTypes.func,
-        customMouseMove: PropTypes.func,
-        customMouseOut: PropTypes.func,
-    }
-
     constructor(props) {
         super(props);
 
@@ -58,12 +52,10 @@ export default class StackedArea extends React.Component {
     }
 
     componentDidMount() {
-        console.log('stacked area didMount')
         this.props.chart.create(this._rootNode, this.props.data, this._getChartConfiguration());
     }
 
     componentDidUpdate() {
-        console.log('stacked area didUpdate')
         this.props.chart.update(this._rootNode, this.props.data, this._getChartConfiguration());
     }
 
@@ -76,7 +68,7 @@ export default class StackedArea extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = {...this.props, ...this.context};
+        let configuration = {...this.props};
 
         delete configuration.data;
         delete configuration.chart;

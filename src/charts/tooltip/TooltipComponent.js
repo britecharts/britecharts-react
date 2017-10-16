@@ -20,14 +20,21 @@ export default class TooltipComponent extends React.Component {
         topicsOrder: PropTypes.arrayOf(PropTypes.string),
     }
 
-    static childContextTypes = {
-        customMouseOver: PropTypes.func,
-        customMouseMove: PropTypes.func,
-        customMouseOut: PropTypes.func,
-    }
-
     static defaultProps = {
         chart: tooltip,
+    }
+
+    constructor(props) {
+        super(props);
+
+        this.child = React.cloneElement(
+            this.props.children,
+            {
+                customMouseMove: this._handleMouseMove.bind(this),
+                customMouseOut: this._handleMouseOut.bind(this),
+                customMouseOver: this._handleMouseOver.bind(this),
+            }
+        );
     }
 
     state = {
@@ -35,15 +42,7 @@ export default class TooltipComponent extends React.Component {
         x: 0,
         y: 0,
         dataPoint: {},
-        topicColorMap: {}
-    }
-
-    getChildContext() {
-        return {
-            customMouseMove: this._handleMouseMove.bind(this),
-            customMouseOut: this._handleMouseOut.bind(this),
-            customMouseOver: this._handleMouseOver.bind(this),
-        };
+        topicColorMap: {},
     }
 
     componentDidMount() {
@@ -81,7 +80,6 @@ export default class TooltipComponent extends React.Component {
         this.setState((state) => ({
             ...state,
             dataPoint,
-            isActive: false,
             topicColorMap,
             x,
             y,
@@ -119,7 +117,7 @@ export default class TooltipComponent extends React.Component {
     render() {
         return (
             <div className="tooltip-chart-wrapper" ref={this._setRef.bind(this)} >
-                {this.props.children}
+                {this.child}
             </div>
         );
     }

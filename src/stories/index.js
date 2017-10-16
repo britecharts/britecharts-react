@@ -10,6 +10,7 @@ import TooltipComponent from '../charts/tooltip/TooltipComponent';
 // from NPM modules
 import 'britecharts/dist/css/britecharts.css';
 
+
 // Helpers
 const logMouseOver = () => console.log('Mouse Over');
 const logMouseOut = () => console.log('Mouse Out');
@@ -42,6 +43,13 @@ storiesOf('Tooltip', module)
     .add('with 3 sources data', () => <TooltipComponent data={stackedAreaData.with3Sources()} />)
     .add('with 2 sources data', () => <TooltipComponent data={stackedAreaData.with2Sources()} title="Test Title" />)
     .add('with 2 sources data and stackedArea', () => (
+        <TooltipComponent data={stackedAreaData.with2Sources()}>
+            <StackedAreaComponent
+                data={stackedAreaData.with2Sources()}
+            />
+        </TooltipComponent>
+    ))
+    .add('with 2 sources data and responsive stackedArea', () => (
         <TooltipComponent data={stackedAreaData.with2Sources()}>
             <StackedAreaComponent
                 data={stackedAreaData.with2Sources()}
