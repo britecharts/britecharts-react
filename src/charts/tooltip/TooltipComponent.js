@@ -6,7 +6,7 @@ import tooltip from './tooltipChart';
 export default class TooltipComponent extends React.Component {
 
     static PropTypes = {
-        children: PropTypes.node.isRequired,
+        children: PropTypes.element.isRequired,
 
         dateFormat: PropTypes.string,
         dateLabel: PropTypes.string,
