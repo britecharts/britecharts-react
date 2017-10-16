@@ -48,13 +48,6 @@ storiesOf('Tooltip', module)
                 data={stackedAreaData.with2Sources()}
             />
         </TooltipComponent>
-    ))
-    .add('with 2 sources data and responsive stackedArea', () => (
-        <TooltipComponent data={stackedAreaData.with2Sources()}>
-            <StackedAreaComponent
-                data={stackedAreaData.with2Sources()}
-            />
-        </TooltipComponent>
     ));
 
 storiesOf('Legend', module)
