@@ -85,8 +85,10 @@ export default class TooltipComponent extends React.Component {
             y,
         }));
 
-        if (this.props.children.props.customMouseMove) {
-            this.props.children.props.customMouseMove(dataPoint, topicColorMap, x, y);
+        let {children: {props: {customMouseMove}}} = this.props;
+
+        if (customMouseMove) {
+            customMouseMove(dataPoint, topicColorMap, x, y);
         }
     }
 
@@ -94,8 +96,10 @@ export default class TooltipComponent extends React.Component {
         // Update Tooltip State
         this.setState((state) => ({...state, isActive: false}));
 
-        if (this.props.children.props.customMouseOut) {
-            this.props.children.props.customMouseOut();
+        let {children: {props: {customMouseOut}}} = this.props;
+
+        if (customMouseOut) {
+            customMouseOut();
         }
     }
 
@@ -103,8 +107,10 @@ export default class TooltipComponent extends React.Component {
         // Update Tooltip State
         this.setState((state) => ({...state, isActive: true}));
 
-        if (this.props.children.props.customMouseOver) {
-            this.props.children.props.customMouseOver();
+        let {children: {props: {customMouseOver}}} = this.props;
+
+        if (customMouseOver) {
+            customMouseOver();
         }
     }
 
