@@ -48,13 +48,17 @@ export default class TooltipComponent extends React.Component {
     componentDidMount() {
         let tooltipContainer = this._rootNode.querySelector('.metadata-group .vertical-marker-container');
 
-        this.props.chart.create(tooltipContainer, this._getChartConfiguration());
+        if (tooltipContainer) {
+            this.props.chart.create(tooltipContainer, this._getChartConfiguration());
+        }
     }
 
     componentDidUpdate() {
         let tooltipContainer = this._rootNode.querySelector('.metadata-group .vertical-marker-container');
 
-        this.props.chart.update(tooltipContainer, this._getChartConfiguration(), this.state);
+        if (tooltipContainer) {
+            this.props.chart.update(tooltipContainer, this._getChartConfiguration(), this.state);
+        }
     }
 
     componentWillUnmount() {
