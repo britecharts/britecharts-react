@@ -69,7 +69,7 @@ exports.babelReactLoader = () => ({
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['react']
+                        presets: ['react'],
                     },
                 },
             },
@@ -96,6 +96,6 @@ exports.minifyJavaScript = () => ({
 
 exports.bundleTreeChart = () => ({
     plugins: [
-        new BundleAnalyzerPlugin()
+        new BundleAnalyzerPlugin(),
     ],
 });

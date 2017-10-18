@@ -50,14 +50,14 @@ const commonSplittedConfig = merge([
                 root: 'React',
                 commonjs2: 'react',
                 commonjs: 'react',
-                amd: 'react'
+                amd: 'react',
             },
             'react-dom': {
                 root: 'ReactDOM',
                 commonjs2: 'react-dom',
                 commonjs: 'react-dom',
-                amd: 'react-dom'
-            }
+                amd: 'react-dom',
+            },
         },
     },
     parts.lintJavaScript({
@@ -90,7 +90,7 @@ const libraryUMDConfig = merge([
             path: PATHS.umd,
             filename: '[name].min.js',
             library: ['britecharts-react', '[name]'],
-            libraryTarget: 'umd'
+            libraryTarget: 'umd',
         },
     },
     parts.babelLoader(),
