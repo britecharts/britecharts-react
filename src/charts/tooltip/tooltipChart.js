@@ -11,6 +11,8 @@ tooltip.create = (el, configuration = {}) => {
 
     chart = tooltipChart();
 
+    chart.topicLabel('values');
+
     validateContainer(container);
     validateConfiguration(chart, configuration);
 
@@ -22,7 +24,7 @@ tooltip.create = (el, configuration = {}) => {
     return chartConfigured;
 };
 
-tooltip.update = (el, data, configuration = {}) => {
+tooltip.update = (el, configuration = {}, state = {}) => {
     let container = select(el);
 
     validateContainer(container);
@@ -30,12 +32,18 @@ tooltip.update = (el, data, configuration = {}) => {
 
     let chartConfigured = applyConfiguration(chart, configuration);
 
-    // Calls the chart with the container and dataset
-    if (data && data.length) {
-        container.datum(data).call(chartConfigured);
-    } else {
-        container.call(chartConfigured);
+    container.call(chartConfigured);
+
+    if (state.dataPoint && state.topicColorMap && state.x) {
+        chart.update(state.dataPoint, state.topicColorMap, state.x, state.y);
     }
+
+    if (state.isActive) {
+        chart.show();
+    } else {
+        chart.hide();
+    }
+
 
     return chartConfigured;
 };

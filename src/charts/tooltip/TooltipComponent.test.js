@@ -7,6 +7,12 @@ import tooltip from './tooltipChart';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const FakeChart = () => (
+    <div className="metadata-group">
+        <div className="vertical-marker-container" />
+    </div>
+);
+
 describe('Tooltip Component', () => {
 
     describe('render', () => {
@@ -21,8 +27,12 @@ describe('Tooltip Component', () => {
             createSpy.mockRestore();
         });
 
-        it('should call the create method or the chart', () => {
-            mount(<TooltipComponent chart={tooltip} />);
+        it('should call the create method of the chart', () => {
+            mount(
+                <TooltipComponent chart={tooltip}>
+                    <FakeChart />
+                </TooltipComponent>
+            );
 
             let expected = 1;
             let actual = createSpy.mock.calls.length;
@@ -31,9 +41,13 @@ describe('Tooltip Component', () => {
         });
 
         it('should call the create method or the chart with the container as the first argument', () => {
-            const wrapper = mount(<TooltipComponent chart={tooltip} />);
+            const wrapper = mount(
+                <TooltipComponent chart={tooltip}>
+                    <FakeChart />
+                </TooltipComponent>
+            );
 
-            let expected = wrapper.find('.tooltip-container').instance();
+            let expected = wrapper.find('.vertical-marker-container').instance();
             let actual = createSpy.mock.calls[0][0];
 
             expect(actual).toEqual(expected);
@@ -43,10 +57,9 @@ describe('Tooltip Component', () => {
             let expected = 'en-US';
 
             mount(
-                <TooltipComponent
-                    chart={tooltip}
-                    locale={expected}
-                />
+                <TooltipComponent chart={tooltip} locale={expected}>
+                    <FakeChart />
+                </TooltipComponent>
             );
 
             let actual = createSpy.mock.calls[0][1].locale;
@@ -58,10 +71,9 @@ describe('Tooltip Component', () => {
             let expected = 'title';
 
             mount(
-                <TooltipComponent
-                    chart={tooltip}
-                    title={expected}
-                />
+                <TooltipComponent chart={tooltip} title={expected}>
+                    <FakeChart />
+                </TooltipComponent>
             );
 
             let actual = createSpy.mock.calls[0][1].title;
@@ -85,7 +97,11 @@ describe('Tooltip Component', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const wrapper = mount(<TooltipComponent chart={tooltip} />);
+                const wrapper = mount(
+                    <TooltipComponent chart={tooltip}>
+                        <FakeChart />
+                    </TooltipComponent>
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -98,22 +114,12 @@ describe('Tooltip Component', () => {
                 expect(actual).toEqual(expected);
             });
 
-            xit('should pass in the new data to the update method', () => {
-                const wrapper = mount(<TooltipComponent chart={tooltip} />);
-
-                // Changing properties should trigger a componentDidUpdate
-                wrapper.setProps({
-                    data: 'hey',
-                });
-
-                let expected = 'hey';
-                let actual = createSpy.mock.calls[0][1].length;
-
-                expect(actual).toEqual(expected);
-            });
-
             it('should pass in the new configuration to the update method', () => {
-                const wrapper = mount(<TooltipComponent chart={tooltip} />);
+                const wrapper = mount(
+                    <TooltipComponent chart={tooltip}>
+                        <FakeChart />
+                    </TooltipComponent>
+                );
                 const expected = 'title';
 
                 // Changing properties should trigger a componentDidUpdate
@@ -122,6 +128,24 @@ describe('Tooltip Component', () => {
                 });
 
                 let actual = createSpy.mock.calls[0][1].title;
+
+                expect(actual).toEqual(expected);
+            });
+
+            it('should pass in the new state to the update method', () => {
+                const wrapper = mount(
+                    <TooltipComponent chart={tooltip}>
+                        <FakeChart />
+                    </TooltipComponent>
+                );
+                let expected = true;
+
+                // Changing properties should trigger a componentDidUpdate
+                wrapper.setState({
+                    isActive: expected,
+                });
+
+                let actual = createSpy.mock.calls[0][2].isActive;
 
                 expect(actual).toEqual(expected);
             });
@@ -141,7 +165,11 @@ describe('Tooltip Component', () => {
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<TooltipComponent chart={tooltip} />);
+            const wrapper = mount(
+                <TooltipComponent chart={tooltip}>
+                    <FakeChart />
+                </TooltipComponent>
+            );
 
             wrapper.unmount();
 

@@ -15,8 +15,8 @@ module.exports = function(grunt) {
             push: true,
             pushTags: true,
             npm: false,
-            npmtag: false
-        }
+            npmtag: false,
+        },
     });
 
     grunt.registerTask('release', (...args) => {

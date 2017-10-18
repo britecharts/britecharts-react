@@ -11,8 +11,8 @@ stackedArea.create = (el, data, configuration = {}) => {
 
     chart = stackedAreaChart();
 
-    validateContainer(container);
     validateData(data);
+    validateContainer(container);
     validateConfiguration(chart, configuration);
 
     let chartConfigured = applyConfiguration(chart, configuration);
