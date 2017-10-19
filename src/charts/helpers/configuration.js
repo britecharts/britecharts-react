@@ -8,6 +8,7 @@ const setChartProperty = (chart, configuration, key) => {
         chart[key](configuration[key]);
     }
 };
+
 const setChartEventHandler = (chart, configuration, key) => {
     if (configuration[key]) {
         chart.on(key, configuration[key]);
