@@ -28,7 +28,7 @@
   ],
   "scripts": {
     "start": "webpack-dashboard -- nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
-    "build": "webpack --env production --progress",
+    "build": "yarn run build:storybook && webpack --env production --progress",
     "lint": "eslint src/ webpack.*.js --cache",
     "lint:fix": "eslint src/ webpack.*.js --cache --fix",
     "test:watch": "jest --watch",
