@@ -22,6 +22,10 @@
   "author": "Marcos Iglesias <golodhros@gmail.com> (http://www.marcosiglesias.com)",
   "version": "0.1.9",
   "license": "Apache-2.0",
+  "files": [
+    "dist/",
+    "lib/"
+  ],
   "scripts": {
     "start": "webpack-dashboard -- nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
     "build": "yarn run build:storybook && webpack --env production --progress",
