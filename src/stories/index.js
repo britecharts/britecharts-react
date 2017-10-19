@@ -48,7 +48,7 @@ storiesOf('StackedArea', module)
     ));
 
 storiesOf('Legend', module)
-    .add('with 500x500 container', () => (
+    .add('with a square container', () => (
         <LegendComponent
             data={legendData.with6Points()}
             height={500}
