@@ -20,7 +20,7 @@
     "graphs"
   ],
   "author": "Marcos Iglesias <golodhros@gmail.com> (http://www.marcosiglesias.com)",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "Apache-2.0",
   "files": [
     "dist/",
