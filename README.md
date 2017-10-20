@@ -1,47 +1,73 @@
 # Britecharts React
-Britecharts-react is a React wrapper for the [Britecharts charting library.][britecharts]
+Britecharts-react is a [React][react] wrapper for the [Britecharts][britecharts] charting library.
 
-## Why
-Britecharts is a D3 based, high level charting library that allows users to create stunning data visualizations with little work. [React][react] is one of the most popular User Interface libraries that allows to create apps by composing small components in an intuitive way. Both libraries take control of the DOM, so how can we make them work together in a fluid way?
-
-Britecharts-react proposes a way of integrating Britecharts and React that promotes a *clear separation of concerns* between the libraries and aims for an *easy and effortless maintenance* of the charts.
-
-## Approach
-The React and D3 integration can be done at different levels, leaning more one side or another. We don’t want to get too specific on the details, as for that there is [slides][d3-react] and [a recording][d3-react-video] that explain the different approaches.
-
-For this project, we have chosen the approach called ‘Mapping Lifecycle methods’ based on [Nicholas Hery's article][integration-article]. You can see some [code example here][integration-article-code]. 
-
-This way of integrating react and D3 creates a lightweight React component wrapper that maps React's lifecycle methods `componentDidMount`, `componentDidUpdate` and `componentWillUnmount` into a d3 chart's create, update and unmount methods respectively.
-
-This way, we will end up with a React component that has the usual react dependencies and imports a d3 chart file. This chart module usually contains the d3 dependencies and which, in this case, will contain Britecharts code.
-
-## Implementation
-Our initial idea is to create a prototype of this approach using a simple Britecharts chart, iterate over it until we feel confident and only then go ahead and implement the rest of Britecharts.
-
-We have identified some challenges that we would be looking at in our prototype:
-* The way to move props from the React wrapper to the D3 Chart
-* How to keep ‘DRY' the propTypes, maybe using constants files
-* Figure out the logic to do smart updates, triggering React updates only when a change on the data or configuration happens.
 
 ## Usage
-The resulting charts would be used just like any other stateless React component is used. We will pass in some props and it would render a consistent chart.
+Britecharts-React components are used just like any other stateless React component. You will pass in some props and it would render a chart:
 
-## Customizing Charts
-Note that the aim of this project is to ‘wrap’ Britecharts with React, so any new features need to first be implemented on Britecharts. Only then we could update the props and logic that passes in the configuration.
+```
+<TooltipComponent>
+    <StackedAreaComponent
+        data={stackedAreaData.with2Sources()}
+        width={600}
+        height={400}
+    />
+</TooltipComponent>
 
-Here is what we think is the main challenge to this project: keeping it up to date with Britecharts. We should figure out smart ways of doing this, trying to parametrize most of the code.
+```
+
+## API
+Each component's API will be a reflect of [Britecharts][britecharts] charts and their APIs. That way, if we need to render a bar chart, we will first check the [bar chart's API][barChartAPI] in the main project API reference page.
+
+From there, we will proceed to pass each of the configurations through the usual props as we do in React projects:
+```
+    <BarComponent
+        data={...}
+        width={400}
+        isHorizontal={true}
+        margin={marginObject}
+    >
+
+```
+
+## Installation
+Britecharts-React will be available as NPM modules or CDN links.
+
+You can use either minified individual UMD modules(lib/umd), a minified UMD bundle(dist/) or un-minified and un-transpiled ES2015 modules(lib/esm) to add to your bundle.
+
 
 ## Next steps
-From a broad point of view, we would need to:
-1. Create a prototype
-2. Iterate over it
-3. Create the rest of wrappers for Britecharts components
-4. Keep it up to date
+From a broad point of view, we need to:
 
+0. Iterate over our initial charts
+0. Create the rest of wrappers for Britecharts components
+0. Keep it up to date
+
+
+## Acknowledgments
+For this project, we have followed the approach called ‘Mapping Lifecycle methods’ based on [Nicholas Hery's article][integration-article].
+
+
+## License
+Copyright 2017 Eventbrite
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+[https://www.apache.org/licenses/LICENSE-2.0][license]
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Read more in the [license document][licenseGithub]
 
 [britecharts]: https://github.com/eventbrite/britecharts
 [react]: https://facebook.github.io/react/
-[d3-react]: http://golodhros.github.io/react-d3/index.html
-[d3-react-video]: https://www.youtube.com/watch?v=xGQtHckAauQ&feature=youtu.be&t=30m56s
 [integration-article]: http://nicolashery.com/integrating-d3js-visualizations-in-a-react-app/
-[integration-article-code]: https://github.com/nicolashery/example-d3-react
+[barChartAPI]: http://eventbrite.github.io/britecharts/module-Bar.html
+[license]: https://www.apache.org/licenses/LICENSE-2.0
+[licenseGithub]: https://github.com/eventbrite/britecharts-react/blob/master/LICENSE.md
