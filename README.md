@@ -17,7 +17,7 @@ Britecharts-React components are used just like any other stateless React compon
 ```
 
 ## API
-Each component's API will be a reflect of [Britecharts][britecharts] charts and their APIs. That way, if we need to render a bar chart, we will first check the [bar chart's API][barChartAPI] in the main project API reference page.
+Each component's API will be a reflect of [Britecharts][britecharts] charts and their APIs. That way, if we need to render a bar chart, we will first check the [bar chart's API][barChartAPI] in the main project API reference page. You can read more about the approach [here][topics]
 
 From there, we will proceed to pass each of the configurations through the usual props as we do in React projects:
 ```
@@ -71,3 +71,4 @@ Read more in the [license document][licenseGithub]
 [barChartAPI]: http://eventbrite.github.io/britecharts/module-Bar.html
 [license]: https://www.apache.org/licenses/LICENSE-2.0
 [licenseGithub]: https://github.com/eventbrite/britecharts-react/blob/master/LICENSE.md
+[topics]: https://github.com/eventbrite/britecharts-react/blob/master/TOPICS.md
