@@ -9,16 +9,49 @@ export default class Legend extends React.Component {
         chart: LegendChart,
     }
 
-    static PropTypes = {
+    static propTypes = {
+        /**
+         * Gets or Sets the colorSchema of the chart
+         */
         colorSchema: PropTypes.arrayOf(PropTypes.string),
+        /**
+         * Gets or Sets the height of the legend chart
+         */
         height: PropTypes.number,
+        /**
+         * Highlights a line entry by fading the rest of lines
+         */
         highlight: PropTypes.number,
+        /**
+         * Gets or Sets the horizontal mode on the legend
+         */
         isHorizontal: PropTypes.bool,
+        /**
+         * Gets or Sets the margin of the legend chart
+         */
         margin: PropTypes.object,
+        /**
+         * Gets or Sets the markerSize of the legend chart. This markerSize will determine 
+         * the horizontal and vertical size of the colored marks added as color 
+         * identifiers for the chart's categories.
+         */
         markerSize: PropTypes.number,
+        /**
+         * Gets or Sets the number format of the legend chart
+         */
         numberFormat: PropTypes.string,
+        /**
+         * Gets or Sets the width of the chart
+         */
         width: PropTypes.number,
+        /**
+         * The data to be used by the chart
+         */
         data: PropTypes.array.isRequired,
+        /**
+         * Internally used, do not overwrite.
+         */
+        chart: PropTypes.object.isRequired,
     }
 
     constructor(props) {

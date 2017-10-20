@@ -136,11 +136,11 @@ module.exports = (env) => {
     console.log('%%%%%%%% env', env);
 
     if (env === 'production') {
-        return [
+        return merge([
             libraryESMConfig,
             libraryUMDConfig,
             bundleConfig,
-        ];
+        ]);
     }
 
     return merge(commonSplittedConfig, developmentConfig);
