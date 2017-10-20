@@ -127,7 +127,7 @@ Adding a new chart is a bunch of work, but we hope that using the current code a
 
 ## Reporting an Issue/Feature Requests
 
-Please use the [issues](https://github.com/eventbrite/britecharts-react/issues) section of the Britecharts-react github profile to submit any bugs found. Please be descriptive and feel free to add pictures or links to docs to make your point as clear as possible.
+Please use the [issues](https://github.com/eventbrite/britecharts-react/issues) section of the Britecharts-React github profile to submit any bugs found. Please be descriptive and feel free to add pictures or links to docs to make your point as clear as possible.
 
 ## The Workflow
 
