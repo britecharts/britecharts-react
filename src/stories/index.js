@@ -19,6 +19,13 @@ const logMouseMoveTooltip = (dataPoint, topicColorMap, dataPointXPosition) => {
     console.log('Mouse Move: dataPointXPosition', dataPointXPosition);
 };
 
+const renderStackedAreaComponent = (props) => (
+    <StackedAreaComponent
+        data={stackedAreaData.with2Sources()}
+        {...props}
+    />
+);
+
 storiesOf('StackedArea', module)
     .add('with 3 sources data', () => <StackedAreaComponent data={stackedAreaData.with3Sources()} />)
     .add('with 500px width and 200px height', () => (
@@ -40,11 +47,10 @@ storiesOf('StackedArea', module)
         />)
     )
     .add('with 2 sources data and Tooltip', () => (
-        <TooltipComponent data={stackedAreaData.with2Sources()}>
-            <StackedAreaComponent
-                data={stackedAreaData.with2Sources()}
-            />
-        </TooltipComponent>
+        <TooltipComponent
+            data={stackedAreaData.with2Sources()}
+            render={renderStackedAreaComponent}
+        />
     ));
 
 storiesOf('Legend', module)

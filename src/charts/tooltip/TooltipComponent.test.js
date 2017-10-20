@@ -13,6 +13,8 @@ const FakeChart = () => (
     </div>
 );
 
+const renderFakeChart = () => <FakeChart />;
+
 describe('Tooltip Component', () => {
 
     describe('render', () => {
@@ -29,9 +31,10 @@ describe('Tooltip Component', () => {
 
         it('should call the create method of the chart', () => {
             mount(
-                <TooltipComponent chart={tooltip}>
-                    <FakeChart />
-                </TooltipComponent>
+                <TooltipComponent
+                    chart={tooltip}
+                    render={renderFakeChart}
+                />
             );
 
             let expected = 1;
@@ -42,9 +45,10 @@ describe('Tooltip Component', () => {
 
         it('should call the create method or the chart with the container as the first argument', () => {
             const wrapper = mount(
-                <TooltipComponent chart={tooltip}>
-                    <FakeChart />
-                </TooltipComponent>
+                <TooltipComponent
+                    chart={tooltip}
+                    render={renderFakeChart}
+                />
             );
 
             let expected = wrapper.find('.vertical-marker-container').instance();
@@ -57,9 +61,11 @@ describe('Tooltip Component', () => {
             let expected = 'en-US';
 
             mount(
-                <TooltipComponent chart={tooltip} locale={expected}>
-                    <FakeChart />
-                </TooltipComponent>
+                <TooltipComponent
+                    chart={tooltip}
+                    locale={expected}
+                    render={renderFakeChart}
+                />
             );
 
             let actual = createSpy.mock.calls[0][1].locale;
@@ -71,9 +77,11 @@ describe('Tooltip Component', () => {
             let expected = 'title';
 
             mount(
-                <TooltipComponent chart={tooltip} title={expected}>
-                    <FakeChart />
-                </TooltipComponent>
+                <TooltipComponent
+                    chart={tooltip}
+                    title={expected}
+                    render={renderFakeChart}
+                />
             );
 
             let actual = createSpy.mock.calls[0][1].title;
@@ -98,9 +106,10 @@ describe('Tooltip Component', () => {
 
             it('should call the update method or the chart', () => {
                 const wrapper = mount(
-                    <TooltipComponent chart={tooltip}>
-                        <FakeChart />
-                    </TooltipComponent>
+                    <TooltipComponent
+                        chart={tooltip}
+                        render={renderFakeChart}
+                    />
                 );
 
                 // Changing properties should trigger a componentDidUpdate
@@ -116,9 +125,10 @@ describe('Tooltip Component', () => {
 
             it('should pass in the new configuration to the update method', () => {
                 const wrapper = mount(
-                    <TooltipComponent chart={tooltip}>
-                        <FakeChart />
-                    </TooltipComponent>
+                    <TooltipComponent
+                        chart={tooltip}
+                        render={renderFakeChart}
+                    />
                 );
                 const expected = 'title';
 
@@ -134,9 +144,10 @@ describe('Tooltip Component', () => {
 
             it('should pass in the new state to the update method', () => {
                 const wrapper = mount(
-                    <TooltipComponent chart={tooltip}>
-                        <FakeChart />
-                    </TooltipComponent>
+                    <TooltipComponent
+                        chart={tooltip}
+                        render={renderFakeChart}
+                    />
                 );
                 let expected = true;
 
@@ -166,9 +177,10 @@ describe('Tooltip Component', () => {
 
         it('should call the destroy method or the chart', () => {
             const wrapper = mount(
-                <TooltipComponent chart={tooltip}>
-                    <FakeChart />
-                </TooltipComponent>
+                <TooltipComponent
+                    chart={tooltip}
+                    render={renderFakeChart}
+                />
             );
 
             wrapper.unmount();

@@ -27,14 +27,13 @@ export default class TooltipComponent extends React.Component {
     constructor(props) {
         super(props);
 
-        this.child = React.cloneElement(
-            this.props.children,
-            {
+        if (this.props.render) {
+            this.childChart = this.props.render({
                 customMouseMove: this._handleMouseMove.bind(this),
                 customMouseOut: this._handleMouseOut.bind(this),
                 customMouseOver: this._handleMouseOver.bind(this),
-            }
-        );
+            });
+        }
     }
 
     state = {
@@ -74,7 +73,7 @@ export default class TooltipComponent extends React.Component {
 
         delete configuration.data;
         delete configuration.chart;
-        delete configuration.children;
+        delete configuration.render;
 
         return configuration;
     }
@@ -89,7 +88,7 @@ export default class TooltipComponent extends React.Component {
             y,
         }));
 
-        let {children: {props: {customMouseMove}}} = this.props;
+        let {customMouseMove} = this.props;
 
         if (customMouseMove) {
             customMouseMove(dataPoint, topicColorMap, x, y);
@@ -100,7 +99,7 @@ export default class TooltipComponent extends React.Component {
         // Update Tooltip State
         this.setState((state) => ({...state, isActive: false}));
 
-        let {children: {props: {customMouseOut}}} = this.props;
+        let {customMouseOut} = this.props;
 
         if (customMouseOut) {
             customMouseOut();
@@ -111,7 +110,7 @@ export default class TooltipComponent extends React.Component {
         // Update Tooltip State
         this.setState((state) => ({...state, isActive: true}));
 
-        let {children: {props: {customMouseOver}}} = this.props;
+        let {customMouseOver} = this.props;
 
         if (customMouseOver) {
             customMouseOver();
@@ -127,7 +126,7 @@ export default class TooltipComponent extends React.Component {
     render() {
         return (
             <div className="tooltip-chart-wrapper" ref={this._setRef.bind(this)} >
-                {this.child}
+                {this.childChart}
             </div>
         );
     }
