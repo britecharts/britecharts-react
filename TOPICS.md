@@ -3,16 +3,16 @@
 ## Why Britecharts React
 Britecharts is a D3 based, high level charting library that allows users to create stunning data visualizations with little work. [React][react] is one of the most popular User Interface libraries that allows to create apps by composing small components in an intuitive way. Both libraries take control of the DOM, so how can we make them work together in a fluid way?
 
-Britecharts-react proposes a way of integrating Britecharts and React that promotes a **clear separation of concerns** between the libraries and aims for an **easy and effortless maintenance** of the charts.
+Britecharts-react proposes a way of integrating Britecharts and React that promotes a **clear separation of concerns** between the libraries and aims for **easy and effortless maintenance** of the charts.
 
 ## Integration Approach
 The React and D3 integration can be done at different levels, leaning more one side or another. We don’t want to get too specific on the details, as for that there is [slides][d3-react] and [a recording][d3-react-video] that explain the different approaches.
 
 For this project, we have chosen the approach called ‘Mapping Lifecycle methods’ based on [Nicholas Hery's article][integration-article]. You can see some [code example here][integration-article-code].
 
-This way of integrating react and D3 creates a lightweight React component wrapper that maps React's lifecycle methods `componentDidMount`, `componentDidUpdate` and `componentWillUnmount` into a d3 chart's create, update and unmount methods respectively.
+This way of integrating React and D3 creates a lightweight React component wrapper that maps React's lifecycle methods `componentDidMount`, `componentDidUpdate` and `componentWillUnmount` into a d3 chart's create, update and unmount methods respectively.
 
-This way, we will end up with a React component that has the usual react dependencies and imports a d3 chart file. This chart module usually contains the d3 dependencies and which, in this case, will contain Britecharts code.
+This way, we will end up with a React component that has the usual React dependencies and imports a d3 chart file. This chart module usually contains the d3 dependencies and which, in this case, will contain Britecharts code.
 
 ## Implementation
 Our initial idea is to create a prototype of this approach using a simple Britecharts chart, iterate over it until we feel confident and only then go ahead and implement the rest of Britecharts.
@@ -25,7 +25,7 @@ We have identified some challenges that we would be looking at in our prototype:
 ## Customizing Charts
 Note that the aim of this project is to ‘wrap’ Britecharts with React, so any new features need to first be implemented on Britecharts. Only then we could update the props and logic that passes in the configuration.
 
-Here is what we think is the main challenge to this project: keeping it up to date with Britecharts. We should figure out smart ways of doing this, trying to parametrize most of the code.
+Here is what we think is the primary challenge to this project: keeping it up to date with Britecharts. We should figure out smart ways of doing this, trying to parameterize most of the code.
 
 [britecharts]: https://github.com/eventbrite/britecharts
 [react]: https://facebook.github.io/react/

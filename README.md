@@ -31,7 +31,7 @@ From there, we will proceed to pass each of the configurations through the usual
 ```
 
 ## Installation
-Britecharts-React will be available as NPM modules or CDN links.
+Britecharts-React will be available as an NPM module or through CDN links.
 
 You can use either minified individual UMD modules(lib/umd), a minified UMD bundle(dist/) or un-minified and un-transpiled ES2015 modules(lib/esm) to add to your bundle.
 
