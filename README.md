@@ -6,13 +6,11 @@ Britecharts-react is a [React][react] wrapper for the [Britecharts][britecharts]
 Britecharts-React components are used just like any other stateless React component. You will pass in some props and it would render a chart:
 
 ```
-<TooltipComponent>
-    <StackedAreaComponent
-        data={stackedAreaData.with2Sources()}
-        width={600}
-        height={400}
-    />
-</TooltipComponent>
+<StackedAreaComponent
+    data={stackedAreaData.with2Sources()}
+    width={600}
+    height={400}
+/>
 
 ```
 
