@@ -20,11 +20,7 @@
     "graphs"
   ],
   "author": "Marcos Iglesias <golodhros@gmail.com> (http://www.marcosiglesias.com)",
-<<<<<<< HEAD
   "version": "0.1.9",
-=======
-  "version": "0.1.7",
->>>>>>> undo formatting of travis.yml
   "license": "Apache-2.0",
   "files": [
     "dist/",
