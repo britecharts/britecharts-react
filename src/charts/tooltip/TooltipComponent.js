@@ -75,7 +75,6 @@ export default class TooltipComponent extends React.Component {
         }
     }
 
-
     state = {
         isActive: false,
         x: 0,
