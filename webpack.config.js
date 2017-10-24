@@ -17,7 +17,7 @@ const PATHS = {
 
 const BUNDLE = path.join(__dirname, 'src/charts/index.js');
 const CHARTS = {
-    StackedArea: [ 'core-js/modules/es7.array.includes', `${PATHS.charts}/stackedArea/StackedAreaComponent.js`],
+    StackedArea: `${PATHS.charts}/stackedArea/StackedAreaComponent.js`,
     Legend: `${PATHS.charts}/legend/LegendComponent.js`,
     Tooltip: `${PATHS.charts}/tooltip/TooltipComponent.js`,
 };
@@ -108,7 +108,7 @@ const libraryESMConfig = merge([
             filename: '[name].min.js',
         },
     },
-    parts.babelReactLoader(),
+    parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
     parts.minifyJavaScript(),
 ]);
