@@ -9,7 +9,7 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
-install: yarn install && yarn run build
+install: yarn install
 script: yarn run test
 deploy:
   provider: npm
