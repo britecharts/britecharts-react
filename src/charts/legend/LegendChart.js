@@ -41,8 +41,8 @@ legend.update = (el, data, configuration = {}) => {
     return chartConfigured;
 };
 
-legend.destroy = () => {
-    // Cleanup methods here
+legend.destroy = (el) => {
+    el.innerHTML = '';
 };
 
 export default legend;
