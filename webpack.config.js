@@ -40,7 +40,7 @@ const commonSplittedConfig = merge([
             // makes the discovery automatic so you don't have to restart.
             // See https://github.com/facebookincubator/create-react-app/issues/186
             new WatchMissingNodeModulesPlugin(path.resolve('node_modules')),
-            new DashboardPlugin({port: process.env.PORT}),
+            // new DashboardPlugin({port: process.env.PORT}),
         ],
         externals: {
             'react/addons': true,
@@ -95,7 +95,7 @@ const libraryUMDConfig = merge([
     },
     parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
-    parts.bundleTreeChart(),
+    // parts.bundleTreeChart(),
     parts.minifyJavaScript(),
 ]);
 
@@ -137,9 +137,9 @@ module.exports = (env) => {
 
     if (env === 'production') {
         return [
-            libraryESMConfig,
+            // libraryESMConfig,
             libraryUMDConfig,
-            bundleConfig,
+            // bundleConfig,
         ];
     }
 
