@@ -34,16 +34,6 @@ describe('Legend Chart', () => {
                         );
                     }).toThrowError('Data must be defined');
                 });
-
-                it('should throw an error with empty data', () => {
-                    expect(() => {
-                        legendChart.create(
-                            anchor,
-                            [],
-                            {}
-                        );
-                    }).toThrowError('Data must be defined');
-                });
             });
 
             describe('when a non-supported method is passed', () => {

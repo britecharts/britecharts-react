@@ -102,7 +102,7 @@ describe('Legend Chart Component', () => {
             let createSpy;
 
             beforeEach(() => {
-                createSpy = jest.spyOn(legendChart, 'update');
+                createSpy = jest.spyOn(legendChart, 'create');
             });
 
             afterEach(() => {
@@ -110,7 +110,7 @@ describe('Legend Chart Component', () => {
                 createSpy.mockRestore();
             });
 
-            it('should call the update method or the chart', () => {
+            it('should call the create method or the chart', () => {
                 const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
 
                 // Changing properties should trigger a componentDidUpdate
@@ -118,7 +118,7 @@ describe('Legend Chart Component', () => {
                     data: legendData.with6Points(),
                 });
 
-                let expected = 1;
+                let expected = 2;
                 let actual = createSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
@@ -147,7 +147,7 @@ describe('Legend Chart Component', () => {
                     width: expected,
                 });
 
-                let actual = createSpy.mock.calls[0][2].width;
+                let actual = createSpy.mock.calls[1][2].width;
 
                 expect(actual).toEqual(expected);
             });
