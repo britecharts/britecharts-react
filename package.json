@@ -20,12 +20,8 @@
     "graphs"
   ],
   "author": "Marcos Iglesias <golodhros@gmail.com> (http://www.marcosiglesias.com)",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "license": "Apache-2.0",
-  "files": [
-    "dist/",
-    "lib/"
-  ],
   "scripts": {
     "start": "webpack-dashboard -- nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
     "build": "yarn run build:storybook && webpack --env production --progress",
@@ -35,6 +31,7 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -c .storybook -o docs",
+    "prepare": "yarn run build",
     "release": "grunt release:patch",
     "release:minor": "grunt release:minor",
     "release:major": "grunt release:major"
