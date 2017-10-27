@@ -1,8 +1,10 @@
-import legend from './legend/legendComponent.js';
-import tooltip from './tooltip/tooltipComponent.js';
-import stackedArea from './stackedArea/stackedAreaComponent.js';
+import donut from './donut/DonutComponent';
+import legend from './legend/LegendComponent';
+import tooltip from './tooltip/TooltipComponent';
+import stackedArea from './stackedArea/StackedAreaComponent';
 
 export {
+    donut,
     legend,
     tooltip,
     stackedArea
