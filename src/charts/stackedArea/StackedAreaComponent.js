@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import stackedArea from './stackedAreaChart';
 
 
-export default class StackedArea extends React.Component {
+export default class StackedAreaComponent extends React.Component {
 
     static propTypes = {
         /**
