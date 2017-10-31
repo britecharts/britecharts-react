@@ -7,11 +7,6 @@ export default class TooltipComponent extends React.Component {
 
     static propTypes = {
         /**
-         * Child chart to render
-         */
-        children: PropTypes.element.isRequired,
-
-        /**
          * Exposes the ability to force the tooltip to use a certain date format
          */
         dateFormat: PropTypes.string,
@@ -54,7 +49,7 @@ export default class TooltipComponent extends React.Component {
         /**
          * Internally used, do not overwrite.
          */
-        chart: PropTypes.object.isRequired
+        chart: PropTypes.object,
     }
 
     static defaultProps = {

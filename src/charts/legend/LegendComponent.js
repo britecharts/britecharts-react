@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LegendChart from './LegendChart';
+import legendChart from './LegendChart';
 
 
 export default class Legend extends React.Component {
 
     static defaultProps = {
-        chart: LegendChart,
+        chart: legendChart,
     }
 
     static propTypes = {
@@ -29,10 +29,15 @@ export default class Legend extends React.Component {
         /**
          * Gets or Sets the margin of the legend chart
          */
-        margin: PropTypes.object,
+        margin: PropTypes.shape({
+            top: PropTypes.number,
+            bottom: PropTypes.number,
+            left: PropTypes.number,
+            right: PropTypes.number,
+        }),
         /**
-         * Gets or Sets the markerSize of the legend chart. This markerSize will determine 
-         * the horizontal and vertical size of the colored marks added as color 
+         * Gets or Sets the markerSize of the legend chart. This markerSize will determine
+         * the horizontal and vertical size of the colored marks added as color
          * identifiers for the chart's categories.
          */
         markerSize: PropTypes.number,
@@ -47,11 +52,11 @@ export default class Legend extends React.Component {
         /**
          * The data to be used by the chart
          */
-        data: PropTypes.array.isRequired,
+        data: PropTypes.arrayOf(PropTypes.any).isRequired,
         /**
          * Internally used, do not overwrite.
          */
-        chart: PropTypes.object.isRequired,
+        chart: PropTypes.object,
     }
 
     constructor(props) {

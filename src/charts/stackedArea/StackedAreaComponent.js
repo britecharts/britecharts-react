@@ -79,7 +79,7 @@ export default class StackedArea extends React.Component {
          */
         width: PropTypes.number,
         /**
-         * Exposes the ability to force the chart to show a certain x format 
+         * Exposes the ability to force the chart to show a certain x format
          * It requires a `xAxisFormat` of 'custom' in order to work.
          * NOTE: localization not supported
          */
@@ -107,7 +107,7 @@ export default class StackedArea extends React.Component {
         /**
          * Internally used, do not overwrite.
          */
-        chart: PropTypes.object.isRequired,
+        chart: PropTypes.object,
     }
 
     static defaultProps = {

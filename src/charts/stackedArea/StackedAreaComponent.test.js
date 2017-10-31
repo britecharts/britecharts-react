@@ -15,7 +15,7 @@ describe('Stacked Area Chart Component', () => {
 
         describe('when data is not passed', () => {
             it('should throw an error', () => {
-                expect(() => shallow(<StackedAreaComponent />)).toThrow();
+                expect(() => shallow(<StackedAreaComponent data={[]} />)).toThrow();
             });
         });
 
