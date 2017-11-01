@@ -1,12 +1,39 @@
 const path = require('path');
 
+// Themes
+// Check options in https://github.com/styleguidist/react-styleguidist/blob/master/src/styles/theme.js
+
 module.exports = {
     title: 'Britecharts React',
 
+    theme: {
+        color: {
+            base: '#333',
+            light: '#999',
+            lightest: '#ccc',
+            link: '#D2D6DF',
+            linkHover: '#FFFFFF',
+            border: '#e8e8e8',
+            name: '#FFA71A',
+            type: '#b77daa',
+            error: '#fff',
+            baseBackground: '#fff',
+            errorBackground: '#c00',
+            codeBackground: '#f5f5f5',
+            sidebarBackground: '#45494E',
+        }
+    },
+
+    styleguideComponents: {
+        Logo: path.join(__dirname, 'lib/styleguide/Logo')
+    },
+
     components: 'src/charts/**/*.js',
+
     require: [
         path.join(__dirname, 'node_modules/britecharts/dist/css/britecharts.min.css')
     ],
+
     webpackConfig: {
         module: {
             rules: [

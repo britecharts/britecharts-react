@@ -33,10 +33,8 @@
     "lint:fix": "eslint src/ webpack.*.js --cache --fix",
     "test:watch": "jest --watch",
     "test": "jest",
-    "storybook": "start-storybook -p 6006",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "build:storybook": "build-storybook -c .storybook -o docs",
     "release": "grunt release:patch",
     "release:minor": "grunt release:minor",
     "release:major": "grunt release:major"
