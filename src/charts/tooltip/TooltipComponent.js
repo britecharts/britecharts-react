@@ -5,19 +5,51 @@ import tooltip from './tooltipChart';
 
 export default class TooltipComponent extends React.Component {
 
-    static PropTypes = {
-        children: PropTypes.element.isRequired,
-
+    static propTypes = {
+        /**
+         * Exposes the ability to force the tooltip to use a certain date format
+         */
         dateFormat: PropTypes.string,
+        /**
+         * Gets or Sets the dateLabel of the data
+         */
         dateLabel: PropTypes.string,
+        /**
+         * Pass locale for the tooltip to render the date in
+         */
         locale: PropTypes.string,
+        /**
+         * Gets or Sets the nameLabel of the data
+         */
         nameLabel: PropTypes.string,
+        /**
+         * Gets or Sets shouldShowDateInTitle
+         */
         shouldShowDateInTitle: PropTypes.bool,
+        /**
+         * Gets or Sets the title of the tooltip (to only show the date, set a blank title)
+         */
         title: PropTypes.string,
+        /**
+         * Gets or Sets the topicLabel of the data
+         */
         topicLabel: PropTypes.string,
-        valueFormat: PropTypes.string,
-        valueLabel: PropTypes.string,
+        /**
+         * Pass an override for the ordering of your tooltip
+         */
         topicsOrder: PropTypes.arrayOf(PropTypes.string),
+        /**
+         * Gets or Sets the valueFormat of the tooltip
+         */
+        valueFormat: PropTypes.string,
+        /**
+         * Gets or Sets the valueLabel of the data
+         */
+        valueLabel: PropTypes.string,
+        /**
+         * Internally used, do not overwrite.
+         */
+        chart: PropTypes.object,
     }
 
     static defaultProps = {
