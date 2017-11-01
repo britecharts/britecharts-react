@@ -7,6 +7,7 @@ module.exports = {
     title: 'Britecharts React',
 
     theme: {
+        sidebarWidth: 262,
         color: {
             base: '#333',
             light: '#999',
@@ -31,7 +32,8 @@ module.exports = {
     components: 'src/charts/**/*.js',
 
     require: [
-        path.join(__dirname, 'node_modules/britecharts/dist/css/britecharts.min.css')
+        path.join(__dirname, 'node_modules/britecharts/dist/css/britecharts.min.css'),
+        path.join(__dirname, 'lib/styles/custom.css')
     ],
 
     webpackConfig: {
