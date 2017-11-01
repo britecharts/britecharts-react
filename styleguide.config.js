@@ -53,7 +53,9 @@ module.exports = {
                 }
             ]
         }
-    }
+    },
+
+    styleguideDir: 'docs'
 };
 
 
