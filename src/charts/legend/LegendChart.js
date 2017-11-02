@@ -46,3 +46,5 @@ legend.destroy = (el) => {
 };
 
 export default legend;
+
+

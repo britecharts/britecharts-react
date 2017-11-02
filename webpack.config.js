@@ -17,10 +17,11 @@ const PATHS = {
 
 const BUNDLE = path.join(__dirname, 'src/charts/index.js');
 const CHARTS = {
-    StackedArea: [ 'core-js/modules/es7.array.includes', `${PATHS.charts}/stackedArea/StackedAreaComponent.js`],
+    StackedArea: `${PATHS.charts}/stackedArea/StackedAreaComponent.js`,
     Legend: `${PATHS.charts}/legend/LegendComponent.js`,
     Tooltip: `${PATHS.charts}/tooltip/TooltipComponent.js`,
 };
+    // StackedArea: [ 'core-js/modules/es7.array.includes', `${PATHS.charts}/stackedArea/StackedAreaComponent.js`],
 
 
 // Configurations
@@ -34,13 +35,7 @@ const commonSplittedConfig = merge([
         plugins: [
             new HtmlWebpackPlugin({
                 title: 'Webpack demo',
-            }),
-            // If you require a missing module and then `npm install` it, you still have
-            // to restart the development server for Webpack to discover it. This plugin
-            // makes the discovery automatic so you don't have to restart.
-            // See https://github.com/facebookincubator/create-react-app/issues/186
-            new WatchMissingNodeModulesPlugin(path.resolve('node_modules')),
-            // new DashboardPlugin({port: process.env.PORT}),
+            })
         ],
         externals: {
             'react/addons': true,
@@ -74,6 +69,14 @@ const developmentConfig = merge([
         port: process.env.PORT,
     }),
     {
+        plugins: [
+            // If you require a missing module and then `npm install` it, you still have
+            // to restart the development server for Webpack to discover it. This plugin
+            // makes the discovery automatic so you don't have to restart.
+            // See https://github.com/facebookincubator/create-react-app/issues/186
+            new WatchMissingNodeModulesPlugin(path.resolve('node_modules')),
+            new DashboardPlugin({port: process.env.PORT}),
+        ],
         output: {
             devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
         },
@@ -95,7 +98,7 @@ const libraryUMDConfig = merge([
     },
     parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
-    // parts.bundleTreeChart(),
+    parts.bundleTreeChart(),
     parts.minifyJavaScript(),
 ]);
 
@@ -136,11 +139,11 @@ module.exports = (env) => {
     console.log('%%%%%%%% env', env);
 
     if (env === 'production') {
-        return merge([
+        return [
             libraryESMConfig,
             libraryUMDConfig,
             bundleConfig,
-        ]);
+        ];
     }
 
     return merge(commonSplittedConfig, developmentConfig);
