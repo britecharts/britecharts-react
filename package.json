@@ -31,7 +31,6 @@
     "test": "jest",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "prepare": "yarn run build",
     "release": "grunt release:patch",
     "release:minor": "grunt release:minor",
     "release:major": "grunt release:major"
