@@ -108,12 +108,11 @@ const libraryESMConfig = merge([
     {
         output: {
             path: PATHS.esm,
-            filename: '[name].min.js',
+            filename: '[name].js',
         },
     },
     parts.babelReactLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
-    parts.minifyJavaScript(),
 ]);
 
 const bundleConfig = merge([
