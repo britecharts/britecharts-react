@@ -26,14 +26,14 @@ module.exports = {
     },
 
     styleguideComponents: {
-        Logo: path.join(__dirname, 'lib/styleguide/Logo')
+        Logo: path.join(__dirname, 'src/docs/styleguide/Logo')
     },
 
     components: 'src/charts/**/*.js',
 
     require: [
         path.join(__dirname, 'node_modules/britecharts/dist/css/britecharts.min.css'),
-        path.join(__dirname, 'lib/styles/custom.css')
+        path.join(__dirname, 'src/docs/styles/custom.css')
     ],
 
     webpackConfig: {
