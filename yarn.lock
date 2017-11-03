@@ -1812,9 +1812,9 @@ brcast@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/brcast/-/brcast-3.0.1.tgz#6256a8349b20de9eed44257a9b24d71493cd48dd"
 
-britecharts@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/britecharts/-/britecharts-2.2.0.tgz#9efc89a8484360f3c76cb312572953dd98ce8343"
+britecharts@^2.3.1:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/britecharts/-/britecharts-2.4.0.tgz#5aa5108795f21878cc0440286d8e5f70c2ae41ef"
   dependencies:
     base-64 "^0.1.0"
     d3 "^4.10.0"
