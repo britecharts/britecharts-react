@@ -59,8 +59,15 @@ export default class TooltipComponent extends React.Component {
     constructor(props) {
         super(props);
 
-        if (this.props.render) {
-            this.childChart = this.props.render({
+        if (props.render) {
+            this.childChart = props.render({
+                createTooltip: () => {
+                    let tooltipContainer = this._rootNode.querySelector('.metadata-group .vertical-marker-container');
+
+                    if (tooltipContainer) {
+                        this.props.chart.create(tooltipContainer, this._getChartConfiguration());
+                    }
+                },
                 customMouseMove: this._handleMouseMove.bind(this),
                 customMouseOut: this._handleMouseOut.bind(this),
                 customMouseOver: this._handleMouseOver.bind(this),
