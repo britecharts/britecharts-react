@@ -102,7 +102,7 @@ describe('Stacked Area Chart Component', () => {
             let createSpy;
 
             beforeEach(() => {
-                createSpy = jest.spyOn(stackedArea, 'update');
+                createSpy = jest.spyOn(stackedArea, 'create');
             });
 
             afterEach(() => {
@@ -110,7 +110,7 @@ describe('Stacked Area Chart Component', () => {
                 createSpy.mockRestore();
             });
 
-            it('should call the update method or the chart', () => {
+            it('should call the create method or the chart', () => {
                 const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
 
                 // Changing properties should trigger a componentDidUpdate
@@ -118,13 +118,13 @@ describe('Stacked Area Chart Component', () => {
                     data: stackedAreaData.with2Sources(),
                 });
 
-                let expected = 1;
+                let expected = 2;
                 let actual = createSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
 
-            it('should pass in the new data to the update method', () => {
+            it('should pass in the new data to the create method', () => {
                 const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
 
                 // Changing properties should trigger a componentDidUpdate
@@ -133,12 +133,12 @@ describe('Stacked Area Chart Component', () => {
                 });
 
                 let expected = stackedAreaData.with2Sources().length;
-                let actual = createSpy.mock.calls[0][1].length;
+                let actual = createSpy.mock.calls[1][1].length;
 
                 expect(actual).toEqual(expected);
             });
 
-            it('should pass in the new configuration to the update method', () => {
+            it('should pass in the new configuration to the create method', () => {
                 const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
                 const expected = 20;
 
@@ -147,7 +147,7 @@ describe('Stacked Area Chart Component', () => {
                     width: expected,
                 });
 
-                let actual = createSpy.mock.calls[0][2].width;
+                let actual = createSpy.mock.calls[1][2].width;
 
                 expect(actual).toEqual(expected);
             });

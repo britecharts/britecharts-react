@@ -1,6 +1,6 @@
-import legend from './legend/legendComponent.js';
-import tooltip from './tooltip/tooltipComponent.js';
-import stackedArea from './stackedArea/stackedAreaComponent.js';
+import legend from './legend/LegendComponent.js';
+import tooltip from './tooltip/TooltipComponent.js';
+import stackedArea from './stackedArea/StackedAreaComponent.js';
 
 export {
     legend,

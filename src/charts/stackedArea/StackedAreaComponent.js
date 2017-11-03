@@ -112,6 +112,7 @@ export default class StackedAreaComponent extends React.Component {
 
     static defaultProps = {
         chart: stackedArea,
+        createTooltip: () => null,
     }
 
     constructor(props) {
@@ -128,7 +129,10 @@ export default class StackedAreaComponent extends React.Component {
     }
 
     componentDidUpdate() {
-        this.props.chart.update(this._rootNode, this.props.data, this._getChartConfiguration());
+        this.props.chart.destroy(this._rootNode);
+        this.props.chart.create(this._rootNode, this.props.data, this._getChartConfiguration());
+
+        this.props.createTooltip();
     }
 
     componentWillUnmount() {
@@ -144,6 +148,7 @@ export default class StackedAreaComponent extends React.Component {
 
         delete configuration.data;
         delete configuration.chart;
+        delete configuration.createTooltip;
 
         return configuration;
     }

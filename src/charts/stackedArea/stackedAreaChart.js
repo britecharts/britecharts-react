@@ -32,7 +32,7 @@ stackedArea.update = (el, data, configuration = {}) => {
     let chartConfigured = applyConfiguration(chart, configuration);
 
     // Calls the chart with the container and dataset
-    if (data && data.length) {
+    if (data) {
         container.datum(data).call(chartConfigured);
     } else {
         container.call(chartConfigured);
@@ -41,8 +41,8 @@ stackedArea.update = (el, data, configuration = {}) => {
     return chartConfigured;
 };
 
-stackedArea.destroy = () => {
-    // Cleanup methods here
+stackedArea.destroy = (el) => {
+    el.innerHTML = '';
 };
 
 export default stackedArea;
