@@ -22,7 +22,10 @@ module.exports = {
             errorBackground: '#c00',
             codeBackground: '#f5f5f5',
             sidebarBackground: '#45494E',
-        }
+        },
+        fontFamily: {
+            base: '"Rubik", sans-serif',
+        },
     },
 
     styleguideComponents: {
