@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
 .logo__image {
     max-width: 100%;
 }
