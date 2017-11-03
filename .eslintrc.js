@@ -26,5 +26,6 @@ module.exports = {
         'no-multiple-empty-lines': 0,
 
         'react/forbid-prop-types': 0,
+        'no-param-reassign': 0,
     },
 };
