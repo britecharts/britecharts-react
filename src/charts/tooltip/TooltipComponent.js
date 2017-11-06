@@ -61,6 +61,7 @@ export default class TooltipComponent extends React.Component {
 
         if (props.render) {
             this.childChart = props.render({
+                data: props.data,
                 createTooltip: () => {
                     let tooltipContainer = this._rootNode.querySelector('.metadata-group .vertical-marker-container');
 
