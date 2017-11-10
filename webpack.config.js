@@ -99,7 +99,7 @@ const libraryUMDConfig = merge([
     parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
     parts.bundleTreeChart(),
-    parts.minifyJavaScript(),
+    // parts.minifyJavaScript(),
 ]);
 
 const libraryESMConfig = merge([
@@ -130,7 +130,7 @@ const bundleConfig = merge([
     },
     parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
-    parts.minifyJavaScript(),
+    // parts.minifyJavaScript(),
 ]);
 
 
