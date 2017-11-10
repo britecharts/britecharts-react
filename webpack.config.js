@@ -98,8 +98,8 @@ const libraryUMDConfig = merge([
     },
     parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
-    parts.bundleTreeChart(),
-    // parts.minifyJavaScript(),
+    // parts.bundleTreeChart(),
+    parts.minifyJavaScript(),
 ]);
 
 const libraryESMConfig = merge([
@@ -125,12 +125,12 @@ const bundleConfig = merge([
             path: PATHS.build,
             filename: 'britecharts-react.min.js',
             library: ['britecharts-react'],
-            libraryTarget: 'umd',
+            libraryTarget: 'commonjs2',
         },
     },
     parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
-    // parts.minifyJavaScript(),
+    parts.minifyJavaScript(),
 ]);
 
 
