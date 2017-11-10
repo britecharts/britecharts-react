@@ -1,6 +1,6 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BabelMinifyWebpackPlugin = require('babel-minify-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const webpack = require('webpack');
 
 
 exports.devServer = ({ host, port } = {}) => ({
@@ -90,7 +90,32 @@ exports.clean = (path) => ({
 
 exports.minifyJavaScript = () => ({
     plugins: [
-        new BabelMinifyWebpackPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            beautify: false,
+            comments: false,
+            mangle: {
+                'screw_ie8': true,
+                'keep_fnames': true,
+            },
+            parallel: {
+                cache: true,
+                workers: 2,
+            },
+            compress: {
+                'screw_ie8': true,
+                'properties': true,
+                'drop_debugger': true,
+                'dead_code': true,
+                'conditionals': true,
+                'booleans': true,
+                'unused': true,
+                'if_return': true,
+                'join_vars': true,
+                'drop_console': true,
+                'warnings': false,
+            },
+        }),
     ],
 });
 
