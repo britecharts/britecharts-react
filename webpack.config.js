@@ -17,6 +17,7 @@ const PATHS = {
 
 const BUNDLE = path.join(__dirname, 'src/charts/index.js');
 const CHARTS = {
+    Donut: `${PATHS.charts}/donut/DonutComponent.js`,
     StackedArea: `${PATHS.charts}/stackedArea/StackedAreaComponent.js`,
     Legend: `${PATHS.charts}/legend/LegendComponent.js`,
     Tooltip: `${PATHS.charts}/tooltip/TooltipComponent.js`,
@@ -35,7 +36,7 @@ const commonSplittedConfig = merge([
         plugins: [
             new HtmlWebpackPlugin({
                 title: 'Webpack demo',
-            })
+            }),
         ],
         externals: {
             'react/addons': true,
