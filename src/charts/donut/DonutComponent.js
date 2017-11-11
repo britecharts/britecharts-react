@@ -2,31 +2,78 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import donut from './donutChart';
 
-
-export default class Donut extends Component {
+export default class DonutComponent extends Component {
 
     static PropTypes = {
+        /**
+         * Internally used, do not overwrite.
+         */
         data: PropTypes.array.isRequired,
 
+        /**
+         * Gets or Sets the colorSchema of the chart
+         */
         colorSchema: PropTypes.arrayOf(PropTypes.string),
+
+        /**
+         * Gets or Sets the externalRadius of the chart
+         */
         externalRadius: PropTypes.number,
+
+        /**
+         * Gets or Sets the hasFixedHighlightedSlice property of the chart, making it
+         * to highlight the selected slice id set with `highlightSliceById` all the time.
+         */
         hasFixedHighlightedSlice: PropTypes.boolean,
+
+        /**
+         * Gets or Sets the height of the chart
+         */
         height: PropTypes.number,
+
+        /**
+         * Gets or Sets the id of the slice to highlight
+         */
         highlightSliceById: PropTypes.number,
+
+        /**
+         * Gets or Sets the internalRadius of the chart
+         */
         internalRadius: PropTypes.number,
+
+        /**
+         * Gets or Sets the isAnimated property of the chart, making it to animate
+         * when render. By default this is 'false'
+         */
         isAnimated: PropTypes.boolean,
+
+        /**
+         * Gets or Sets the margin of the chart
+         */
         margin: PropTypes.shape({
             top: PropTypes.number,
             bottom: PropTypes.number,
             left: PropTypes.number,
             right: PropTypes.number,
         }),
+
+        /**
+         * Changes the order of items given custom function
+         */
         orderingFunction: PropTypes.func,
+
+        /**
+         * Gets or Sets the width of the chart
+         */
         width: PropTypes.number,
 
         customMouseOver: PropTypes.func,
-        customMouseMove: PropTypes.func,
         customMouseOut: PropTypes.func,
+
+        /**
+         * Internally used, do not overwrite.
+         */
+        chart: PropTypes.object,
     }
 
     static defaultProps = {

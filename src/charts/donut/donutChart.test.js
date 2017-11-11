@@ -138,20 +138,6 @@ describe('Donut Chart', () => {
                     expect(actual).toEqual(expected);
                 });
 
-                it('should set customMouseMove callback', () => {
-                    const expected = jest.fn();
-
-                    const chart = donut.create(
-                        anchor,
-                        donutData(),
-                        {customMouseMove: expected}
-                    );
-
-                    const actual = chart.on('customMouseMove');
-
-                    expect(actual).toEqual(expected);
-                });
-
                 it('should set customMouseOut callback', () => {
                     const expected = jest.fn();
 
