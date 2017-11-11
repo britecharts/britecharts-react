@@ -1,24 +1,62 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LegendChart from './LegendChart';
+import legendChart from './LegendChart';
 
 
-export default class Legend extends React.Component {
+export default class LegendComponent extends React.Component {
 
     static defaultProps = {
-        chart: LegendChart,
+        chart: legendChart,
     }
 
-    static PropTypes = {
+    static propTypes = {
+        /**
+         * Gets or Sets the colorSchema of the chart
+         */
         colorSchema: PropTypes.arrayOf(PropTypes.string),
+        /**
+         * Gets or Sets the height of the legend chart
+         */
         height: PropTypes.number,
+        /**
+         * Highlights a line entry by fading the rest of lines
+         */
         highlight: PropTypes.number,
+        /**
+         * Gets or Sets the horizontal mode on the legend
+         */
         isHorizontal: PropTypes.bool,
-        margin: PropTypes.object,
+        /**
+         * Gets or Sets the margin of the legend chart
+         */
+        margin: PropTypes.shape({
+            top: PropTypes.number,
+            bottom: PropTypes.number,
+            left: PropTypes.number,
+            right: PropTypes.number,
+        }),
+        /**
+         * Gets or Sets the markerSize of the legend chart. This markerSize will determine
+         * the horizontal and vertical size of the colored marks added as color
+         * identifiers for the chart's categories.
+         */
         markerSize: PropTypes.number,
+        /**
+         * Gets or Sets the number format of the legend chart
+         */
         numberFormat: PropTypes.string,
+        /**
+         * Gets or Sets the width of the chart
+         */
         width: PropTypes.number,
-        data: PropTypes.array.isRequired,
+        /**
+         * The data to be used by the chart
+         */
+        data: PropTypes.arrayOf(PropTypes.any).isRequired,
+        /**
+         * Internally used, do not overwrite.
+         */
+        chart: PropTypes.object,
     }
 
     constructor(props) {
@@ -35,7 +73,9 @@ export default class Legend extends React.Component {
     }
 
     componentDidUpdate() {
-        this.props.chart.update(this._rootNode, this.props.data, this._getChartConfiguration());
+        this.props.chart.destroy(this._rootNode);
+
+        this.props.chart.create(this._rootNode, this.props.data, this._getChartConfiguration());
     }
 
     componentWillUnmount() {
