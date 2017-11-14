@@ -91,11 +91,6 @@ module.exports = {
                 },
             ],
         },
-
-        // {
-        //     name: 'Changelog',
-        //     content: './CHANGELOG.md',
-        // },
     ],
 
     styleguideDir: 'docs',
