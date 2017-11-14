@@ -55,6 +55,8 @@ export default class LegendComponent extends React.Component {
         data: PropTypes.arrayOf(PropTypes.any).isRequired,
         /**
          * Internally used, do not overwrite.
+         *
+         * @ignore
          */
         chart: PropTypes.object,
     }
