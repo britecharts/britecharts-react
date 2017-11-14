@@ -1,9 +1,45 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 
 body {
-    font-family: 'Rubik', sans-serif;
+    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+h1, h2 {
+    font-weight: 300;
+}
+
+/* Sidebar */
+a {
+    color: '#D2D6DF';
+}
+a:hover,
+a:active,
+a:focus {
+    color: '#FFFFFF';
+}
+
+/* Logo */
+.rgs--logo-5 {
+    padding: 24px;
+    border-bottom: none;
 }
 
 .logo__image {
     max-width: 100%;
+}
+
+
+/* Search */
+.rsg--search-65 {
+    padding: 0 16px 16px 16px;
+}
+.rsg--input-65 {
+    border: none;
+    border-radius: 2px;
+}
+
+
+/* Body */
+.rsg--content-3 {
+    padding: 64px 32px;
 }

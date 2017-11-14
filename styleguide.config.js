@@ -13,7 +13,7 @@ module.exports = {
             light: '#999',
             lightest: '#ccc',
             link: '#D2D6DF',
-            linkHover: '#FFFFFF',
+            linkHover: '#6AEDC7',
             border: '#e8e8e8',
             name: '#FFA71A',
             type: '#b77daa',
