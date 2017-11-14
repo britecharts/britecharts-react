@@ -29,7 +29,7 @@ From there, we will proceed to pass each of the configurations through the usual
 ```
 
 ## Installation
-Britecharts-React will be available as an NPM module or through CDN links.
+Britecharts-React is available as an [NPM module][npmModule] or through CDN links (in [different formats][jsDelivrLib] or a [bundle][jsDelivrDist]).
 
 You can use either minified individual UMD modules(lib/umd), a minified UMD bundle(dist/) or un-minified and un-transpiled ES2015 modules(lib/esm) to add to your bundle.
 
@@ -70,3 +70,6 @@ Read more in the [license document][licenseGithub]
 [license]: https://www.apache.org/licenses/LICENSE-2.0
 [licenseGithub]: https://github.com/eventbrite/britecharts-react/blob/master/LICENSE.md
 [topics]: https://github.com/eventbrite/britecharts-react/blob/master/TOPICS.md
+[jsDelivrLib]: https://cdn.jsdelivr.net/npm/britecharts-react@0.1.17/lib/
+[jsDelivrDist]: https://cdn.jsdelivr.net/npm/britecharts-react@0.1.17/dist/
+[npmModule]: https://www.npmjs.com/package/britecharts-react
