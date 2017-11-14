@@ -70,8 +70,11 @@ module.exports = {
             sections: [
                 {
                     name: 'Stacked Area Chart',
-                    content: 'src/charts/stackedArea/Readme.md',
                     components: 'src/charts/stackedArea/StackedAreaComponent.js',
+                },
+                {
+                    name: 'Donut Chart',
+                    components: 'src/charts/donut/DonutComponent.js',
                 },
             ],
         },
@@ -80,12 +83,10 @@ module.exports = {
             sections: [
                 {
                     name: 'Legend',
-                    content: 'src/charts/legend/Readme.md',
                     components: 'src/charts/legend/LegendComponent.js',
                 },
                 {
                     name: 'Tooltip',
-                    content: 'src/charts/tooltip/Readme.md',
                     components: 'src/charts/tooltip/TooltipComponent.js',
                 },
             ],
@@ -100,29 +101,3 @@ module.exports = {
     styleguideDir: 'docs',
 };
 
-
-// Sections
-// sections: [
-  //   {
-  //     name: 'Introduction',
-  //     content: 'docs/introduction.md'
-  //   },
-  //   {
-  //     name: 'Documentation',
-  //     sections: [
-  //       {
-  //         name: 'Installation',
-  //         content: 'docs/installation.md'
-  //       },
-  //       {
-  //         name: 'Configuration',
-  //         content: 'docs/configuration.md'
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     name: 'UI Components',
-  //     content: 'docs/ui.md',
-  //     components: 'lib/components/ui/*.js'
-  //   }
-  // ]
