@@ -48,6 +48,8 @@ export default class TooltipComponent extends React.Component {
         valueLabel: PropTypes.string,
         /**
          * Internally used, do not overwrite.
+         *
+         * @ignore
          */
         chart: PropTypes.object,
     }
