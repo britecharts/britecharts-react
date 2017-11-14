@@ -5,7 +5,7 @@ Britecharts-react is a [React][react] wrapper for the [Britecharts][britecharts]
 ## Usage
 Britecharts-React components are used just like any other stateless React component. You will pass in some props and it would render a chart:
 
-```
+```js static
 <StackedAreaComponent
     data={stackedAreaData.with2Sources()}
     width={600}
@@ -18,14 +18,13 @@ Britecharts-React components are used just like any other stateless React compon
 Each component's API will be a reflect of [Britecharts][britecharts] charts and their APIs. That way, if we need to render a bar chart, we will first check the [bar chart's API][barChartAPI] in the main project API reference page. You can read more about the approach [here][topics]
 
 From there, we will proceed to pass each of the configurations through the usual props as we do in React projects:
-```
-    <BarComponent
-        data={...}
-        width={400}
-        isHorizontal={true}
-        margin={marginObject}
-    >
-
+```js static
+<BarComponent
+    data={barData.with2Entries()}
+    width={400}
+    isHorizontal={true}
+    margin={marginObject}
+>
 ```
 
 ## Installation
@@ -35,11 +34,7 @@ You can use either minified individual UMD modules(lib/umd), a minified UMD bund
 
 
 ## Next steps
-From a broad point of view, we need to:
-
-0. Iterate over our initial charts
-0. Create the rest of wrappers for Britecharts components
-0. Keep it up to date
+We are accepting PRs for creating wrappers for Britecharts components. Check our [contributing guide][contributingGuide], drop by the #britecharts channel in the [d3 slack][d3Slack] or just create an issue if you want to know more.
 
 
 ## Acknowledgments
@@ -73,3 +68,5 @@ Read more in the [license document][licenseGithub]
 [jsDelivrLib]: https://cdn.jsdelivr.net/npm/britecharts-react@0.1.17/lib/
 [jsDelivrDist]: https://cdn.jsdelivr.net/npm/britecharts-react@0.1.17/dist/
 [npmModule]: https://www.npmjs.com/package/britecharts-react
+[contributingGuide]: https://github.com/eventbrite/britecharts-react/blob/master/CONTRIBUTING.md
+[d3Slack]: https://d3js.slack.com/

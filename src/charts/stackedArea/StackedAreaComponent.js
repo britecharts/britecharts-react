@@ -106,6 +106,8 @@ export default class StackedAreaComponent extends React.Component {
 
         /**
          * Internally used, do not overwrite.
+         *
+         * @ignore
          */
         chart: PropTypes.object,
     }

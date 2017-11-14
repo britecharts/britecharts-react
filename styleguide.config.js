@@ -1,5 +1,7 @@
 const path = require('path');
 
+const resolve = (searchPath) => path.join(__dirname, searchPath);
+
 // Themes
 // Check options in https://github.com/styleguidist/react-styleguidist/blob/master/src/styles/theme.js
 
@@ -24,19 +26,19 @@ module.exports = {
             sidebarBackground: '#45494E',
         },
         fontFamily: {
-            base: '"Rubik", sans-serif',
+            base: '"Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif',
         },
     },
 
     styleguideComponents: {
-        Logo: path.join(__dirname, 'src/docs/styleguide/Logo')
+        Logo: resolve('src/docs/styleguide/Logo'),
     },
 
-    components: 'src/charts/**/*.js',
+    components: 'src/charts/**/[A-Z]*.js',
 
     require: [
-        path.join(__dirname, 'node_modules/britecharts/dist/css/britecharts.min.css'),
-        path.join(__dirname, 'src/docs/styles/custom.css')
+        resolve('node_modules/britecharts/dist/css/britecharts.min.css'),
+        resolve('src/docs/styles/custom.css'),
     ],
 
     webpackConfig: {
@@ -45,20 +47,57 @@ module.exports = {
                 {
                     test: /\.js?$/,
                     exclude: /node_modules/,
-                    loader: 'babel-loader'
+                    loader: 'babel-loader',
                 },
                 {
                     test: /\.css$/,
-                    use: [
+                    loader: [
                         'style-loader',
-                        'css-loader'
-                    ]
-                }
-            ]
-        }
+                        'css-loader',
+                    ],
+                },
+            ],
+        },
     },
 
-    styleguideDir: 'docs'
+    sections: [
+        {
+            name: 'Introduction',
+            content: './README.md',
+        },
+        {
+            name: 'Charts',
+            sections: [
+                {
+                    name: 'Stacked Area Chart',
+                    content: 'src/charts/stackedArea/Readme.md',
+                    components: 'src/charts/stackedArea/StackedAreaComponent.js',
+                },
+            ],
+        },
+        {
+            name: 'Chart Components',
+            sections: [
+                {
+                    name: 'Legend',
+                    content: 'src/charts/legend/Readme.md',
+                    components: 'src/charts/legend/LegendComponent.js',
+                },
+                {
+                    name: 'Tooltip',
+                    content: 'src/charts/tooltip/Readme.md',
+                    components: 'src/charts/tooltip/TooltipComponent.js',
+                },
+            ],
+        },
+
+        // {
+        //     name: 'Changelog',
+        //     content: './CHANGELOG.md',
+        // },
+    ],
+
+    styleguideDir: 'docs',
 };
 
 

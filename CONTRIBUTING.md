@@ -24,7 +24,7 @@
 
 0. Fork repository by clicking the fork button on github
 0. Clone repository with `git clone https://github.com/<your handle>/britecharts-react.git`
-0. Navigate to the repository folder and install dependencies with: `yarn install` (we are using node 6.11.x at the moment)
+0. Navigate to the repository folder and install dependencies with: `yarn install` (we require [node][node] 6.11.x at the moment)
 0. If you don't have yarn installed, it can be easily installed with homebrew following the instruction in the [yarn docs][yarn]
 
 
@@ -148,12 +148,11 @@ The build sequence consists of a small set of [Node][node] tasks. While you'll p
 | `yarn run release:minor`   | Create a new release of the library by bumping the second number of the version (1.N.1)
 | `yarn run release:major`   | Create a new release of the library by bumping the third number of the version (N.1.1)
 
-
 ## Project Structure
 
 The default directory structure looks something like this:
 
-```
+``` static
 britecharts-react
 ├── dist
 ├── docs
@@ -179,5 +178,4 @@ britecharts-react
 
 
 [node]: http://nodejs.org
-[styleguide]: https://github.com/eventbrite/britecharts/blob/master/CODESTYLEGUIDE.md
 [yarn]: https://yarnpkg.com/lang/en/docs/install/
