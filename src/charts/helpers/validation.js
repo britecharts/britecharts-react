@@ -22,7 +22,7 @@ export const validateContainer = (container) => {
 };
 
 export const validateData = (data) => {
-    if (!data) {
+    if (!data || !data.length) {
         throw Error('Data must be defined');
     }
 };

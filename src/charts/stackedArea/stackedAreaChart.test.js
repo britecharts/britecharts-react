@@ -34,7 +34,14 @@ describe('Stacked Area Chart', () => {
                         );
                     }).toThrowError('Data must be defined');
                 });
+
+                it('should throw an error with empty data', () => {
+                    expect(() => {
+                        stackedArea.create(anchor, [], {});
+                    }).toThrowError('Data must be defined');
+                });
             });
+
 
             describe('when a non-supported method is passed', () => {
                 it('should throw an error', () => {
@@ -207,7 +214,7 @@ describe('Stacked Area Chart', () => {
                     const dataSet = stackedAreaData.with3Sources();
 
                     stackedArea.create(anchor, dataSet, {});
-                    stackedArea.update(anchor, dataSet, {});
+                    stackedArea.update(anchor, [], {});
 
                     const expected = dataSet.length;
                     const actual = anchor.__data__.length;
