@@ -11,10 +11,11 @@
 ### with 500px width and 200px height
 ```js
     const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
+    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
+    const WrappedComponent = withResponsiveness(StackedAreaComponent);
 
-    <StackedAreaComponent
+    <WrappedComponent
         data={stackedAreaData.with3Sources()}
-        width={500}
         height={200}
     />
 ```
