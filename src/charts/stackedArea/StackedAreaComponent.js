@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import stackedArea from './stackedAreaChart';
-import responsiveWrapper from '../helpers/ResponsiveWrapper';
 
 
 class StackedAreaComponent extends React.Component {
@@ -129,12 +128,21 @@ class StackedAreaComponent extends React.Component {
 
     componentDidMount() {
 console.log('SAC --- componentDidMount', this._getChartConfiguration());
-        this.props.chart.create(this._rootNode, this.props.data, this._getChartConfiguration());
+        this._chart = this.props.chart.create(
+            this._rootNode,
+            this.props.data,
+            this._getChartConfiguration()
+        );
     }
 
     componentDidUpdate() {
 console.log('SAC --- componentDidUpdate', this._getChartConfiguration().width);
-        this.props.chart.update(this._rootNode, this.props.data, this._getChartConfiguration());
+        this.props.chart.update(
+            this._rootNode,
+            this.props.data,
+            this._getChartConfiguration(),
+            this._chart
+        );
 
         this.props.createTooltip();
     }
@@ -171,5 +179,4 @@ console.log('SAC --- componentWillUnmount');
     }
 }
 
-// export default StackedAreaComponent;
-export default responsiveWrapper(StackedAreaComponent);
+export default StackedAreaComponent;

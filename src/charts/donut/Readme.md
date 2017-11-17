@@ -1,8 +1,10 @@
-### with default styles
+### with default styles and responsive
 ```js
   const donutData = require('../../helpers/testData.js').donutData;
+  const withResponsiveness = require('../helpers/withResponsiveness.js').default;
+  const ResponsiveDonut = withResponsiveness(DonutComponent);
 
-  <DonutComponent data={donutData()} />
+  <ResponsiveDonut data={donutData()} width={400} height={400} />
 ```
 
 ### with custom size

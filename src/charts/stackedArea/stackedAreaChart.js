@@ -4,48 +4,42 @@ import {validateConfiguration, validateContainer, validateData} from '../helpers
 import {applyConfiguration} from '../helpers/configuration';
 
 const stackedArea = {};
-let chart;
 
 stackedArea.create = (el, data, configuration = {}) => {
     let container = select(el);
-
-    chart = stackedAreaChart();
+    let chart = stackedAreaChart();
 
     validateData(data);
     validateContainer(container);
     validateConfiguration(chart, configuration);
 
-    let chartConfigured = applyConfiguration(chart, configuration);
-
     // Calls the chart with the container and dataset
-    container.datum(data).call(chartConfigured);
+    container.datum(data).call(applyConfiguration(chart, configuration));
 
-    return chartConfigured;
+    return chart;
 };
 
-stackedArea.update = (el, data, configuration = {}) => {
+stackedArea.update = (el, data, configuration = {}, chart) => {
     let container = select(el);
 
     // TODO: Figure out why it won't work without doing this
     // when there are more than 1 chart of the same type
-    el.innerHTML = '';
-    chart = stackedAreaChart();
+    // el.innerHTML = '';
+    // chart = stackedAreaChart();
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
-
-    let chartConfigured = applyConfiguration(chart, configuration);
+    applyConfiguration(chart, configuration);
 
     // Calls the chart with the container and dataset
     if (data && data.length) {
         validateData(data);
-
-        container.datum(data).call(chartConfigured);
+        container.datum(data).call(chart);
     } else {
-        container.call(chartConfigured);
+        container.call(chart);
     }
 
-    return chartConfigured;
+    return chart;
 };
 
 stackedArea.destroy = () => {

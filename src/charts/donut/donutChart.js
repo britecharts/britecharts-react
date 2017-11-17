@@ -4,41 +4,36 @@ import {validateConfiguration, validateContainer, validateData} from '../helpers
 import {applyConfiguration} from '../helpers/configuration';
 
 const donut = {};
-let chart;
 
 donut.create = (el, data, configuration = {}) => {
     let container = select(el);
-
-    chart = donutChart();
+    let chart = donutChart();
 
     validateData(data);
     validateContainer(container);
     validateConfiguration(chart, configuration);
 
-    let chartConfigured = applyConfiguration(chart, configuration);
-
     // Calls the chart with the container and dataset
-    container.datum(data).call(chartConfigured);
+    container.datum(data).call(applyConfiguration(chart, configuration));
 
-    return chartConfigured;
+    return chart;
 };
 
-donut.update = (el, data, configuration = {}) => {
+donut.update = (el, data, configuration = {}, chart) => {
     let container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
-
-    let chartConfigured = applyConfiguration(chart, configuration);
+    applyConfiguration(chart, configuration);
 
     // Calls the chart with the container and dataset
     if (data) {
-        container.datum(data).call(chartConfigured);
+        container.datum(data).call(chart);
     } else {
-        container.call(chartConfigured);
+        container.call(chart);
     }
 
-    return chartConfigured;
+    return chart;
 };
 
 donut.destroy = (el) => {
