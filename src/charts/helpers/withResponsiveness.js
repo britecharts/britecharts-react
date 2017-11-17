@@ -15,7 +15,7 @@ export default function(Component) {
         }
 
         componentWillUnmount() {
-            optimizedResize.remove();
+            optimizedResize.clearAll();
 
             this.updateSize();
         }

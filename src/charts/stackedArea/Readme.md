@@ -1,4 +1,4 @@
-<!-- ### with 3 sources data
+### with 3 sources data
 ```js
     const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
 
@@ -7,15 +7,14 @@
     />
 ```
 
+
 ### with 500px width and 200px height
 ```js
     const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
-    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const WrappedComponent = withResponsiveness(StackedAreaComponent);
 
-    <WrappedComponent
-        isAnimated={true}
+    <StackedAreaComponent
         data={stackedAreaData.with3Sources()}
+        width={500}
         height={200}
     />
 ```
@@ -48,16 +47,14 @@
         customMouseMove={logMouseMoveTooltip}
         customMouseOut={logMouseOut}
     />
-``` -->
+```
 
 
 ### with 2 sources data and Tooltip
 ```js
     const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
-    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const WrappedComponent = withResponsiveness(StackedAreaComponent);
     const renderStackedAreaComponent = (props) => (
-        <WrappedComponent
+        <StackedAreaComponent
             data={stackedAreaData.with2Sources()}
             {...props}
         />

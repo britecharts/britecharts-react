@@ -171,5 +171,5 @@ console.log('SAC --- componentWillUnmount');
     }
 }
 
-export default StackedAreaComponent;
-// export default responsiveWrapper(StackedAreaComponent);
+// export default StackedAreaComponent;
+export default responsiveWrapper(StackedAreaComponent);

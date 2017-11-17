@@ -70,7 +70,7 @@ const optimizedResize = (function() {
             }
             addCallback(callback);
         },
-        remove() {
+        clearAll() {
             window.removeEventListener('resize', resize);
             window.removeEventListener('resize', resizeHorizontal);
         },
