@@ -125,9 +125,7 @@ export default class DonutComponent extends Component {
     }
 
     _setRef(componentNode) {
-        if (componentNode) {
-            this._rootNode = componentNode;
-        }
+        this._rootNode = componentNode;
     }
 
     render() {

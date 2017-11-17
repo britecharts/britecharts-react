@@ -127,7 +127,6 @@ class StackedAreaComponent extends React.Component {
     }
 
     componentDidMount() {
-console.log('SAC --- componentDidMount', this._getChartConfiguration());
         this._chart = this.props.chart.create(
             this._rootNode,
             this.props.data,
@@ -136,7 +135,6 @@ console.log('SAC --- componentDidMount', this._getChartConfiguration());
     }
 
     componentDidUpdate() {
-console.log('SAC --- componentDidUpdate', this._getChartConfiguration().width);
         this.props.chart.update(
             this._rootNode,
             this.props.data,
@@ -148,7 +146,6 @@ console.log('SAC --- componentDidUpdate', this._getChartConfiguration().width);
     }
 
     componentWillUnmount() {
-console.log('SAC --- componentWillUnmount');
         this.props.chart.destroy(this._rootNode);
     }
 
@@ -167,9 +164,7 @@ console.log('SAC --- componentWillUnmount');
     }
 
     _setRef(componentNode) {
-        if (componentNode) {
-            this._rootNode = componentNode;
-        }
+        this._rootNode = componentNode;
     }
 
     render() {

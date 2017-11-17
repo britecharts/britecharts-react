@@ -22,11 +22,6 @@ stackedArea.create = (el, data, configuration = {}) => {
 stackedArea.update = (el, data, configuration = {}, chart) => {
     let container = select(el);
 
-    // TODO: Figure out why it won't work without doing this
-    // when there are more than 1 chart of the same type
-    // el.innerHTML = '';
-    // chart = stackedAreaChart();
-
     validateContainer(container);
     validateConfiguration(chart, configuration);
     applyConfiguration(chart, configuration);

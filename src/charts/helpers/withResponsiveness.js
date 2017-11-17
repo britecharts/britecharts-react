@@ -23,8 +23,6 @@ export default function(Component) {
         updateSize() {
             let width = this._rootNode.clientWidth;
 
-            console.log('XXXXXXXXXX HOC width is ', width);
-
             if (width !== this.state.width) {
                 this.setState({
                     width,
@@ -33,9 +31,7 @@ export default function(Component) {
         }
 
         _setRef(componentNode) {
-            if (componentNode) {
-                this._rootNode = componentNode;
-            }
+            this._rootNode = componentNode;
         }
 
         render() {

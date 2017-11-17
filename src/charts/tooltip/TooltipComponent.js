@@ -83,12 +83,10 @@ export default class TooltipComponent extends React.Component {
     }
 
     componentDidMount() {
-console.log('Tooltip --- componentDidMount', this._getChartConfiguration());
         this._createTooltip();
     }
 
     componentDidUpdate() {
-console.log('Tooltip --- componentDidUpdate:', this._getChartConfiguration());
         let tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
 
         if (tooltipContainer) {
@@ -97,7 +95,6 @@ console.log('Tooltip --- componentDidUpdate:', this._getChartConfiguration());
     }
 
     componentWillUnmount() {
-console.log('Tooltip --- componentWillUnmount');
         this.props.chart.destroy(this._rootNode);
     }
 
@@ -107,7 +104,6 @@ console.log('Tooltip --- componentWillUnmount');
         if (tooltipContainer) {
             this._chart = this.props.chart.create(tooltipContainer, this._getChartConfiguration());
         }
-console.log('Tooltip --- _createTooltip', this._rootNode.querySelector('.metadata-group'));
     }
 
     /**
@@ -164,9 +160,7 @@ console.log('Tooltip --- _createTooltip', this._rootNode.querySelector('.metadat
     }
 
     _setRef(componentNode) {
-        if (componentNode) {
-            this._rootNode = componentNode;
-        }
+        this._rootNode = componentNode;
     }
 
     render() {

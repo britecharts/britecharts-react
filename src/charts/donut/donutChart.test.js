@@ -168,9 +168,9 @@ describe('Donut Chart', () => {
                         name: 'rick',
                         id: 1,
                     }];
+                    let chart = donut.create(anchor, firstDataSet, {});
 
-                    donut.create(anchor, firstDataSet, {});
-                    donut.update(anchor, secondDataSet, {});
+                    donut.update(anchor, secondDataSet, {}, chart);
 
                     const expected = secondDataSet.length;
                     const actual = anchor.__data__.length;
@@ -182,9 +182,9 @@ describe('Donut Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = donutData();
+                    let chart = donut.create(anchor, dataSet, {});
 
-                    donut.create(anchor, dataSet, {});
-                    donut.update(anchor, dataSet, {});
+                    donut.update(anchor, dataSet, {}, chart);
 
                     const expected = dataSet.length;
                     const actual = anchor.__data__.length;
@@ -206,7 +206,7 @@ describe('Donut Chart', () => {
                         {width: firstWidth}
                     );
 
-                    donut.update(anchor, [], {width: expected});
+                    donut.update(anchor, [], {width: expected}, chart);
 
                     const actual = chart.width();
 

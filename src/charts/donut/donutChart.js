@@ -36,8 +36,8 @@ donut.update = (el, data, configuration = {}, chart) => {
     return chart;
 };
 
-donut.destroy = (el) => {
-    el.innerHTML = ''; // eslint-disable-line no-param-reassign
+donut.destroy = () => {
+    // Destroy stuff
 };
 
 export default donut;
