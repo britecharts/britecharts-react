@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import tooltip from './tooltipChart';
 
+const tooltipContainerSelector = '.metadata-group .vertical-marker-container';
+
 
 export default class TooltipComponent extends React.Component {
 
@@ -64,13 +66,7 @@ export default class TooltipComponent extends React.Component {
         if (props.render) {
             this.childChart = props.render({
                 data: props.data,
-                createTooltip: () => {
-                    let tooltipContainer = this._rootNode.querySelector('.metadata-group .vertical-marker-container');
-
-                    if (tooltipContainer) {
-                        this.props.chart.create(tooltipContainer, this._getChartConfiguration());
-                    }
-                },
+                createTooltip: this._createTooltip,
                 customMouseMove: this._handleMouseMove.bind(this),
                 customMouseOut: this._handleMouseOut.bind(this),
                 customMouseOver: this._handleMouseOver.bind(this),
@@ -87,23 +83,31 @@ export default class TooltipComponent extends React.Component {
     }
 
     componentDidMount() {
-        let tooltipContainer = this._rootNode.querySelector('.metadata-group .vertical-marker-container');
-
-        if (tooltipContainer) {
-            this.props.chart.create(tooltipContainer, this._getChartConfiguration());
-        }
+console.log('Tooltip --- componentDidMount', this._getChartConfiguration());
+        this._createTooltip();
     }
 
     componentDidUpdate() {
-        let tooltipContainer = this._rootNode.querySelector('.metadata-group .vertical-marker-container');
+console.log('Tooltip --- componentDidUpdate:', this._getChartConfiguration());
+        let tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
 
         if (tooltipContainer) {
-            this.props.chart.update(tooltipContainer, this._getChartConfiguration(), this.state);
+            this._chart = this.props.chart.update(tooltipContainer, this._getChartConfiguration(), this.state, this._chart);
         }
     }
 
     componentWillUnmount() {
+console.log('Tooltip --- componentWillUnmount');
         this.props.chart.destroy(this._rootNode);
+    }
+
+    _createTooltip = () => {
+        let tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
+
+        if (tooltipContainer) {
+            this._chart = this.props.chart.create(tooltipContainer, this._getChartConfiguration());
+        }
+console.log('Tooltip --- _createTooltip', this._rootNode.querySelector('.metadata-group'));
     }
 
     /**
@@ -167,7 +171,7 @@ export default class TooltipComponent extends React.Component {
 
     render() {
         return (
-            <div className="tooltip-chart-wrapper" ref={this._setRef.bind(this)} >
+            <div className="tooltip-chart-wrapper" ref={this._setRef.bind(this)}>
                 {this.childChart}
             </div>
         );

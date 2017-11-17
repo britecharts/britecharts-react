@@ -15,7 +15,7 @@ export default function(Component) {
         }
 
         componentWillUnmount() {
-            window.addEventListener('resize', this.updateSize);
+            optimizedResize.remove();
 
             this.updateSize();
         }
@@ -40,10 +40,9 @@ export default function(Component) {
 
         render() {
             return (
-                <div ref={this._setRef.bind(this)}>
+                <div className="responsive-container" ref={this._setRef.bind(this)}>
                     <Component
                         width={this.state.width}
-
                         {...this.props}
                     />
                 </div>

@@ -70,6 +70,10 @@ const optimizedResize = (function() {
             }
             addCallback(callback);
         },
+        remove() {
+            window.removeEventListener('resize', resize);
+            window.removeEventListener('resize', resizeHorizontal);
+        },
     };
 
 }());
