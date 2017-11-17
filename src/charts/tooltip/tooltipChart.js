@@ -34,16 +34,15 @@ tooltip.update = (el, configuration = {}, state = {}) => {
 
     container.call(chartConfigured);
 
-    if (state.dataPoint && state.topicColorMap && state.x) {
-        chart.update(state.dataPoint, state.topicColorMap, state.x, state.y);
-    }
-
     if (state.isActive) {
-        chart.show();
+        chartConfigured.show();
     } else {
-        chart.hide();
+        chartConfigured.hide();
     }
 
+    if (state.dataPoint && state.topicColorMap && state.x) {
+        chartConfigured.update(state.dataPoint, state.topicColorMap, state.x, state.y);
+    }
 
     return chartConfigured;
 };
