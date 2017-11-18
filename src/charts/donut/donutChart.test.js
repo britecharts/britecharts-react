@@ -17,7 +17,7 @@ describe('Donut Chart', () => {
                     expect(() => {
                         donut.create(
                             undefined,
-                            donutData(),
+                            donutData.with4Slices(),
                             {}
                         );
                     }).toThrowError('A root container is required');
@@ -41,7 +41,7 @@ describe('Donut Chart', () => {
                     expect(() => {
                         donut.create(
                             anchor,
-                            donutData(),
+                            donutData.with4Slices(),
                             {test: 'test'}
                         );
                     }).toThrowError('Method not supported by Britechart: test');
@@ -55,7 +55,7 @@ describe('Donut Chart', () => {
                     expect(() => {
                         donut.create(
                             anchor,
-                            donutData(),
+                            donutData.with4Slices(),
                             {customFakeEvent: callback}
                         );
                     }).toThrowError('Method not supported by Britechart: customFakeEvent');
@@ -66,9 +66,9 @@ describe('Donut Chart', () => {
         describe('when proper arguments are passed', () => {
 
             it('should set data as a DOM property', () => {
-                const expected = donutData().length;
+                const expected = donutData.with4Slices().length;
 
-                donut.create(anchor, donutData());
+                donut.create(anchor, donutData.with4Slices());
 
                 const actual = anchor.__data__.length;
 
@@ -80,7 +80,7 @@ describe('Donut Chart', () => {
 
                 const chart = donut.create(
                     anchor,
-                    donutData(),
+                    donutData.with4Slices(),
                     {width: expected}
                 );
 
@@ -94,7 +94,7 @@ describe('Donut Chart', () => {
 
                 const chart = donut.create(
                     anchor,
-                    donutData(),
+                    donutData.with4Slices(),
                     {height: expected}
                 );
 
@@ -113,7 +113,7 @@ describe('Donut Chart', () => {
 
                 const chart = donut.create(
                     anchor,
-                    donutData(),
+                    donutData.with4Slices(),
                     {margin: expected}
                 );
 
@@ -129,7 +129,7 @@ describe('Donut Chart', () => {
 
                     const chart = donut.create(
                         anchor,
-                        donutData(),
+                        donutData.with4Slices(),
                         {customMouseOver: expected}
                     );
 
@@ -143,7 +143,7 @@ describe('Donut Chart', () => {
 
                     const chart = donut.create(
                         anchor,
-                        donutData(),
+                        donutData.with4Slices(),
                         {customMouseOut: expected}
                     );
 
@@ -161,7 +161,7 @@ describe('Donut Chart', () => {
 
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
-                    const firstDataSet = donutData();
+                    const firstDataSet = donutData.with4Slices();
                     const secondDataSet = [{
                         quantity: 5,
                         percentage: 20,
@@ -181,7 +181,7 @@ describe('Donut Chart', () => {
 
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
-                    const dataSet = donutData();
+                    const dataSet = donutData.with4Slices();
                     let chart = donut.create(anchor, dataSet, {});
 
                     donut.update(anchor, dataSet, {}, chart);
@@ -202,7 +202,7 @@ describe('Donut Chart', () => {
                     const firstWidth = 200;
                     const chart = donut.create(
                         anchor,
-                        donutData(),
+                        donutData.with4Slices(),
                         {width: firstWidth}
                     );
 

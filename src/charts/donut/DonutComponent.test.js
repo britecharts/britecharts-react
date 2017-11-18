@@ -110,22 +110,32 @@ describe('Donut Chart Component', () => {
                 updateSpy.mockRestore();
             });
 
-            it('should call the craete method or the chart', () => {
-                const wrapper = mount(<DonutComponent chart={donut} data={donutData.with4Slices()} />);
+            it('should call the update method or the chart', () => {
+                const wrapper = mount(
+                    <DonutComponent
+                        chart={donut}
+                        data={donutData.with4Slices()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
                     data: donutData.with4Slices(),
                 });
 
-                let expected = 2;
+                let expected = 1;
                 let actual = updateSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
 
-            it('should pass in the new data to the crate method', () => {
-                const wrapper = mount(<DonutComponent chart={donut} data={donutData.with4Slices()} />);
+            it('should pass in the new data to the update method', () => {
+                const wrapper = mount(
+                    <DonutComponent
+                        chart={donut}
+                        data={donutData.with4Slices()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -133,13 +143,18 @@ describe('Donut Chart Component', () => {
                 });
 
                 let expected = donutData.with4Slices().length;
-                let actual = updateSpy.mock.calls[1][1].length;
+                let actual = updateSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should pass in the new configuration to the createTooltip method', () => {
-                const wrapper = mount(<DonutComponent chart={donut} data={donutData.with4Slices()} />);
+                const wrapper = mount(
+                    <DonutComponent
+                        chart={donut}
+                        data={donutData.with4Slices()}
+                    />
+                );
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
