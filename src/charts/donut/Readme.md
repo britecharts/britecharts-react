@@ -5,7 +5,7 @@
   const ResponsiveDonut = withResponsiveness(DonutComponent);
 
 
-  <ResponsiveDonut data={donutData()} />
+  <ResponsiveDonut data={donutData.with4Slices()} />
 ```
 
 ### with custom size
@@ -13,7 +13,7 @@
   const donutData = require('../../helpers/testData.js').donutData;
 
   <DonutComponent
-    data={donutData()}
+    data={donutData.with4Slices()}
     width={500}
     height={500}
     externalRadius={500 / 2.5}
@@ -27,7 +27,7 @@
   const logMouseOver = () => console.log('Mouse Over');
 
   <DonutComponent
-    data={donutData()}
+    data={donutData.with4Slices()}
     customMouseOver={logMouseOver}
   />
 ```
