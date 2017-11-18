@@ -45,8 +45,6 @@ tooltip.update = (el, configuration = {}, state = {}, chart) => {
     return chartConfigured;
 };
 
-tooltip.destroy = () => {
-    // Cleanup methods here
-};
+tooltip.destroy = () => {};
 
 export default tooltip;

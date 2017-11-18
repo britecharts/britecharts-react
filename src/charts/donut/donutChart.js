@@ -36,8 +36,6 @@ donut.update = (el, data, configuration = {}, chart) => {
     return chart;
 };
 
-donut.destroy = () => {
-    // Destroy stuff
-};
+donut.destroy = () => {};
 
 export default donut;

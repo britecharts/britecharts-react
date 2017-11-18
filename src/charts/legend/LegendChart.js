@@ -36,8 +36,6 @@ legend.update = (el, data, configuration = {}, chart) => {
     return chart;
 };
 
-legend.destroy = () => {
-    // Destroy stuff
-};
+legend.destroy = () => {};
 
 export default legend;

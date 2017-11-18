@@ -29,5 +29,6 @@ module.exports = {
         'react/forbid-prop-types': 0,
         'no-param-reassign': 0,
         'no-invalid-this': 0,
+        'no-empty-function': 0,
     },
 };

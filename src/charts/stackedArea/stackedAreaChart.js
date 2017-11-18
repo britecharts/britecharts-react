@@ -37,8 +37,6 @@ stackedArea.update = (el, data, configuration = {}, chart) => {
     return chart;
 };
 
-stackedArea.destroy = () => {
-    // Destroy stuff
-};
+stackedArea.destroy = () => {};
 
 export default stackedArea;
