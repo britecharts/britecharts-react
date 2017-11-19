@@ -34,7 +34,14 @@ describe('Stacked Area Chart', () => {
                         );
                     }).toThrowError('Data must be defined');
                 });
+
+                it('should throw an error with empty data', () => {
+                    expect(() => {
+                        stackedArea.create(anchor, [], {});
+                    }).toThrowError('Data must be defined');
+                });
             });
+
 
             describe('when a non-supported method is passed', () => {
                 it('should throw an error', () => {
@@ -191,9 +198,9 @@ describe('Stacked Area Chart', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = stackedAreaData.with3Sources();
                     const secondDataSet = stackedAreaData.with2Sources();
+                    let chart = stackedArea.create(anchor, firstDataSet, {});
 
-                    stackedArea.create(anchor, firstDataSet, {});
-                    stackedArea.update(anchor, secondDataSet, {});
+                    stackedArea.update(anchor, secondDataSet, {}, chart);
 
                     const expected = secondDataSet.length;
                     const actual = anchor.__data__.length;
@@ -205,9 +212,9 @@ describe('Stacked Area Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = stackedAreaData.with3Sources();
+                    let chart = stackedArea.create(anchor, dataSet, {});
 
-                    stackedArea.create(anchor, dataSet, {});
-                    stackedArea.update(anchor, dataSet, {});
+                    stackedArea.update(anchor, [], {}, chart);
 
                     const expected = dataSet.length;
                     const actual = anchor.__data__.length;
@@ -229,7 +236,7 @@ describe('Stacked Area Chart', () => {
                         {width: firstWidth}
                     );
 
-                    stackedArea.update(anchor, [], {width: expected});
+                    stackedArea.update(anchor, [], {width: expected}, chart);
 
                     const actual = chart.width();
 
@@ -239,4 +246,3 @@ describe('Stacked Area Chart', () => {
         });
     });
 });
-

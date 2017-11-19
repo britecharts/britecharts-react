@@ -310,7 +310,7 @@ export const stackedAreaData = {
     with2Sources,
 };
 
-export const donutData = () => [
+const with4Slices = () => [
     {
         quantity: 60,
         percentage: 60,
@@ -336,6 +336,10 @@ export const donutData = () => [
         id: 4,
     },
 ];
+
+export const donutData = {
+    with4Slices,
+};
 
 const with6Points = () => [
     {

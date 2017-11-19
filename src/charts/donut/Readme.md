@@ -1,8 +1,11 @@
-### with default styles
+### with default properties
 ```js
   const donutData = require('../../helpers/testData.js').donutData;
+  const withResponsiveness = require('../helpers/withResponsiveness.js').default;
+  const ResponsiveDonut = withResponsiveness(DonutComponent);
 
-  <DonutComponent data={donutData()} />
+
+  <ResponsiveDonut data={donutData.with4Slices()} />
 ```
 
 ### with custom size
@@ -10,7 +13,7 @@
   const donutData = require('../../helpers/testData.js').donutData;
 
   <DonutComponent
-    data={donutData()}
+    data={donutData.with4Slices()}
     width={500}
     height={500}
     externalRadius={500 / 2.5}
@@ -24,7 +27,7 @@
   const logMouseOver = () => console.log('Mouse Over');
 
   <DonutComponent
-    data={donutData()}
+    data={donutData.with4Slices()}
     customMouseOver={logMouseOver}
   />
 ```

@@ -32,7 +32,7 @@ describe('Donut Chart Component', () => {
             });
 
             it('should call the create method or the chart', () => {
-                mount(<DonutComponent chart={donut} data={donutData()} />);
+                mount(<DonutComponent chart={donut} data={donutData.with4Slices()} />);
 
                 let expected = 1;
                 let actual = createSpy.mock.calls.length;
@@ -41,16 +41,16 @@ describe('Donut Chart Component', () => {
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<DonutComponent chart={donut} data={donutData()} />);
+                const wrapper = mount(<DonutComponent chart={donut} data={donutData.with4Slices()} />);
 
-                let expected = wrapper.find('.stacked-area-container').instance();
+                let expected = wrapper.find('.donut-container').instance();
                 let actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
             });
 
             it('should call the create method or the chart with the configuration object as the second argument', () => {
-                const dataSet = donutData();
+                const dataSet = donutData.with4Slices();
 
                 mount(<DonutComponent chart={donut} data={dataSet} />);
 
@@ -61,7 +61,7 @@ describe('Donut Chart Component', () => {
             });
 
             it('should allow setting width', () => {
-                const dataSet = donutData();
+                const dataSet = donutData.with4Slices();
                 let expected = 500;
 
                 mount(
@@ -78,7 +78,7 @@ describe('Donut Chart Component', () => {
             });
 
             it('should allow setting height', () => {
-                const dataSet = donutData();
+                const dataSet = donutData.with4Slices();
                 let expected = 500;
 
                 mount(
@@ -99,47 +99,62 @@ describe('Donut Chart Component', () => {
     describe('update', () => {
 
         describe('when data changes', () => {
-            let createSpy;
+            let updateSpy;
 
             beforeEach(() => {
-                createSpy = jest.spyOn(donut, 'craete');
+                updateSpy = jest.spyOn(donut, 'update');
             });
 
             afterEach(() => {
-                createSpy.mockReset();
-                createSpy.mockRestore();
+                updateSpy.mockReset();
+                updateSpy.mockRestore();
             });
 
-            it('should call the craete method or the chart', () => {
-                const wrapper = mount(<DonutComponent chart={donut} data={donutData()} />);
+            it('should call the update method or the chart', () => {
+                const wrapper = mount(
+                    <DonutComponent
+                        chart={donut}
+                        data={donutData.with4Slices()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: donutData.with2Sources(),
+                    data: donutData.with4Slices(),
                 });
 
-                let expected = 2;
-                let actual = createSpy.mock.calls.length;
+                let expected = 1;
+                let actual = updateSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
 
-            it('should pass in the new data to the crate method', () => {
-                const wrapper = mount(<DonutComponent chart={donut} data={donutData()} />);
+            it('should pass in the new data to the update method', () => {
+                const wrapper = mount(
+                    <DonutComponent
+                        chart={donut}
+                        data={donutData.with4Slices()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: donutData.with2Sources(),
+                    data: donutData.with4Slices(),
                 });
 
-                let expected = donutData.with2Sources().length;
-                let actual = createSpy.mock.calls[1][1].length;
+                let expected = donutData.with4Slices().length;
+                let actual = updateSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should pass in the new configuration to the createTooltip method', () => {
-                const wrapper = mount(<DonutComponent chart={donut} data={donutData()} />);
+                const wrapper = mount(
+                    <DonutComponent
+                        chart={donut}
+                        data={donutData.with4Slices()}
+                    />
+                );
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -147,7 +162,7 @@ describe('Donut Chart Component', () => {
                     width: expected,
                 });
 
-                const actual = createSpy.mock.calls[0][2].width;
+                const actual = updateSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
@@ -155,24 +170,24 @@ describe('Donut Chart Component', () => {
     });
 
     describe('unmount', () => {
-        let createSpy;
+        let destroySpy;
 
         beforeEach(() => {
-            createSpy = jest.spyOn(donut, 'destroy');
+            destroySpy = jest.spyOn(donut, 'destroy');
         });
 
         afterEach(() => {
-            createSpy.mockReset();
-            createSpy.mockRestore();
+            destroySpy.mockReset();
+            destroySpy.mockRestore();
         });
 
-        fit('should call the destroy method or the chart', () => {
-            const wrapper = mount(<DonutComponent chart={donut} data={donutData()} />);
+        it('should call the destroy method or the chart', () => {
+            const wrapper = mount(<DonutComponent chart={donut} data={donutData.with4Slices()} />);
 
             wrapper.unmount();
 
             const expected = 1;
-            const actual = createSpy.mock.calls.length;
+            const actual = destroySpy.mock.calls.length;
 
             expect(actual).toEqual(expected);
         });
