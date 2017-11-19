@@ -99,18 +99,18 @@ describe('Legend Chart Component', () => {
     describe('update', () => {
 
         describe('when data changes', () => {
-            let createSpy;
+            let updateSpy;
 
             beforeEach(() => {
-                createSpy = jest.spyOn(legendChart, 'create');
+                updateSpy = jest.spyOn(legendChart, 'update');
             });
 
             afterEach(() => {
-                createSpy.mockReset();
-                createSpy.mockRestore();
+                updateSpy.mockReset();
+                updateSpy.mockRestore();
             });
 
-            it('should call the create method or the chart', () => {
+            it('should call the update method or the chart', () => {
                 const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
 
                 // Changing properties should trigger a componentDidUpdate
@@ -118,8 +118,8 @@ describe('Legend Chart Component', () => {
                     data: legendData.with6Points(),
                 });
 
-                let expected = 2;
-                let actual = createSpy.mock.calls.length;
+                let expected = 1;
+                let actual = updateSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
@@ -133,7 +133,7 @@ describe('Legend Chart Component', () => {
                 });
 
                 let expected = legendData.with6Points().length;
-                let actual = createSpy.mock.calls[0][1].length;
+                let actual = updateSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });
@@ -147,7 +147,7 @@ describe('Legend Chart Component', () => {
                     width: expected,
                 });
 
-                let actual = createSpy.mock.calls[1][2].width;
+                let actual = updateSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
@@ -155,15 +155,15 @@ describe('Legend Chart Component', () => {
     });
 
     describe('unmount', () => {
-        let createSpy;
+        let destroySpy;
 
         beforeEach(() => {
-            createSpy = jest.spyOn(legendChart, 'destroy');
+            destroySpy = jest.spyOn(legendChart, 'destroy');
         });
 
         afterEach(() => {
-            createSpy.mockReset();
-            createSpy.mockRestore();
+            destroySpy.mockReset();
+            destroySpy.mockRestore();
         });
 
         it('should call the destroy method or the chart', () => {
@@ -172,7 +172,7 @@ describe('Legend Chart Component', () => {
             wrapper.unmount();
 
             let expected = 1;
-            let actual = createSpy.mock.calls.length;
+            let actual = destroySpy.mock.calls.length;
 
             expect(actual).toEqual(expected);
         });

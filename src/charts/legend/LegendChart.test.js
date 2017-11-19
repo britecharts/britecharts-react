@@ -118,9 +118,9 @@ describe('Legend Chart', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = legendData.with6Points();
                     const secondDataSet = legendData.with6Points();
+                    let chart = legendChart.create(anchor, firstDataSet, {});
 
-                    legendChart.create(anchor, firstDataSet, {});
-                    legendChart.update(anchor, secondDataSet, {});
+                    legendChart.update(anchor, secondDataSet, {}, chart);
 
                     const expected = secondDataSet.length;
                     const actual = anchor.__data__.length;
@@ -132,9 +132,9 @@ describe('Legend Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = legendData.with6Points();
+                    let chart = legendChart.create(anchor, dataSet, {});
 
-                    legendChart.create(anchor, dataSet, {});
-                    legendChart.update(anchor, [], {});
+                    legendChart.update(anchor, [], {}, chart);
 
                     const expected = dataSet.length;
                     const actual = anchor.__data__.length;
@@ -156,7 +156,7 @@ describe('Legend Chart', () => {
                         {width: firstWidth}
                     );
 
-                    legendChart.update(anchor, [], {width: expected});
+                    legendChart.update(anchor, [], {width: expected}, chart);
 
                     const actual = chart.width();
 

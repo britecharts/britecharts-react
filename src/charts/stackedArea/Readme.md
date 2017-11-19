@@ -1,8 +1,29 @@
-### with 3 sources data
+### with 2 sources data, Tooltip and responsive
 ```js
     const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
+    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
+    const ResponsiveStackedArea = withResponsiveness(StackedAreaComponent);
+    const renderStackedAreaComponent = (props) => (
+        <ResponsiveStackedArea
+            data={stackedAreaData.with2Sources()}
+            {...props}
+        />
+    );
 
-    <StackedAreaComponent
+    <TooltipComponent
+        data={stackedAreaData.with2Sources()}
+        render={renderStackedAreaComponent}
+    />
+```
+
+### with 3 sources data
+```js
+
+    const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
+    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
+    const ResponsiveStackedArea = withResponsiveness(StackedAreaComponent);
+
+    <ResponsiveStackedArea
         data={stackedAreaData.with3Sources()}
     />
 ```
@@ -20,17 +41,7 @@
 ```
 
 
-### with 2 sources data
-```js
-    const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
-
-    <StackedAreaComponent
-        data={stackedAreaData.with2Sources()}
-    />
-```
-
-
-### with 2 sources data and hover event
+### with 2 sources data and hover events (on console)
 ```js
     const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
     const logMouseOver = () => console.log('Mouse Over');
@@ -46,22 +57,5 @@
         customMouseOver={logMouseOver}
         customMouseMove={logMouseMoveTooltip}
         customMouseOut={logMouseOut}
-    />
-```
-
-
-### with 2 sources data and Tooltip
-```js
-    const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
-    const renderStackedAreaComponent = (props) => (
-        <StackedAreaComponent
-            data={stackedAreaData.with2Sources()}
-            {...props}
-        />
-    );
-
-    <TooltipComponent
-        data={stackedAreaData.with2Sources()}
-        render={renderStackedAreaComponent}
     />
 ```

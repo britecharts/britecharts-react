@@ -91,6 +91,10 @@ module.exports = {
                 },
             ],
         },
+        {
+            name: 'About',
+            content: './TOPICS.md',
+        },
     ],
 
     styleguideDir: 'docs',

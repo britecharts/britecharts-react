@@ -4,47 +4,38 @@ import {validateConfiguration, validateContainer, validateData} from '../helpers
 import {applyConfiguration} from '../helpers/configuration';
 
 const legend = {};
-let chart;
 
 legend.create = (el, data, configuration = {}) => {
     let container = select(el);
-
-    chart = legendChart();
+    let chart = legendChart();
 
     validateContainer(container);
     validateData(data);
     validateConfiguration(chart, configuration);
 
-    let chartConfigured = applyConfiguration(chart, configuration);
-
     // Calls the chart with the container and dataset
-    container.datum(data).call(chartConfigured);
+    container.datum(data).call(applyConfiguration(chart, configuration));
 
-    return chartConfigured;
+    return chart;
 };
 
-legend.update = (el, data, configuration = {}) => {
+legend.update = (el, data, configuration = {}, chart) => {
     let container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
-
-    let chartConfigured = applyConfiguration(chart, configuration);
+    applyConfiguration(chart, configuration);
 
     // Calls the chart with the container and dataset
     if (data && data.length) {
-        container.datum(data).call(chartConfigured);
+        container.datum(data).call(chart);
     } else {
-        container.call(chartConfigured);
+        container.call(chart);
     }
 
-    return chartConfigured;
+    return chart;
 };
 
-legend.destroy = (el) => {
-    el.innerHTML = '';
-};
+legend.destroy = () => {};
 
 export default legend;
-
-
