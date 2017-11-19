@@ -71,13 +71,20 @@ export default class LegendComponent extends React.Component {
     }
 
     componentDidMount() {
-        this.props.chart.create(this._rootNode, this.props.data, this._getChartConfiguration());
+        this._chart = this.props.chart.create(
+            this._rootNode,
+            this.props.data,
+            this._getChartConfiguration()
+        );
     }
 
     componentDidUpdate() {
-        this.props.chart.destroy(this._rootNode);
-
-        this.props.chart.create(this._rootNode, this.props.data, this._getChartConfiguration());
+        this.props.chart.update(
+            this._rootNode,
+            this.props.data,
+            this._getChartConfiguration(),
+            this._chart
+        );
     }
 
     componentWillUnmount() {
@@ -98,9 +105,7 @@ export default class LegendComponent extends React.Component {
     }
 
     _setRef(componentNode) {
-        if (componentNode) {
-            this._rootNode = componentNode;
-        }
+        this._rootNode = componentNode;
     }
 
     render() {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import stackedArea from './stackedAreaChart';
 
 
-export default class StackedAreaComponent extends React.Component {
+class StackedAreaComponent extends React.Component {
 
     static propTypes = {
         /**
@@ -127,12 +127,20 @@ export default class StackedAreaComponent extends React.Component {
     }
 
     componentDidMount() {
-        this.props.chart.create(this._rootNode, this.props.data, this._getChartConfiguration());
+        this._chart = this.props.chart.create(
+            this._rootNode,
+            this.props.data,
+            this._getChartConfiguration()
+        );
     }
 
     componentDidUpdate() {
-        this.props.chart.destroy(this._rootNode);
-        this.props.chart.create(this._rootNode, this.props.data, this._getChartConfiguration());
+        this.props.chart.update(
+            this._rootNode,
+            this.props.data,
+            this._getChartConfiguration(),
+            this._chart
+        );
 
         this.props.createTooltip();
     }
@@ -156,9 +164,7 @@ export default class StackedAreaComponent extends React.Component {
     }
 
     _setRef(componentNode) {
-        if (componentNode) {
-            this._rootNode = componentNode;
-        }
+        this._rootNode = componentNode;
     }
 
     render() {
@@ -167,3 +173,5 @@ export default class StackedAreaComponent extends React.Component {
         );
     }
 }
+
+export default StackedAreaComponent;

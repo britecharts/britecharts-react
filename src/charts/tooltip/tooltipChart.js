@@ -4,12 +4,10 @@ import {validateConfiguration, validateContainer} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
 const tooltip = {};
-let chart;
 
 tooltip.create = (el, configuration = {}) => {
     let container = select(el);
-
-    chart = tooltipChart();
+    let chart = tooltipChart();
 
     chart.topicLabel('values');
 
@@ -24,7 +22,7 @@ tooltip.create = (el, configuration = {}) => {
     return chartConfigured;
 };
 
-tooltip.update = (el, configuration = {}, state = {}) => {
+tooltip.update = (el, configuration = {}, state = {}, chart) => {
     let container = select(el);
 
     validateContainer(container);
@@ -47,8 +45,6 @@ tooltip.update = (el, configuration = {}, state = {}) => {
     return chartConfigured;
 };
 
-tooltip.destroy = () => {
-    // Cleanup methods here
-};
+tooltip.destroy = () => {};
 
 export default tooltip;
