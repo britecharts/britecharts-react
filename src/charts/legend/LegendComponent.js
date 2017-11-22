@@ -36,6 +36,10 @@ export default class LegendComponent extends React.Component {
             right: PropTypes.number,
         }),
         /**
+         * Gets or Sets the margin ratio of the legend chart. Used to determine spacing between legend elements.
+         */
+        marginRatio: PropTypes.number,
+        /**
          * Gets or Sets the markerSize of the legend chart. This markerSize will determine
          * the horizontal and vertical size of the colored marks added as color
          * identifiers for the chart's categories.
