@@ -9,6 +9,10 @@ export default class TooltipComponent extends React.Component {
 
     static propTypes = {
         /**
+         * Exposes the ability to use a custom date format
+         */
+        dateCustomFormat: PropTypes.string,
+        /**
          * Exposes the ability to force the tooltip to use a certain date format
          */
         dateFormat: PropTypes.string,
@@ -32,6 +36,14 @@ export default class TooltipComponent extends React.Component {
          * Gets or Sets the title of the tooltip (to only show the date, set a blank title)
          */
         title: PropTypes.string,
+
+        /**
+         * Pass an override for the offset of your tooltip
+         */
+        tooltipOffset: PropTypes.shape({
+            x: PropTypes.number,
+            y: PropTypes.number,
+        }),
         /**
          * Gets or Sets the topicLabel of the data
          */
