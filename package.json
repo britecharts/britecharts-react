@@ -20,7 +20,7 @@
     "graphs"
   ],
   "author": "Marcos Iglesias <golodhros@gmail.com> (http://www.marcosiglesias.com)",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "license": "Apache-2.0",
   "scripts": {
     "start": "webpack-dashboard -- nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
@@ -78,7 +78,7 @@
     "react-test-renderer": "^15",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dashboard": "^1.0.0-6",
+    "webpack-dashboard": "1.0.2",
     "webpack-dev-server": "^2.8.2",
     "webpack-merge": "^4.1.0"
   },
