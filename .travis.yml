@@ -11,6 +11,8 @@ addons:
     - g++-4.8
 install: yarn install
 script: yarn run test
+before_deploy:
+  script: yarn run build
 deploy:
   provider: npm
   email: npmjs+eng@eventbrite.com
