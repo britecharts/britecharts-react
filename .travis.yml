@@ -9,10 +9,10 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
+cache: yarn
 install: yarn install
 script: yarn run test
-before_deploy:
-  script: yarn run build
+before_deploy: yarn run build
 deploy:
   provider: npm
   email: npmjs+eng@eventbrite.com
