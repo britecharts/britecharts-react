@@ -12,7 +12,6 @@ addons:
 cache: yarn
 install: yarn install
 script: yarn run test
-before_deploy: yarn run build
 deploy:
   provider: npm
   email: npmjs+eng@eventbrite.com
