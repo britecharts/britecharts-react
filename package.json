@@ -63,6 +63,7 @@
     "eslint-plugin-react": "^6.0.0",
     "grunt": "^1.0.1",
     "grunt-release": "git://github.com/beevelop/grunt-release",
+    "grunt-shell": "^2.1.0",
     "html-webpack-plugin": "^2.30.1",
     "install": "^0.10.1",
     "jest": "^21.1.0",
@@ -88,8 +89,7 @@
   },
   "dependencies": {
     "britecharts": "2.3.2",
-    "d3-selection": "^1.1.0",
-    "grunt-shell": "^2.1.0"
+    "d3-selection": "^1.1.0"
   },
   "jest": {
     "moduleDirectories": [
