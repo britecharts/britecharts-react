@@ -24,18 +24,18 @@
   "license": "Apache-2.0",
   "scripts": {
     "start": "webpack-dashboard -- nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
-    "prebuild": "yarn run cleanInstall",
-    "build": "yarn run styleguide:build && webpack --env production --progress",
+    "build": "webpack --env production --progress",
+    "docs": "yarn run styleguide:build",
     "lint": "eslint src/ webpack.*.js --cache",
     "lint:fix": "eslint src/ webpack.*.js --cache --fix",
-    "test:watch": "jest --watch",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "prepare": "yarn run build",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "release": "grunt release:patch",
     "release:minor": "grunt release:minor",
-    "release:major": "grunt release:major",
-    "cleanInstall": "grunt shell:cleanNodeModules && yarn"
+    "release:major": "grunt release:major"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.10",
