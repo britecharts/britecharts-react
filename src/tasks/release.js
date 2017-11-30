@@ -19,12 +19,6 @@ module.exports = function(grunt) {
         },
     });
 
-    grunt.config.set('shell', {
-        cleanNodeModules: {
-            command: () => 'rm -rf node_modules',
-        },
-    });
-
     grunt.registerTask('release', (...args) => {
         let bumpTask = `bump-version${args.map((val) => `:${val}`)}`;
 

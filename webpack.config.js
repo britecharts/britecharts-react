@@ -18,12 +18,10 @@ const PATHS = {
 const BUNDLE = path.join(__dirname, 'src/charts/index.js');
 const CHARTS = {
     Donut: `${PATHS.charts}/donut/DonutComponent.js`,
-    StackedArea: `${PATHS.charts}/stackedArea/StackedAreaComponent.js`,
     Legend: `${PATHS.charts}/legend/LegendComponent.js`,
+    StackedArea: `${PATHS.charts}/stackedArea/StackedAreaComponent.js`,
     Tooltip: `${PATHS.charts}/tooltip/TooltipComponent.js`,
 };
-    // StackedArea: [ 'core-js/modules/es7.array.includes', `${PATHS.charts}/stackedArea/StackedAreaComponent.js`],
-
 
 // Configurations
 const commonSplittedConfig = merge([
