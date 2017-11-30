@@ -9942,9 +9942,9 @@ webpack-bundle-analyzer@^2.9.0:
     opener "^1.4.3"
     ws "^2.3.1"
 
-webpack-dashboard@^1.0.0-6:
-  version "1.0.0-6"
-  resolved "https://registry.yarnpkg.com/webpack-dashboard/-/webpack-dashboard-1.0.0-6.tgz#2e1284ba0ca455059b6a1aaa4853445481b1cda0"
+webpack-dashboard@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/webpack-dashboard/-/webpack-dashboard-1.0.2.tgz#78e39f6b179fa5fe1bf3bb7f36daf3bf919ca618"
   dependencies:
     babel-core "^6.24.0"
     babel-traverse "^6.23.1"

@@ -78,7 +78,7 @@
     "react-test-renderer": "^15",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dashboard": "^1.0.0-6",
+    "webpack-dashboard": "1.0.2",
     "webpack-dev-server": "^2.8.2",
     "webpack-merge": "^4.1.0"
   },
