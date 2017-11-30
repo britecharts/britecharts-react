@@ -1,4 +1,5 @@
 0.2.4
+0.2.4
 -----
 Fixes:
 * Bumped Britecharts to 2.4.1 with new fixes
