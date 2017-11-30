@@ -1,7 +1,15 @@
-0.2.3
-0.2.2
+0.2.4
+-----
+Fixes:
+* Bumped Britecharts to 2.4.1 with new fixes
+
 0.2.1
+-----
+Features:
+* Updating Legend and Tooltip prototypes
+
 0.2.0
+
 
 0.1.13 - 0.1.17 - Debugging
 --------------
