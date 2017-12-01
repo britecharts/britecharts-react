@@ -12,14 +12,17 @@ addons:
 # cache: yarn
 # install: yarn install
 # script: yarn run test
-after_success: git remote add origin-pages https://${GITHUB_JAYLUM_CHEN}@github.com/eventbrite/britecharts-react.git > /dev/null 2>&1 && git rm .gitignore && git rm -r --ignore-unmatch `ls | grep -v package.json` && git add . && git commit -m 'testing' && git push -fu origin-pages HEAD:test12345
-before_deploy: yarn run build
+# after_success: git remote add origin-pages https://${GITHUB_JAYLUM_CHEN}@github.com/eventbrite/britecharts-react.git > /dev/null 2>&1 && git rm .gitignore && git rm -r --ignore-unmatch `ls | grep -v package.json` && git add . && git commit -m 'testing' && git push -fu origin-pages HEAD:test12345
+before_deploy: yarn run docs && yarn run build
 deploy:
-  skip_cleanup: true
-  provider: npm
-  email: npmjs+eng@eventbrite.com
-  api_key:
-    secure: bro8bd0cOD8xSiLtiG8SDIxSFOozaGPmtc/rDFn9jskkP0Pl1GGcgDUVk//S8NxroMrYf1c9FQ+uevTsCzILgm46ET7ADOU5sa7i7wjDSKPBon5ZFKunJ27vYg5Pudryw0gmZNem90aPvrJV7Jpisxt6iaa3iPvZ0yMpXiw2OB/wdqXHp3MGPIgkhk1Aj56rr3gsdK1tSz7ouPZGcaHin0etl/m/TjVflwsgSfcOjHaASv0sb+1cqq/6zrSm3IExtCveONGAcQRf8v8vTHFFFI2f/fzJ+Au+Gi9DmwKf8JdlwzYKS5dbhaJUGdT4tobEgev/NxjjwyvQ1XxR3sUIbC2QjOF3MCgNvOkvjh6gN+VD/nccgwschWSdGGEmCCw9kzReGNMd1AsYCr7ijsea6/l+auUf8GyT3O7M+XsP/UVzMl8PnXeVyAEaiAjghGUTHnjmRlB/cyMUDCai9dW6rme7ijCSkaL2PZRqnPeA+5mVEwUIHrnTN6QW6KPnwEQ6SJ5eZIdu6+xDj3v8F8T+MBUII8v+AWRqL3TDuXgG7El6o46bFTZR2I6q0Cd4Cor39vhyR1ijxwu2eRFhvgCt2MfQrjHTdtOStg0D/bBxF82qK7TpO0Wb7pZ5DKDycmXEwuws57DOhB8GEv4rJIT36M9vbF41sux+1RfLTW1nTt4=
-  on:
-    tags: true
-    repo: eventbrite/britecharts-react
+  - provider: npm
+    skip_cleanup: true
+    email: npmjs+eng@eventbrite.com
+    api_key:
+      secure: $BRITECHARTS_REACT_TRAVIS_KEY
+    on:
+      tags: true
+      repo: eventbrite/britecharts-react
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_JAYLUM_CHEN
