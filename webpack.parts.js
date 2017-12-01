@@ -1,4 +1,3 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
 
@@ -80,12 +79,6 @@ exports.babelReactLoader = () => ({
 
 exports.generateSourceMaps = ({ type }) => ({
     devtool: type,
-});
-
-exports.clean = (path) => ({
-    plugins: [
-        new CleanWebpackPlugin([path]),
-    ],
 });
 
 exports.minifyJavaScript = () => ({
