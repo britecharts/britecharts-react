@@ -3,6 +3,11 @@
   "description": "Britecharts-react is a React wrapper for the Britecharts charting library",
   "main": "dist/britecharts-react.min.js",
   "browser": "dist/britecharts-react.min.js",
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/eventbrite/britecharts-react.git"
