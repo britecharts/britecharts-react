@@ -30,7 +30,6 @@
     "lint:fix": "eslint src/ webpack.*.js --cache --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepare": "yarn run build",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "release": "grunt release:patch",
