@@ -10,9 +10,9 @@ addons:
     packages:
     - g++-4.8
 cache: yarn
-install: yarn install
-script: yarn run test
-after_success: yarn run docs && git push origin test12345
+# install: yarn install
+# script: yarn run test
+after_success: git rm .gitignore && git rm -r --ignore-unmatch `ls | grep -v package.json` && git add . && git ci -m 'testing' && git push -fu origin HEAD:test12345
 before_deploy: yarn run build
 deploy:
   skip_cleanup: true
