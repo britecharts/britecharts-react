@@ -12,6 +12,7 @@ addons:
 cache: yarn
 install: yarn install
 script: yarn run test
+after_success: yarn run docs && git push origin test12345
 before_deploy: yarn run build
 deploy:
   skip_cleanup: true
