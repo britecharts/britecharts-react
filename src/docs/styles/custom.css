@@ -21,6 +21,10 @@ a:focus {
     color: '#FFFFFF';
 }
 
+.stacked-area-container {
+    display: flex;
+}
+
 /* Logo */
 .rsg--sidebar-4 .rsg--logo-5 {
     padding: 24px;
