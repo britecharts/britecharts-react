@@ -85,7 +85,6 @@ const developmentConfig = merge([
 ]);
 
 const libraryUMDConfig = merge([
-    parts.clean(PATHS.lib),
     commonSplittedConfig,
     {
         output: {
@@ -102,7 +101,6 @@ const libraryUMDConfig = merge([
 ]);
 
 const libraryESMConfig = merge([
-    parts.clean(PATHS.lib),
     commonSplittedConfig,
     {
         output: {
@@ -115,7 +113,6 @@ const libraryESMConfig = merge([
 ]);
 
 const bundleConfig = merge([
-    parts.clean(PATHS.build),
     {
         entry: {
             'britecharts-react': BUNDLE,
