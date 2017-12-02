@@ -41,6 +41,10 @@ module.exports = {
         resolve('src/docs/styles/custom.css'),
     ],
 
+    assetsDir: resolve('src/docs/public'),
+
+    template: resolve('src/docs/template.html'),
+
     webpackConfig: {
         module: {
             rules: [
