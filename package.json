@@ -37,9 +37,6 @@
     "release:major": "grunt release:major"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.2.10",
-    "@storybook/addon-links": "^3.2.10",
-    "@storybook/react": "^3.2.10",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.0.0",
     "babel-jest": "^21.0.2",
