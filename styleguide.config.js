@@ -77,6 +77,10 @@ module.exports = {
                     components: 'src/charts/stackedArea/StackedAreaComponent.js',
                 },
                 {
+                    name: 'Bar Chart',
+                    components: 'src/charts/bar/BarComponent.js',
+                },
+                {
                     name: 'Donut Chart',
                     components: 'src/charts/donut/DonutComponent.js',
                 },
