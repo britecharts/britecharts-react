@@ -63,10 +63,10 @@ In order to generate the demos and see the documentation for the library you wou
 
  + In a second terminal window, run:
 
-    `yarn run storybook`
+    `yarn run styleguide`
 
 
-This process will generate the storybook docs and show them in ``localhost:6006``. You can use this demos as your testing platform when creating new charts.
+This process will generate the styleguide and show it in ``localhost:6006``. You can use this demos as your testing platform when creating new charts.
 
 
 ## Modifying a chart
@@ -76,7 +76,7 @@ We have created this components with Tests First, and we encourage you to do the
 For a TDD workflow, the process would look like this:
 
 1. Create a new branch for your modification
-1. On a new terminal, run ``yarn start`` and ``yarn run storybook`` and navigate to the chart's demo or create a new demo in ``/src/stories/index.js``
+1. On a new terminal, run ``yarn start`` and ``yarn run styleguide`` and navigate to the chart's demo or create a new demo in ``/src/charts/*/Readme.md``
 1. Find the test of the chart you want to modify in ``/src/charts/*/*.test.js``
 1. Write a failing test for the feature you want to add
 1. On a new terminal, run ``yarn run test:watch``
@@ -85,7 +85,7 @@ For a TDD workflow, the process would look like this:
 1. Make the test pass by writing the less amount of code
 1. Refactor until you get a nice and clean code
 1. Check the demo to see the code in action
-1. Update the documentation so that the proper demos gets generated when you run ``yarn run build:storybook``
+1. Update the documentation so that the proper demos gets generated when you run ``yarn run styleguide:build``
 1. Create a pull request and ask people of the team to review it
 1. Once you have the OK, merge it!
 
@@ -95,15 +95,15 @@ For a TDD workflow, the process would look like this:
 Adding a new chart is a bunch of work, but we hope that using the current code and documentation will help in the process.
 
 1. Create a new branch for your new chart
-1. On a new terminal, run ``yarn start`` ``yarn run storybook`` to get ready the demos and turn on the dev server.
+1. On a new terminal, run ``yarn start`` ``yarn run styleguide`` to get ready the demos and turn on the dev server.
 1. Given that you new chart is ``ChartName``, create in ``/src/charts/ChartName`` a new file ``ChartName.js`` and test file ``ChartName.test.js``.
 1. Create also a new component in ``/src/charts/ChartName`` a new file ``ChartNameComponent.js`` and test file ``ChartNameComponent.test.js``.
-1. Add the new demo entry on ``/src/stories/index.js``, keeping the same format.
+1. Add the new demo entry on ``/src/charts/ChartName/Readme.md``, keeping the same format.
 7. Go to ``webpack.config.js`` and add the new chart to the ``CHARTS`` object, follow the same style.
 8. Go to your test file ``ChartName.test.js`` and, taking another test as an example, copy over pieces until you have the first test case.
 1. Add one test and make it fail callin ``yarn run test:watch``.
 1. Keep on coding according to the code style you can see in the current charts, using the stackedAreaChart as a reference.
-1. Generate your docs with ``yarn run build:storybook`` and manually test the demos.
+1. Generate your docs with ``yarn run styleguide:build`` and manually test the demos.
 1. Create a pull request with your branch and ping one of the core authors to get it reviewed.
 1. Once you have a shipit, merge it
 
@@ -135,18 +135,19 @@ Please use the [issues](https://github.com/eventbrite/britecharts-react/issues) 
 
 The build sequence consists of a small set of [Node][node] tasks. While you'll probably only need `yarn run test` and `yarn run build` most of the time, the other tasks can be called independently or combined in order to see the docs.
 
-| Task                       | Description
-| ---------                  | ---
-| `yarn run start`           | Start the development process that is going to transpile the files
-| `yarn run test`            | Run the Jest runner to see if the tests are running
-| `yarn run test:watch`      | Start the Jest runner that will test the project and keep watching for changes.
-| `yarn run storybook`       | Serves the demos in localhost:6006.
-| `yarn run build`           | Build everything and generate the distribution version of the charts.
-| `yarn run lint`            | Runs the eslint linter
-| `yarn run lint:fix`        | Runs the eslint linter fixing easy problems
-| `yarn run release`         | Create a new release of the library.
-| `yarn run release:minor`   | Create a new release of the library by bumping the second number of the version (1.N.1)
-| `yarn run release:major`   | Create a new release of the library by bumping the third number of the version (N.1.1)
+| Task                         | Description
+| ---------                    | ---
+| `yarn run start`             | Start the development process that is going to transpile the files
+| `yarn run test`              | Run the Jest runner to see if the tests are running
+| `yarn run test:watch`        | Start the Jest runner that will test the project and keep watching for changes.
+| `yarn run styleguide`        | Serves the demos in localhost:6006.
+| `yarn run styleguide:build`  | Builds the styleguide.
+| `yarn run build`             | Build everything and generate the distribution version of the charts.
+| `yarn run lint`              | Runs the eslint linter
+| `yarn run lint:fix`          | Runs the eslint linter fixing easy problems
+| `yarn run release`           | Create a new release of the library.
+| `yarn run release:minor`     | Create a new release of the library by bumping the second number of the version (1.N.1)
+| `yarn run release:major`     | Create a new release of the library by bumping the third number of the version (N.1.1)
 
 ## Project Structure
 
@@ -159,22 +160,22 @@ britecharts-react
 ├── lib
 ├── src
 │   ├── charts
+│   ├── docs
 │   ├── helpers
-│   └── stories
 │   └── tasks
 ```
 
 
-| Folder | Description
-| ---  | ---
-| **dist** | Where the production ready bundle of our charts will be placed
-| **docs** | Where the generated demo website lives
-| **lib**  | Where the production ready individual UMD bundles will live, alongside with the ES6 modules version of them
-| **src**   | Where we will place the code we create
-| **src/charts** | Where our charts live
-| **src/charts/helpers** | Where our chart helpers live
-| **src/helpers** | Where our general helpers live, like test data generators
-| **src/tasks** | Some of our grunt tasks configuration
+| Folder                  | Description
+| ---                     | ---
+| **dist**                | Where the production ready bundle of our charts will be placed
+| **docs**                | Where the generated demo website lives
+| **lib**                 | Where the production ready individual UMD bundles will live, alongside with the ES6 modules version of them
+| **src**                 | Where we will place the code we create
+| **src/charts**          | Where our charts live
+| **src/charts/helpers**  | Where our chart helpers live
+| **src/helpers**         | Where our general helpers live, like test data generators
+| **src/tasks**           | Some of our grunt tasks configuration
 
 
 [node]: http://nodejs.org
