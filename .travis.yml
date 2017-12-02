@@ -9,13 +9,9 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
-# cache: yarn
-# install: yarn install
-# script: yarn run test
-# after_success: git remote add origin-pages https://${GITHUB_JAYLUM_CHEN}@github.com/eventbrite/britecharts-react.git > /dev/null 2>&1 && git rm .gitignore && git rm -r --ignore-unmatch `ls | grep -v package.json` && git add . && git commit -m 'testing' && git push -fu origin-pages HEAD:test12345
-before_deploy: rm .gitignore && yarn run docs && yarn run build
 deploy:
   - provider: npm
+    script: yarn run build
     skip_cleanup: true
     email: npmjs+eng@eventbrite.com
     api_key:
@@ -24,6 +20,7 @@ deploy:
       tags: true
       repo: eventbrite/britecharts-react
   - provider: pages
+    script: rm .gitignore && yarn run docs
     skip_cleanup: true
     github_token: $GITHUB_JAYLUM_CHEN
     on:
