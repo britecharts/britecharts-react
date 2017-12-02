@@ -13,7 +13,7 @@ addons:
 # install: yarn install
 # script: yarn run test
 # after_success: git remote add origin-pages https://${GITHUB_JAYLUM_CHEN}@github.com/eventbrite/britecharts-react.git > /dev/null 2>&1 && git rm .gitignore && git rm -r --ignore-unmatch `ls | grep -v package.json` && git add . && git commit -m 'testing' && git push -fu origin-pages HEAD:test12345
-before_deploy: yarn run docs && yarn run build
+before_deploy: rm .gitignore && yarn run docs && yarn run build
 deploy:
   - provider: npm
     skip_cleanup: true
@@ -26,3 +26,5 @@ deploy:
   - provider: pages
     skip_cleanup: true
     github_token: $GITHUB_JAYLUM_CHEN
+    on:
+      tags: true
