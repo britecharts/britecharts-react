@@ -19,4 +19,4 @@ deploy:
   on:
     tags: true
     repo: eventbrite/britecharts-react
-after_deploy: git remote add origin-pages https://${GITHUB_JAYLUM_CHEN}@github.com/eventbrite/britecharts-react.git > /dev/null 2>&1 && git rm .gitignore && git rm -r --ignore-unmatch `ls | grep -v docs` && git add . && git commit -m 'testing' && git push -fu origin-pages HEAD:gh-pages
+after_deploy: git remote add origin-pages https://${GITHUB_JAYLUM_CHEN}@github.com/eventbrite/britecharts-react.git > /dev/null 2>&1 && git rm .gitignore && git add docs && git commit -m 'Updating docs' && git push -fu origin-pages HEAD:gh-pages
