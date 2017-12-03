@@ -74,6 +74,98 @@ describe('Bar Chart', () => {
 
                 expect(actual).toEqual(expected);
             });
+
+            it('should set the width', () => {
+                const expected = 500;
+
+                const chart = bar.create(
+                    anchor,
+                    barData.withColors(),
+                    {width: expected}
+                );
+
+                const actual = chart.width();
+
+                expect(actual).toEqual(expected);
+            });
+
+            it('should set the margin', () => {
+                const expected = {
+                    top: 0,
+                    bottom: 1,
+                    left: 2,
+                    right: 3,
+                };
+
+                const chart = bar.create(
+                    anchor,
+                    donutData.with4Slices(),
+                    {margin: expected}
+                );
+
+                const actual = chart.margin();
+
+                expect(actual).toEqual(expected);
+            });
+        });
+    });
+
+    describe('update', () => {
+
+        describe('when updating data', () => {
+
+            describe('when new data is passed', () => {
+                it('should update the data in the container', () => {
+                    const firstDataSet = barData.withColors();
+                    const secondDataSet = [{
+                        name: 'Shining',
+                        value: 5,
+                    }];
+                    let chart = bar.create(anchor, firstDataSet, {});
+
+                    bar.update(anchor, secondDataSet, {}, chart);
+
+                    const expected = secondDataSet.length;
+                    const actual = anchor.__data__.length;
+
+                    expect(actual).toEqual(expected);
+                });
+            });
+
+            describe('when new data is not passed', () => {
+                it('should keep the data in the container', () => {
+                    const dataSet = barData.withColors();
+                    let chart = bar.create(anchor, dataSet, {});
+
+                    bar.update(anchor, dataSet, {}, chart);
+
+                    const expected = dataSet.length;
+                    const actual = anchor.__data__.length;
+
+                    expect(actual).toEqual(expected);
+                });
+            });
+        });
+
+        describe('when updating configuration', () => {
+
+            describe('when new configuration is passed', () => {
+                it('should update the configuration in the chart', () => {
+                    const expected = 500;
+                    const firstWidth = 200;
+                    const chart = bar.create(
+                        anchor,
+                        barData.withColors(),
+                        {width: firstWidth}
+                    );
+
+                    bar.update(anchor, [], {width: expected}, chart);
+
+                    const actual = chart.width();
+
+                    expect(actual).toEqual(expected);
+                });
+            });
         });
     });
 });
