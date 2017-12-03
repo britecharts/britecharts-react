@@ -99,7 +99,7 @@ describe('Bar Chart', () => {
 
                 const chart = bar.create(
                     anchor,
-                    donutData.with4Slices(),
+                    barData.withColors(),
                     {margin: expected}
                 );
 
