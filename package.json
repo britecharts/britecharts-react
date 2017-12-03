@@ -92,6 +92,7 @@
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/"
-    ]
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js"
   }
 }
