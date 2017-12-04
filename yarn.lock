@@ -1366,6 +1366,7 @@ braces@^1.8.2:
     repeat-element "^1.1.2"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 britecharts@2.4.9:
   version "2.4.9"
   resolved "https://registry.yarnpkg.com/britecharts/-/britecharts-2.4.9.tgz#9293182abc303b8d89cc16d5e9ec894ee633ac19"
@@ -1374,6 +1375,11 @@ britecharts@2.4.4:
   version "2.4.4"
   resolved "https://registry.yarnpkg.com/britecharts/-/britecharts-2.4.4.tgz#96b04df348b32902f0e09f6ce0937176f645e6d4"
 >>>>>>> bump britecharts
+=======
+britecharts@2.4.6:
+  version "2.4.6"
+  resolved "https://registry.yarnpkg.com/britecharts/-/britecharts-2.4.6.tgz#9a14e215f550708e9b84f59f1ffde6c0ec3ae2e6"
+>>>>>>> bump to britecharst 2.4.6
   dependencies:
     base-64 "^0.1.0"
     d3 "^4.10.0"
