@@ -1365,9 +1365,9 @@ braces@^1.8.2:
     preserve "^0.2.0"
     repeat-element "^1.1.2"
 
-britecharts@2.4.3:
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/britecharts/-/britecharts-2.4.3.tgz#fe06e65980ba576c5357d3f2e938c3e1dc921c70"
+britecharts@2.4.4:
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/britecharts/-/britecharts-2.4.4.tgz#96b04df348b32902f0e09f6ce0937176f645e6d4"
   dependencies:
     base-64 "^0.1.0"
     d3 "^4.10.0"
