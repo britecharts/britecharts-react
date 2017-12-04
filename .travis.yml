@@ -9,7 +9,7 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
-after_success: yarn run build && yarn run docs && rm .gitignore
+after_success: yarn run build && yarn run docs && rm .gitignore && git add docs && git commit -m 'Updating docs'
 deploy:
   - provider: npm
     skip_cleanup: true
