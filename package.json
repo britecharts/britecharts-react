@@ -83,11 +83,7 @@
     "react-dom": ">=15"
   },
   "dependencies": {
-<<<<<<< HEAD
     "britecharts": "2.4.9",
-=======
-    "britecharts": "2.4.4",
->>>>>>> bump britecharts
     "d3-selection": "^1.1.0"
   },
   "jest": {
