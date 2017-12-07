@@ -20,10 +20,18 @@ deploy:
       tags: true
       repo: eventbrite/britecharts-react
   - provider: pages
+<<<<<<< HEAD
     skip_cleanup: true
     github_token: $GITHUB_JAYLUM_CHEN
     local_dir: docs
     on:
       branch: master
+=======
+      skip_cleanup: true
+      github_token: $GITHUB_JAYLUM_CHEN
+      local_dir: docs
+      on:
+        branch: master
+>>>>>>> try ghpages deploy with folder setting
 
   # after_deploy: git remote add origin-pages https://${GITHUB_JAYLUM_CHEN}@github.com/eventbrite/britecharts-react.git > /dev/null 2>&1 && git rm .gitignore && git add docs && git commit -m 'Updating docs' && git push -fu origin-pages HEAD:gh-pages
