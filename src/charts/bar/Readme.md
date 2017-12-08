@@ -1,6 +1,6 @@
 ### vertical with responsive
 ```js
-    const barData = require('../../helpers/testData.js').barData;
+    const barData = require('./barChart.fixtures.js').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
     const ResponsiveBarChart = withResponsiveness(BarComponent);
 
@@ -10,7 +10,7 @@
 
 ### vertical with responsive and percentage
 ```js
-    const barData = require('../../helpers/testData.js').barData;
+    const barData = require('./barChart.fixtures.js').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
     const ResponsiveBarChart = withResponsiveness(BarComponent);
 
@@ -24,7 +24,7 @@
 ### horizontal with responsive and custom color schema
 ```js
     const colors = require('britecharts/dist/umd/colors.min');
-    const barData = require('../../helpers/testData.js').barData;
+    const barData = require('./barChart.fixtures.js').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
     const ResponsiveBarChart = withResponsiveness(BarComponent);
 

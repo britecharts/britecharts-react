@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import legendChart from './LegendChart';
+import legendChart from './legendChart';
 
 
 export default class LegendComponent extends React.Component {
@@ -100,7 +100,7 @@ export default class LegendComponent extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = {...this.props};
+        let configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;

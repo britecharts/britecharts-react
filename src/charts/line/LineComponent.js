@@ -9,7 +9,7 @@ class LineComponent extends React.Component {
         /**
          * Internally used, do not overwrite.
          */
-        data: PropTypes.arrayOf(PropTypes.any).isRequired,
+        data: PropTypes.object.isRequired,
 
         /**
          * Exposes the constants to be used to force the x axis to respect a

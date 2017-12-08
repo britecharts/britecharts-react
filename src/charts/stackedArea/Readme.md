@@ -1,6 +1,6 @@
 ### with 2 sources data, Tooltip and responsive
 ```js
-    const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
+    const stackedAreaData = require('./stackedAreaChart.fixtures.js').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
     const ResponsiveStackedArea = withResponsiveness(StackedAreaComponent);
     const renderStackedAreaComponent = (props) => (
@@ -19,7 +19,7 @@
 ### with 3 sources data
 ```js
 
-    const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
+    const stackedAreaData = require('./stackedAreaChart.fixtures.js').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
     const ResponsiveStackedArea = withResponsiveness(StackedAreaComponent);
 
@@ -31,7 +31,7 @@
 
 ### with 500px width and 200px height
 ```js
-    const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
+    const stackedAreaData = require('./stackedAreaChart.fixtures.js').default;
 
     <StackedAreaComponent
         data={stackedAreaData.with3Sources()}
@@ -43,7 +43,7 @@
 
 ### with 2 sources data and hover events (on console)
 ```js
-    const stackedAreaData = require('../../helpers/testData.js').stackedAreaData;
+    const stackedAreaData = require('./stackedAreaChart.fixtures.js').default;
     const logMouseOver = () => console.log('Mouse Over');
     const logMouseOut = () => console.log('Mouse Out');
     const logMouseMoveTooltip = (dataPoint, topicColorMap, dataPointXPosition) => {
