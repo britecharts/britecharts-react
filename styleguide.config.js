@@ -84,6 +84,10 @@ module.exports = {
                     name: 'Donut Chart',
                     components: 'src/charts/donut/DonutComponent.js',
                 },
+                {
+                    name: 'Line Chart',
+                    components: 'src/charts/line/LineComponent.js',
+                },
             ],
         },
         {
