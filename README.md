@@ -41,6 +41,11 @@ We are accepting PRs for creating wrappers for Britecharts components. Check our
 For this project, we have followed the approach called ‘Mapping Lifecycle methods’ based on [Nicholas Hery's article][integration-article].
 
 
+## See Also
+- [Documentation Homepage][https://eventbrite.github.io/britecharts-react/]
+- [Contributing Guide][contributingGuide]
+- [Code of Conduct][codeOfConduct]
+
 ## License
 Copyright 2017 Eventbrite
 
@@ -70,3 +75,4 @@ Read more in the [license document][licenseGithub]
 [npmModule]: https://www.npmjs.com/package/britecharts-react
 [contributingGuide]: https://github.com/eventbrite/britecharts-react/blob/master/CONTRIBUTING.md
 [d3Slack]: https://d3js.slack.com/
+[codeOfConduct]: https://github.com/eventbrite/britecharts-react/blob/master/CODE_OF_CONDUCT.md
