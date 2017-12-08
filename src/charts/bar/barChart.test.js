@@ -1,4 +1,4 @@
-import { barData } from '../../helpers/testData';
+import barData from './barChart.fixtures';
 import bar from './barChart';
 
 describe('Bar Chart', () => {
@@ -81,7 +81,7 @@ describe('Bar Chart', () => {
                 const chart = bar.create(
                     anchor,
                     barData.withColors(),
-                    {width: expected}
+                    { width: expected }
                 );
 
                 const actual = chart.width();
@@ -100,7 +100,7 @@ describe('Bar Chart', () => {
                 const chart = bar.create(
                     anchor,
                     barData.withColors(),
-                    {margin: expected}
+                    { margin: expected }
                 );
 
                 const actual = chart.margin();
@@ -156,10 +156,10 @@ describe('Bar Chart', () => {
                     const chart = bar.create(
                         anchor,
                         barData.withColors(),
-                        {width: firstWidth}
+                        { width: firstWidth }
                     );
 
-                    bar.update(anchor, [], {width: expected}, chart);
+                    bar.update(anchor, [], { width: expected }, chart);
 
                     const actual = chart.width();
 

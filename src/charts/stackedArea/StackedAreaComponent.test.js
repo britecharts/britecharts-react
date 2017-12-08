@@ -3,7 +3,7 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
 import StackedAreaComponent from './StackedAreaComponent';
-import { stackedAreaData } from '../../helpers/testData';
+import stackedAreaData from './stackedAreaChart.fixtures';
 
 import stackedArea from './stackedAreaChart';
 

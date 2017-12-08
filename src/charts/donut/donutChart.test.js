@@ -1,4 +1,4 @@
-import { donutData } from '../../helpers/testData';
+import donutData from './donutChart.fixtures';
 import donut from './donutChart';
 
 describe('Donut Chart', () => {
@@ -42,7 +42,7 @@ describe('Donut Chart', () => {
                         donut.create(
                             anchor,
                             donutData.with4Slices(),
-                            {test: 'test'}
+                            { test: 'test' }
                         );
                     }).toThrowError('Method not supported by Britechart: test');
                 });
@@ -56,7 +56,7 @@ describe('Donut Chart', () => {
                         donut.create(
                             anchor,
                             donutData.with4Slices(),
-                            {customFakeEvent: callback}
+                            { customFakeEvent: callback }
                         );
                     }).toThrowError('Method not supported by Britechart: customFakeEvent');
                 });
@@ -81,7 +81,7 @@ describe('Donut Chart', () => {
                 const chart = donut.create(
                     anchor,
                     donutData.with4Slices(),
-                    {width: expected}
+                    { width: expected }
                 );
 
                 const actual = chart.width();
@@ -95,7 +95,7 @@ describe('Donut Chart', () => {
                 const chart = donut.create(
                     anchor,
                     donutData.with4Slices(),
-                    {height: expected}
+                    { height: expected }
                 );
 
                 const actual = chart.height();
@@ -114,7 +114,7 @@ describe('Donut Chart', () => {
                 const chart = donut.create(
                     anchor,
                     donutData.with4Slices(),
-                    {margin: expected}
+                    { margin: expected }
                 );
 
                 const actual = chart.margin();
@@ -130,7 +130,7 @@ describe('Donut Chart', () => {
                     const chart = donut.create(
                         anchor,
                         donutData.with4Slices(),
-                        {customMouseOver: expected}
+                        { customMouseOver: expected }
                     );
 
                     const actual = chart.on('customMouseOver');
@@ -144,7 +144,7 @@ describe('Donut Chart', () => {
                     const chart = donut.create(
                         anchor,
                         donutData.with4Slices(),
-                        {customMouseOut: expected}
+                        { customMouseOut: expected }
                     );
 
                     const actual = chart.on('customMouseOut');
@@ -203,10 +203,10 @@ describe('Donut Chart', () => {
                     const chart = donut.create(
                         anchor,
                         donutData.with4Slices(),
-                        {width: firstWidth}
+                        { width: firstWidth }
                     );
 
-                    donut.update(anchor, [], {width: expected}, chart);
+                    donut.update(anchor, [], { width: expected }, chart);
 
                     const actual = chart.width();
 

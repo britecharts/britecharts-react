@@ -3,9 +3,9 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
 import LegendComponent from './LegendComponent';
-import { legendData } from '../../helpers/testData';
+import legendData from './legendChart.fixtures';
 
-import legendChart from './LegendChart';
+import legendChart from './legendChart';
 
 Enzyme.configure({ adapter: new Adapter() });
 

@@ -1,4 +1,4 @@
-import { stackedAreaData } from '../../helpers/testData';
+import stackedAreaData from './stackedAreaChart.fixtures';
 import stackedArea from './stackedAreaChart';
 
 describe('Stacked Area Chart', () => {
@@ -42,7 +42,7 @@ describe('Stacked Area Chart', () => {
                         stackedArea.create(
                             anchor,
                             stackedAreaData.with3Sources(),
-                            {test: 'test'}
+                            { test: 'test' }
                         );
                     }).toThrowError('Method not supported by Britechart: test');
                 });
@@ -56,7 +56,7 @@ describe('Stacked Area Chart', () => {
                         stackedArea.create(
                             anchor,
                             stackedAreaData.with3Sources(),
-                            {customFakeEvent: callback}
+                            { customFakeEvent: callback }
                         );
                     }).toThrowError('Method not supported by Britechart: customFakeEvent');
                 });
@@ -81,7 +81,7 @@ describe('Stacked Area Chart', () => {
                 const chart = stackedArea.create(
                     anchor,
                     stackedAreaData.with3Sources(),
-                    {width: expected}
+                    { width: expected }
                 );
 
                 const actual = chart.width();
@@ -95,7 +95,7 @@ describe('Stacked Area Chart', () => {
                 const chart = stackedArea.create(
                     anchor,
                     stackedAreaData.with3Sources(),
-                    {height: expected}
+                    { height: expected }
                 );
 
                 const actual = chart.height();
@@ -114,7 +114,7 @@ describe('Stacked Area Chart', () => {
                 const chart = stackedArea.create(
                     anchor,
                     stackedAreaData.with3Sources(),
-                    {margin: expected}
+                    { margin: expected }
                 );
 
                 const actual = chart.margin();
@@ -128,7 +128,7 @@ describe('Stacked Area Chart', () => {
                 const chart = stackedArea.create(
                     anchor,
                     stackedAreaData.with3Sources(),
-                    {grid: expected}
+                    { grid: expected }
                 );
 
                 const actual = chart.grid();
@@ -144,7 +144,7 @@ describe('Stacked Area Chart', () => {
                     const chart = stackedArea.create(
                         anchor,
                         stackedAreaData.with3Sources(),
-                        {customMouseOver: expected}
+                        { customMouseOver: expected }
                     );
 
                     const actual = chart.on('customMouseOver');
@@ -158,7 +158,7 @@ describe('Stacked Area Chart', () => {
                     const chart = stackedArea.create(
                         anchor,
                         stackedAreaData.with3Sources(),
-                        {customMouseMove: expected}
+                        { customMouseMove: expected }
                     );
 
                     const actual = chart.on('customMouseMove');
@@ -172,7 +172,7 @@ describe('Stacked Area Chart', () => {
                     const chart = stackedArea.create(
                         anchor,
                         stackedAreaData.with3Sources(),
-                        {customMouseOut: expected}
+                        { customMouseOut: expected }
                     );
 
                     const actual = chart.on('customMouseOut');
@@ -226,10 +226,10 @@ describe('Stacked Area Chart', () => {
                     const chart = stackedArea.create(
                         anchor,
                         stackedAreaData.with3Sources(),
-                        {width: firstWidth}
+                        { width: firstWidth }
                     );
 
-                    stackedArea.update(anchor, [], {width: expected}, chart);
+                    stackedArea.update(anchor, [], { width: expected }, chart);
 
                     const actual = chart.width();
 

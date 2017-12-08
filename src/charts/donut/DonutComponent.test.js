@@ -3,7 +3,7 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
 import DonutComponent from './DonutComponent';
-import { donutData } from '../../helpers/testData';
+import donutData from './donutChart.fixtures';
 
 import donut from './donutChart';
 
