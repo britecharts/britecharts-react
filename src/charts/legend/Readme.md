@@ -1,6 +1,6 @@
 ### with a square container
 ```js
-    const legendData = require('../../helpers/testData.js').legendData;
+    const legendData = require('./legendChart.fixtures.js').default;
 
     <LegendComponent
         data={legendData.with6Points()}
@@ -11,7 +11,7 @@
 
 ### with vertical orientation and smaller dots
 ```js
-    const legendData = require('../../helpers/testData.js').legendData;
+    const legendData = require('./legendChart.fixtures.js').default;
 
     <LegendComponent
         data={legendData.with6Points()}
