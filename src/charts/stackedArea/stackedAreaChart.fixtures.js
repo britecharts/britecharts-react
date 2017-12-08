@@ -305,7 +305,7 @@ const with2Sources = () => [
     },
 ];
 
-export const stackedAreaData = {
+export default {
     with3Sources,
     with2Sources,
 };
