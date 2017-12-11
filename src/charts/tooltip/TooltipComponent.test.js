@@ -104,7 +104,7 @@ describe('Tooltip Component', () => {
                 createSpy.mockRestore();
             });
 
-            it('should call the update method or the chart', () => {
+            it('should call the update method on the chart', () => {
                 const wrapper = mount(
                     <TooltipComponent
                         chart={tooltip}
