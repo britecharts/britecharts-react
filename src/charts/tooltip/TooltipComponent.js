@@ -90,8 +90,8 @@ export default class TooltipComponent extends React.Component {
         isActive: false,
         x: 0,
         y: 0,
-        dataPoint: {},
-        topicColorMap: {},
+        dataPoint: null,
+        topicColorMap: null,
     }
 
     componentDidMount() {

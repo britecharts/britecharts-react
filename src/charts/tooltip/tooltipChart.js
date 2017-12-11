@@ -38,7 +38,7 @@ tooltip.update = (el, configuration = {}, state = {}, chart) => {
         chartConfigured.hide();
     }
 
-    if (state.dataPoint && state.topicColorMap && state.x) {
+    if (state.dataPoint && state.topicColorMap && typeof state.x === 'number') {
         chartConfigured.update(state.dataPoint, state.topicColorMap, state.x, state.y);
     }
 
