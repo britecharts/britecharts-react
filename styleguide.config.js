@@ -14,8 +14,8 @@ module.exports = {
             base: '#333',
             light: '#999',
             lightest: '#ccc',
-            link: '#D2D6DF',
-            linkHover: '#6AEDC7',
+            link: '#F6682f',
+            linkHover: '#BF4C28',
             border: '#e8e8e8',
             name: '#FFA71A',
             type: '#b77daa',
@@ -102,6 +102,10 @@ module.exports = {
                     components: 'src/charts/tooltip/TooltipComponent.js',
                 },
             ],
+        },
+        {
+            name: 'About',
+            content: './TOPICS.md',
         },
         {
             name: 'About',
