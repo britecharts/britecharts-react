@@ -12,13 +12,13 @@ body,
 }
 
 /* Sidebar */
-a {
-    color: '#D2D6DF';
+.rsg--sidebar-4 a {
+    color: #D2D6DF !important;
 }
-a:hover,
-a:active,
-a:focus {
-    color: '#FFFFFF';
+.rsg--sidebar-4 a:hover,
+.rsg--sidebar-4 a:active,
+.rsg--sidebar-4 a:focus {
+    color: #FFFFFF !important;
 }
 
 .stacked-area-container {
