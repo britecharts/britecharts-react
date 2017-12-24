@@ -324,16 +324,6 @@ const fiveTopics = () => ({
                     value: 0,
                     fullDate: '2015-07-31T07:00:00.000Z',
                 },
-                {
-                    date: '1-Aug-15',
-                    value: 0,
-                    fullDate: '2015-08-01T07:00:00.000Z',
-                },
-                {
-                    date: '2-Aug-15',
-                    value: 0,
-                    fullDate: '2015-08-02T07:00:00.000Z',
-                },
             ],
             topicName: 'San Francisco',
         },
@@ -514,16 +504,6 @@ const fiveTopics = () => ({
                     date: '31-Jul-15',
                     value: 0,
                     fullDate: '2015-07-31T07:00:00.000Z',
-                },
-                {
-                    date: '1-Aug-15',
-                    value: 0,
-                    fullDate: '2015-08-01T07:00:00.000Z',
-                },
-                {
-                    date: '2-Aug-15',
-                    value: 0,
-                    fullDate: '2015-08-02T07:00:00.000Z',
                 },
             ],
             topicName: 'Unknown Location with a super hyper mega very very very long name.',
@@ -706,16 +686,6 @@ const fiveTopics = () => ({
                     value: 0,
                     fullDate: '2015-07-31T07:00:00.000Z',
                 },
-                {
-                    date: '1-Aug-15',
-                    value: 0,
-                    fullDate: '2015-08-01T07:00:00.000Z',
-                },
-                {
-                    date: '2-Aug-15',
-                    value: 0,
-                    fullDate: '2015-08-02T07:00:00.000Z',
-                },
             ],
             topicName: 'Los Angeles',
         },
@@ -896,16 +866,6 @@ const fiveTopics = () => ({
                     date: '31-Jul-15',
                     value: 0,
                     fullDate: '2015-07-31T07:00:00.000Z',
-                },
-                {
-                    date: '1-Aug-15',
-                    value: 0,
-                    fullDate: '2015-08-01T07:00:00.000Z',
-                },
-                {
-                    date: '2-Aug-15',
-                    value: 0,
-                    fullDate: '2015-08-02T07:00:00.000Z',
                 },
             ],
             topicName: 'Oakland',
@@ -1088,16 +1048,6 @@ const fiveTopics = () => ({
                     date: '31-Jul-15',
                     value: 0,
                     fullDate: '2015-07-31T07:00:00.000Z',
-                },
-                {
-                    date: '1-Aug-15',
-                    value: 0,
-                    fullDate: '2015-08-01T07:00:00.000Z',
-                },
-                {
-                    date: '2-Aug-15',
-                    value: 0,
-                    fullDate: '2015-08-02T07:00:00.000Z',
                 },
             ],
         },
@@ -2125,66 +2075,6 @@ const fiveTopics = () => ({
         },
         {
             date: '2015-07-31T07:00:00.000Z',
-            topics: [
-                {
-                    name: 60,
-                    value: 0,
-                    topicName: 'Los Angeles',
-                },
-                {
-                    name: 81,
-                    value: 0,
-                    topicName: 'Oakland',
-                },
-                {
-                    name: 103,
-                    value: 0,
-                    topicName: 'San Francisco',
-                },
-                {
-                    name: 149,
-                    value: 0,
-                    topicName: 'Unknown Location with a super hyper mega very very very long name.',
-                },
-                {
-                    name: 0,
-                    value: 0,
-                    topicName: 'Other',
-                },
-            ],
-        },
-        {
-            date: '2015-08-01T07:00:00.000Z',
-            topics: [
-                {
-                    name: 60,
-                    value: 0,
-                    topicName: 'Los Angeles',
-                },
-                {
-                    name: 81,
-                    value: 0,
-                    topicName: 'Oakland',
-                },
-                {
-                    name: 103,
-                    value: 0,
-                    topicName: 'San Francisco',
-                },
-                {
-                    name: 149,
-                    value: 0,
-                    topicName: 'Unknown Location with a super hyper mega very very very long name.',
-                },
-                {
-                    name: 0,
-                    value: 0,
-                    topicName: 'Other',
-                },
-            ],
-        },
-        {
-            date: '2015-08-02T07:00:00.000Z',
             topics: [
                 {
                     name: 60,

@@ -48,6 +48,24 @@ const optimizedResize = (function() {
         }
     };
 
+    const resizeMainHorizontal = () => {
+        let newWidth = document.querySelector('main').offsetWidth;
+
+        if (cachedWidth !== newWidth) {
+            cachedWidth = newWidth;
+
+            if (!running) {
+                running = true;
+
+                if (window.requestAnimationFrame) {
+                    window.requestAnimationFrame(runCallbacks);
+                } else {
+                    setTimeout(runCallbacks, 66);
+                }
+            }
+        }
+    };
+
     // adds callback to loop
     const addCallback = (callback) => {
 
@@ -67,6 +85,12 @@ const optimizedResize = (function() {
         addHorizontal(callback) {
             if (!callbacks.length) {
                 window.addEventListener('resize', resizeHorizontal);
+            }
+            addCallback(callback);
+        },
+        addHorizontalMain(callback) {
+            if (!callbacks.length) {
+                window.addEventListener('resize', resizeMainHorizontal);
             }
             addCallback(callback);
         },

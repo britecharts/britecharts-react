@@ -9,7 +9,7 @@ export default function(Component) {
         }
 
         componentDidMount() {
-            optimizedResize.addHorizontal(this.updateSize.bind(this));
+            optimizedResize.addHorizontalMain(this.updateSize.bind(this));
 
             this.updateSize();
         }

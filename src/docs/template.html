@@ -24,5 +24,15 @@
             </svg>
         </a>
         <div id="app"></div>
+        <script>
+            // Super hacky way to overcome the flash of main container size
+            // while loading the styleguide
+            // Happy to try ANY other solution
+            const approximatedLayoutRefreshDelay = 1500;
+
+            setTimeout(() => {
+                window.dispatchEvent(new Event('resize'));
+            }, approximatedLayoutRefreshDelay);
+        </script>
     </body>
 </html>
