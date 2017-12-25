@@ -32,6 +32,8 @@
     "test:watch": "jest --watch",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
+    "storybook": "start-storybook -p 6006",
+    "build:storybook": "build-storybook -c .storybook -o storybook",
     "release": "grunt release:patch",
     "release:minor": "grunt release:minor",
     "release:major": "grunt release:major"
@@ -75,7 +77,10 @@
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dashboard": "1.0.2",
     "webpack-dev-server": "^2.8.2",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "@storybook/react": "^3.2.10",
+    "@storybook/addon-actions": "^3.2.10",
+    "@storybook/addon-links": "^3.2.10"
   },
   "peerDependencies": {
     "prop-types": ">=15",
