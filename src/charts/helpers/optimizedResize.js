@@ -5,6 +5,7 @@ const optimizedResize = (function() {
     let callbacks = [];
     let running = false;
     let cachedWidth = window.innerWidth;
+    const delay = 66;
 
     // run the actual callbacks
     const runCallbacks = () => {
@@ -25,7 +26,7 @@ const optimizedResize = (function() {
             if (window.requestAnimationFrame) {
                 window.requestAnimationFrame(runCallbacks);
             } else {
-                setTimeout(runCallbacks, 66);
+                setTimeout(runCallbacks, delay);
             }
         }
     };
@@ -42,13 +43,14 @@ const optimizedResize = (function() {
                 if (window.requestAnimationFrame) {
                     window.requestAnimationFrame(runCallbacks);
                 } else {
-                    setTimeout(runCallbacks, 66);
+                    setTimeout(runCallbacks, delay);
                 }
             }
         }
     };
 
     const resizeMainHorizontal = () => {
+        // This searches for a main tag, that is found in the main section of the React Styleguidist layout.
         let newWidth = document.querySelector('main').offsetWidth;
 
         if (cachedWidth !== newWidth) {
@@ -60,7 +62,7 @@ const optimizedResize = (function() {
                 if (window.requestAnimationFrame) {
                     window.requestAnimationFrame(runCallbacks);
                 } else {
-                    setTimeout(runCallbacks, 66);
+                    setTimeout(runCallbacks, delay);
                 }
             }
         }
