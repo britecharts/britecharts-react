@@ -44,6 +44,9 @@
 ### with 2 sources data and hover events (on console)
 ```js
     const stackedAreaData = require('./stackedAreaChart.fixtures.js').default;
+    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
+    const ResponsiveStackedArea = withResponsiveness(StackedAreaComponent);
+
     const logMouseOver = () => console.log('Mouse Over');
     const logMouseOut = () => console.log('Mouse Out');
     const logMouseMoveTooltip = (dataPoint, topicColorMap, dataPointXPosition) => {
@@ -52,7 +55,7 @@
         console.log('Mouse Move: dataPointXPosition', dataPointXPosition);
     };
 
-    <StackedAreaComponent
+    <ResponsiveStackedArea
         data={stackedAreaData.with2Sources()}
         customMouseOver={logMouseOver}
         customMouseMove={logMouseMoveTooltip}
