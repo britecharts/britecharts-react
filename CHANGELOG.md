@@ -23,7 +23,7 @@
 0.3.2
 0.3.1
 0.3.0
-0.2.4
+
 0.2.4
 -----
 Fixes:
@@ -35,7 +35,6 @@ Features:
 * Updating Legend and Tooltip prototypes
 
 0.2.0
-
 
 0.1.13 - 0.1.17 - Debugging
 --------------
