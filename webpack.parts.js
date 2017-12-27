@@ -117,3 +117,30 @@ exports.bundleTreeChart = () => ({
         new BundleAnalyzerPlugin(),
     ],
 });
+
+exports.externals = () => ({
+    react: {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react',
+    },
+    'react-dom': {
+        root: 'ReactDOM',
+        commonjs2: 'react-dom',
+        commonjs: 'react-dom',
+        amd: 'react-dom',
+    },
+    'prop-types': {
+        root: 'PropTypes',
+        commonjs2: 'prop-types',
+        commonjs: 'prop-types',
+        amd: 'prop-types',
+    },
+    'd3-selection': {
+        root: 'd3.select',
+        commonjs2: 'd3-selection',
+        commonjs: 'd3-selection',
+        amd: 'd3-selection',
+    },
+});

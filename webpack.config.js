@@ -8,14 +8,14 @@ const merge = require('webpack-merge');
 const parts = require('./webpack.parts');
 
 const PATHS = {
+    bundle: path.join(__dirname, 'src/charts/index.js'),
     charts: path.join(__dirname, 'src/charts'),
     lib: path.join(__dirname, 'lib'),
     build: path.join(__dirname, 'dist'),
     umd: path.join(__dirname, 'lib/umd'),
     esm: path.join(__dirname, 'lib/esm'),
+    cjs: path.join(__dirname, 'lib/cjs'),
 };
-
-const BUNDLE = path.join(__dirname, 'src/charts/index.js');
 const CHARTS = {
     Donut: `${PATHS.charts}/donut/DonutComponent.js`,
     Legend: `${PATHS.charts}/legend/LegendComponent.js`,
@@ -40,18 +40,8 @@ const commonSplittedConfig = merge([
             'react/addons': true,
             'react/lib/ExecutionEnvironment': true,
             'react/lib/ReactContext': true,
-            react: {
-                root: 'React',
-                commonjs2: 'react',
-                commonjs: 'react',
-                amd: 'react',
-            },
-            'react-dom': {
-                root: 'ReactDOM',
-                commonjs2: 'react-dom',
-                commonjs: 'react-dom',
-                amd: 'react-dom',
-            },
+            react: parts.externals().react,
+            'react-dom': parts.externals()['react-dom'],
         },
     },
     parts.lintJavaScript({
@@ -106,7 +96,25 @@ const libraryESMConfig = merge([
         output: {
             path: PATHS.esm,
             filename: '[name].js',
+            library: ['britecharts-react', '[name]'],
+            libraryTarget: 'commonjs-module',
         },
+        externals: parts.externals(),
+    },
+    parts.babelReactLoader(),
+    parts.generateSourceMaps({ type: 'source-map' }),
+]);
+
+const libraryCJSConfig = merge([
+    commonSplittedConfig,
+    {
+        output: {
+            path: PATHS.cjs,
+            filename: '[name].js',
+            library: ['britecharts-react', '[name]'],
+            libraryTarget: 'commonjs2',
+        },
+        externals: parts.externals(),
     },
     parts.babelReactLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
@@ -115,7 +123,7 @@ const libraryESMConfig = merge([
 const bundleConfig = merge([
     {
         entry: {
-            'britecharts-react': BUNDLE,
+            'britecharts-react': PATHS.bundle,
         },
         output: {
             path: PATHS.build,
@@ -136,6 +144,7 @@ module.exports = (env) => {
     if (env === 'production') {
         return [
             libraryESMConfig,
+            libraryCJSConfig,
             libraryUMDConfig,
             bundleConfig,
         ];
