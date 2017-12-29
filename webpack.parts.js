@@ -59,24 +59,6 @@ exports.babelLoader = () => ({
     },
 });
 
-exports.babelReactLoader = () => ({
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['react'],
-                    },
-                },
-            },
-        ],
-    },
-});
-
-
 exports.generateSourceMaps = ({ type }) => ({
     devtool: type,
 });
