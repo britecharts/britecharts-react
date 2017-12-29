@@ -40,7 +40,7 @@ const commonSplittedConfig = merge([
             'react/addons': true,
             'react/lib/ExecutionEnvironment': true,
             'react/lib/ReactContext': true,
-            react: parts.externals().react,
+            'react': parts.externals().react,
             'react-dom': parts.externals()['react-dom'],
         },
     },
@@ -79,15 +79,14 @@ const libraryUMDConfig = merge([
     {
         output: {
             path: PATHS.umd,
-            filename: '[name].min.js',
+            filename: '[name].js',
             library: ['britecharts-react', '[name]'],
             libraryTarget: 'umd',
         },
+        externals: parts.externals(),
     },
     parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
-    // parts.bundleTreeChart(),
-    parts.minifyJavaScript(),
 ]);
 
 const libraryESMConfig = merge([
@@ -134,6 +133,7 @@ const bundleConfig = merge([
     },
     parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
+    // parts.bundleTreeChart(),
     parts.minifyJavaScript(),
 ]);
 

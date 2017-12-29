@@ -137,10 +137,4 @@ exports.externals = () => ({
         commonjs: 'prop-types',
         amd: 'prop-types',
     },
-    'd3-selection': {
-        root: 'd3.select',
-        commonjs2: 'd3-selection',
-        commonjs: 'd3-selection',
-        amd: 'd3-selection',
-    },
 });
