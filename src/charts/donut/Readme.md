@@ -31,3 +31,13 @@
     customMouseOver={logMouseOver}
   />
 ```
+
+
+See more:
+* [API description][APILink]
+* [Data definition][DataLink]
+
+
+
+[APILink]: http://eventbrite.github.io/britecharts/module-Donut.html
+[DataLink]: http://eventbrite.github.io/britecharts/global.html#DonutChartData__anchor

@@ -63,3 +63,13 @@
         customMouseOut={logMouseOut}
     />
 ```
+
+
+See more:
+* [API description][APILink]
+* [Data definition][DataLink]
+
+
+
+[APILink]: http://eventbrite.github.io/britecharts/module-Stacked-area.html
+[DataLink]: http://eventbrite.github.io/britecharts/global.html#areaChartData__anchor
