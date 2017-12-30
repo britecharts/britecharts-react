@@ -506,7 +506,7 @@ const fiveTopics = () => ({
                     fullDate: '2015-07-31T07:00:00.000Z',
                 },
             ],
-            topicName: 'Unknown Location with a super hyper mega very very very long name.',
+            topicName: 'Unknown Location with a super hyper mega very long name.',
         },
         {
             topic: 60,

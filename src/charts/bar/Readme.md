@@ -8,19 +8,6 @@
     <ResponsiveBarChart data={barData.withLetters()} />
 ```
 
-### vertical with responsive and percentage
-```js
-    const barData = require('./barChart.fixtures.js').default;
-    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveBarChart = withResponsiveness(BarComponent);
-
-
-    <ResponsiveBarChart
-        data={barData.withLetters()}
-        hasPercentage
-    />
-```
-
 ### horizontal with responsive and custom color schema
 ```js
     const colors = require('britecharts/dist/umd/colors.min');
@@ -41,3 +28,12 @@
         }}
     />
 ```
+
+See more:
+* [API description][APILink]
+* [Data definition][DataLink]
+
+
+
+[APILink]: http://eventbrite.github.io/britecharts/module-Bar.html
+[DataLink]: http://eventbrite.github.io/britecharts/global.html#BarChartData__anchor
