@@ -3,6 +3,7 @@
     const stackedAreaData = require('./stackedAreaChart.fixtures.js').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
     const ResponsiveStackedArea = withResponsiveness(StackedAreaComponent);
+
     const renderStackedAreaComponent = (props) => (
         <ResponsiveStackedArea
             data={stackedAreaData.with3Sources()}

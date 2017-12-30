@@ -40,6 +40,7 @@
 
     const renderLineComponent = (props) => (
         <LineComponent
+            tooltipThreshold={0}
             margin={margin}
             {...props}
         />

@@ -1,7 +1,6 @@
 # Britecharts React
 Britecharts-react is a [React][react] wrapper for the [Britecharts][britecharts] charting library.
 
-
 ## Usage
 Britecharts-React components are used just like any other stateless React component. You will pass in some props and it would render a chart:
 
@@ -77,3 +76,22 @@ Read more in the [license document][licenseGithub]
 [d3Slack]: https://d3js.slack.com/
 [codeOfConduct]: https://github.com/eventbrite/britecharts-react/blob/master/CODE_OF_CONDUCT.md
 [homepage]: https://eventbrite.github.io/britecharts-react/
+
+[stackedAreaDemo]: https://eventbrite.github.io/britecharts-react/#stacked-area-chart
+[stackedAreaImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/stacked-area.png
+
+[barChartDemo]: https://eventbrite.github.io/britecharts-react/#bar-chart
+[barChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/bar-chart.png
+
+[donutChartDemo]: https://eventbrite.github.io/britecharts-react/#donut-chart
+[donutChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/donut-chart.png
+
+[lineChartDemo]: https://eventbrite.github.io/britecharts-react/#line-chart
+[lineChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/line-chart.png
+
+[legendDemo]: https://eventbrite.github.io/britecharts-react/#legend
+[legendImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/legend.png
+
+[tooltipDemo]: https://eventbrite.github.io/britecharts-react/#tooltip
+[tooltipImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/tooltip.png
+
