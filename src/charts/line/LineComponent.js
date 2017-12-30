@@ -52,7 +52,7 @@ class LineComponent extends React.Component {
         /**
          * Gets or Sets the curve of the line chart
          */
-        lineCurve: PropTypes.number,
+        lineCurve: PropTypes.string,
 
         /**
          * Gets or Sets the gradient colors of the line chart when there is only one line
@@ -179,7 +179,6 @@ class LineComponent extends React.Component {
             this._getChartConfiguration(),
             this._chart
         );
-
         this.props.createTooltip();
     }
 

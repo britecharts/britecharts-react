@@ -1,7 +1,6 @@
 # Britecharts React
 Britecharts-react is a [React][react] wrapper for the [Britecharts][britecharts] charting library.
 
-
 ## Usage
 Britecharts-React components are used just like any other stateless React component. You will pass in some props and it would render a chart:
 
@@ -30,7 +29,7 @@ From there, we will proceed to pass each of the configurations through the usual
 ## Installation
 Britecharts-React is available as an [NPM module][npmModule] or through CDN links (in [different formats][jsDelivrLib] or a [bundle][jsDelivrDist]).
 
-You can use either minified individual UMD modules(lib/umd), a minified UMD bundle(dist/) or un-minified and un-transpiled ES2015 modules(lib/esm) to add to your bundle.
+You can use either a minified UMD bundle (in dist/) or un-minified individual bundles in ES2015 modules (lib/esm), CommonJS (lib/cjs) or UMD (lib/umd) to add to your bundle.
 
 
 ## Next steps
@@ -38,25 +37,25 @@ We are accepting PRs for creating wrappers for Britecharts components. Check our
 
 
 ## Acknowledgments
-For this project, we have followed the approach called ‘Mapping Lifecycle methods’ based on [Nicholas Hery's article][integration-article].
+For this project, we have followed the approach called ‘Mapping Lifecycle methods’ based on [Nicholas Hery's article][integration-article]. We want to recognize all the contributors in the parent project [Britecharts][britecharts].
 
 
 ## See Also
-- [Documentation Homepage][https://eventbrite.github.io/britecharts-react/]
+- [Documentation Homepage][homepage]
 - [Contributing Guide][contributingGuide]
 - [Code of Conduct][codeOfConduct]
 
 ## License
 Copyright 2017 Eventbrite
 
-Licensed under the Apache License, Version 2.0 (the "License");
+Licensed under the Apache License, Version 2.0 (the “License”);
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
 [https://www.apache.org/licenses/LICENSE-2.0][license]
 
 Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
+distributed under the License is distributed on an “AS IS” BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
@@ -76,3 +75,23 @@ Read more in the [license document][licenseGithub]
 [contributingGuide]: https://github.com/eventbrite/britecharts-react/blob/master/CONTRIBUTING.md
 [d3Slack]: https://d3js.slack.com/
 [codeOfConduct]: https://github.com/eventbrite/britecharts-react/blob/master/CODE_OF_CONDUCT.md
+[homepage]: https://eventbrite.github.io/britecharts-react/
+
+[stackedAreaDemo]: https://eventbrite.github.io/britecharts-react/#stacked-area-chart
+[stackedAreaImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/stacked-area.png
+
+[barChartDemo]: https://eventbrite.github.io/britecharts-react/#bar-chart
+[barChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/bar-chart.png
+
+[donutChartDemo]: https://eventbrite.github.io/britecharts-react/#donut-chart
+[donutChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/donut-chart.png
+
+[lineChartDemo]: https://eventbrite.github.io/britecharts-react/#line-chart
+[lineChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/line-chart.png
+
+[legendDemo]: https://eventbrite.github.io/britecharts-react/#legend
+[legendImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/legend.png
+
+[tooltipDemo]: https://eventbrite.github.io/britecharts-react/#tooltip
+[tooltipImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/tooltip.png
+

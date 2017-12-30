@@ -36,3 +36,12 @@
         height={100}
     />
 ```
+
+See more:
+* [API description][APILink]
+* [Data definition][DataLink]
+
+
+
+[APILink]: http://eventbrite.github.io/britecharts/module-Legend.html
+[DataLink]: http://eventbrite.github.io/britecharts/global.html#LegendChartData__anchor

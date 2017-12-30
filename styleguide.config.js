@@ -107,10 +107,6 @@ module.exports = {
             name: 'About',
             content: './TOPICS.md',
         },
-        {
-            name: 'About',
-            content: './TOPICS.md',
-        },
     ],
 
     styleguideDir: 'docs',
