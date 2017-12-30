@@ -12,7 +12,6 @@
 
     const renderLineComponent = (props) => (
         <LineComponent
-            data={lineData.oneSet()}
             margin={margin}
             lineCurve="basis"
             {...props}
@@ -41,7 +40,6 @@
 
     const renderLineComponent = (props) => (
         <LineComponent
-            data={lineData.fiveTopics()}
             margin={margin}
             {...props}
         />
