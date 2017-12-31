@@ -1,6 +1,10 @@
 # Britecharts React
 Britecharts-react is a [React][react] wrapper for the [Britecharts][britecharts] charting library.
 
+| [![Stacked Area Chart][stackedAreaImg]][stackedAreaDemo] | [![Bar Chart][barChartImg]][barChartDemo] | [![Line Chart][lineChartImg]][lineChartDemo] |
+| ------------- | ------------- | ------------- |
+| [![Donut Chart][donutChartImg]][donutChartDemo] | [![Legend][legendImg]][legendDemo] | [![Tooltip][tooltipImg]][tooltipDemo] |
+
 ## Usage
 Britecharts-React components are used just like any other stateless React component. You will pass in some props and it would render a chart:
 
@@ -77,21 +81,21 @@ Read more in the [license document][licenseGithub]
 [codeOfConduct]: https://github.com/eventbrite/britecharts-react/blob/master/CODE_OF_CONDUCT.md
 [homepage]: https://eventbrite.github.io/britecharts-react/
 
-[stackedAreaDemo]: https://eventbrite.github.io/britecharts-react/#stacked-area-chart
+[stackedAreaDemo]: https://eventbrite.github.io/britecharts-react/#stacked-area-chart "Check the Demo"
 [stackedAreaImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/stacked-area.png
 
-[barChartDemo]: https://eventbrite.github.io/britecharts-react/#bar-chart
+[barChartDemo]: https://eventbrite.github.io/britecharts-react/#bar-chart "Check the Demo"
 [barChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/bar-chart.png
 
-[donutChartDemo]: https://eventbrite.github.io/britecharts-react/#donut-chart
+[donutChartDemo]: https://eventbrite.github.io/britecharts-react/#donut-chart "Check the Demo"
 [donutChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/donut-chart.png
 
-[lineChartDemo]: https://eventbrite.github.io/britecharts-react/#line-chart
+[lineChartDemo]: https://eventbrite.github.io/britecharts-react/#line-chart "Check the Demo"
 [lineChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/line-chart.png
 
-[legendDemo]: https://eventbrite.github.io/britecharts-react/#legend
+[legendDemo]: https://eventbrite.github.io/britecharts-react/#legend "Check the Demo"
 [legendImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/legend.png
 
-[tooltipDemo]: https://eventbrite.github.io/britecharts-react/#tooltip
+[tooltipDemo]: https://eventbrite.github.io/britecharts-react/#tooltip "Check the Demo"
 [tooltipImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/tooltip.png
 
