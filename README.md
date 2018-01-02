@@ -1,5 +1,5 @@
 # Britecharts React
-Britecharts-react is a [React][react] wrapper for the [Britecharts][britecharts] charting library.
+> Britecharts-react is a [React][react] wrapper for the [Britecharts][britecharts] charting library.
 
 | [![Stacked Area Chart][stackedAreaImg]][stackedAreaDemo] | [![Bar Chart][barChartImg]][barChartDemo] | [![Line Chart][lineChartImg]][lineChartDemo] |
 | ------------- | ------------- | ------------- |
