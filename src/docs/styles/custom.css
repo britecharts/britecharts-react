@@ -62,12 +62,9 @@ body,
     display: block;
 }
 #app table img {
-    max-width: 300px;
+    max-width: 100%;
     vertical-align: middle;
 }
 #app table td {
     text-align: center;
-}
-#app table td:hover {
-    background-color: red;
 }
