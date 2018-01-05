@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import bar from './barChart';
-
+import LoadingContainer from '../loading/LoadingContainer';
 
 class Bar extends Component {
 
@@ -204,7 +204,12 @@ class Bar extends Component {
 
     render() {
         return (
-            <div className="bar-container" ref={this._setRef.bind(this)} />
+            <LoadingContainer
+                data={this.props.data}
+                loadingState={this.props.chart.loading()}
+            >
+                <div className="bar-container" ref={this._setRef.bind(this)} />
+            </LoadingContainer>
         );
     }
 }

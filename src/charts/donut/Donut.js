@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import donut from './donutChart';
+import LoadingContainer from '../loading/LoadingContainer';
 
 export default class Donut extends Component {
 
@@ -130,7 +131,12 @@ export default class Donut extends Component {
 
     render() {
         return (
-            <div className="donut-container" ref={this._setRef.bind(this)} />
+            <LoadingContainer
+                data={this.props.data}
+                loadingState={this.props.chart.loading()}
+            >
+                <div className="donut-container" ref={this._setRef.bind(this)} />
+            </LoadingContainer>
         );
     }
 }

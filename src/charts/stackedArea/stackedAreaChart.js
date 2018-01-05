@@ -3,6 +3,8 @@ import {select} from 'd3-selection';
 import {validateConfiguration, validateContainer, validateData} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
+import { line as stackedAreaLoadingState } from 'britecharts/dist/umd/loading.min';
+
 const stackedArea = {};
 
 stackedArea.create = (el, data, configuration = {}) => {
@@ -38,5 +40,7 @@ stackedArea.update = (el, data, configuration = {}, chart) => {
 };
 
 stackedArea.destroy = () => {};
+
+stackedArea.loading = () => stackedAreaLoadingState;
 
 export default stackedArea;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import line from './lineChart';
-
+import LoadingContainer from '../loading/LoadingContainer';
 
 class Line extends React.Component {
 
@@ -9,7 +9,7 @@ class Line extends React.Component {
         /**
          * Internally used, do not overwrite.
          */
-        data: PropTypes.object.isRequired,
+        data: PropTypes.object,
 
         /**
          * Exposes the constants to be used to force the x axis to respect a
@@ -170,6 +170,7 @@ class Line extends React.Component {
             this.props.data,
             this._getChartConfiguration()
         );
+
     }
 
     componentDidUpdate() {
@@ -206,7 +207,12 @@ class Line extends React.Component {
 
     render() {
         return (
-            <div className="line-container" ref={this._setRef.bind(this)} />
+            <LoadingContainer
+                data={this.props.data}
+                loadingState={this.props.chart.loading()}
+            >
+                <div className="line-container" ref={this._setRef.bind(this)} />
+            </LoadingContainer>
         );
     }
 }

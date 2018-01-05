@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import stackedArea from './stackedAreaChart';
-
+import LoadingContainer from '../loading/LoadingContainer';
 
 class StackedArea extends React.Component {
 
@@ -169,7 +169,12 @@ class StackedArea extends React.Component {
 
     render() {
         return (
-            <div className="stacked-area-container" ref={this._setRef.bind(this)} />
+            <LoadingContainer
+                data={this.props.data}
+                loadingState={this.props.chart.loading()}
+            >
+                <div className="stacked-area-container" ref={this._setRef.bind(this)} />
+            </LoadingContainer>
         );
     }
 }
