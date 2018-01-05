@@ -3,6 +3,8 @@ import {select} from 'd3-selection';
 import {validateConfiguration, validateContainer, validateData} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
+import { bar as barLoadingState } from 'britecharts/dist/umd/loading.min';
+
 const bar = {};
 
 bar.create = (el, data, configuration = {}) => {
@@ -36,5 +38,7 @@ bar.update = (el, data, configuration = {}, chart) => {
 };
 
 bar.destroy = () => {};
+
+bar.loading = () => barLoadingState;
 
 export default bar;

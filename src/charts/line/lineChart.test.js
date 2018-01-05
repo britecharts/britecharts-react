@@ -49,7 +49,7 @@ describe('Bar Chart', () => {
             });
 
             describe('when wrong event handlers are passed', () => {
-                it('should throw ane error', () => {
+                it('should throw an error', () => {
                     const callback = jest.fn();
 
                     expect(() => {
