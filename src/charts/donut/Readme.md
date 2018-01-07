@@ -21,14 +21,19 @@
   />
 ```
 
-### with hover event
+### with hover event and responsive
 ```js
   const donutData = require('./donutChart.fixtures.js').default;
   const logMouseOver = () => console.log('Mouse Over');
+  const withResponsiveness = require('../helpers/withResponsiveness.js').default;
+  const ResponsiveDonut = withResponsiveness(DonutComponent);
 
-  <DonutComponent
+
+  <ResponsiveDonut
     data={donutData.with4Slices()}
     customMouseOver={logMouseOver}
+    externalRadius={100}
+    internalRadius={47}
   />
 ```
 
