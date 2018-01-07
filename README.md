@@ -1,6 +1,13 @@
 # Britecharts React
 > Britecharts-react is a [React][react] wrapper for the [Britecharts][britecharts] charting library.
 
+[![Build Status](https://travis-ci.org/eventbrite/britecharts-react.svg?branch=master)](https://travis-ci.org/eventbrite/britecharts-react)
+[![npm version](https://badge.fury.io/js/britecharts-react.svg)](https://badge.fury.io/js/britecharts-react)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/eventbrite/britecharts-react/blob/master/CONTRIBUTING.md)
+[![Twitter Follow](https://img.shields.io/twitter/follow/britecharts-react.svg?style=social&label=Follow)](https://twitter.com/Britecharts/followers)
+
+
 | [![Stacked Area Chart][stackedAreaImg]][stackedAreaDemo] | [![Bar Chart][barChartImg]][barChartDemo] | [![Line Chart][lineChartImg]][lineChartDemo] |
 | ------------- | ------------- | ------------- |
 | [![Donut Chart][donutChartImg]][donutChartDemo] | [![Legend][legendImg]][legendDemo] | [![Tooltip][tooltipImg]][tooltipDemo] |
