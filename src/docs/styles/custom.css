@@ -47,6 +47,14 @@ body,
 
 
 /* Body */
+#app #introduction {
+    display: none;
+}
+#app .rsg--blockquote-37 {
+    font-size: 24px;
+    margin: 16px 0 24px 0;
+}
+
 #app .rsg--content-3 {
     padding: 64px 32px;
 }
