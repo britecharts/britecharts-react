@@ -1,8 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
-// import './ChartContainer.scss';
-
 const toggleLoading = (state) => ({loading: !state.loading});
 
 export default class LoadingContainer extends PureComponent {
@@ -21,14 +19,14 @@ export default class LoadingContainer extends PureComponent {
         loading: true,
     }
 
-    componentDidMount() {
+    componentWillMount() {
         if (this.props.data !== null) {
             this.setState(toggleLoading);
         }
     }
 
-    componentWillReceiveProps() {
-        if (this.props.data !== null) {
+    componentWillReceiveProps(nextProps) {
+        if (this.props.data === null && nextProps.data !== null) {
             this.setState(toggleLoading);
         }
     }
@@ -42,7 +40,7 @@ export default class LoadingContainer extends PureComponent {
         let className = 'loading-container';
 
         if (this.state.loading) {
-            className += ' loading-container__loading';
+            className += ' loading-container--loading';
         }
 
         return (
