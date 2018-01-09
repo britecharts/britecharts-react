@@ -17,10 +17,12 @@ const PATHS = {
     cjs: path.join(__dirname, 'lib/cjs'),
 };
 const CHARTS = {
-    Donut: `${PATHS.charts}/donut/DonutComponent.js`,
-    Legend: `${PATHS.charts}/legend/LegendComponent.js`,
-    StackedArea: `${PATHS.charts}/stackedArea/StackedAreaComponent.js`,
-    Tooltip: `${PATHS.charts}/tooltip/TooltipComponent.js`,
+    Bar: `${PATHS.charts}/bar/Bar.js`,
+    Donut: `${PATHS.charts}/donut/Donut.js`,
+    Legend: `${PATHS.charts}/legend/Legend.js`,
+    Line: `${PATHS.charts}/line/Line.js`,
+    StackedArea: `${PATHS.charts}/stackedArea/StackedArea.js`,
+    Tooltip: `${PATHS.charts}/tooltip/Tooltip.js`,
 };
 
 // Configurations
