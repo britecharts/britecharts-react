@@ -1,12 +1,12 @@
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
 import LoadingContainer from './LoadingContainer';
 
 import barData from '../bar/barChart.fixtures';
 import bar from '../bar/barChart';
-
+``
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Loading Container', () => {
@@ -55,7 +55,7 @@ describe('Loading Container', () => {
             let wrapper;
 
             beforeEach(() => {
-                wrapper = mount(
+                wrapper = shallow(
                     <LoadingContainer
                         data={null}
                         loadingState={bar.loading()}
@@ -75,8 +75,10 @@ describe('Loading Container', () => {
             });
 
             it ('should include the loading class on the chart', () => {
-                let expected = 1;
-                let actual = wrapper.find('.loading-container--loading').length;
+                let expected = 'visibility:hidden;';
+
+                let childContainer = wrapper.find('.loading-container__children');
+                let actual = childContainer.html().match(/style="([^"]*)"/i)[1];
 
                 expect(actual).toEqual(expected);
 

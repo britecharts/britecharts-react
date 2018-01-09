@@ -102,6 +102,6 @@ const optimizedResize = (function() {
         },
     };
 
-}());
+})();
 
 export default optimizedResize;
