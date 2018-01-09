@@ -89,20 +89,3 @@ body,
 #app table td {
     text-align: center;
 }
-
-/** Loading container */
-.loading-container {
-    position: relative;
-}
-
-.loading-container .load-state {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-}
-
-.loading-container--loading .britechart {
-    visibility: hidden;
-}

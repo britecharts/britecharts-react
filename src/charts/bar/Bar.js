@@ -213,6 +213,7 @@ class Bar extends Component {
 
         return loadingContainerWrapper(
             this.props,
+            this.props.chart.loading(),
             <div className="bar-container" ref={this._setRef.bind(this)} />
         );
     }

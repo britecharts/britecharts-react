@@ -140,6 +140,7 @@ export default class Donut extends Component {
 
         return loadingContainerWrapper(
             this.props,
+            this.props.chart.loading(),
             <div className="donut-container" ref={this._setRef.bind(this)} />
         );
     }
