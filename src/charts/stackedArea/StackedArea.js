@@ -178,6 +178,7 @@ class StackedArea extends React.Component {
     render() {
         return loadingContainerWrapper(
             this.props,
+            this.props.chart.loading(),
             <div className="stacked-area-container" ref={this._setRef.bind(this)} />
         );
     }

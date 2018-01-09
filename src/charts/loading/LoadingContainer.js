@@ -1,19 +1,19 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
-export const loadingContainerWrapper = ({data, chart, shouldShowLoadingState}, container) => {
+export const loadingContainerWrapper = ({data, shouldShowLoadingState}, loadingState, container) => {
     if (shouldShowLoadingState) {
         container = (
             <LoadingContainer
                 data={data}
-                loadingState={chart.loading()}
+                loadingState={loadingState}
             >
                 {container}
             </LoadingContainer>
         );
     }
     return container;
-}
+};
 
 const toggleLoading = (state) => ({loading: !state.loading});
 
@@ -51,22 +51,30 @@ export default class LoadingContainer extends PureComponent {
             loadingState,
         } = this.props;
 
-        let className = 'loading-container';
-
+        const chartStyles = {};
         if (this.state.loading) {
-            className += ' loading-container--loading';
+            chartStyles.visibility = 'hidden';
         }
 
         return (
-            <div className={className}>
+            <div style={{position: 'relative'}}>
                 {
                     this.state.loading && 
                         <div
                             className="loading-container__svg-container"
                             dangerouslySetInnerHTML={{ __html: loadingState }}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                top: 0,
+                                left: 0,
+                                position: 'absolute',
+                            }}
                         />
                 }
-                {children}
+                <div style={chartStyles}>
+                    {children}
+                </div>
             </div>
         );
     }

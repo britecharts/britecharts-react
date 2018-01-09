@@ -216,6 +216,7 @@ class Line extends React.Component {
 
         return loadingContainerWrapper(
             this.props,
+            this.props.chart.loading(),
             <div className="line-container" ref={this._setRef.bind(this)} />
         );
     }
