@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import bar from './barChart';
+import stackedArea from './stackedAreaChart';
 
 
-class BarComponent extends Component {
+class StackedArea extends React.Component {
 
     static propTypes = {
         /**
@@ -12,48 +12,50 @@ class BarComponent extends Component {
         data: PropTypes.arrayOf(PropTypes.any).isRequired,
 
         /**
-         * Gets or Sets the padding of the chart
+         * Exposes the constants to be used to force the x axis to respect a
+         * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
          */
-        betweenBarsPadding: PropTypes.number,
-
+        axisTimeCombinations: PropTypes.number,
+        /**
+         * Gets or Sets the opacity of the stacked areas in the chart
+         * (all of them will have the same opacity)
+         */
+        areaOpacity: PropTypes.number,
+        /**
+         * Gets or Sets the aspect ratio of the chart
+         */
+        aspectRatio: PropTypes.number,
         /**
          * Gets or Sets the colorSchema of the chart
          */
         colorSchema: PropTypes.arrayOf(PropTypes.string),
-
         /**
-         * Default false. If true, adds percentage labels at the end of the bars
+         * Gets or Sets the dateLabel of the chart
          */
-        enablePercentageLabels: PropTypes.bool,
-
+        dateLabel: PropTypes.number,
         /**
-         * Gets or Sets the hasPercentage status
+         * Gets or Sets the grid mode.
          */
-        hasPercentage: PropTypes.bool,
-
+        grid: PropTypes.string,
         /**
          * Gets or Sets the height of the chart
          */
         height: PropTypes.number,
-
         /**
          * Gets or Sets the isAnimated property of the chart, making it to animate
          * when render. By default this is 'false'
          */
         isAnimated: PropTypes.bool,
-
         /**
-         * Gets or Sets the horizontal direction of the chart
+         * Gets or Sets the keyLabel of the chart
          */
-        isHorizontal: PropTypes.bool,
-
+        keyLabel: PropTypes.number,
         /**
          * Pass language tag for the tooltip to localize the date. Feature
          * uses Intl.DateTimeFormat, for compatability and support, refer
          * to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat
          */
         locale: PropTypes.string,
-
         /**
          * Gets or Sets the margin of the chart
          */
@@ -63,77 +65,40 @@ class BarComponent extends Component {
             left: PropTypes.number,
             right: PropTypes.number,
         }),
-
-        /**
-         * Gets or Sets the nameLabel of the chart
-         */
-        nameLabel: PropTypes.number,
-
-
-        /**
-         * Gets or Sets the number format of the bar chart
-         */
-        numberFormat: PropTypes.string,
-
-        /**
-         * Changes the order of items given the custom function
-         */
-        orderingFunction: PropTypes.func,
-
-        /**
-         * Configurable extension of the x axis if your max point was 50%
-         * you might want to show x axis to 60%, pass 1.2
-         */
-        percentageAxisToMaxRatio: PropTypes.number,
-
-        /**
-         * Default 10px. Offset between end of bar and start of the percentage bars
-         */
-        percentageLabelMargin: PropTypes.number,
-
-
-        /**
-         * Gets or Sets whether the color list should be reversed or not
-         */
-        shouldReverseColorList: PropTypes.bool,
-
         /**
          * Gets or Sets the minimum width of the graph in order
          * to show the tooltip NOTE: This could also depend on the aspect ratio
          */
         tooltipThreshold: PropTypes.number,
-
-
-        /**
-         * Gets or Sets the numberFormat to a percentage format if true (default false)
-         */
-        usePercentage: PropTypes.bool,
-
         /**
          * Gets or Sets the valueLabel of the chart
          */
         valueLabel: PropTypes.number,
-
         /**
          * Gets or Sets the width of the chart
          */
         width: PropTypes.number,
-
         /**
-         * Space between y axis and chart (Default 10)
+         * Exposes the ability to force the chart to show a certain x format
+         * It requires a `xAxisFormat` of 'custom' in order to work.
+         * NOTE: localization not supported
          */
-        yAxisPaddingBetweenChart: PropTypes.number,
-
+        xAxisCustomFormat: PropTypes.string,
         /**
-         * Gets or Sets the number of ticks of the x axis on the chart (Default is 5)
+         * Exposes the ability to force the chart to show a certain x axis grouping
+         */
+        xAxisFormat: PropTypes.string,
+        /**
+         * Exposes the ability to force the chart to show a certain x ticks. It
+         * requires a `xAxisFormat` of 'custom' in order to work. NOTE: This
+         * value needs to be a multiple of 2, 5 or 10. They won't always work
+         * as expected, as D3 decides at the end how many and where the ticks will appear.
          */
         xTicks: PropTypes.number,
-
         /**
-         * Gets or Sets the number of vertical ticks on the chart (Default is 6)
+         * Gets or Sets the number of ticks of the y axis on the chart (Default is 5)
          */
         yTicks: PropTypes.number,
-
 
         customMouseOver: PropTypes.func,
         customMouseMove: PropTypes.func,
@@ -148,7 +113,7 @@ class BarComponent extends Component {
     }
 
     static defaultProps = {
-        chart: bar,
+        chart: stackedArea,
         createTooltip: () => null,
     }
 
@@ -189,7 +154,7 @@ class BarComponent extends Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = { ...this.props };
+        let configuration = {...this.props};
 
         delete configuration.data;
         delete configuration.chart;
@@ -204,9 +169,9 @@ class BarComponent extends Component {
 
     render() {
         return (
-            <div className="bar-container" ref={this._setRef.bind(this)} />
+            <div className="stacked-area-container" ref={this._setRef.bind(this)} />
         );
     }
 }
 
-export default BarComponent;
+export default StackedArea;

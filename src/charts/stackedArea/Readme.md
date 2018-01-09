@@ -1,28 +1,28 @@
-### with tooltip and responsive
+### With tooltip and responsive
 ```js
     const stackedAreaData = require('./stackedAreaChart.fixtures.js').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveStackedArea = withResponsiveness(StackedAreaComponent);
+    const ResponsiveStackedArea = withResponsiveness(StackedArea);
 
-    const renderStackedAreaComponent = (props) => (
+    const renderStackedArea = (props) => (
         <ResponsiveStackedArea
             data={stackedAreaData.with3Sources()}
             {...props}
         />
     );
 
-    <TooltipComponent
+    <Tooltip
         data={stackedAreaData.with3Sources()}
-        render={renderStackedAreaComponent}
+        render={renderStackedArea}
     />
 ```
 
 
-### with fixed width and height
+### With fixed width and height
 ```js
     const stackedAreaData = require('./stackedAreaChart.fixtures.js').default;
 
-    <StackedAreaComponent
+    <StackedArea
         data={stackedAreaData.with3Sources()}
         width={500}
         height={200}
@@ -30,11 +30,11 @@
 ```
 
 
-### with mouse events (on console)
+### With mouse events (on console)
 ```js
     const stackedAreaData = require('./stackedAreaChart.fixtures.js').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveStackedArea = withResponsiveness(StackedAreaComponent);
+    const ResponsiveStackedArea = withResponsiveness(StackedArea);
 
     const logMouseOver = () => console.log('Mouse Over');
     const logMouseOut = () => console.log('Mouse Out');

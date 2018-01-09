@@ -2,20 +2,20 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
-import LineComponent from './LineComponent';
-import lineData from './lineChart.fixtures';
+import Donut from './Donut';
+import donutData from './donutChart.fixtures';
 
-import line from './lineChart';
+import donut from './donutChart';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Line Chart Component', () => {
+describe('Donut Chart', () => {
 
     describe('render', () => {
 
         describe('when data is not passed', () => {
             it('should throw an error', () => {
-                expect(() => shallow(<LineComponent data={{}} />)).toThrow();
+                expect(() => shallow(<Donut />)).toThrow();
             });
         });
 
@@ -23,7 +23,7 @@ describe('Line Chart Component', () => {
             let createSpy;
 
             beforeEach(() => {
-                createSpy = jest.spyOn(line, 'create');
+                createSpy = jest.spyOn(donut, 'create');
             });
 
             afterEach(() => {
@@ -32,64 +32,64 @@ describe('Line Chart Component', () => {
             });
 
             it('should call the create method or the chart', () => {
-                mount(<LineComponent chart={line} data={lineData.fiveTopics()} />);
+                mount(<Donut chart={donut} data={donutData.with4Slices()} />);
 
-                const expected = 1;
-                const actual = createSpy.mock.calls.length;
+                let expected = 1;
+                let actual = createSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<LineComponent chart={line} data={lineData.fiveTopics()} />);
+                const wrapper = mount(<Donut chart={donut} data={donutData.with4Slices()} />);
 
-                const expected = wrapper.find('.line-container').instance();
-                const actual = createSpy.mock.calls[0][0];
+                let expected = wrapper.find('.donut-container').instance();
+                let actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
             });
 
             it('should call the create method or the chart with the configuration object as the second argument', () => {
-                const dataSet = lineData.fiveTopics();
+                const dataSet = donutData.with4Slices();
 
-                mount(<LineComponent chart={line} data={dataSet} />);
+                mount(<Donut chart={donut} data={dataSet} />);
 
-                const expectedData = dataSet;
-                const actualData = createSpy.mock.calls[0][1];
+                let expectedData = dataSet;
+                let actualData = createSpy.mock.calls[0][1];
 
                 expect(actualData).toEqual(expectedData);
             });
 
             it('should allow setting width', () => {
-                const dataSet = lineData.fiveTopics();
-                const expected = 500;
+                const dataSet = donutData.with4Slices();
+                let expected = 500;
 
                 mount(
-                    <LineComponent
-                        chart={line}
+                    <Donut
+                        chart={donut}
                         data={dataSet}
                         width={expected}
                     />
                 );
 
-                const actual = createSpy.mock.calls[0][2].width;
+                let actual = createSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should allow setting height', () => {
-                const dataSet = lineData.fiveTopics();
-                const expected = 500;
+                const dataSet = donutData.with4Slices();
+                let expected = 500;
 
                 mount(
-                    <LineComponent
-                        chart={line}
+                    <Donut
+                        chart={donut}
                         data={dataSet}
                         height={expected}
                     />
                 );
 
-                const actual = createSpy.mock.calls[0][2].height;
+                let actual = createSpy.mock.calls[0][2].height;
 
                 expect(actual).toEqual(expected);
             });
@@ -102,7 +102,7 @@ describe('Line Chart Component', () => {
             let updateSpy;
 
             beforeEach(() => {
-                updateSpy = jest.spyOn(line, 'update');
+                updateSpy = jest.spyOn(donut, 'update');
             });
 
             afterEach(() => {
@@ -111,35 +111,50 @@ describe('Line Chart Component', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const wrapper = mount(<LineComponent chart={line} data={lineData.fiveTopics()} />);
+                const wrapper = mount(
+                    <Donut
+                        chart={donut}
+                        data={donutData.with4Slices()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: lineData.oneSet(),
+                    data: donutData.with4Slices(),
                 });
 
-                const expected = 1;
-                const actual = updateSpy.mock.calls.length;
+                let expected = 1;
+                let actual = updateSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should pass in the new data to the update method', () => {
-                const wrapper = mount(<LineComponent chart={line} data={lineData.fiveTopics()} />);
+                const wrapper = mount(
+                    <Donut
+                        chart={donut}
+                        data={donutData.with4Slices()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: lineData.oneSet(),
+                    data: donutData.with4Slices(),
                 });
 
-                const expected = lineData.oneSet().length;
-                const actual = updateSpy.mock.calls[0][1].length;
+                let expected = donutData.with4Slices().length;
+                let actual = updateSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });
 
-            it('should pass in the new configuration to the update method', () => {
-                const wrapper = mount(<LineComponent chart={line} data={lineData.fiveTopics()} />);
+            it('should pass in the new configuration to the createTooltip method', () => {
+                const wrapper = mount(
+                    <Donut
+                        chart={donut}
+                        data={donutData.with4Slices()}
+                    />
+                );
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -155,27 +170,26 @@ describe('Line Chart Component', () => {
     });
 
     describe('unmount', () => {
-        let createSpy;
+        let destroySpy;
 
         beforeEach(() => {
-            createSpy = jest.spyOn(line, 'destroy');
+            destroySpy = jest.spyOn(donut, 'destroy');
         });
 
         afterEach(() => {
-            createSpy.mockReset();
-            createSpy.mockRestore();
+            destroySpy.mockReset();
+            destroySpy.mockRestore();
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<LineComponent chart={line} data={lineData.fiveTopics()} />);
+            const wrapper = mount(<Donut chart={donut} data={donutData.with4Slices()} />);
 
             wrapper.unmount();
 
             const expected = 1;
-            const actual = createSpy.mock.calls.length;
+            const actual = destroySpy.mock.calls.length;
 
             expect(actual).toEqual(expected);
         });
     });
 });
-

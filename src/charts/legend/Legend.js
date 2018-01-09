@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import legendChart from './legendChart';
 
 
-export default class LegendComponent extends React.Component {
+export default class Legend extends React.Component {
 
     static defaultProps = {
         chart: legendChart,

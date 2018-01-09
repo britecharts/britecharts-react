@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import line from './lineChart';
 
 
-class LineComponent extends React.Component {
+class Line extends React.Component {
 
     static propTypes = {
         /**
@@ -211,4 +211,4 @@ class LineComponent extends React.Component {
     }
 }
 
-export default LineComponent;
+export default Line;

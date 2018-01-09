@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
-import TooltipComponent from './TooltipComponent';
+import Tooltip from './Tooltip';
 import tooltip from './tooltipChart';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -15,7 +15,7 @@ const FakeChart = () => (
 
 const renderFakeChart = () => <FakeChart />;
 
-describe('Tooltip Component', () => {
+describe('Tooltip', () => {
 
     describe('render', () => {
         let createSpy;
@@ -31,7 +31,7 @@ describe('Tooltip Component', () => {
 
         it('should call the create method of the chart', () => {
             mount(
-                <TooltipComponent
+                <Tooltip
                     chart={tooltip}
                     render={renderFakeChart}
                 />
@@ -45,7 +45,7 @@ describe('Tooltip Component', () => {
 
         it('should call the create method or the chart with the container as the first argument', () => {
             const wrapper = mount(
-                <TooltipComponent
+                <Tooltip
                     chart={tooltip}
                     render={renderFakeChart}
                 />
@@ -61,7 +61,7 @@ describe('Tooltip Component', () => {
             let expected = 'en-US';
 
             mount(
-                <TooltipComponent
+                <Tooltip
                     chart={tooltip}
                     locale={expected}
                     render={renderFakeChart}
@@ -77,7 +77,7 @@ describe('Tooltip Component', () => {
             let expected = 'title';
 
             mount(
-                <TooltipComponent
+                <Tooltip
                     chart={tooltip}
                     title={expected}
                     render={renderFakeChart}
@@ -106,7 +106,7 @@ describe('Tooltip Component', () => {
 
             it('should call the update method on the chart', () => {
                 const wrapper = mount(
-                    <TooltipComponent
+                    <Tooltip
                         chart={tooltip}
                         render={renderFakeChart}
                     />
@@ -125,7 +125,7 @@ describe('Tooltip Component', () => {
 
             it('should pass in the new configuration to the update method', () => {
                 const wrapper = mount(
-                    <TooltipComponent
+                    <Tooltip
                         chart={tooltip}
                         render={renderFakeChart}
                     />
@@ -144,7 +144,7 @@ describe('Tooltip Component', () => {
 
             it('should pass in the new state to the update method', () => {
                 const wrapper = mount(
-                    <TooltipComponent
+                    <Tooltip
                         chart={tooltip}
                         render={renderFakeChart}
                     />
@@ -177,7 +177,7 @@ describe('Tooltip Component', () => {
 
         it('should call the destroy method or the chart', () => {
             const wrapper = mount(
-                <TooltipComponent
+                <Tooltip
                     chart={tooltip}
                     render={renderFakeChart}
                 />

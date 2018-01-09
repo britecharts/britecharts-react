@@ -5,7 +5,7 @@ import tooltip from './tooltipChart';
 const tooltipContainerSelector = '.metadata-group .vertical-marker-container';
 
 
-export default class TooltipComponent extends React.Component {
+export default class Tooltip extends React.Component {
 
     static propTypes = {
         /**
