@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import line from './lineChart';
-
+import {loadingContainerWrapper} from '../loading/LoadingContainer';
 
 class Line extends React.Component {
 
@@ -9,7 +9,7 @@ class Line extends React.Component {
         /**
          * Internally used, do not overwrite.
          */
-        data: PropTypes.object.isRequired,
+        data: PropTypes.object,
 
         /**
          * Exposes the constants to be used to force the x axis to respect a
@@ -80,6 +80,11 @@ class Line extends React.Component {
          * Gets or Sets the number format of the line chart
          */
         numberFormat: PropTypes.string,
+
+        /**
+         * Gets or Sets whether a loading state will be shown
+         */
+        shouldShowLoadingState: PropTypes.bool,
 
         /**
          * Gets or Sets the minimum width of the graph in order
@@ -153,6 +158,7 @@ class Line extends React.Component {
     static defaultProps = {
         chart: line,
         createTooltip: () => null,
+        shouldShowLoadingState: false,
     }
 
     constructor(props) {
@@ -170,6 +176,7 @@ class Line extends React.Component {
             this.props.data,
             this._getChartConfiguration()
         );
+
     }
 
     componentDidUpdate() {
@@ -196,6 +203,7 @@ class Line extends React.Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
+        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -205,7 +213,10 @@ class Line extends React.Component {
     }
 
     render() {
-        return (
+
+        return loadingContainerWrapper(
+            this.props,
+            this.props.chart.loading(),
             <div className="line-container" ref={this._setRef.bind(this)} />
         );
     }

@@ -1,7 +1,12 @@
+import React from 'react';
+
 import lineChart from 'britecharts/dist/umd/line.min';
+
 import { select } from 'd3-selection';
 import { validateConfiguration, validateContainer, validateData } from '../helpers/validation';
 import { applyConfiguration } from '../helpers/configuration';
+
+import { line as lineLoadingState } from 'britecharts/dist/umd/loading.min';
 
 const line = {};
 
@@ -38,5 +43,7 @@ line.update = (el, data, configuration = {}, chart) => {
 };
 
 line.destroy = () => { };
+
+line.loading = () => lineLoadingState;
 
 export default line;
