@@ -50,8 +50,8 @@ export default class LoadingContainer extends PureComponent {
             children,
             loadingState,
         } = this.props;
-
         const chartStyles = {};
+
         if (this.state.loading) {
             chartStyles.visibility = 'hidden';
         }
@@ -72,7 +72,7 @@ export default class LoadingContainer extends PureComponent {
                             }}
                         />
                 }
-                <div style={chartStyles}>
+                <div className="loading-container__children" style={chartStyles}>
                     {children}
                 </div>
             </div>
