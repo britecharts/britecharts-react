@@ -1,8 +1,8 @@
-### one line with tooltip and basis curve
+### With one line with tooltip and basis curve
 ```js
     const lineData = require('./lineChart.fixtures').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveLineChart = withResponsiveness(LineComponent);
+    const ResponsiveLineChart = withResponsiveness(Line);
     const margin = {
         top: 60,
         right: 30,
@@ -10,27 +10,27 @@
         left: 70,
     };
 
-    const renderLineComponent = (props) => (
-        <LineComponent
+    const renderLine = (props) => (
+        <Line
             margin={margin}
             lineCurve="basis"
             {...props}
         />
     );
 
-    <TooltipComponent
+    <Tooltip
         data={lineData.oneSet()}
-        render={renderLineComponent}
+        render={renderLine}
         topicLabel="topics"
         title="Tooltip Title"
     />
 ```
 
-### multiple lines with tooltip
+### With multiple lines with tooltip
 ```js
     const lineData = require('./lineChart.fixtures').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveLineChart = withResponsiveness(LineComponent);
+    const ResponsiveLineChart = withResponsiveness(Line);
     const margin = {
         top: 60,
         right: 30,
@@ -38,27 +38,27 @@
         left: 70,
     };
 
-    const renderLineComponent = (props) => (
-        <LineComponent
+    const renderLine = (props) => (
+        <Line
             tooltipThreshold={0}
             margin={margin}
             {...props}
         />
     );
 
-    <TooltipComponent
+    <Tooltip
         data={lineData.fiveTopics()}
-        render={renderLineComponent}
+        render={renderLine}
         topicLabel="topics"
         title="Demo Title"
     />
 ```
 
-### multiple lines with stepBefore curve and teal colorSchema
+### With multiple lines with stepBefore curve and teal colorSchema
 ```js
     const lineData = require('./lineChart.fixtures').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveLineChart = withResponsiveness(LineComponent);
+    const ResponsiveLineChart = withResponsiveness(Line);
     const colors = require('../helpers/colors.js');
     const margin = {
         top: 60,
@@ -67,7 +67,7 @@
         left: 70,
     };
 
-    <LineComponent
+    <Line
         data={lineData.fiveTopics()}
         margin={margin}
         lineCurve="stepBefore"

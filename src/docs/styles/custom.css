@@ -55,8 +55,21 @@ body,
     margin: 16px 0 24px 0;
 }
 
+/* Headings */
+#app h1 {
+    font-size: 48px;
+}
+#app h2 {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+#app .rsg--heading-11 {
+    font-weight: 300;
+}
+
+
 #app .rsg--content-3 {
-    padding: 64px 32px;
+    padding: 60px 32px;
 }
 
 #app .rsg--preview-59 {

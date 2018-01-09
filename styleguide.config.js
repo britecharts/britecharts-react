@@ -70,38 +70,8 @@ module.exports = {
             content: './README.md',
         },
         {
-            name: 'Charts',
-            sections: [
-                {
-                    name: 'Stacked Area Chart',
-                    components: 'src/charts/stackedArea/StackedAreaComponent.js',
-                },
-                {
-                    name: 'Bar Chart',
-                    components: 'src/charts/bar/BarComponent.js',
-                },
-                {
-                    name: 'Donut Chart',
-                    components: 'src/charts/donut/DonutComponent.js',
-                },
-                {
-                    name: 'Line Chart',
-                    components: 'src/charts/line/LineComponent.js',
-                },
-            ],
-        },
-        {
-            name: 'Chart Components',
-            sections: [
-                {
-                    name: 'Legend',
-                    components: 'src/charts/legend/LegendComponent.js',
-                },
-                {
-                    name: 'Tooltip',
-                    components: 'src/charts/tooltip/TooltipComponent.js',
-                },
-            ],
+            name: 'Components',
+            components: 'src/charts/*/*.js',
         },
         {
             name: 'About',

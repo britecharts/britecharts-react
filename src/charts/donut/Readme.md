@@ -1,18 +1,18 @@
-### with default properties
+### With default properties
 ```js
   const donutData = require('./donutChart.fixtures.js').default;
   const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-  const ResponsiveDonut = withResponsiveness(DonutComponent);
+  const ResponsiveDonut = withResponsiveness(Donut);
 
 
   <ResponsiveDonut data={donutData.with4Slices()} />
 ```
 
-### with custom size
+### With custom size
 ```js
   const donutData = require('./donutChart.fixtures.js').default;
 
-  <DonutComponent
+  <Donut
     data={donutData.with4Slices()}
     width={500}
     height={500}
@@ -21,12 +21,12 @@
   />
 ```
 
-### with hover event and responsive
+### With hover event and responsive
 ```js
   const donutData = require('./donutChart.fixtures.js').default;
   const logMouseOver = () => console.log('Mouse Over');
   const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-  const ResponsiveDonut = withResponsiveness(DonutComponent);
+  const ResponsiveDonut = withResponsiveness(Donut);
 
 
   <ResponsiveDonut
