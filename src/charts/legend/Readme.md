@@ -1,19 +1,19 @@
-### with default vertical layout and fixed width
+### With default vertical layout and fixed width
 ```js
     const legendData = require('./legendChart.fixtures.js').default;
 
-    <LegendComponent
+    <Legend
         data={legendData.with6Points()}
         height={250}
         width={400}
     />
 ```
 
-### with horizontal orientation and responsive
+### With horizontal orientation and responsive
 ```js
     const legendData = require('./legendChart.fixtures.js').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveLegend = withResponsiveness(LegendComponent);
+    const ResponsiveLegend = withResponsiveness(Legend);
 
     <ResponsiveLegend
         data={legendData.with6Points()}
@@ -23,11 +23,11 @@
     />
 ```
 
-### with horizontal orientation, smaller dots and fixed width
+### With horizontal orientation, smaller dots and fixed width
 ```js
     const legendData = require('./legendChart.fixtures.js').default;
 
-    <LegendComponent
+    <Legend
         data={legendData.with6Points()}
         isHorizontal={true}
         markerSize={10}

@@ -16,7 +16,7 @@
 Britecharts-React components are used just like any other stateless React component. You will pass in some props and it would render a chart:
 
 ```js static
-<StackedAreaComponent
+<StackedArea
     data={stackedAreaData.with2Sources()}
     width={600}
     height={400}
@@ -29,7 +29,7 @@ Each component's API will be a reflect of [Britecharts][britecharts] charts and 
 
 From there, we will proceed to pass each of the configurations through the usual props as we do in React projects:
 ```js static
-<BarComponent
+<Bar
     data={barData.with2Entries()}
     width={400}
     isHorizontal={true}

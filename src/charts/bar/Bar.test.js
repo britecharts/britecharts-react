@@ -2,20 +2,20 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
-import DonutComponent from './DonutComponent';
-import donutData from './donutChart.fixtures';
+import Bar from './Bar';
+import barData from './barChart.fixtures';
 
-import donut from './donutChart';
+import bar from './barChart';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Donut Chart Component', () => {
+describe('Bar Chart', () => {
 
     describe('render', () => {
 
         describe('when data is not passed', () => {
             it('should throw an error', () => {
-                expect(() => shallow(<DonutComponent />)).toThrow();
+                expect(() => shallow(<Bar data={[]} />)).toThrow();
             });
         });
 
@@ -23,7 +23,7 @@ describe('Donut Chart Component', () => {
             let createSpy;
 
             beforeEach(() => {
-                createSpy = jest.spyOn(donut, 'create');
+                createSpy = jest.spyOn(bar, 'create');
             });
 
             afterEach(() => {
@@ -32,64 +32,64 @@ describe('Donut Chart Component', () => {
             });
 
             it('should call the create method or the chart', () => {
-                mount(<DonutComponent chart={donut} data={donutData.with4Slices()} />);
+                mount(<Bar chart={bar} data={barData.withLetters()} />);
 
-                let expected = 1;
-                let actual = createSpy.mock.calls.length;
+                const expected = 1;
+                const actual = createSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<DonutComponent chart={donut} data={donutData.with4Slices()} />);
+                const wrapper = mount(<Bar chart={bar} data={barData.withLetters()} />);
 
-                let expected = wrapper.find('.donut-container').instance();
-                let actual = createSpy.mock.calls[0][0];
+                const expected = wrapper.find('.bar-container').instance();
+                const actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
             });
 
             it('should call the create method or the chart with the configuration object as the second argument', () => {
-                const dataSet = donutData.with4Slices();
+                const dataSet = barData.withLetters();
 
-                mount(<DonutComponent chart={donut} data={dataSet} />);
+                mount(<Bar chart={bar} data={dataSet} />);
 
-                let expectedData = dataSet;
-                let actualData = createSpy.mock.calls[0][1];
+                const expectedData = dataSet;
+                const actualData = createSpy.mock.calls[0][1];
 
                 expect(actualData).toEqual(expectedData);
             });
 
             it('should allow setting width', () => {
-                const dataSet = donutData.with4Slices();
-                let expected = 500;
+                const dataSet = barData.withLetters();
+                const expected = 500;
 
                 mount(
-                    <DonutComponent
-                        chart={donut}
+                    <Bar
+                        chart={bar}
                         data={dataSet}
                         width={expected}
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].width;
+                const actual = createSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should allow setting height', () => {
-                const dataSet = donutData.with4Slices();
-                let expected = 500;
+                const dataSet = barData.withLetters();
+                const expected = 500;
 
                 mount(
-                    <DonutComponent
-                        chart={donut}
+                    <Bar
+                        chart={bar}
                         data={dataSet}
                         height={expected}
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].height;
+                const actual = createSpy.mock.calls[0][2].height;
 
                 expect(actual).toEqual(expected);
             });
@@ -102,7 +102,7 @@ describe('Donut Chart Component', () => {
             let updateSpy;
 
             beforeEach(() => {
-                updateSpy = jest.spyOn(donut, 'update');
+                updateSpy = jest.spyOn(bar, 'update');
             });
 
             afterEach(() => {
@@ -111,50 +111,35 @@ describe('Donut Chart Component', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const wrapper = mount(
-                    <DonutComponent
-                        chart={donut}
-                        data={donutData.with4Slices()}
-                    />
-                );
+                const wrapper = mount(<Bar chart={bar} data={barData.withLetters()} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: donutData.with4Slices(),
+                    data: barData.withColors(),
                 });
 
-                let expected = 1;
-                let actual = updateSpy.mock.calls.length;
+                const expected = 1;
+                const actual = updateSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should pass in the new data to the update method', () => {
-                const wrapper = mount(
-                    <DonutComponent
-                        chart={donut}
-                        data={donutData.with4Slices()}
-                    />
-                );
+                const wrapper = mount(<Bar chart={bar} data={barData.withLetters()} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: donutData.with4Slices(),
+                    data: barData.withColors(),
                 });
 
-                let expected = donutData.with4Slices().length;
-                let actual = updateSpy.mock.calls[0][1].length;
+                const expected = barData.withColors().length;
+                const actual = updateSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });
 
-            it('should pass in the new configuration to the createTooltip method', () => {
-                const wrapper = mount(
-                    <DonutComponent
-                        chart={donut}
-                        data={donutData.with4Slices()}
-                    />
-                );
+            it('should pass in the new configuration to the update method', () => {
+                const wrapper = mount(<Bar chart={bar} data={barData.withLetters()} />);
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -170,26 +155,27 @@ describe('Donut Chart Component', () => {
     });
 
     describe('unmount', () => {
-        let destroySpy;
+        let createSpy;
 
         beforeEach(() => {
-            destroySpy = jest.spyOn(donut, 'destroy');
+            createSpy = jest.spyOn(bar, 'destroy');
         });
 
         afterEach(() => {
-            destroySpy.mockReset();
-            destroySpy.mockRestore();
+            createSpy.mockReset();
+            createSpy.mockRestore();
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<DonutComponent chart={donut} data={donutData.with4Slices()} />);
+            const wrapper = mount(<Bar chart={bar} data={barData.withLetters()} />);
 
             wrapper.unmount();
 
             const expected = 1;
-            const actual = destroySpy.mock.calls.length;
+            const actual = createSpy.mock.calls.length;
 
             expect(actual).toEqual(expected);
         });
     });
 });
+

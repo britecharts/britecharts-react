@@ -1,30 +1,34 @@
-### vertical with responsive
+### Vertical with responsive
 ```js
     const barData = require('./barChart.fixtures.js').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveBarChart = withResponsiveness(BarComponent);
+    const ResponsiveBarChart = withResponsiveness(Bar);
 
 
-    <ResponsiveBarChart data={barData.withLetters()} />
+    <ResponsiveBarChart
+        data={barData.withLetters()}
+    />
 ```
 
-### horizontal with responsive and custom color schema
+### Horizontal with responsive and custom color schema
 ```js
     const colors = require('britecharts/dist/umd/colors.min');
     const barData = require('./barChart.fixtures.js').default;
     const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveBarChart = withResponsiveness(BarComponent);
+    const ResponsiveBarChart = withResponsiveness(Bar);
 
 
     <ResponsiveBarChart
         data={barData.withColors()}
-        isHorizontal
-        colorSchema={colors.colorSchemas.britecharts}
+        isHorizontal={true}
+        height={400}
+        betweenBarsPadding={0.3}
+        colorSchema={colors.colorSchemas.orange}
         margin={{
             left: 100,
-            right: 20,
-            top: 20,
-            bottom: 20
+            right: 40,
+            top: 40,
+            bottom: 40
         }}
     />
 ```

@@ -2,20 +2,20 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
-import LegendComponent from './LegendComponent';
-import legendData from './legendChart.fixtures';
+import Line from './Line';
+import lineData from './lineChart.fixtures';
 
-import legendChart from './legendChart';
+import line from './lineChart';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Legend Chart Component', () => {
+describe('Line Chart', () => {
 
     describe('render', () => {
 
         describe('when data is not passed', () => {
             it('should throw an error', () => {
-                expect(() => shallow(<LegendComponent data={[]} />)).toThrow();
+                expect(() => shallow(<Line data={{}} />)).toThrow();
             });
         });
 
@@ -23,7 +23,7 @@ describe('Legend Chart Component', () => {
             let createSpy;
 
             beforeEach(() => {
-                createSpy = jest.spyOn(legendChart, 'create');
+                createSpy = jest.spyOn(line, 'create');
             });
 
             afterEach(() => {
@@ -32,64 +32,64 @@ describe('Legend Chart Component', () => {
             });
 
             it('should call the create method or the chart', () => {
-                mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
+                mount(<Line chart={line} data={lineData.fiveTopics()} />);
 
-                let expected = 1;
-                let actual = createSpy.mock.calls.length;
+                const expected = 1;
+                const actual = createSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
+                const wrapper = mount(<Line chart={line} data={lineData.fiveTopics()} />);
 
-                let expected = wrapper.find('.legend-container').instance();
-                let actual = createSpy.mock.calls[0][0];
+                const expected = wrapper.find('.line-container').instance();
+                const actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
             });
 
             it('should call the create method or the chart with the configuration object as the second argument', () => {
-                const dataSet = legendData.with6Points();
+                const dataSet = lineData.fiveTopics();
 
-                mount(<LegendComponent chart={legendChart} data={dataSet} />);
+                mount(<Line chart={line} data={dataSet} />);
 
-                let expectedData = dataSet;
-                let actualData = createSpy.mock.calls[0][1];
+                const expectedData = dataSet;
+                const actualData = createSpy.mock.calls[0][1];
 
                 expect(actualData).toEqual(expectedData);
             });
 
             it('should allow setting width', () => {
-                const dataSet = legendData.with6Points();
-                let expected = 500;
+                const dataSet = lineData.fiveTopics();
+                const expected = 500;
 
                 mount(
-                    <LegendComponent
-                        chart={legendChart}
+                    <Line
+                        chart={line}
                         data={dataSet}
                         width={expected}
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].width;
+                const actual = createSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should allow setting height', () => {
-                const dataSet = legendData.with6Points();
-                let expected = 500;
+                const dataSet = lineData.fiveTopics();
+                const expected = 500;
 
                 mount(
-                    <LegendComponent
-                        chart={legendChart}
+                    <Line
+                        chart={line}
                         data={dataSet}
                         height={expected}
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].height;
+                const actual = createSpy.mock.calls[0][2].height;
 
                 expect(actual).toEqual(expected);
             });
@@ -102,7 +102,7 @@ describe('Legend Chart Component', () => {
             let updateSpy;
 
             beforeEach(() => {
-                updateSpy = jest.spyOn(legendChart, 'update');
+                updateSpy = jest.spyOn(line, 'update');
             });
 
             afterEach(() => {
@@ -111,35 +111,35 @@ describe('Legend Chart Component', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
+                const wrapper = mount(<Line chart={line} data={lineData.fiveTopics()} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: legendData.with6Points(),
+                    data: lineData.oneSet(),
                 });
 
-                let expected = 1;
-                let actual = updateSpy.mock.calls.length;
+                const expected = 1;
+                const actual = updateSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should pass in the new data to the update method', () => {
-                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
+                const wrapper = mount(<Line chart={line} data={lineData.fiveTopics()} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: legendData.with6Points(),
+                    data: lineData.oneSet(),
                 });
 
-                let expected = legendData.with6Points().length;
-                let actual = updateSpy.mock.calls[0][1].length;
+                const expected = lineData.oneSet().length;
+                const actual = updateSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should pass in the new configuration to the update method', () => {
-                const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
+                const wrapper = mount(<Line chart={line} data={lineData.fiveTopics()} />);
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -147,7 +147,7 @@ describe('Legend Chart Component', () => {
                     width: expected,
                 });
 
-                let actual = updateSpy.mock.calls[0][2].width;
+                const actual = updateSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
@@ -155,24 +155,24 @@ describe('Legend Chart Component', () => {
     });
 
     describe('unmount', () => {
-        let destroySpy;
+        let createSpy;
 
         beforeEach(() => {
-            destroySpy = jest.spyOn(legendChart, 'destroy');
+            createSpy = jest.spyOn(line, 'destroy');
         });
 
         afterEach(() => {
-            destroySpy.mockReset();
-            destroySpy.mockRestore();
+            createSpy.mockReset();
+            createSpy.mockRestore();
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<LegendComponent chart={legendChart} data={legendData.with6Points()} />);
+            const wrapper = mount(<Line chart={line} data={lineData.fiveTopics()} />);
 
             wrapper.unmount();
 
-            let expected = 1;
-            let actual = destroySpy.mock.calls.length;
+            const expected = 1;
+            const actual = createSpy.mock.calls.length;
 
             expect(actual).toEqual(expected);
         });

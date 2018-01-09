@@ -2,20 +2,20 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
-import StackedAreaComponent from './StackedAreaComponent';
+import StackedArea from './StackedArea';
 import stackedAreaData from './stackedAreaChart.fixtures';
 
 import stackedArea from './stackedAreaChart';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Stacked Area Chart Component', () => {
+describe('Stacked Area Chart', () => {
 
     describe('render', () => {
 
         describe('when data is not passed', () => {
             it('should throw an error', () => {
-                expect(() => shallow(<StackedAreaComponent data={[]} />)).toThrow();
+                expect(() => shallow(<StackedArea data={[]} />)).toThrow();
             });
         });
 
@@ -32,7 +32,7 @@ describe('Stacked Area Chart Component', () => {
             });
 
             it('should call the create method or the chart', () => {
-                mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
 
                 let expected = 1;
                 let actual = createSpy.mock.calls.length;
@@ -41,7 +41,7 @@ describe('Stacked Area Chart Component', () => {
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                const wrapper = mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
 
                 let expected = wrapper.find('.stacked-area-container').instance();
                 let actual = createSpy.mock.calls[0][0];
@@ -52,7 +52,7 @@ describe('Stacked Area Chart Component', () => {
             it('should call the create method or the chart with the configuration object as the second argument', () => {
                 const dataSet = stackedAreaData.with3Sources();
 
-                mount(<StackedAreaComponent chart={stackedArea} data={dataSet} />);
+                mount(<StackedArea chart={stackedArea} data={dataSet} />);
 
                 let expectedData = dataSet;
                 let actualData = createSpy.mock.calls[0][1];
@@ -65,7 +65,7 @@ describe('Stacked Area Chart Component', () => {
                 let expected = 500;
 
                 mount(
-                    <StackedAreaComponent
+                    <StackedArea
                         chart={stackedArea}
                         data={dataSet}
                         width={expected}
@@ -82,7 +82,7 @@ describe('Stacked Area Chart Component', () => {
                 let expected = 500;
 
                 mount(
-                    <StackedAreaComponent
+                    <StackedArea
                         chart={stackedArea}
                         data={dataSet}
                         height={expected}
@@ -111,7 +111,7 @@ describe('Stacked Area Chart Component', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                const wrapper = mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -125,7 +125,7 @@ describe('Stacked Area Chart Component', () => {
             });
 
             it('should pass in the new data to the update method', () => {
-                const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                const wrapper = mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -139,7 +139,7 @@ describe('Stacked Area Chart Component', () => {
             });
 
             it('should pass in the new configuration to the update method', () => {
-                const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                const wrapper = mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -167,7 +167,7 @@ describe('Stacked Area Chart Component', () => {
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<StackedAreaComponent chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+            const wrapper = mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
 
             wrapper.unmount();
 

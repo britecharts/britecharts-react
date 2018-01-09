@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import donut from './donutChart';
 
-export default class DonutComponent extends Component {
+export default class Donut extends Component {
 
     static PropTypes = {
         /**

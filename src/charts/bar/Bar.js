@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import stackedArea from './stackedAreaChart';
+import bar from './barChart';
 
 
-class StackedAreaComponent extends React.Component {
+class Bar extends Component {
 
     static propTypes = {
         /**
@@ -12,50 +12,48 @@ class StackedAreaComponent extends React.Component {
         data: PropTypes.arrayOf(PropTypes.any).isRequired,
 
         /**
-         * Exposes the constants to be used to force the x axis to respect a
-         * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
+         * Gets or Sets the padding of the chart
          */
-        axisTimeCombinations: PropTypes.number,
-        /**
-         * Gets or Sets the opacity of the stacked areas in the chart
-         * (all of them will have the same opacity)
-         */
-        areaOpacity: PropTypes.number,
-        /**
-         * Gets or Sets the aspect ratio of the chart
-         */
-        aspectRatio: PropTypes.number,
+        betweenBarsPadding: PropTypes.number,
+
         /**
          * Gets or Sets the colorSchema of the chart
          */
         colorSchema: PropTypes.arrayOf(PropTypes.string),
+
         /**
-         * Gets or Sets the dateLabel of the chart
+         * Default false. If true, adds percentage labels at the end of the bars
          */
-        dateLabel: PropTypes.number,
+        enablePercentageLabels: PropTypes.bool,
+
         /**
-         * Gets or Sets the grid mode.
+         * Gets or Sets the hasPercentage status
          */
-        grid: PropTypes.string,
+        hasPercentage: PropTypes.bool,
+
         /**
          * Gets or Sets the height of the chart
          */
         height: PropTypes.number,
+
         /**
          * Gets or Sets the isAnimated property of the chart, making it to animate
          * when render. By default this is 'false'
          */
         isAnimated: PropTypes.bool,
+
         /**
-         * Gets or Sets the keyLabel of the chart
+         * Gets or Sets the horizontal direction of the chart
          */
-        keyLabel: PropTypes.number,
+        isHorizontal: PropTypes.bool,
+
         /**
          * Pass language tag for the tooltip to localize the date. Feature
          * uses Intl.DateTimeFormat, for compatability and support, refer
          * to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat
          */
         locale: PropTypes.string,
+
         /**
          * Gets or Sets the margin of the chart
          */
@@ -65,40 +63,77 @@ class StackedAreaComponent extends React.Component {
             left: PropTypes.number,
             right: PropTypes.number,
         }),
+
+        /**
+         * Gets or Sets the nameLabel of the chart
+         */
+        nameLabel: PropTypes.number,
+
+
+        /**
+         * Gets or Sets the number format of the bar chart
+         */
+        numberFormat: PropTypes.string,
+
+        /**
+         * Changes the order of items given the custom function
+         */
+        orderingFunction: PropTypes.func,
+
+        /**
+         * Configurable extension of the x axis if your max point was 50%
+         * you might want to show x axis to 60%, pass 1.2
+         */
+        percentageAxisToMaxRatio: PropTypes.number,
+
+        /**
+         * Default 10px. Offset between end of bar and start of the percentage bars
+         */
+        percentageLabelMargin: PropTypes.number,
+
+
+        /**
+         * Gets or Sets whether the color list should be reversed or not
+         */
+        shouldReverseColorList: PropTypes.bool,
+
         /**
          * Gets or Sets the minimum width of the graph in order
          * to show the tooltip NOTE: This could also depend on the aspect ratio
          */
         tooltipThreshold: PropTypes.number,
+
+
+        /**
+         * Gets or Sets the numberFormat to a percentage format if true (default false)
+         */
+        usePercentage: PropTypes.bool,
+
         /**
          * Gets or Sets the valueLabel of the chart
          */
         valueLabel: PropTypes.number,
+
         /**
          * Gets or Sets the width of the chart
          */
         width: PropTypes.number,
+
         /**
-         * Exposes the ability to force the chart to show a certain x format
-         * It requires a `xAxisFormat` of 'custom' in order to work.
-         * NOTE: localization not supported
+         * Space between y axis and chart (Default 10)
          */
-        xAxisCustomFormat: PropTypes.string,
+        yAxisPaddingBetweenChart: PropTypes.number,
+
         /**
-         * Exposes the ability to force the chart to show a certain x axis grouping
-         */
-        xAxisFormat: PropTypes.string,
-        /**
-         * Exposes the ability to force the chart to show a certain x ticks. It
-         * requires a `xAxisFormat` of 'custom' in order to work. NOTE: This
-         * value needs to be a multiple of 2, 5 or 10. They won't always work
-         * as expected, as D3 decides at the end how many and where the ticks will appear.
+         * Gets or Sets the number of ticks of the x axis on the chart (Default is 5)
          */
         xTicks: PropTypes.number,
+
         /**
-         * Gets or Sets the number of ticks of the y axis on the chart (Default is 5)
+         * Gets or Sets the number of vertical ticks on the chart (Default is 6)
          */
         yTicks: PropTypes.number,
+
 
         customMouseOver: PropTypes.func,
         customMouseMove: PropTypes.func,
@@ -113,7 +148,7 @@ class StackedAreaComponent extends React.Component {
     }
 
     static defaultProps = {
-        chart: stackedArea,
+        chart: bar,
         createTooltip: () => null,
     }
 
@@ -154,7 +189,7 @@ class StackedAreaComponent extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = {...this.props};
+        let configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;
@@ -169,9 +204,9 @@ class StackedAreaComponent extends React.Component {
 
     render() {
         return (
-            <div className="stacked-area-container" ref={this._setRef.bind(this)} />
+            <div className="bar-container" ref={this._setRef.bind(this)} />
         );
     }
 }
 
-export default StackedAreaComponent;
+export default Bar;
