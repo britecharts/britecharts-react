@@ -1,6 +1,20 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
+export const loadingContainerWrapper = ({data, chart, shouldShowLoadingState}, container) => {
+    if (shouldShowLoadingState) {
+        container = (
+            <LoadingContainer
+                data={data}
+                loadingState={chart.loading()}
+            >
+                {container}
+            </LoadingContainer>
+        );
+    }
+    return container;
+}
+
 const toggleLoading = (state) => ({loading: !state.loading});
 
 export default class LoadingContainer extends PureComponent {

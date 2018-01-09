@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import line from './lineChart';
-import LoadingContainer from '../loading/LoadingContainer';
+import {loadingContainerWrapper} from '../loading/LoadingContainer';
 
 class Line extends React.Component {
 
@@ -82,6 +82,11 @@ class Line extends React.Component {
         numberFormat: PropTypes.string,
 
         /**
+         * Gets or Sets whether a loading state will be shown
+         */
+        shouldShowLoadingState: PropTypes.bool,
+
+        /**
          * Gets or Sets the minimum width of the graph in order
          * to show the tooltip NOTE: This could also depend on the aspect ratio
          */
@@ -153,6 +158,7 @@ class Line extends React.Component {
     static defaultProps = {
         chart: line,
         createTooltip: () => null,
+        shouldShowLoadingState: false,
     }
 
     constructor(props) {
@@ -197,6 +203,7 @@ class Line extends React.Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
+        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -206,13 +213,10 @@ class Line extends React.Component {
     }
 
     render() {
-        return (
-            <LoadingContainer
-                data={this.props.data}
-                loadingState={this.props.chart.loading()}
-            >
-                <div className="line-container" ref={this._setRef.bind(this)} />
-            </LoadingContainer>
+
+        return loadingContainerWrapper(
+            this.props,
+            <div className="line-container" ref={this._setRef.bind(this)} />
         );
     }
 }

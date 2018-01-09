@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import stackedArea from './stackedAreaChart';
-import LoadingContainer from '../loading/LoadingContainer';
+import {loadingContainerWrapper} from '../loading/LoadingContainer';
 
 class StackedArea extends React.Component {
 
@@ -65,6 +65,12 @@ class StackedArea extends React.Component {
             left: PropTypes.number,
             right: PropTypes.number,
         }),
+
+        /**
+         * Gets or Sets whether a loading state will be shown
+         */
+        shouldShowLoadingState: PropTypes.bool,
+
         /**
          * Gets or Sets the minimum width of the graph in order
          * to show the tooltip NOTE: This could also depend on the aspect ratio
@@ -115,6 +121,7 @@ class StackedArea extends React.Component {
     static defaultProps = {
         chart: stackedArea,
         createTooltip: () => null,
+        shouldShowLoadingState: false,
     }
 
     constructor(props) {
@@ -159,6 +166,7 @@ class StackedArea extends React.Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
+        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -168,13 +176,9 @@ class StackedArea extends React.Component {
     }
 
     render() {
-        return (
-            <LoadingContainer
-                data={this.props.data}
-                loadingState={this.props.chart.loading()}
-            >
-                <div className="stacked-area-container" ref={this._setRef.bind(this)} />
-            </LoadingContainer>
+        return loadingContainerWrapper(
+            this.props,
+            <div className="stacked-area-container" ref={this._setRef.bind(this)} />
         );
     }
 }
