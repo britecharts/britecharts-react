@@ -137,6 +137,12 @@ const bundleConfig = merge([
     parts.generateSourceMaps({ type: 'source-map' }),
     // parts.bundleTreeChart(),
     parts.minifyJavaScript(),
+    parts.copy(
+        {
+            from: 'node_modules/britecharts/dist/css/britecharts.min.css',
+            to: 'britecharts-react.min.css',
+        }
+    ),
 ]);
 
 

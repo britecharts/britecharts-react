@@ -1,6 +1,6 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 exports.devServer = ({ host, port } = {}) => ({
     devServer: {
@@ -137,4 +137,10 @@ exports.externals = () => ({
         commonjs: 'prop-types',
         amd: 'prop-types',
     },
+});
+
+exports.copy = (patterns, options) => ({
+    plugins: [
+        new CopyWebpackPlugin([patterns], options),
+    ],
 });
