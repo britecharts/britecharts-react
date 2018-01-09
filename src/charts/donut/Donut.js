@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import donut from './donutChart';
+import {loadingContainerWrapper} from '../loading/LoadingContainer';
 
 export default class Donut extends Component {
 
@@ -63,6 +64,11 @@ export default class Donut extends Component {
         orderingFunction: PropTypes.func,
 
         /**
+         * Gets or Sets whether a loading state will be shown
+         */
+        shouldShowLoadingState: PropTypes.bool,
+
+        /**
          * Gets or Sets the width of the chart
          */
         width: PropTypes.number,
@@ -79,6 +85,7 @@ export default class Donut extends Component {
     static defaultProps = {
         chart: donut,
         isAnimated: true,
+        shouldShowLoadingState: false,
     }
 
     constructor(props) {
@@ -120,6 +127,7 @@ export default class Donut extends Component {
 
         delete configuration.data;
         delete configuration.chart;
+        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -129,7 +137,10 @@ export default class Donut extends Component {
     }
 
     render() {
-        return (
+
+        return loadingContainerWrapper(
+            this.props,
+            this.props.chart.loading(),
             <div className="donut-container" ref={this._setRef.bind(this)} />
         );
     }

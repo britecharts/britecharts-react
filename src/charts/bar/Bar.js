@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import bar from './barChart';
-
+import {loadingContainerWrapper} from '../loading/LoadingContainer';
 
 class Bar extends Component {
 
@@ -98,6 +98,11 @@ class Bar extends Component {
         shouldReverseColorList: PropTypes.bool,
 
         /**
+         * Gets or Sets whether a loading state will be shown
+         */
+        shouldShowLoadingState: PropTypes.bool,
+
+        /**
          * Gets or Sets the minimum width of the graph in order
          * to show the tooltip NOTE: This could also depend on the aspect ratio
          */
@@ -150,6 +155,7 @@ class Bar extends Component {
     static defaultProps = {
         chart: bar,
         createTooltip: () => null,
+        shouldShowLoadingState: false,
     }
 
     constructor(props) {
@@ -194,6 +200,7 @@ class Bar extends Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
+        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -203,7 +210,10 @@ class Bar extends Component {
     }
 
     render() {
-        return (
+
+        return loadingContainerWrapper(
+            this.props,
+            this.props.chart.loading(),
             <div className="bar-container" ref={this._setRef.bind(this)} />
         );
     }

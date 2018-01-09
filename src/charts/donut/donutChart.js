@@ -3,6 +3,8 @@ import {select} from 'd3-selection';
 import {validateConfiguration, validateContainer, validateData} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
+import { donut as donutLoadingState } from 'britecharts/dist/umd/loading.min';
+
 const donut = {};
 
 donut.create = (el, data, configuration = {}) => {
@@ -37,5 +39,7 @@ donut.update = (el, data, configuration = {}, chart) => {
 };
 
 donut.destroy = () => {};
+
+donut.loading = () => donutLoadingState;
 
 export default donut;
