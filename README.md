@@ -40,7 +40,7 @@ From there, we will proceed to pass each of the configurations through the usual
 ## Installation
 Britecharts-React is available as an [NPM module][npmModule] or through CDN links (in [different formats][jsDelivrLib] or a [bundle][jsDelivrDist]).
 
-You can use either a minified UMD bundle (in dist/) or un-minified individual bundles in ES2015 modules (lib/esm), CommonJS (lib/cjs) or UMD (lib/umd) to add to your bundle.
+You can also use individual bundles in UMD format (`dist/umd/`), CommonJS format (`lib/cjs`) and tree-shaking enabling ES2015 modules (`lib/esm1) to add to your bundle.
 
 You would also need to load the stylesheets located in `dist/britecharts-react.min.css` in order to style the charts properly.
 
