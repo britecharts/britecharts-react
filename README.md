@@ -40,7 +40,7 @@ From there, we will proceed to pass each of the configurations through the usual
 ## Installation
 Britecharts-React is available as an [NPM module][npmModule] or through CDN links (in [different formats][jsDelivrLib] or a [bundle][jsDelivrDist]).
 
-You can also use individual bundles in UMD format (`dist/umd/`), CommonJS format (`lib/cjs`) and tree-shaking enabling ES2015 modules (`lib/esm1) to add to your bundle.
+You can also use individual bundles in UMD format (`dist/umd/`), CommonJS format (`lib/cjs`) and tree-shaking enabling ES2015 modules (`lib/esm1) to add to your bundle. You can see more on our [test project][testProject].
 
 You would also need to load the stylesheets located in `dist/britecharts-react.min.css` in order to style the charts properly.
 
@@ -88,6 +88,7 @@ Read more in the [license document][licenseGithub]
 [d3Slack]: https://d3js.slack.com/
 [codeOfConduct]: https://github.com/eventbrite/britecharts-react/blob/master/CODE_OF_CONDUCT.md
 [homepage]: https://eventbrite.github.io/britecharts-react/
+[testProject]: https://github.com/Golodhros/britecharts-react-test-project
 
 [stackedAreaDemo]: https://eventbrite.github.io/britecharts-react/#stacked-area-chart "Check the Demo"
 [stackedAreaImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/stacked-area.png
