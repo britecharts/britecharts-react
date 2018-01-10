@@ -13,7 +13,6 @@ const PATHS = {
     lib: path.join(__dirname, 'lib'),
     build: path.join(__dirname, 'dist'),
     umd: path.join(__dirname, 'lib/umd'),
-    esm: path.join(__dirname, 'lib/esm'),
     cjs: path.join(__dirname, 'lib/cjs'),
 };
 const CHARTS = {
@@ -91,21 +90,6 @@ const libraryUMDConfig = merge([
     parts.generateSourceMaps({ type: 'source-map' }),
 ]);
 
-const libraryESMConfig = merge([
-    commonSplittedConfig,
-    {
-        output: {
-            path: PATHS.esm,
-            filename: '[name].js',
-            library: ['britecharts-react', '[name]'],
-            libraryTarget: 'commonjs-module',
-        },
-        externals: parts.externals(),
-    },
-    parts.babelReactLoader(),
-    parts.generateSourceMaps({ type: 'source-map' }),
-]);
-
 const libraryCJSConfig = merge([
     commonSplittedConfig,
     {
@@ -117,7 +101,7 @@ const libraryCJSConfig = merge([
         },
         externals: parts.externals(),
     },
-    parts.babelReactLoader(),
+    parts.babelLoader(),
     parts.generateSourceMaps({ type: 'source-map' }),
 ]);
 
@@ -151,7 +135,6 @@ module.exports = (env) => {
 
     if (env === 'production') {
         return [
-            libraryESMConfig,
             libraryCJSConfig,
             libraryUMDConfig,
             bundleConfig,
