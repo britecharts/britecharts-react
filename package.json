@@ -26,8 +26,8 @@
   "scripts": {
     "start": "webpack-dashboard -- nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
     "prebuild": "rimraf lib && rimraf dist",
-    "build": "webpack --env production --progress && yarn run build:es6",
-    "build:es6": "babel-node src/scripts/es/build.js",
+    "build": "webpack --env production --progress && yarn run build:esm",
+    "build:esm": "babel-node src/scripts/es/build.js",
     "docs": "yarn run styleguide:build",
     "lint": "eslint src/ webpack.*.js --cache",
     "lint:fix": "eslint src/ webpack.*.js --cache --fix",
