@@ -33,7 +33,7 @@ export default class LoadingContainer extends PureComponent {
         loading: true,
     }
 
-    componentWillMount() {
+    componentDidMount() {
         if (this.props.data !== null) {
             this.setState(toggleLoading);
         }
