@@ -1,5 +1,3 @@
-import React from 'react';
-
 import lineChart from 'britecharts/dist/umd/line.min';
 
 import { select } from 'd3-selection';

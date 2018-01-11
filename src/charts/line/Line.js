@@ -31,7 +31,7 @@ class Line extends React.Component {
         /**
          * Gets or Sets the dateLabel of the chart
          */
-        dateLabel: PropTypes.number,
+        dateLabel: PropTypes.string,
 
         /**
          * Gets or Sets the grid mode.
