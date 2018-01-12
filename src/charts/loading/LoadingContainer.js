@@ -72,6 +72,7 @@ export default class LoadingContainer extends PureComponent {
                     this.state.loading && 
                         <div
                             className="loading-container__svg-container"
+                            // eslint-disable-next-line react/no-danger
                             dangerouslySetInnerHTML={{ __html: loadingState }}
                             style={{
                                 width: width || '100%',
