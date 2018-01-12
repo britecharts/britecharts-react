@@ -50,7 +50,7 @@ body,
 #app #introduction {
     display: none;
 }
-#app .rsg--blockquote-37 {
+#app blockquote {
     font-size: 24px;
     margin: 16px 0 24px 0;
 }
