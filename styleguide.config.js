@@ -6,7 +6,7 @@ const resolve = (searchPath) => path.join(__dirname, searchPath);
 // Check options in https://github.com/styleguidist/react-styleguidist/blob/master/src/styles/theme.js
 
 module.exports = {
-    title: 'Britecharts React',
+    title: 'Britecharts React - React charting library based in Britecharts',
 
     theme: {
         sidebarWidth: 262,
