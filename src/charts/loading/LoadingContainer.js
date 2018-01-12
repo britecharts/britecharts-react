@@ -1,12 +1,14 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
-export const loadingContainerWrapper = ({data, shouldShowLoadingState}, loadingState, container) => {
+export const loadingContainerWrapper = ({data, height, shouldShowLoadingState, width}, loadingState, container) => {
     if (shouldShowLoadingState) {
         container = (
             <LoadingContainer
                 data={data}
+                height={height}
                 loadingState={loadingState}
+                width={width}
             >
                 {container}
             </LoadingContainer>
@@ -48,33 +50,36 @@ export default class LoadingContainer extends PureComponent {
     render() {
         const {
             children,
+            height,
             loadingState,
+            width,
         } = this.props;
         const chartStyles = {};
 
         if (this.state.loading) {
-            chartStyles.visibility = 'hidden';
+            chartStyles.display = 'none';
         }
 
+        let chart = (
+            <div className="loading-container__children" style={chartStyles}>
+                {children}
+            </div>
+        );
+
         return (
-            <div style={{position: 'relative'}}>
+            <div>
                 {
                     this.state.loading && 
                         <div
                             className="loading-container__svg-container"
                             dangerouslySetInnerHTML={{ __html: loadingState }}
                             style={{
-                                width: '100%',
-                                height: '100%',
-                                top: 0,
-                                left: 0,
-                                position: 'absolute',
+                                width: width || '100%',
+                                height: height || '100%',
                             }}
                         />
                 }
-                <div className="loading-container__children" style={chartStyles}>
-                    {children}
-                </div>
+                {chart}
             </div>
         );
     }
