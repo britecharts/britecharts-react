@@ -38,6 +38,15 @@
 ```
 
 
+### With loading state
+```js
+
+    <Donut
+        data={null}
+        shouldShowLoadingState={true}
+    />
+```
+
 See more:
 * [API description][APILink]
 * [Data definition][DataLink]
