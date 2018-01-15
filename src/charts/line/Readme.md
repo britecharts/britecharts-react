@@ -42,7 +42,6 @@
         <Line
             tooltipThreshold={0}
             margin={margin}
-            shouldShowLoadingState={true}
             {...props}
         />
     );

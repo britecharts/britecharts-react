@@ -42,7 +42,7 @@
 ```js
 
     <Donut
-        data={null}
+        data={[]}
         shouldShowLoadingState={true}
     />
 ```

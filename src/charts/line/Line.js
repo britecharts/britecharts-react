@@ -161,15 +161,6 @@ class Line extends React.Component {
         shouldShowLoadingState: false,
     }
 
-    constructor(props) {
-        super(props);
-
-        // We want to make this throw an error if no data is provided
-        if (!props.data && !props.shouldShowLoadingState) {
-            throw new Error('Data is required!');
-        }
-    }
-
     componentDidMount() {
         if (this.props.data !== null) {
             this._createChart();
