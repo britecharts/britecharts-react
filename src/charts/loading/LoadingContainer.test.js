@@ -80,8 +80,6 @@ describe('Loading Container', () => {
 
                 let childContainer = wrapper.find('.loading-container__children');
 
-                console.log(childContainer.html());
-
                 let actual = childContainer.html().match(/style="([^"]*)"/i)[1];
 
                 expect(actual).toEqual(expected);

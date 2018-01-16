@@ -162,17 +162,19 @@ class Line extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.data !== null) {
+        if (!this.props.shouldShowLoadingState) {
             this._createChart();
         }
     }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.data === null && this.props.data) {
-            this._createChart();
-        } else {
-            this._updateChart();
-            this.props.createTooltip();
+    componentDidUpdate() {
+        if (!this.props.shouldShowLoadingState) {
+            if (!this._chart) {
+                this._createChart();
+            } else {
+                this._updateChart();
+                this.props.createTooltip();
+            }
         }
     }
 
