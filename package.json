@@ -21,7 +21,7 @@
     "graphs"
   ],
   "author": "Marcos Iglesias <golodhros@gmail.com> (http://www.marcosiglesias.com)",
-  "version": "0.3.30",
+  "version": "0.3.31",
   "license": "Apache-2.0",
   "scripts": {
     "start": "webpack-dashboard -- nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
