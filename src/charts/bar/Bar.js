@@ -9,7 +9,7 @@ class Bar extends Component {
         /**
          * Internally used, do not overwrite.
          */
-        data: PropTypes.arrayOf(PropTypes.any).isRequired,
+        data: PropTypes.arrayOf(PropTypes.any),
 
         /**
          * Gets or Sets the padding of the chart
@@ -158,16 +158,28 @@ class Bar extends Component {
         shouldShowLoadingState: false,
     }
 
-    constructor(props) {
-        super(props);
-
-        // We want to make this throw an error if no data is provided
-        if (!props.data) {
-            throw new Error('Data is required!');
+    componentDidMount() {
+        if (!this.props.shouldShowLoadingState) {
+            this._createChart();
         }
     }
 
-    componentDidMount() {
+    componentDidUpdate() {
+        if (!this.props.shouldShowLoadingState) {
+            if (!this._chart) {
+                this._createChart();
+            } else {
+                this._updateChart();
+                this.props.createTooltip();
+            }
+        }
+    }
+
+    componentWillUnmount() {
+        this.props.chart.destroy(this._rootNode);
+    }
+
+    _createChart() {
         this._chart = this.props.chart.create(
             this._rootNode,
             this.props.data,
@@ -175,19 +187,13 @@ class Bar extends Component {
         );
     }
 
-    componentDidUpdate() {
+    _updateChart() {
         this.props.chart.update(
             this._rootNode,
             this.props.data,
             this._getChartConfiguration(),
             this._chart
         );
-
-        this.props.createTooltip();
-    }
-
-    componentWillUnmount() {
-        this.props.chart.destroy(this._rootNode);
     }
 
     /**
@@ -213,7 +219,7 @@ class Bar extends Component {
 
         return loadingContainerWrapper(
             this.props,
-            this.props.chart.loading(),
+            this.props.loadingState || this.props.chart.loading(),
             <div className="bar-container" ref={this._setRef.bind(this)} />
         );
     }

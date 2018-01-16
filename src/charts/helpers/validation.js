@@ -21,8 +21,4 @@ export const validateContainer = (container) => {
     }
 };
 
-export const validateData = (data) => {
-    if (!data) {
-        throw Error('Data must be defined');
-    }
-};
+export const validateData = (data) => {};

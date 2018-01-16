@@ -17,7 +17,6 @@
     />
 ```
 
-
 ### With fixed width and height
 ```js
     const stackedAreaData = require('./stackedAreaChart.fixtures.js').default;
@@ -49,6 +48,15 @@
         customMouseOver={logMouseOver}
         customMouseMove={logMouseMoveTooltip}
         customMouseOut={logMouseOut}
+    />
+```
+
+### With loading state
+```js
+
+    <StackedArea
+        data={null}
+        shouldShowLoadingState={true}
     />
 ```
 
