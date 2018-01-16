@@ -9,7 +9,7 @@ export default class Donut extends Component {
         /**
          * Internally used, do not overwrite.
          */
-        data: PropTypes.array.isRequired,
+        data: PropTypes.array,
 
         /**
          * Gets or Sets the colorSchema of the chart
@@ -88,16 +88,27 @@ export default class Donut extends Component {
         shouldShowLoadingState: false,
     }
 
-    constructor(props) {
-        super(props);
-
-        // We want to make this throw an error if no data is provided
-        if (!props.data) {
-            throw new Error('Data is required!');
+    componentDidMount() {
+        if (!this.props.shouldShowLoadingState) {
+            this._createChart();
         }
     }
 
-    componentDidMount() {
+    componentDidUpdate() {
+        if (!this.props.shouldShowLoadingState) {
+            if (!this._chart) {
+                this._createChart();
+            } else {
+                this._updateChart();
+            } 
+        }
+    }
+
+    componentWillUnmount() {
+        this.props.chart.destroy(this._rootNode);
+    }
+
+    _createChart() {
         this._chart = this.props.chart.create(
             this._rootNode,
             this.props.data,
@@ -105,17 +116,13 @@ export default class Donut extends Component {
         );
     }
 
-    componentDidUpdate() {
+    _updateChart() {
         this.props.chart.update(
             this._rootNode,
             this.props.data,
             this._getChartConfiguration(),
             this._chart
         );
-    }
-
-    componentWillUnmount() {
-        this.props.chart.destroy(this._rootNode);
     }
 
     /**
@@ -137,10 +144,9 @@ export default class Donut extends Component {
     }
 
     render() {
-
         return loadingContainerWrapper(
             this.props,
-            this.props.chart.loading(),
+            this.props.loadingState || this.props.chart.loading(),
             <div className="donut-container" ref={this._setRef.bind(this)} />
         );
     }

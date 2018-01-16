@@ -51,7 +51,7 @@ describe('Loading Container', () => {
 
         });
 
-        describe('when data is null', () => {
+        describe('when shouldShowLoadingState is passed', () => {
             let wrapper;
 
             beforeEach(() => {
@@ -59,6 +59,7 @@ describe('Loading Container', () => {
                     <LoadingContainer
                         data={null}
                         loadingState={bar.loading()}
+                        shouldShowLoadingState={true}
                     >
                         <div className="chart" />
                     </LoadingContainer>
@@ -75,9 +76,10 @@ describe('Loading Container', () => {
             });
 
             it ('should include the loading class on the chart', () => {
-                let expected = 'visibility:hidden;';
+                let expected = 'display:none;';
 
                 let childContainer = wrapper.find('.loading-container__children');
+
                 let actual = childContainer.html().match(/style="([^"]*)"/i)[1];
 
                 expect(actual).toEqual(expected);

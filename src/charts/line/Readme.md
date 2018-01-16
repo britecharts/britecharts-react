@@ -42,7 +42,6 @@
         <Line
             tooltipThreshold={0}
             margin={margin}
-            shouldShowLoadingState={true}
             {...props}
         />
     );
@@ -74,6 +73,15 @@
         lineCurve="stepBefore"
         tooltipThreshold={2000}
         colorSchema={colors.colorSchemas.teal}
+    />
+```
+
+### With loading state
+```js
+
+    <Line
+        data={null}
+        shouldShowLoadingState={true}
     />
 ```
 

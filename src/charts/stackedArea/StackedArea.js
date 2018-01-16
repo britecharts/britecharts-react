@@ -9,7 +9,7 @@ class StackedArea extends React.Component {
         /**
          * Internally used, do not overwrite.
          */
-        data: PropTypes.arrayOf(PropTypes.any).isRequired,
+        data: PropTypes.arrayOf(PropTypes.any),
 
         /**
          * Exposes the constants to be used to force the x axis to respect a
@@ -124,16 +124,30 @@ class StackedArea extends React.Component {
         shouldShowLoadingState: false,
     }
 
-    constructor(props) {
-        super(props);
-
-        // We want to make this throw an error if no data is provided
-        if (!props.data) {
-            throw new Error('Data is required!');
+    componentDidMount() {
+        if (!this.props.shouldShowLoadingState) {
+            if (this.props.data !== null) {
+                this._createChart();
+            }
         }
     }
 
-    componentDidMount() {
+    componentDidUpdate() {
+        if (!this.props.shouldShowLoadingState) {
+            if (!this._chart) {
+                this._createChart();
+            } else {
+                this._updateChart();
+                this.props.createTooltip();
+            }
+        }
+    }
+
+    componentWillUnmount() {
+        this.props.chart.destroy(this._rootNode);
+    }
+
+    _createChart() {
         this._chart = this.props.chart.create(
             this._rootNode,
             this.props.data,
@@ -141,19 +155,13 @@ class StackedArea extends React.Component {
         );
     }
 
-    componentDidUpdate() {
+    _updateChart() {
         this.props.chart.update(
             this._rootNode,
             this.props.data,
             this._getChartConfiguration(),
             this._chart
         );
-
-        this.props.createTooltip();
-    }
-
-    componentWillUnmount() {
-        this.props.chart.destroy(this._rootNode);
     }
 
     /**

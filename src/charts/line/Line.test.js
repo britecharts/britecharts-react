@@ -12,13 +12,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('Line Chart', () => {
 
     describe('render', () => {
-
-        describe('when data is not passed', () => {
-            it('should throw an error', () => {
-                expect(() => shallow(<Line data={{}} />)).toThrow();
-            });
-        });
-
+        
         describe('when data passed in', () => {
             let createSpy;
 
