@@ -65,15 +65,6 @@ export default class Legend extends React.Component {
         chart: PropTypes.object,
     }
 
-    constructor(props) {
-        super(props);
-
-        // We want to make this throw an error if no data is provided
-        if (!props.data) {
-            throw new Error('Data is required!');
-        }
-    }
-
     componentDidMount() {
         this._chart = this.props.chart.create(
             this._rootNode,

@@ -13,12 +13,6 @@ describe('Bar Chart', () => {
 
     describe('render', () => {
 
-        describe('when data is not passed', () => {
-            it('should throw an error', () => {
-                expect(() => shallow(<Bar data={[]} />)).toThrow();
-            });
-        });
-
         describe('when data passed in', () => {
             let createSpy;
 
