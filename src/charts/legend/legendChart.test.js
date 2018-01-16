@@ -24,18 +24,6 @@ describe('Legend Chart', () => {
                 });
             });
 
-            describe('when the Data is not passed', () => {
-                it('should throw an error with undefined data', () => {
-                    expect(() => {
-                        legendChart.create(
-                            anchor,
-                            undefined,
-                            {}
-                        );
-                    }).toThrowError('Data must be defined');
-                });
-            });
-
             describe('when a non-supported method is passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
