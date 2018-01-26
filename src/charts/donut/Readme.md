@@ -34,6 +34,7 @@
     customMouseOver={logMouseOver}
     externalRadius={100}
     internalRadius={47}
+    highlightSliceById={1}
   />
 ```
 
