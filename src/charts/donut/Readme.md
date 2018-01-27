@@ -11,14 +11,47 @@
 ### With custom size
 ```js
   const donutData = require('./donutChart.fixtures.js').default;
+  const withResponsiveness = require('../helpers/withResponsiveness.js').default;
+  const ResponsiveContainer = require('../helpers/responsiveContainer.js').default;
+  const ResponsiveDonut = withResponsiveness(Donut);
+  const ResponsiveLegend = withResponsiveness(Legend);
+  let legendInstance;
 
-  <Donut
-    data={donutData.with4Slices()}
-    width={500}
-    height={500}
-    externalRadius={500 / 2.5}
-    internalRadius={500 / 5}
-  />
+  <div>
+    <ResponsiveContainer
+      render={
+        ({width}) =>
+          <Donut
+            data={donutData.with4Slices()}
+            height={500}
+            width={width}
+            externalRadius={500 / 2.5}
+            internalRadius={500 / 5}
+            customMouseOver={
+              (data) => {
+                legendInstance._chart.highlight(data.data.id);
+              }
+            }
+            customMouseOut={
+              () => {
+                legendInstance._chart.clearHighlight();
+              }
+            }
+          />
+      }
+    />
+    <ResponsiveContainer
+      render={
+        ({width}) =>
+          <Legend
+            ref={(legend) => { legendInstance = legend; }}
+            data={donutData.with4Slices()}
+            height={300}
+            width={width}
+          />
+      }
+    />
+  </div>
 ```
 
 ### With hover event and responsive
