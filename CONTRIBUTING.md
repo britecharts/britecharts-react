@@ -66,7 +66,7 @@ In order to generate the demos and see the documentation for the library you wou
     `yarn run styleguide`
 
 
-This process will generate the styleguide and show it in ``localhost:6006``. You can use this demos as your testing platform when creating new charts.
+This process will generate the styleguide and show it in ``localhost:6060``. You can use this demos as your testing platform when creating new charts.
 
 
 ## Modifying a chart
@@ -140,7 +140,7 @@ The build sequence consists of a small set of [Node][node] tasks. While you'll p
 | `yarn run start`             | Start the development process that is going to transpile the files
 | `yarn run test`              | Run the Jest runner to see if the tests are running
 | `yarn run test:watch`        | Start the Jest runner that will test the project and keep watching for changes.
-| `yarn run styleguide`        | Serves the demos in localhost:6006.
+| `yarn run styleguide`        | Serves the demos in localhost:6060.
 | `yarn run styleguide:build`  | Builds the styleguide.
 | `yarn run build`             | Build everything and generate the distribution version of the charts.
 | `yarn run lint`              | Runs the eslint linter

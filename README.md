@@ -90,16 +90,16 @@ Read more in the [license document][licenseGithub]
 [homepage]: https://eventbrite.github.io/britecharts-react/
 [testProject]: https://github.com/Golodhros/britecharts-react-test-project
 
-[stackedAreaDemo]: https://eventbrite.github.io/britecharts-react/#stacked-area-chart "Check the Demo"
+[stackedAreaDemo]: https://eventbrite.github.io/britecharts-react/#stackedarea "Check the Demo"
 [stackedAreaImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/stacked-area.png
 
-[barChartDemo]: https://eventbrite.github.io/britecharts-react/#bar-chart "Check the Demo"
+[barChartDemo]: https://eventbrite.github.io/britecharts-react/#bar "Check the Demo"
 [barChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/bar-chart.png
 
-[donutChartDemo]: https://eventbrite.github.io/britecharts-react/#donut-chart "Check the Demo"
+[donutChartDemo]: https://eventbrite.github.io/britecharts-react/#donut "Check the Demo"
 [donutChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/donut-chart.png
 
-[lineChartDemo]: https://eventbrite.github.io/britecharts-react/#line-chart "Check the Demo"
+[lineChartDemo]: https://eventbrite.github.io/britecharts-react/#line "Check the Demo"
 [lineChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/line-chart.png
 
 [legendDemo]: https://eventbrite.github.io/britecharts-react/#legend "Check the Demo"
