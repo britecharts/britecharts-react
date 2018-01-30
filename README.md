@@ -13,6 +13,16 @@
 | [![Donut Chart][donutChartImg]][donutChartDemo] | [![Legend][legendImg]][legendDemo] | [![Tooltip][tooltipImg]][tooltipDemo] |
 
 ## Usage
+Import components from Britecharts-React:
+
+```js static
+//ES6 import syntax
+import { StackedArea } from 'britecharts-react';
+
+//CommonJS require syntax
+const { StackedArea } = require('britecharts-react');
+```
+
 Britecharts-React components are used just like any other stateless React component. You will pass in some props and it would render a chart:
 
 ```js static
