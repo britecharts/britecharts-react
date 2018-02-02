@@ -48,12 +48,12 @@ From there, we will proceed to pass each of the configurations through the usual
 ```
 
 The complete set of components is in progress; the following components are currently implemented and available for use:
-- Bar charts [API][barChartAPI]
-- Donut charts
-- Line charts
-- Stacked Area charts
+- Bar charts [(API)][barChartAPI]
+- Donut charts [(API)][donutChartAPI]
+- Line charts [(API)][lineChartAPI]
+- Stacked Area charts [(API)][stackedAreaChartAPI]
+- Tooltips [(API)][tooltipAPI]
 - Loading states
-- Tooltips
 
 The following components are not yet implemented:
 - Brush charts
@@ -103,6 +103,10 @@ Read more in the [license document][licenseGithub]
 [react]: https://facebook.github.io/react/
 [integration-article]: http://nicolashery.com/integrating-d3js-visualizations-in-a-react-app/
 [barChartAPI]: http://eventbrite.github.io/britecharts/module-Bar.html
+[donutChartAPI]: http://eventbrite.github.io/britecharts/module-Donut.html
+[lineChartAPI]: http://eventbrite.github.io/britecharts/module-Line.html
+[stackedAreaChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-area.html
+[tooltipAPI]: http://eventbrite.github.io/britecharts/module-Tooltip.html
 [license]: https://www.apache.org/licenses/LICENSE-2.0
 [licenseGithub]: https://github.com/eventbrite/britecharts-react/blob/master/LICENSE.md
 [topics]: https://github.com/eventbrite/britecharts-react/blob/master/TOPICS.md
