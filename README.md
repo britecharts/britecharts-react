@@ -47,6 +47,21 @@ From there, we will proceed to pass each of the configurations through the usual
 >
 ```
 
+The complete set of components is in progress; the following components are currently implemented and available for use:
+- Bar charts [API][barChartAPI]
+- Donut charts
+- Line charts
+- Stacked Area charts
+- Loading states
+- Tooltips
+
+The following components are not yet implemented:
+- Brush charts
+- Grouped Bar charts
+- Stacked Bar charts
+- Sparkline charts
+- Step charts
+
 ## Installation
 Britecharts-React is available as an [NPM module][npmModule] or through CDN links (in [different formats][jsDelivrLib] or a [bundle][jsDelivrDist]).
 
