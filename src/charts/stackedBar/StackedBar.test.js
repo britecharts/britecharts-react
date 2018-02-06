@@ -37,7 +37,7 @@ describe('Stacked Bar Chart', () => {
             it('should call the create method or the chart with the container as the first argument', () => {
                 const wrapper = mount(<StackedBar chart={stackedBar} data={stackedBarData.with3Sources()} />);
 
-                let expected = wrapper.find('.stacked-Bar-container').instance();
+                let expected = wrapper.find('.stacked-bar-container').instance();
                 let actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);

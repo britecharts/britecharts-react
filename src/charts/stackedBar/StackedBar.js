@@ -203,7 +203,7 @@ class StackedBar extends React.Component {
         return loadingContainerWrapper(
             this.props,
             this.props.chart.loading(),
-            <div className="stacked-Bar-container" ref={this._setRef.bind(this)} />
+            <div className="stacked-bar-container" ref={this._setRef.bind(this)} />
         );
     }
 }

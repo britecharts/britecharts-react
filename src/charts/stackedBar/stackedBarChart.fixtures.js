@@ -1,46 +1,46 @@
 const with3Sources = () => [
     {
-        name: '2011-01',
+        name: 'Shiny',
         stack: 'Bottom',
         value: 2,
     },
     {
-        name: '2011-01',
+        name: 'Shiny',
         stack: 'Middle',
         value: 9,
     },
     {
-        name: '2011-01',
+        name: 'Shiny',
         stack: 'Top',
         value: 4,
     },
     {
-        name: '2011-02',
+        name: 'Dazzling',
         stack: 'Bottom',
         value: 6,
     },
     {
-        name: '2011-02',
+        name: 'Dazzling',
         stack: 'Middle',
         value: 1,
     },
     {
-        name: '2011-02',
+        name: 'Dazzling',
         stack: 'Top',
         value: 2,
     },
     {
-        name: '2011-03',
+        name: 'Radiant',
         stack: 'Bottom',
         value: 7,
     },
     {
-        name: '2011-03',
+        name: 'Radiant',
         stack: 'Middle',
         value: 4,
     },
     {
-        name: '2011-03',
+        name: 'Radiant',
         stack: 'Top',
         value: 2,
     },
@@ -48,32 +48,32 @@ const with3Sources = () => [
 
 const with2Sources = () => [
     {
-        name: '2011-02',
+        name: 'Dazzling',
         stack: 'Bottom',
         value: 6,
     },
     {
-        name: '2011-02',
+        name: 'Dazzling',
         stack: 'Middle',
         value: 1,
     },
     {
-        name: '2011-02',
+        name: 'Dazzling',
         stack: 'Top',
         value: 2,
     },
     {
-        name: '2011-03',
+        name: 'Radiant',
         stack: 'Bottom',
         value: 7,
     },
     {
-        name: '2011-03',
+        name: 'Radiant',
         stack: 'Middle',
         value: 4,
     },
     {
-        name: '2011-03',
+        name: 'Radiant',
         stack: 'Top',
         value: 2,
     },
