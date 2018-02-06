@@ -13,6 +13,16 @@
 | [![Donut Chart][donutChartImg]][donutChartDemo] | [![Legend][legendImg]][legendDemo] | [![Tooltip][tooltipImg]][tooltipDemo] |
 
 ## Usage
+Import components from Britecharts-React:
+
+```js static
+//ES6 import syntax
+import { StackedArea } from 'britecharts-react';
+
+//CommonJS require syntax
+const { StackedArea } = require('britecharts-react');
+```
+
 Britecharts-React components are used just like any other stateless React component. You will pass in some props and it would render a chart:
 
 ```js static
@@ -36,6 +46,21 @@ From there, we will proceed to pass each of the configurations through the usual
     margin={marginObject}
 >
 ```
+
+The complete set of components is in progress; the following components are currently implemented and available for use:
+- Bar charts [(API)][barChartAPI]
+- Grouped Bar charts [(API)][groupedBarChartAPI]
+- Donut charts [(API)][donutChartAPI]
+- Line charts [(API)][lineChartAPI]
+- Stacked Area charts [(API)][stackedAreaChartAPI]
+- Tooltips [(API)][tooltipAPI]
+- Loading states
+
+The following components are not yet implemented:
+- Brush charts
+- Stacked Bar charts
+- Sparkline charts
+- Step charts
 
 ## Installation
 Britecharts-React is available as an [NPM module][npmModule] or through CDN links (in [different formats][jsDelivrLib] or a [bundle][jsDelivrDist]).
@@ -78,6 +103,11 @@ Read more in the [license document][licenseGithub]
 [react]: https://facebook.github.io/react/
 [integration-article]: http://nicolashery.com/integrating-d3js-visualizations-in-a-react-app/
 [barChartAPI]: http://eventbrite.github.io/britecharts/module-Bar.html
+[groupedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Grouped-Bar.html
+[donutChartAPI]: http://eventbrite.github.io/britecharts/module-Donut.html
+[lineChartAPI]: http://eventbrite.github.io/britecharts/module-Line.html
+[stackedAreaChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-area.html
+[tooltipAPI]: http://eventbrite.github.io/britecharts/module-Tooltip.html
 [license]: https://www.apache.org/licenses/LICENSE-2.0
 [licenseGithub]: https://github.com/eventbrite/britecharts-react/blob/master/LICENSE.md
 [topics]: https://github.com/eventbrite/britecharts-react/blob/master/TOPICS.md
