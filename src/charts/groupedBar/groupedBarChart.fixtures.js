@@ -1,18 +1,48 @@
 const with3Groups = () => [
     {
-        name: 'Alice',
+        name: 'Dogs',
         group: 'Group A',
-        value: 0,
+        value: 4,
     },
     {
-        name: 'Betsy',
+        name: 'Dogs',
+        group: 'Group B',
+        value: 8,
+    },
+    {
+        name: 'Dogs',
+        group: 'Group C',
+        value: 6,
+    },
+    {
+        name: 'Cats',
+        group: 'Group A',
+        value: 2,
+    },
+    {
+        name: 'Cats',
+        group: 'Group B',
+        value: 7,
+    },
+    {
+        name: 'Cats',
+        group: 'Group C',
+        value: 12,
+    },
+    {
+        name: 'Both',
+        group: 'Group A',
+        value: 5,
+    },
+    {
+        name: 'Both',
         group: 'Group B',
         value: 6,
     },
     {
-        name: 'Charlotte',
+        name: 'Both',
         group: 'Group C',
-        value: 4,
+        value: 5,
     },
 ];
 

@@ -37,7 +37,7 @@ describe('Grouped Bar Chart', () => {
             it('should call the create method or the chart with the container as the first argument', () => {
                 const wrapper = mount(<GroupedBar chart={groupedBar} data={groupedBarData.with3Groups()} />);
 
-                let expected = wrapper.find('.stacked-area-container').instance();
+                let expected = wrapper.find('.grouped-bar-container').instance();
                 let actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
