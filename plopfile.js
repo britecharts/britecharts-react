@@ -1,4 +1,6 @@
 module.exports = function(plop) {
+    plop.setHelper('openBrace', () => '{');
+    plop.setHelper('closeBrace', () => '}');
     plop.setGenerator('component', {
         description: 'Create a new component',
         prompts: [{
@@ -35,6 +37,11 @@ module.exports = function(plop) {
             type: 'add',
             path: 'src/charts/{{camelCase componentName}}/Readme.md',
             templateFile: 'src/charts/template/Readme.md',
+        },
+        {
+            type: 'add',
+            path: 'src/charts/{{camelCase componentName}}/Checklist.md',
+            templateFile: 'src/charts/template/Checklist.md',
         }],
     });
 };
