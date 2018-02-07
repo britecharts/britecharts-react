@@ -1,6 +1,6 @@
 ### With default properties
 ```js
-    const chartData = require('./{{lowerFirst chartName}}Chart.fixtures.js').default;
+    const chartData = require('./{{camelCase chartName}}Chart.fixtures.js').default;
     
     <{{pascalCase componentName}}
         data={chartData.firstDataMethod()}
