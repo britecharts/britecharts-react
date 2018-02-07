@@ -2,7 +2,7 @@
 ```js
     const chartData = require('./{{lowerFirst chartName}}Chart.fixtures.js').default;
     
-    <{{componentName}}
+    <{{pascalCase componentName}}
         data={chartData.firstDataMethod()}
         shouldShowLoadingState={true}
     />
@@ -11,7 +11,7 @@
 ### With loading state
 ```js
 
-    <{{componentName}}
+    <{{pascalCase componentName}}
         data={null}
         shouldShowLoadingState={true}
     />

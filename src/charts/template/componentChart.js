@@ -1,15 +1,15 @@
-import {{lowerFirst componentName}}Chart from 'britecharts/dist/umd/{{lowerFirst componentName}}.min';
+import {{camelCase componentName}}Chart from 'britecharts/dist/umd/{{camelCase componentName}}.min';
 import {select} from 'd3-selection';
 import {validateConfiguration, validateContainer, validateData} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
-import { line as {{lowerFirst componentName}}LoadingState } from 'britecharts/dist/umd/loading.min';
+import { line as {{camelCase componentName}}LoadingState } from 'britecharts/dist/umd/loading.min';
 
-const {{lowerFirst componentName}} = {};
+const {{camelCase componentName}} = {};
 
-{{lowerFirst componentName}}.create = (el, data, configuration = {}) => {
+{{camelCase componentName}}.create = (el, data, configuration = {}) => {
     let container = select(el);
-    let chart = {{lowerFirst componentName}}Chart();
+    let chart = {{camelCase componentName}}Chart();
 
     validateData(data);
     validateContainer(container);
@@ -21,7 +21,7 @@ const {{lowerFirst componentName}} = {};
     return chart;
 };
 
-{{lowerFirst componentName}}.update = (el, data, configuration = {}, chart) => {
+{{camelCase componentName}}.update = (el, data, configuration = {}, chart) => {
     let container = select(el);
 
     validateContainer(container);
@@ -39,8 +39,8 @@ const {{lowerFirst componentName}} = {};
     return chart;
 };
 
-{{lowerFirst componentName}}.destroy = () => {};
+{{camelCase componentName}}.destroy = () => {};
 
-{{lowerFirst componentName}}.loading = () => {{lowerFirst componentName}}LoadingState;
+{{camelCase componentName}}.loading = () => {{camelCase componentName}}LoadingState;
 
-export default {{lowerFirst componentName}};
+export default {{camelCase componentName}};

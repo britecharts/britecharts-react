@@ -1,7 +1,7 @@
-import {{lowerFirst componentName}}Data from './{{lowerFirst componentName}}Chart.fixtures';
-import {{lowerFirst componentName}} from './{{lowerFirst componentName}}Chart';
+import {{camelCase componentName}}Data from './{{camelCase componentName}}Chart.fixtures';
+import {{camelCase componentName}} from './{{camelCase componentName}}Chart';
 
-describe('{{componentName}} Chart', () => {
+describe('{{titleCase componentName}} Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -15,9 +15,9 @@ describe('{{componentName}} Chart', () => {
             describe('when the DOM element is not passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                      {{lowerFirst componentName}}.create(
+                      {{camelCase componentName}}.create(
                             undefined,
-                            {{lowerFirst componentName}}Data.firstDataSourceMethod(),
+                            {{camelCase componentName}}Data.firstDataSourceMethod(),
                             {}
                         );
                     }).toThrowError('A root container is required');
@@ -27,9 +27,9 @@ describe('{{componentName}} Chart', () => {
             describe('when a non-supported method is passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        {{lowerFirst componentName}}.create(
+                        {{camelCase componentName}}.create(
                             anchor,
-                            {{lowerFirst componentName}}Data.firstDataSourceMethod(),
+                            {{camelCase componentName}}Data.firstDataSourceMethod(),
                             { test: 'test' }
                         );
                     }).toThrowError('Method not supported by Britechart: test');
@@ -41,9 +41,9 @@ describe('{{componentName}} Chart', () => {
                     const callback = jest.fn();
 
                     expect(() => {
-                        {{lowerFirst componentName}}.create(
+                        {{camelCase componentName}}.create(
                             anchor,
-                            {{lowerFirst componentName}}Data.firstDataSourceMethod(),
+                            {{camelCase componentName}}Data.firstDataSourceMethod(),
                             { customFakeEvent: callback }
                         );
                     }).toThrowError('Method not supported by Britechart: customFakeEvent');
@@ -54,9 +54,9 @@ describe('{{componentName}} Chart', () => {
         describe('when proper arguments are passed', () => {
 
             it('should set data as a DOM property', () => {
-                const expected = {{lowerFirst componentName}}Data.firstDataSourceMethod().length;
+                const expected = {{camelCase componentName}}Data.firstDataSourceMethod().length;
 
-                {{lowerFirst componentName}}.create(anchor, {{lowerFirst componentName}}Data.firstDataSourceMethod());
+                {{camelCase componentName}}.create(anchor, {{camelCase componentName}}Data.firstDataSourceMethod());
 
                 const actual = anchor.__data__.length;
 
@@ -66,9 +66,9 @@ describe('{{componentName}} Chart', () => {
             it('should set the width', () => {
                 const expected = 500;
 
-                const chart = {{lowerFirst componentName}}.create(
+                const chart = {{camelCase componentName}}.create(
                     anchor,
-                    {{lowerFirst componentName}}Data.firstDataSourceMethod(),
+                    {{camelCase componentName}}Data.firstDataSourceMethod(),
                     { width: expected }
                 );
 
@@ -80,9 +80,9 @@ describe('{{componentName}} Chart', () => {
             it('should set the height', () => {
                 const expected = 600;
 
-                const chart = {{lowerFirst componentName}}.create(
+                const chart = {{camelCase componentName}}.create(
                     anchor,
-                    {{lowerFirst componentName}}Data.firstDataSourceMethod(),
+                    {{camelCase componentName}}Data.firstDataSourceMethod(),
                     { height: expected }
                 );
 
@@ -99,9 +99,9 @@ describe('{{componentName}} Chart', () => {
                     right: 3,
                 };
 
-                const chart = {{lowerFirst componentName}}.create(
+                const chart = {{camelCase componentName}}.create(
                     anchor,
-                    {{lowerFirst componentName}}Data.firstDataSourceMethod(),
+                    {{camelCase componentName}}Data.firstDataSourceMethod(),
                     { margin: expected }
                 );
 
@@ -113,9 +113,9 @@ describe('{{componentName}} Chart', () => {
             it('should set the grid', () => {
                 const expected = 'vertical';
 
-                const chart = {{lowerFirst componentName}}.create(
+                const chart = {{camelCase componentName}}.create(
                     anchor,
-                    {{lowerFirst componentName}}Data.firstDataSourceMethod(),
+                    {{camelCase componentName}}Data.firstDataSourceMethod(),
                     { grid: expected }
                 );
 
@@ -129,9 +129,9 @@ describe('{{componentName}} Chart', () => {
                 it('should set customMouseOver callback', () => {
                     const expected = jest.fn();
 
-                    const chart = {{lowerFirst componentName}}.create(
+                    const chart = {{camelCase componentName}}.create(
                         anchor,
-                        {{lowerFirst componentName}}Data.firstDataSourceMethod(),
+                        {{camelCase componentName}}Data.firstDataSourceMethod(),
                         { customMouseOver: expected }
                     );
 
@@ -143,9 +143,9 @@ describe('{{componentName}} Chart', () => {
                 it('should set customMouseMove callback', () => {
                     const expected = jest.fn();
 
-                    const chart = {{lowerFirst componentName}}.create(
+                    const chart = {{camelCase componentName}}.create(
                         anchor,
-                        {{lowerFirst componentName}}Data.firstDataSourceMethod(),
+                        {{camelCase componentName}}Data.firstDataSourceMethod(),
                         { customMouseMove: expected }
                     );
 
@@ -157,9 +157,9 @@ describe('{{componentName}} Chart', () => {
                 it('should set customMouseOut callback', () => {
                     const expected = jest.fn();
 
-                    const chart = {{lowerFirst componentName}}.create(
+                    const chart = {{camelCase componentName}}.create(
                         anchor,
-                        {{lowerFirst componentName}}Data.firstDataSourceMethod(),
+                        {{camelCase componentName}}Data.firstDataSourceMethod(),
                         { customMouseOut: expected }
                     );
 
@@ -177,11 +177,11 @@ describe('{{componentName}} Chart', () => {
 
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
-                    const firstDataSet = {{lowerFirst componentName}}Data.firstDataSourceMethod();
-                    const secondDataSet = {{lowerFirst componentName}}Data.secondDataSourceMethod();
-                    let chart = {{lowerFirst componentName}}.create(anchor, firstDataSet, {});
+                    const firstDataSet = {{camelCase componentName}}Data.firstDataSourceMethod();
+                    const secondDataSet = {{camelCase componentName}}Data.secondDataSourceMethod();
+                    let chart = {{camelCase componentName}}.create(anchor, firstDataSet, {});
 
-                    {{lowerFirst componentName}}.update(anchor, secondDataSet, {}, chart);
+                    {{camelCase componentName}}.update(anchor, secondDataSet, {}, chart);
 
                     const expected = secondDataSet.length;
                     const actual = anchor.__data__.length;
@@ -192,10 +192,10 @@ describe('{{componentName}} Chart', () => {
 
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
-                    const dataSet = {{lowerFirst componentName}}Data.firstDataSourceMethod();
-                    let chart = {{lowerFirst componentName}}.create(anchor, dataSet, {});
+                    const dataSet = {{camelCase componentName}}Data.firstDataSourceMethod();
+                    let chart = {{camelCase componentName}}.create(anchor, dataSet, {});
 
-                    {{lowerFirst componentName}}.update(anchor, [], {}, chart);
+                    {{camelCase componentName}}.update(anchor, [], {}, chart);
 
                     const expected = dataSet.length;
                     const actual = anchor.__data__.length;
@@ -211,13 +211,13 @@ describe('{{componentName}} Chart', () => {
                 it('should update the configuration in the chart', () => {
                     const expected = 500;
                     const firstWidth = 200;
-                    const chart = {{lowerFirst componentName}}.create(
+                    const chart = {{camelCase componentName}}.create(
                         anchor,
-                        {{lowerFirst componentName}}Data.firstDataSourceMethod(),
+                        {{camelCase componentName}}Data.firstDataSourceMethod(),
                         { width: firstWidth }
                     );
 
-                    {{lowerFirst componentName}}.update(anchor, [], { width: expected }, chart);
+                    {{camelCase componentName}}.update(anchor, [], { width: expected }, chart);
 
                     const actual = chart.width();
 
