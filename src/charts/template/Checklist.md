@@ -9,4 +9,4 @@
 [ ] Make any necessary changes to the documentation
 [ ] Ensure proper test coverage
 [ ] Generate docs and ensure proper visuals for the component
-[ ] Delete this file
+[ ] (LAST STEP) Delete this file
