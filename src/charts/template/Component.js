@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {{lowerFirst componentName}} from './{{lowerFirst componentName}}Chart';
+import {{camelCase componentName}} from './{{camelCase componentName}}Chart';
 import {loadingContainerWrapper} from '../loading/LoadingContainer';
 
-class {{componentName}} extends React.Component {
+class {{pascalCase componentName}} extends React.Component {
 
     static propTypes = {
         /**
@@ -12,7 +12,7 @@ class {{componentName}} extends React.Component {
         data: PropTypes.arrayOf(PropTypes.any),
 
         /**
-         * Add your propTypes here!
+         * TODO: Add your propTypes here!
          */
 
         customMouseOver: PropTypes.func,
@@ -28,7 +28,7 @@ class {{componentName}} extends React.Component {
     }
 
     static defaultProps = {
-        chart: {{lowerFirst componentName}},
+        chart: {{camelCase componentName}},
         createTooltip: () => null,
         shouldShowLoadingState: false,
     }
@@ -96,9 +96,9 @@ class {{componentName}} extends React.Component {
         return loadingContainerWrapper(
             this.props,
             this.props.chart.loading(),
-            <div className="{{splitWithDash componentName}}-container" ref={this._setRef.bind(this)} />
+            <div className="{{dashCase componentName}}-container" ref={this._setRef.bind(this)} />
         );
     }
 }
 
-export default {{componentName}};
+export default {{pascalCase componentName}};

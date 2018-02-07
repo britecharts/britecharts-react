@@ -103,7 +103,8 @@
       "node_modules"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/"
+      "<rootDir>/node_modules/",
+      "<rootDir>/src/charts/template/"
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js"
   }
