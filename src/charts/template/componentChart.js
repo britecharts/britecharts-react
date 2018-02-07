@@ -3,6 +3,7 @@ import {select} from 'd3-selection';
 import {validateConfiguration, validateContainer, validateData} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
+//TODO: Implement the correct loading state(line, bar, and donut are the available options atm)
 import { line as {{camelCase componentName}}LoadingState } from 'britecharts/dist/umd/loading.min';
 
 const {{camelCase componentName}} = {};
