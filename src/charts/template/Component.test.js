@@ -28,7 +28,7 @@ describe('{{titleCase componentName}} Chart', () => {
             it('should call the create method or the chart', () => {
                 const dataSet = {{camelCase componentName}}Data.firstDataMethod();
 
-                mount(<{{pascalCase componentName}} chart={{{camelCase componentName}}} data={dataSet} />);
+                mount(<{{pascalCase componentName}} chart={{openBrace}}{{camelCase componentName}}{{closeBrace}} data={dataSet} />);
 
                 let expected = 1;
                 let actual = createSpy.mock.calls.length;
@@ -39,7 +39,7 @@ describe('{{titleCase componentName}} Chart', () => {
             it('should call the create method or the chart with the container as the first argument', () => {
                 const dataSet = {{camelCase componentName}}Data.firstDataMethod();
 
-                const wrapper = mount(<{{pascalCase componentName}} chart={{{camelCase componentName}}} data={dataSet} />);
+                const wrapper = mount(<{{pascalCase componentName}} chart={{openBrace}}{{camelCase componentName}}{{closeBrace}} data={dataSet} />);
 
                 let expected = wrapper.find('.{{dashCase componentName}}-container').instance();
                 let actual = createSpy.mock.calls[0][0];
@@ -50,7 +50,7 @@ describe('{{titleCase componentName}} Chart', () => {
             it('should call the create method or the chart with the configuration object as the second argument', () => {
                 const dataSet = {{camelCase componentName}}Data.firstDataMethod();
 
-                mount(<{{pascalCase componentName}} chart={{{camelCase componentName}}} data={dataSet} />);
+                mount(<{{pascalCase componentName}} chart={{openBrace}}{{camelCase componentName}}{{closeBrace}} data={dataSet} />);
 
                 let expectedData = dataSet;
                 let actualData = createSpy.mock.calls[0][1];
@@ -64,7 +64,7 @@ describe('{{titleCase componentName}} Chart', () => {
 
                 mount(
                     <{{pascalCase componentName}}
-                        chart={{{camelCase componentName}}}
+                        chart={{openBrace}}{{camelCase componentName}}{{closeBrace}}
                         data={dataSet}
                         width={expected}
                     />
@@ -81,7 +81,7 @@ describe('{{titleCase componentName}} Chart', () => {
 
                 mount(
                     <{{pascalCase componentName}}
-                        chart={{{camelCase componentName}}}
+                        chart={{openBrace}}{{camelCase componentName}}{{closeBrace}}
                         data={dataSet}
                         height={expected}
                     />
@@ -110,7 +110,7 @@ describe('{{titleCase componentName}} Chart', () => {
 
             it('should call the update method or the chart', () => {
                 const dataSet = {{camelCase componentName}}Data.firstDataMethod();
-                const wrapper = mount(<{{pascalCase componentName}} chart={{{camelCase componentName}}} data={dataSet} />);
+                const wrapper = mount(<{{pascalCase componentName}} chart={{openBrace}}{{camelCase componentName}}{{closeBrace}} data={dataSet} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -125,7 +125,7 @@ describe('{{titleCase componentName}} Chart', () => {
 
             it('should pass in the new data to the update method', () => {
                 const dataSet = {{camelCase componentName}}Data.firstDataMethod();
-                const wrapper = mount(<{{pascalCase componentName}} chart={{{camelCase componentName}}} data={dataSet} />);
+                const wrapper = mount(<{{pascalCase componentName}} chart={{openBrace}}{{camelCase componentName}}{{closeBrace}} data={dataSet} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -140,7 +140,7 @@ describe('{{titleCase componentName}} Chart', () => {
 
             it('should pass in the new configuration to the update method', () => {
                 const dataSet = {{camelCase componentName}}Data.firstDataMethod();
-                const wrapper = mount(<{{pascalCase componentName}} chart={{{camelCase componentName}}} data={dataSet} />);
+                const wrapper = mount(<{{pascalCase componentName}} chart={{openBrace}}{{camelCase componentName}}{{closeBrace}} data={dataSet} />);
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -169,7 +169,7 @@ describe('{{titleCase componentName}} Chart', () => {
 
         it('should call the destroy method or the chart', () => {
             const dataSet = {{camelCase componentName}}Data.firstDataMethod();
-            const wrapper = mount(<{{pascalCase componentName}} chart={{{camelCase componentName}}} data={dataSet} />);
+            const wrapper = mount(<{{pascalCase componentName}} chart={{openBrace}}{{camelCase componentName}}{{closeBrace}} data={dataSet} />);
 
             wrapper.unmount();
 
