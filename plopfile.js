@@ -34,6 +34,7 @@ module.exports = function(plop) {
         {
             type: 'add',
             path: 'src/charts/{{camelCase componentName}}/Readme.md',
+            templateFile: 'src/charts/template/Readme.md',
         }],
     });
 };
