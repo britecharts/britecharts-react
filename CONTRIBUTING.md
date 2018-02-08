@@ -101,10 +101,20 @@ Adding a new chart is a bunch of work, but we hope that using the current code a
 1. Add the new demo entry on ``/src/charts/ChartName/Readme.md``, keeping the same format.
 7. Go to ``webpack.config.js`` and add the new chart to the ``CHARTS`` object, follow the same style.
 8. Go to your test file ``ChartName.test.js`` and, taking another test as an example, copy over pieces until you have the first test case.
-1. Add one test and make it fail callin ``yarn run test:watch``.
+1. Add one test and make it fail calling ``yarn run test:watch``.
 1. Keep on coding according to the code style you can see in the current charts, using the stackedAreaChart as a reference.
 1. Generate your docs with ``yarn run styleguide:build`` and manually test the demos.
 1. Create a pull request with your branch and ping one of the core authors to get it reviewed.
+1. Once you have a shipit, merge it
+
+Alternatively, you can use Plop to generate the boilerplate for your new component, if the component already exists in Britecharts.
+
+1. Create a new branch for your new chart
+1. On a new terminal, run ``yarn start`` ``yarn run styleguide`` to prepare the demos and turn on the dev server.
+1. On a new terminal, run ``yarn run plop``. When prompted, enter your chart's name (be sure to use PascalCase capitalization!). This will generate a new folder for your component in ``src/charts/chartName``, with all necessary files.
+1. Before starting to modify the boilerplate, start the test suite: ``yarn run test:watch``.
+1. Follow the tasks in ``src/charts/chartName/Checklist.md`` to complete your component
+1. Once completed, create a pull request with your branch and ping one of the core authors to get it reviewed.
 1. Once you have a shipit, merge it
 
 
