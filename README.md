@@ -53,12 +53,12 @@ The complete set of components is in progress; the following components are curr
 - Donut charts [(API)][donutChartAPI]
 - Line charts [(API)][lineChartAPI]
 - Stacked Area charts [(API)][stackedAreaChartAPI]
+- Stacked Bar charts [(API)][stackedBarChartAPI]
 - Tooltips [(API)][tooltipAPI]
 - Loading states
 
 The following components are not yet implemented:
 - Brush charts
-- Stacked Bar charts
 - Sparkline charts
 - Step charts
 
@@ -107,6 +107,7 @@ Read more in the [license document][licenseGithub]
 [donutChartAPI]: http://eventbrite.github.io/britecharts/module-Donut.html
 [lineChartAPI]: http://eventbrite.github.io/britecharts/module-Line.html
 [stackedAreaChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-area.html
+[stackedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-bar.html
 [tooltipAPI]: http://eventbrite.github.io/britecharts/module-Tooltip.html
 [license]: https://www.apache.org/licenses/LICENSE-2.0
 [licenseGithub]: https://github.com/eventbrite/britecharts-react/blob/master/LICENSE.md
