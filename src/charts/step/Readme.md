@@ -1,8 +1,10 @@
 ### With default properties
 ```js
     const chartData = require('./stepChart.fixtures.js').default;
+    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
+    const ResponsiveStepChart = withResponsiveness(Step);
     
-    <Step
+    <ResponsiveStepChart
         data={chartData.firstDataMethod()}
         shouldShowLoadingState={false}
     />

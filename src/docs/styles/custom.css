@@ -25,15 +25,6 @@ body,
     display: flex;
 }
 
-.step-container {
-    display: flex;
-    padding: 2%;
-}
-
-.britechart.step-chart {
-    padding-bottom: 5%;
-}
-
 /* Logo */
 .rsg--sidebar-4 .rsg--logo-5 {
     padding: 24px;
