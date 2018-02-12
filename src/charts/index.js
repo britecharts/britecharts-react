@@ -5,4 +5,5 @@ export {default as Legend} from './legend/Legend.js';
 export {default as Line} from './line/Line.js';
 export {default as StackedArea} from './stackedArea/StackedArea.js';
 export {default as StackedBar} from './stackedBar/StackedBar.js';
+export {default as Step} from './step/Step.js';
 export {default as Tooltip} from './tooltip/Tooltip.js';

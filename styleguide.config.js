@@ -71,7 +71,7 @@ module.exports = {
         },
         {
             name: 'Components',
-            components: 'src/charts/*/*.js',
+            components: 'src/charts/!(template|loading)/*.js',
         },
         {
             name: 'About',

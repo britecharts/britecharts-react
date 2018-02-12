@@ -20,7 +20,7 @@ module.exports = function(plop) {
         },
         {
             type: 'add',
-            path: 'src/charts/{{camelCase componentName}}/{{camelCase componentName}}.fixtures.js',
+            path: 'src/charts/{{camelCase componentName}}/{{camelCase componentName}}Chart.fixtures.js',
             templateFile: 'src/charts/template/componentChart.fixtures.js',
         },
         {
