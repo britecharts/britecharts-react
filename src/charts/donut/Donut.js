@@ -5,7 +5,7 @@ import {loadingContainerWrapper} from '../loading/LoadingContainer';
 
 export default class Donut extends Component {
 
-    static PropTypes = {
+    static propTypes = {
         /**
          * Internally used, do not overwrite.
          */
@@ -100,7 +100,7 @@ export default class Donut extends Component {
                 this._createChart();
             } else {
                 this._updateChart();
-            } 
+            }
         }
     }
 
