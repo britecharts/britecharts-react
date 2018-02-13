@@ -11,7 +11,6 @@ class StackedBar extends React.Component {
          */
         data: PropTypes.arrayOf(PropTypes.any),
 
-        
         /**
          * Gets or Sets the aspect ratio of the chart
          */
@@ -81,7 +80,7 @@ class StackedBar extends React.Component {
          */
         nameLabelFormat: PropTypes.arrayOf(PropTypes.string),
         /**
-         * Configurable extension of the x axis 
+         * Configurable extension of the x axis
          * If your max point was 50% you might want to show x axis to 60%, pass 1.2
          */
         percentageAxisToMaxRatio: PropTypes.number,
