@@ -117,7 +117,7 @@ const bundleConfig = merge([
             path: PATHS.build,
             filename: 'britecharts-react.min.js',
             library: ['britecharts-react'],
-            libraryTarget: 'commonjs2',
+            libraryTarget: 'umd',
         },
     },
     parts.babelLoader(),
