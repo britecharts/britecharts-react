@@ -15,43 +15,55 @@
   const ResponsiveContainer = require('../helpers/responsiveContainer.js').default;
   const ResponsiveDonut = withResponsiveness(Donut);
   const ResponsiveLegend = withResponsiveness(Legend);
-  let legendInstance;
 
-  <div>
-    <ResponsiveContainer
-      render={
-        ({width}) =>
+  class LegendDonut extends React.Component{
+
+    constructor(props) {
+      super(props);
+
+      this.state = {highlightedSlice: null};
+    }
+
+    _handleMouseOver(data) {
+      this.setState({
+        highlightedSlice: data.data.id
+      });
+    }
+
+    _handleMouseOut() {
+      this.setState({
+        highlightedSlice: null
+      });
+    }
+
+    render() {
+      console.log('highlighted slice', this.state.highlightedSlice)
+
+      return (
+        <div>
           <Donut
             data={donutData.with4Slices()}
             height={500}
-            width={width}
+            width={600}
+            isAnimated={false}
             externalRadius={500 / 2.5}
             internalRadius={500 / 5}
-            customMouseOver={
-              (data) => {
-                legendInstance._chart.highlight(data.data.id);
-              }
-            }
-            customMouseOut={
-              () => {
-                legendInstance._chart.clearHighlight();
-              }
-            }
+            highlightSliceById={this.state.highlightedSlice}
+            customMouseOver={this._handleMouseOver.bind(this)}
+            customMouseOut={this._handleMouseOut.bind(this)}
           />
-      }
-    />
-    <ResponsiveContainer
-      render={
-        ({width}) =>
           <Legend
-            ref={(legend) => { legendInstance = legend; }}
             data={donutData.with4Slices()}
             height={300}
-            width={width}
+            width={600}
+            highlight={this.state.highlightedSlice}
           />
-      }
-    />
-  </div>
+        </div>
+      );
+    }
+  }
+
+  <LegendDonut />
 ```
 
 ### With hover event and responsive
