@@ -16,7 +16,7 @@
   const ResponsiveDonut = withResponsiveness(Donut);
   const ResponsiveLegend = withResponsiveness(Legend);
 
-  class LegendDonut extends React.Component{
+  class LegendDonut extends React.PureComponent {
 
     constructor(props) {
       super(props);
@@ -37,17 +37,15 @@
     }
 
     render() {
-      console.log('highlighted slice', this.state.highlightedSlice)
-
       return (
         <div>
           <Donut
             data={donutData.with4Slices()}
             height={500}
             width={600}
-            isAnimated={false}
             externalRadius={500 / 2.5}
             internalRadius={500 / 5}
+            isAnimated={false}
             highlightSliceById={this.state.highlightedSlice}
             customMouseOver={this._handleMouseOver.bind(this)}
             customMouseOut={this._handleMouseOut.bind(this)}
