@@ -19,9 +19,13 @@ export default class Legend extends React.Component {
          */
         height: PropTypes.number,
         /**
-         * Highlights a line entry by fading the rest of lines
+         * Command that highlights a line entry by fading the rest of lines
          */
         highlight: PropTypes.number,
+        /**
+         * Highlights a line entry by fading the rest of lines
+         */
+        highlightEntryById: PropTypes.number,
         /**
          * Gets or Sets the horizontal mode on the legend
          */

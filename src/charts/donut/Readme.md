@@ -32,17 +32,16 @@
 
     _handleMouseOut() {
       this.setState({
-        highlightedSlice: null
+        highlightedSlice: 99999
       });
     }
 
     render() {
       return (
         <div>
-          <Donut
+          <ResponsiveDonut
             data={donutData.with4Slices()}
             height={500}
-            width={600}
             externalRadius={500 / 2.5}
             internalRadius={500 / 5}
             isAnimated={false}
@@ -50,11 +49,10 @@
             customMouseOver={this._handleMouseOver.bind(this)}
             customMouseOut={this._handleMouseOut.bind(this)}
           />
-          <Legend
+          <ResponsiveLegend
             data={donutData.with4Slices()}
             height={300}
-            width={600}
-            highlight={this.state.highlightedSlice}
+            highlightEntryById={this.state.highlightedSlice}
           />
         </div>
       );
