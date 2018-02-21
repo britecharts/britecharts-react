@@ -25,7 +25,7 @@ export default class Donut extends Component {
          * Gets or Sets the hasFixedHighlightedSlice property of the chart, making it
          * to highlight the selected slice id set with `highlightSliceById` all the time.
          */
-        hasFixedHighlightedSlice: PropTypes.boolean,
+        hasFixedHighlightedSlice: PropTypes.bool,
 
         /**
          * Gets or Sets the height of the chart
@@ -46,7 +46,7 @@ export default class Donut extends Component {
          * Gets or Sets the isAnimated property of the chart, making it to animate
          * when render. By default this is 'false'
          */
-        isAnimated: PropTypes.boolean,
+        isAnimated: PropTypes.bool,
 
         /**
          * Gets or Sets the margin of the chart
