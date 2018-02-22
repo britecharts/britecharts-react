@@ -20,7 +20,28 @@
     "reactjs",
     "graphs"
   ],
-  "author": "Marcos Iglesias <golodhros@gmail.com> (http://www.marcosiglesias.com)",
+  "contributors": [
+    {
+      "name": "Marcos Iglesias",
+      "email": "golodhros@gmail.com"
+    },
+    {
+      "name": "Jaylum Chen",
+      "email": "jaylum@eventbrite.com"
+    },
+    {
+      "name": "Amber Rockwood",
+      "email": "arockwood@eventbrite.com"
+    },
+    {
+      "name": "Daler Asrorov",
+      "email": "daler.asrorov@eventbrite.com"
+    },
+    {
+      "name": "Sun Dai",
+      "email": "sundaisf@gmail.com"
+    }
+  ],
   "version": "0.4.0",
   "license": "Apache-2.0",
   "scripts": {
