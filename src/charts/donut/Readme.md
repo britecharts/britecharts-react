@@ -8,7 +8,31 @@
   <ResponsiveDonut data={donutData.with4Slices()} />
 ```
 
-### With custom size
+### With hover event
+```js
+  const donutData = require('./donutChart.fixtures.js').default;
+  const logMouseOver = () => console.log('Mouse Over');
+
+  <Donut
+    data={donutData.with4Slices()}
+    customMouseOver={logMouseOver}
+    externalRadius={100}
+    internalRadius={47}
+    highlightSliceById={1}
+  />
+```
+
+
+### With loading state
+```js
+
+    <Donut
+        data={[]}
+        shouldShowLoadingState={true}
+    />
+```
+
+### With highlighted Legend and fully responsive
 ```js
   const donutData = require('./donutChart.fixtures.js').default;
   const withResponsiveness = require('../helpers/withResponsiveness.js').default;
@@ -37,56 +61,45 @@
     }
 
     render() {
+      const legendMargin = {
+        top: 10,
+        bottom: 10,
+        left: 0,
+        right: 30,
+      };
+
       return (
-        <div>
-          <ResponsiveDonut
-            data={donutData.with4Slices()}
-            height={500}
-            externalRadius={500 / 2.5}
-            internalRadius={500 / 5}
-            isAnimated={false}
-            highlightSliceById={this.state.highlightedSlice}
-            customMouseOver={this._handleMouseOver.bind(this)}
-            customMouseOut={this._handleMouseOut.bind(this)}
+          <ResponsiveContainer
+            render={
+              ({width}) =>
+                <div>
+                  <Donut
+                    data={donutData.with4Slices()}
+                    height={width}
+                    width={width}
+                    externalRadius={width / 2.5}
+                    internalRadius={width / 5}
+                    isAnimated={false}
+                    highlightSliceById={this.state.highlightedSlice}
+                    customMouseOver={this._handleMouseOver.bind(this)}
+                    customMouseOut={this._handleMouseOut.bind(this)}
+                  />
+                  <Legend
+                    data={donutData.with4Slices()}
+                    height={200}
+                    width={width}
+                    margin={legendMargin}
+                    highlightEntryById={this.state.highlightedSlice}
+                  />
+                </div>
+              }
+
           />
-          <ResponsiveLegend
-            data={donutData.with4Slices()}
-            height={300}
-            highlightEntryById={this.state.highlightedSlice}
-          />
-        </div>
       );
     }
   }
 
   <LegendDonut />
-```
-
-### With hover event and responsive
-```js
-  const donutData = require('./donutChart.fixtures.js').default;
-  const logMouseOver = () => console.log('Mouse Over');
-  const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-  const ResponsiveDonut = withResponsiveness(Donut);
-
-
-  <ResponsiveDonut
-    data={donutData.with4Slices()}
-    customMouseOver={logMouseOver}
-    externalRadius={100}
-    internalRadius={47}
-    highlightSliceById={1}
-  />
-```
-
-
-### With loading state
-```js
-
-    <Donut
-        data={[]}
-        shouldShowLoadingState={true}
-    />
 ```
 
 See more:
