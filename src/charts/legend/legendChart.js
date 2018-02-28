@@ -1,6 +1,6 @@
 import legendChart from 'britecharts/dist/umd/legend.min';
 import {select} from 'd3-selection';
-import {validateConfiguration, validateContainer, validateData} from '../helpers/validation';
+import {validateConfiguration, validateContainer} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
 const legend = {};
@@ -10,7 +10,6 @@ legend.create = (el, data, configuration = {}) => {
     let chart = legendChart();
 
     validateContainer(container);
-    validateData(data);
     validateConfiguration(chart, configuration);
 
     // Calls the chart with the container and dataset

@@ -1,6 +1,6 @@
 import stackedBarChart from 'britecharts/dist/umd/stackedBar.min';
 import {select} from 'd3-selection';
-import {validateConfiguration, validateContainer, validateData} from '../helpers/validation';
+import {validateConfiguration, validateContainer} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
 import { bar as stackedBarLoadingState } from 'britecharts/dist/umd/loading.min';
@@ -11,7 +11,6 @@ stackedBar.create = (el, data, configuration = {}) => {
     let container = select(el);
     let chart = stackedBarChart();
 
-    validateData(data);
     validateContainer(container);
     validateConfiguration(chart, configuration);
 
@@ -30,7 +29,6 @@ stackedBar.update = (el, data, configuration = {}, chart) => {
 
     // Calls the chart with the container and dataset
     if (data && data.length) {
-        validateData(data);
         container.datum(data).call(chart);
     } else {
         container.call(chart);

@@ -1,6 +1,6 @@
 import donutChart from 'britecharts/dist/umd/donut.min';
 import {select} from 'd3-selection';
-import {validateConfiguration, validateContainer, validateData} from '../helpers/validation';
+import {validateConfiguration, validateContainer} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
 import { donut as donutLoadingState } from 'britecharts/dist/umd/loading.min';
@@ -11,7 +11,6 @@ donut.create = (el, data, configuration = {}) => {
     let container = select(el);
     let chart = donutChart();
 
-    validateData(data);
     validateContainer(container);
     validateConfiguration(chart, configuration);
 
