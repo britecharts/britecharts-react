@@ -12,9 +12,19 @@ export default class Donut extends Component {
         data: PropTypes.array,
 
         /**
+         * Gets or Sets the centeredTextFunction of the chart. If function is provided the format will be changed by the custom function's value format. The default format function value is "${d.percentage}% ${d.name}". The callback will provide the data object with id, name, percentage, and quantity. Also provides the component added by the user in each data entry
+         */
+        centeredTextFunction: PropTypes.func,
+
+        /**
          * Gets or Sets the colorSchema of the chart
          */
         colorSchema: PropTypes.arrayOf(PropTypes.string),
+
+        /**
+         * Gets or Sets the emptyDataConfig of the chart. If set and data is empty (quantity adds up to zero or there are no entries), the chart will render an empty slice with a given color (light gray by default)
+         */
+        emptyDataConfig: PropTypes.object,
 
         /**
          * Gets or Sets the externalRadius of the chart
@@ -49,6 +59,11 @@ export default class Donut extends Component {
         isAnimated: PropTypes.bool,
 
         /**
+         * Gets or Sets the loading state of the chart
+         */
+        loadingState: PropTypes.string,
+
+        /**
          * Gets or Sets the margin of the chart
          */
         margin: PropTypes.shape({
@@ -59,9 +74,24 @@ export default class Donut extends Component {
         }),
 
         /**
+         * Gets or Sets the number format of the donut chart
+         */
+        numberFormat: PropTypes.string,
+
+        /**
          * Changes the order of items given custom function
          */
         orderingFunction: PropTypes.func,
+
+        /**
+         * Gets or Sets the percentage format for the percentage label
+         */
+        percentageFormat: PropTypes.string,
+
+        /**
+         * Gets or Sets the radiusHoverOffset of the chart
+         */
+        radiusHoverOffset: PropTypes.number,
 
         /**
          * Gets or Sets whether a loading state will be shown
