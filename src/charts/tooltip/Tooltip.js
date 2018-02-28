@@ -8,30 +8,53 @@ const tooltipContainerSelector = '.metadata-group .vertical-marker-container';
 export default class Tooltip extends React.Component {
 
     static propTypes = {
+
+        /**
+         * Exposes the constants to be used to force the x axis to respect a
+         * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
+         */
+        axisTimeCombinations: PropTypes.number,
+
         /**
          * Exposes the ability to use a custom date format
          */
         dateCustomFormat: PropTypes.string,
+
         /**
          * Exposes the ability to force the tooltip to use a certain date format
          */
         dateFormat: PropTypes.string,
+
         /**
          * Gets or Sets the dateLabel of the data
          */
         dateLabel: PropTypes.string,
+
+        /**
+         * Hides the tooltip
+         */
+        hide: PropTypes.func,
+
         /**
          * Pass locale for the tooltip to render the date in
          */
         locale: PropTypes.string,
+
         /**
          * Gets or Sets the nameLabel of the data
          */
         nameLabel: PropTypes.string,
+
         /**
          * Gets or Sets shouldShowDateInTitle
          */
         shouldShowDateInTitle: PropTypes.bool,
+
+        /**
+         * Shows the tooltip
+         */
+        show: PropTypes.func,
+
         /**
          * Gets or Sets the title of the tooltip (to only show the date, set a blank title)
          */
@@ -44,22 +67,32 @@ export default class Tooltip extends React.Component {
             x: PropTypes.number,
             y: PropTypes.number,
         }),
+
         /**
          * Gets or Sets the topicLabel of the data
          */
         topicLabel: PropTypes.string,
+
         /**
          * Pass an override for the ordering of your tooltip
          */
         topicsOrder: PropTypes.arrayOf(PropTypes.string),
+
+        /**
+         * Updates the position and content of the tooltip
+         */
+        update: PropTypes.func,
+
         /**
          * Gets or Sets the valueFormat of the tooltip
          */
         valueFormat: PropTypes.string,
+
         /**
          * Gets or Sets the valueLabel of the data
          */
         valueLabel: PropTypes.string,
+
         /**
          * Internally used, do not overwrite.
          *
