@@ -34,6 +34,11 @@ class Line extends React.Component {
         dateLabel: PropTypes.string,
 
         /**
+         * Chart exported to png and a download action is fired
+         */
+        exportChart: PropTypes.func,
+
+        /**
          * Gets or Sets the grid mode.
          */
         grid: PropTypes.string,
@@ -58,6 +63,11 @@ class Line extends React.Component {
          * Gets or Sets the gradient colors of the line chart when there is only one line
          */
         lineGradient: PropTypes.arrayOf(PropTypes.string),
+
+        /**
+         * Gets or Sets the loading state of the chart
+         */
+        loadingState: PropTypes.string,
 
         /**
          * Pass language tag for the tooltip to localize the date. Feature
@@ -119,7 +129,6 @@ class Line extends React.Component {
          */
         xAxisFormat: PropTypes.string,
 
-
         /**
          * Gets or Sets the label of the X axis of the chart
          */
@@ -137,6 +146,11 @@ class Line extends React.Component {
          * Gets or Sets the label of the Y axis of the chart
          */
         yAxisLabel: PropTypes.string,
+
+        /**
+         * Gets or Sets the yAxisLabelPadding of the chart. The default value is -36
+         */
+        yAxisLabelPadding: PropTypes.number,
 
         /**
          * Gets or Sets the number of ticks of the y axis on the chart (Default is 5)

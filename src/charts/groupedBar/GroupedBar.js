@@ -15,39 +15,48 @@ class GroupedBar extends React.Component {
          * Gets or Sets the aspect ratio of the chart
          */
         aspectRatio: PropTypes.number,
+
         /**
          * Gets or Sets the colorSchema of the chart
          */
         colorSchema: PropTypes.arrayOf(PropTypes.string),
+
         /**
          * Chart exported to png and a download action is fired
          */
         exportChart: PropTypes.func,
+
         /**
          * Gets or Sets the grid mode.
          */
         grid: PropTypes.string,
+
         /**
          * Gets or Sets the groupLabel of the chart
          */
         groupLabel: PropTypes.string,
+
         /**
          * Gets or Sets the height of the chart
          */
         height: PropTypes.number,
+
         /**
          * Gets or Sets the isAnimated property of the chart, making it to animate
          * when render. By default this is 'false'
          */
         isAnimated: PropTypes.bool,
+
         /**
          * Gets or Sets the horizontal direction of the chart
          */
         isHorizontal: PropTypes.bool,
+
         /**
          * Gets or Sets the loading state of the chart
          */
         loadingState: PropTypes.string,
+
         /**
          * Gets or Sets the margin of the chart
          */
@@ -57,26 +66,37 @@ class GroupedBar extends React.Component {
             left: PropTypes.number,
             right: PropTypes.number,
         }),
+
         /**
          * Gets or Sets the nameLabel of the chart
          */
         nameLabel: PropTypes.number,
+
+        /**
+         * Gets or Sets the minimum width of the graph in order to show the tooltip NOTE: This could also depend on the aspect ratio
+         */
+        tooltipThreshold: PropTypes.number,
+
         /**
          * Gets or Sets whether a loading state will be shown
          */
         shouldShowLoadingState: PropTypes.bool,
+
         /**
          * Gets or Sets the valueLabel of the chart
          */
         valueLabel: PropTypes.number,
+
         /**
          * Gets or Sets the valueLabelFormat of the chart
          */
         valueLabelFormat: PropTypes.string,
+
         /**
          * Gets or Sets the width of the chart
          */
         width: PropTypes.number,
+
         /**
          * Exposes the ability to force the chart to show a certain x ticks. It
          * requires a `xAxisFormat` of 'custom' in order to work. NOTE: This
@@ -84,10 +104,22 @@ class GroupedBar extends React.Component {
          * as expected, as D3 decides at the end how many and where the ticks will appear.
          */
         xTicks: PropTypes.number,
+
+        /**
+         * Gets or Sets the y-axis label of the chart
+         */
+        yAxisLabel: PropTypes.string,
+
+        /**
+         * Gets or Sets the offset of the yAxisLabel of the chart. The method accepts both positive and negative values. The default value is -60
+         */
+        yAxisLabelOffset: PropTypes.number,
+
         /**
          * Gets or Sets the number of ticks of the y axis on the chart (Default is 5)
          */
         yTicks: PropTypes.number,
+
         /**
          * Gets or Sets the x and y offset of ticks of the y axis on the chart
          */
