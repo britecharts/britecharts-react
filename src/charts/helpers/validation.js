@@ -20,5 +20,3 @@ export const validateContainer = (container) => {
         throw Error('A root container is required');
     }
 };
-
-export const validateData = (data) => {};

@@ -1,6 +1,6 @@
 import barChart from 'britecharts/dist/umd/bar.min';
 import {select} from 'd3-selection';
-import {validateConfiguration, validateContainer, validateData} from '../helpers/validation';
+import {validateConfiguration, validateContainer} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
 import { bar as barLoadingState } from 'britecharts/dist/umd/loading.min';
@@ -11,7 +11,6 @@ bar.create = (el, data, configuration = {}) => {
     let container = select(el);
     let chart = barChart();
 
-    validateData(data);
     validateContainer(container);
     validateConfiguration(chart, configuration);
     // Calls the chart with the container and dataset

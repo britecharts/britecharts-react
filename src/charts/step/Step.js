@@ -15,14 +15,17 @@ class Step extends React.Component {
          * Chart exported to png and a download action is fired
          */
         exportChart: PropTypes.func,
+
         /**
          * Gets or Sets the height of the chart
          */
         height: PropTypes.number,
+
         /**
          * Gets or Sets the loading state of the chart (string must be markup).
          */
         loadingState: PropTypes.string,
+
         /**
          * Gets or Sets the margin of the chart
          */
@@ -32,26 +35,32 @@ class Step extends React.Component {
             left: PropTypes.number,
             right: PropTypes.number,
         }),
+
         /**
          * Gets or Sets the width of the chart
          */
         width: PropTypes.number,
+
         /**
          * Gets or Sets the text of the xAxisLabel on the chart
          */
         xAxisLabel: PropTypes.string,
+
         /**
          * Gets or Sets the offset of the xAxisLabel on the chart
          */
         xAxisLabelOffset: PropTypes.number,
+
         /**
          * Gets or Sets the text of the yAxisLabel on the chart
          */
         yAxisLabel: PropTypes.string,
+
         /**
          * Gets or Sets the offset of the yAxisLabel on the chart
          */
         yAxisLabelOffset: PropTypes.number,
+
         /**
          * Gets or Sets the number of ticks of the y axis on the chart (Default is 6)
          */
