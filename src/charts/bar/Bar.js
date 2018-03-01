@@ -22,9 +22,9 @@ class Bar extends Component {
         colorSchema: PropTypes.arrayOf(PropTypes.string),
 
         /**
-         * Default false. If true, adds percentage labels at the end of the bars
+         * If true, adds labels at the end of the bars
          */
-        enablePercentageLabels: PropTypes.bool,
+        enableLabels: PropTypes.bool,
 
         /**
          * Gets or Sets the hasPercentage status
@@ -32,9 +32,19 @@ class Bar extends Component {
         hasPercentage: PropTypes.bool,
 
         /**
+         * Gets or Sets the hasSingleBarHighlight status. If the value is true (default), only the hovered bar is considered to be highlighted and will be darkened by default. If the value is false, all the bars but the hovered bar are considered to be highlighted and will be darkened (by default). To customize the bar highlight or remove it completely, use highlightBarFunction instead.
+         */
+        hasSingleBarHighlight: PropTypes.bool,
+
+        /**
          * Gets or Sets the height of the chart
          */
         height: PropTypes.number,
+
+        /**
+         * Gets or Sets the highlightBarFunction function. The callback passed to this function returns a bar selection from the bar chart. Use this function if you want to apply a custom behavior to the highlighted bar on hover. When hasSingleBarHighlight is true the highlighted bar will be the one that was hovered by the user. When hasSingleBarHighlight is false the highlighted bars are all the bars but the hovered one. The default highlight effect on a bar is darkening the highlighted bar(s) color.
+         */
+        highlightBarFunction: PropTypes.func,
 
         /**
          * Gets or Sets the isAnimated property of the chart, making it to animate
@@ -48,11 +58,24 @@ class Bar extends Component {
         isHorizontal: PropTypes.bool,
 
         /**
-         * Pass language tag for the tooltip to localize the date. Feature
-         * uses Intl.DateTimeFormat, for compatability and support, refer
-         * to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat
+         * Offset between end of bar and start of the percentage bars
          */
-        locale: PropTypes.string,
+        labelsMargin: PropTypes.number,
+
+        /**
+         * Gets or Sets the labels number format
+         */
+        labelsNumberFormat: PropTypes.string,
+
+        /**
+         * Get or Sets the labels text size
+         */
+        labelsSize: PropTypes.number,
+
+        /**
+         * Gets or Sets the loading state of the chart
+         */
+        loadingState: PropTypes.string,
 
         /**
          * Gets or Sets the margin of the chart
@@ -68,7 +91,6 @@ class Bar extends Component {
          * Gets or Sets the nameLabel of the chart
          */
         nameLabel: PropTypes.number,
-
 
         /**
          * Gets or Sets the number format of the bar chart
@@ -91,7 +113,6 @@ class Bar extends Component {
          */
         percentageLabelMargin: PropTypes.number,
 
-
         /**
          * Gets or Sets whether the color list should be reversed or not
          */
@@ -101,18 +122,6 @@ class Bar extends Component {
          * Gets or Sets whether a loading state will be shown
          */
         shouldShowLoadingState: PropTypes.bool,
-
-        /**
-         * Gets or Sets the minimum width of the graph in order
-         * to show the tooltip NOTE: This could also depend on the aspect ratio
-         */
-        tooltipThreshold: PropTypes.number,
-
-
-        /**
-         * Gets or Sets the numberFormat to a percentage format if true (default false)
-         */
-        usePercentage: PropTypes.bool,
 
         /**
          * Gets or Sets the valueLabel of the chart
@@ -125,20 +134,30 @@ class Bar extends Component {
         width: PropTypes.number,
 
         /**
-         * Space between y axis and chart (Default 10)
-         */
-        yAxisPaddingBetweenChart: PropTypes.number,
-
-        /**
          * Gets or Sets the number of ticks of the x axis on the chart (Default is 5)
          */
         xTicks: PropTypes.number,
 
         /**
+         * Gets or Sets the minimum width of the graph in order
+         * to show the tooltip NOTE: This could also depend on the aspect ratio
+         */
+        tooltipThreshold: PropTypes.number,
+
+        /**
+         * Gets or Sets the numberFormat to a percentage format if true (default false)
+         */
+        usePercentage: PropTypes.bool,
+
+        /**
+         * Space between y axis and chart (Default 10)
+         */
+        yAxisPaddingBetweenChart: PropTypes.number,
+
+        /**
          * Gets or Sets the number of vertical ticks on the chart (Default is 6)
          */
         yTicks: PropTypes.number,
-
 
         customMouseOver: PropTypes.func,
         customMouseMove: PropTypes.func,
