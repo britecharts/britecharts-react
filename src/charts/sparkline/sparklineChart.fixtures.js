@@ -1,18 +1,90 @@
-/**
- * Fill me in! Use src/charts/stackedArea/stackedAreaChart.fixtures.js for naming convention + syntax
- * This should return data in the proper shape for your component: http://eventbrite.github.io/britecharts/global.html
- * If you change the name of this method, be sure to change the references in BOTH test files as well
- */
-const firstDataMethod = () => ({});
+const withLowValues = () => [
+    {
+        name: 'Blazing',
+        value: 2,
+        dateUTC: '2011-01-05T00:00:00Z',
+    },
+    {
+        name: 'Blazing',
+        value: 2,
+        dateUTC: '2011-01-06T00:00:00Z',
+    },
+    {
+        name: 'Blazing',
+        value: 3,
+        dateUTC: '2011-01-07T00:00:00Z',
+    },
+    {
+        name: 'Blazing',
+        value: 5,
+        dateUTC: '2011-01-08T00:00:00Z',
+    },
+    {
+        name: 'Blazing',
+        value: 3,
+        dateUTC: '2011-01-09T00:00:00Z',
+    },
+    {
+        name: 'Blazing',
+        value: 6,
+        dateUTC: '2011-01-10T00:00:00Z',
+    },
+    {
+        name: 'Blazing',
+        value: 7,
+        dateUTC: '2011-01-11T00:00:00Z',
+    },
+    {
+        name: 'Blazing',
+        value: 1,
+        dateUTC: '2011-01-12T00:00:00Z',
+    },
+];
 
-/**
- * Fill me in! Use src/charts/stackedArea/stackedAreaChart.fixtures.js for naming convention + syntax
- * This should return data in the proper shape for your component: http://eventbrite.github.io/britecharts/global.html
- * If you change the name of this method, be sure to change the references in BOTH test files as well
- */
-const secondDataMethod = () => ({});
+const withOneSource = () => [
+    {
+        name: 'Glittering',
+        value: 2,
+        dateUTC: '2011-01-05T00:00:00Z',
+    },
+    {
+        name: 'Glittering',
+        value: 5,
+        dateUTC: '2011-01-06T00:00:00Z',
+    },
+    {
+        name: 'Glittering',
+        value: 16,
+        dateUTC: '2011-01-07T00:00:00Z',
+    },
+    {
+        name: 'Glittering',
+        value: 23,
+        dateUTC: '2011-01-08T00:00:00Z',
+    },
+    {
+        name: 'Glittering',
+        value: 18,
+        dateUTC: '2011-01-09T00:00:00Z',
+    },
+    {
+        name: 'Glittering',
+        value: 25,
+        dateUTC: '2011-01-10T00:00:00Z',
+    },
+    {
+        name: 'Glittering',
+        value: 28,
+        dateUTC: '2011-01-11T00:00:00Z',
+    },
+    {
+        name: 'Glittering',
+        value: 2,
+        dateUTC: '2011-01-12T00:00:00Z',
+    },
+];
 
 export default {
-    firstDataMethod,
-    secondDataMethod,
+    withLowValues,
+    withOneSource,
 };
