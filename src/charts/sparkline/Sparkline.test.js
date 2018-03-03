@@ -26,7 +26,7 @@ describe('Sparkline Chart', () => {
             });
 
             it('should call the create method or the chart', () => {
-                const dataSet = sparklineData.firstDataMethod();
+                const dataSet = sparklineData.with1Source();
 
                 mount(<Sparkline chart={sparkline} data={dataSet} />);
 
@@ -37,7 +37,7 @@ describe('Sparkline Chart', () => {
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const dataSet = sparklineData.firstDataMethod();
+                const dataSet = sparklineData.with1Source();
 
                 const wrapper = mount(<Sparkline chart={sparkline} data={dataSet} />);
 
@@ -48,7 +48,7 @@ describe('Sparkline Chart', () => {
             });
 
             it('should call the create method or the chart with the configuration object as the second argument', () => {
-                const dataSet = sparklineData.firstDataMethod();
+                const dataSet = sparklineData.with1Source();
 
                 mount(<Sparkline chart={sparkline} data={dataSet} />);
 
@@ -59,7 +59,7 @@ describe('Sparkline Chart', () => {
             });
 
             it('should allow setting width', () => {
-                const dataSet = sparklineData.firstDataMethod();
+                const dataSet = sparklineData.with1Source();
                 let expected = 500;
 
                 mount(
@@ -76,7 +76,7 @@ describe('Sparkline Chart', () => {
             });
 
             it('should allow setting height', () => {
-                const dataSet = sparklineData.firstDataMethod();
+                const dataSet = sparklineData.with1Source();
                 let expected = 500;
 
                 mount(
@@ -109,12 +109,12 @@ describe('Sparkline Chart', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const dataSet = sparklineData.firstDataMethod();
+                const dataSet = sparklineData.with1Source();
                 const wrapper = mount(<Sparkline chart={sparkline} data={dataSet} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: sparklineData.secondDataMethod(),
+                    data: sparklineData.withLowValues(),
                 });
 
                 let expected = 1;
@@ -124,22 +124,22 @@ describe('Sparkline Chart', () => {
             });
 
             it('should pass in the new data to the update method', () => {
-                const dataSet = sparklineData.firstDataMethod();
+                const dataSet = sparklineData.with1Source();
                 const wrapper = mount(<Sparkline chart={sparkline} data={dataSet} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: sparklineData.secondDataMethod(),
+                    data: sparklineData.withLowValues(),
                 });
 
-                let expected = sparklineData.secondDataMethod().length;
+                let expected = sparklineData.withLowValues().length;
                 let actual = updateSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should pass in the new configuration to the update method', () => {
-                const dataSet = sparklineData.firstDataMethod();
+                const dataSet = sparklineData.with1Source();
                 const wrapper = mount(<Sparkline chart={sparkline} data={dataSet} />);
                 const expected = 20;
 
@@ -168,7 +168,7 @@ describe('Sparkline Chart', () => {
         });
 
         it('should call the destroy method or the chart', () => {
-            const dataSet = sparklineData.firstDataMethod();
+            const dataSet = sparklineData.with1Source();
             const wrapper = mount(<Sparkline chart={sparkline} data={dataSet} />);
 
             wrapper.unmount();
