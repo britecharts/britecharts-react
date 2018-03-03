@@ -108,10 +108,6 @@ class Sparkline extends React.Component {
          */
         width: PropTypes.number,
 
-        customMouseOver: PropTypes.func,
-        customMouseMove: PropTypes.func,
-        customMouseOut: PropTypes.func,
-
         /**
          * Internally used, do not overwrite.
          *
