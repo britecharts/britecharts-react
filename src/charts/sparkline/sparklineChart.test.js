@@ -110,23 +110,6 @@ describe('Sparkline Chart', () => {
                 expect(actual).toEqual(expected);
             });
 
-            /**
-             * The grid is not supported by every chart, and this test should only be included if necessary
-             */
-            it('should set the grid', () => {
-                const expected = 'vertical';
-
-                const chart = sparkline.create(
-                    anchor,
-                    sparklineData.firstDataMethod(),
-                    { grid: expected }
-                );
-
-                const actual = chart.grid();
-
-                expect(actual).toEqual(expected);
-            });
-
             describe('when event handlers are passed', () => {
 
                 it('should set customMouseOver callback', () => {

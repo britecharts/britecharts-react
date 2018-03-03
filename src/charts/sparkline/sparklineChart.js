@@ -4,7 +4,7 @@ import {validateConfiguration, validateContainer} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
 //TODO: Implement the correct loading state(line, bar, and donut are the available options atm)
-import { line as sparklineLoadingState } from 'britecharts/dist/umd/loading.min';
+import { linearGradient as sparklineLoadingState } from 'britecharts/dist/umd/loading.min';
 
 const sparkline = {};
 
