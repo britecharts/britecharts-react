@@ -23,6 +23,7 @@ const CHARTS = {
     Line: `${PATHS.charts}/line/Line.js`,
     StackedArea: `${PATHS.charts}/stackedArea/StackedArea.js`,
     StackedBar: `${PATHS.charts}/stackedBar/StackedBar.js`,
+    Sparkline: `${PATHS.charts}/sparkline/Sparkline.js`,
     Step: `${PATHS.charts}/step/Step.js`,
     Tooltip: `${PATHS.charts}/tooltip/Tooltip.js`,
 };
