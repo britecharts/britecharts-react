@@ -11,6 +11,8 @@
 | [![Stacked Area Chart][stackedAreaImg]][stackedAreaDemo] | [![Bar Chart][barChartImg]][barChartDemo] | [![Line Chart][lineChartImg]][lineChartDemo] |
 | ------------- | ------------- | ------------- |
 | [![Donut Chart][donutChartImg]][donutChartDemo] | [![Legend][legendImg]][legendDemo] | [![Tooltip][tooltipImg]][tooltipDemo] |
+| ------------- | ------------- | ------------- |
+| [![Sparkline][sparklineImg]][sparklineDemo] |
 
 ## Usage
 Import components from Britecharts-React:
@@ -52,6 +54,7 @@ The complete set of components is in progress; the following components are curr
 - Grouped Bar charts [(API)][groupedBarChartAPI]
 - Donut charts [(API)][donutChartAPI]
 - Line charts [(API)][lineChartAPI]
+- Sparkline charts [(API)][sparklineChartAPI]
 - Stacked Area charts [(API)][stackedAreaChartAPI]
 - Stacked Bar charts [(API)][stackedBarChartAPI]
 - Tooltips [(API)][tooltipAPI]
@@ -59,7 +62,6 @@ The complete set of components is in progress; the following components are curr
 
 The following components are not yet implemented:
 - Brush charts
-- Sparkline charts
 - Step charts
 
 ## Installation
@@ -106,6 +108,7 @@ Read more in the [license document][licenseGithub]
 [groupedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Grouped-Bar.html
 [donutChartAPI]: http://eventbrite.github.io/britecharts/module-Donut.html
 [lineChartAPI]: http://eventbrite.github.io/britecharts/module-Line.html
+[sparklineChartAPI]: http://eventbrite.github.io/britecharts/module-Sparkline.html
 [stackedAreaChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-area.html
 [stackedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-bar.html
 [tooltipAPI]: http://eventbrite.github.io/britecharts/module-Tooltip.html
@@ -132,6 +135,9 @@ Read more in the [license document][licenseGithub]
 
 [lineChartDemo]: https://eventbrite.github.io/britecharts-react/#line "Check the Demo"
 [lineChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/line-chart.png
+
+[sparklineDemo]: https://eventbrite.github.io/britecharts-react/#sparkline "Check the Demo"
+[sparklineImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/sparkline.png
 
 [legendDemo]: https://eventbrite.github.io/britecharts-react/#legend "Check the Demo"
 [legendImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/legend.png
