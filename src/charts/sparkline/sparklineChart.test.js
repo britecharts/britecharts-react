@@ -109,51 +109,6 @@ describe('Sparkline Chart', () => {
 
                 expect(actual).toEqual(expected);
             });
-
-            describe('when event handlers are passed', () => {
-
-                it('should set customMouseOver callback', () => {
-                    const expected = jest.fn();
-
-                    const chart = sparkline.create(
-                        anchor,
-                        sparklineData.with1Source(),
-                        { customMouseOver: expected }
-                    );
-
-                    const actual = chart.on('customMouseOver');
-
-                    expect(actual).toEqual(expected);
-                });
-
-                it('should set customMouseMove callback', () => {
-                    const expected = jest.fn();
-
-                    const chart = sparkline.create(
-                        anchor,
-                        sparklineData.with1Source(),
-                        { customMouseMove: expected }
-                    );
-
-                    const actual = chart.on('customMouseMove');
-
-                    expect(actual).toEqual(expected);
-                });
-
-                it('should set customMouseOut callback', () => {
-                    const expected = jest.fn();
-
-                    const chart = sparkline.create(
-                        anchor,
-                        sparklineData.with1Source(),
-                        { customMouseOut: expected }
-                    );
-
-                    const actual = chart.on('customMouseOut');
-
-                    expect(actual).toEqual(expected);
-                });
-            });
         });
     });
 
