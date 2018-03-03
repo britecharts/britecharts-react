@@ -17,7 +17,7 @@ describe('Sparkline Chart', () => {
                     expect(() => {
                       sparkline.create(
                             undefined,
-                            sparklineData.firstDataMethod(),
+                            sparklineData.with1Source(),
                             {}
                         );
                     }).toThrowError('A root container is required');
@@ -29,7 +29,7 @@ describe('Sparkline Chart', () => {
                     expect(() => {
                         sparkline.create(
                             anchor,
-                            sparklineData.firstDataMethod(),
+                            sparklineData.with1Source(),
                             { test: 'test' }
                         );
                     }).toThrowError('Method not supported by Britechart: test');
@@ -43,7 +43,7 @@ describe('Sparkline Chart', () => {
                     expect(() => {
                         sparkline.create(
                             anchor,
-                            sparklineData.firstDataMethod(),
+                            sparklineData.with1Source(),
                             { customFakeEvent: callback }
                         );
                     }).toThrowError('Method not supported by Britechart: customFakeEvent');
@@ -54,9 +54,9 @@ describe('Sparkline Chart', () => {
         describe('when proper arguments are passed', () => {
 
             it('should set data as a DOM property', () => {
-                const expected = sparklineData.firstDataMethod().length;
+                const expected = sparklineData.with1Source().length;
 
-                sparkline.create(anchor, sparklineData.firstDataMethod());
+                sparkline.create(anchor, sparklineData.with1Source());
 
                 const actual = anchor.__data__.length;
 
@@ -68,7 +68,7 @@ describe('Sparkline Chart', () => {
 
                 const chart = sparkline.create(
                     anchor,
-                    sparklineData.firstDataMethod(),
+                    sparklineData.with1Source(),
                     { width: expected }
                 );
 
@@ -82,7 +82,7 @@ describe('Sparkline Chart', () => {
 
                 const chart = sparkline.create(
                     anchor,
-                    sparklineData.firstDataMethod(),
+                    sparklineData.with1Source(),
                     { height: expected }
                 );
 
@@ -101,7 +101,7 @@ describe('Sparkline Chart', () => {
 
                 const chart = sparkline.create(
                     anchor,
-                    sparklineData.firstDataMethod(),
+                    sparklineData.with1Source(),
                     { margin: expected }
                 );
 
@@ -117,7 +117,7 @@ describe('Sparkline Chart', () => {
 
                     const chart = sparkline.create(
                         anchor,
-                        sparklineData.firstDataMethod(),
+                        sparklineData.with1Source(),
                         { customMouseOver: expected }
                     );
 
@@ -131,7 +131,7 @@ describe('Sparkline Chart', () => {
 
                     const chart = sparkline.create(
                         anchor,
-                        sparklineData.firstDataMethod(),
+                        sparklineData.with1Source(),
                         { customMouseMove: expected }
                     );
 
@@ -145,7 +145,7 @@ describe('Sparkline Chart', () => {
 
                     const chart = sparkline.create(
                         anchor,
-                        sparklineData.firstDataMethod(),
+                        sparklineData.with1Source(),
                         { customMouseOut: expected }
                     );
 
@@ -163,8 +163,8 @@ describe('Sparkline Chart', () => {
 
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
-                    const firstDataSet = sparklineData.firstDataMethod();
-                    const secondDataSet = sparklineData.secondDataMethod();
+                    const firstDataSet = sparklineData.with1Source();
+                    const secondDataSet = sparklineData.withLowValues();
                     let chart = sparkline.create(anchor, firstDataSet, {});
 
                     sparkline.update(anchor, secondDataSet, {}, chart);
@@ -178,7 +178,7 @@ describe('Sparkline Chart', () => {
 
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
-                    const dataSet = sparklineData.firstDataMethod();
+                    const dataSet = sparklineData.with1Source();
                     let chart = sparkline.create(anchor, dataSet, {});
 
                     sparkline.update(anchor, [], {}, chart);
@@ -199,7 +199,7 @@ describe('Sparkline Chart', () => {
                     const firstWidth = 200;
                     const chart = sparkline.create(
                         anchor,
-                        sparklineData.firstDataMethod(),
+                        sparklineData.with1Source(),
                         { width: firstWidth }
                     );
 
