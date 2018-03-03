@@ -31,5 +31,5 @@ See more:
 
 
 
-[APILink]: YourLinkToComponentAPIHere
-[DataLink]: YourLinkToExampleDataInputHere
+[APILink]: http://eventbrite.github.io/britecharts/module-Sparkline.html
+[DataLink]: http://eventbrite.github.io/britecharts/global.html#SparklineChartData__anchor
