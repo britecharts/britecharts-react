@@ -41,7 +41,7 @@ const withLowValues = () => [
     },
 ];
 
-const withOneSource = () => [
+const with1Source = () => [
     {
         name: 'Glittering',
         value: 2,
@@ -86,5 +86,5 @@ const withOneSource = () => [
 
 export default {
     withLowValues,
-    withOneSource,
+    with1Source,
 };
