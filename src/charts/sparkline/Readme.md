@@ -1,19 +1,26 @@
-### With default properties
+### With animation and responsive
 ```js
-    const chartData = require('./sparklineChart.fixtures.js').default;
+    const sparklineData = require('./sparklineChart.fixtures.js').default;
+    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
+    const ResponsiveSparkline = withResponsiveness(Sparkline);
     
-    <Sparkline
-        data={chartData.withLowValues()}
+    <ResponsiveSparkline
+        data={sparklineData.with1Source()}
+        isAnimated={true}
+        duration={1000}
+        height={300}
     />
 ```
 
-### With loading state
+### With fixed width and title
 ```js
+    const sparklineData = require('./sparklineChart.fixtures.js').default;
 
     <Sparkline
-        height={400}
-        data={null}
-        shouldShowLoadingState={true}
+        data={sparklineData.withLowValues()}
+        height={300}
+        width={600}
+        titleText="Yearly prediction"
     />
 ```
 
