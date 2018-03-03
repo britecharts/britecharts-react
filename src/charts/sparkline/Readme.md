@@ -3,7 +3,7 @@
     const chartData = require('./sparklineChart.fixtures.js').default;
     
     <Sparkline
-        data={chartData.firstDataMethod()}
+        data={chartData.withLowValues()}
         shouldShowLoadingState={true}
     />
 ```
