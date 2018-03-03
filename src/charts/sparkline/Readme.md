@@ -4,7 +4,6 @@
     
     <Sparkline
         data={chartData.withLowValues()}
-        shouldShowLoadingState={true}
     />
 ```
 
@@ -12,6 +11,7 @@
 ```js
 
     <Sparkline
+        height={400}
         data={null}
         shouldShowLoadingState={true}
     />
