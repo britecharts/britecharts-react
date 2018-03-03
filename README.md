@@ -12,7 +12,7 @@
 | ------------- | ------------- | ------------- |
 | [![Donut Chart][donutChartImg]][donutChartDemo] | [![Legend][legendImg]][legendDemo] | [![Tooltip][tooltipImg]][tooltipDemo] |
 | ------------- | ------------- | ------------- |
-| [![Sparkline][sparklineImg]][sparklineDemo] |
+| [![Sparkline Chart][sparklineImg]][sparklineDemo] |
 
 ## Usage
 Import components from Britecharts-React:
