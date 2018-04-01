@@ -59,15 +59,15 @@ describe('Tooltip Chart', () => {
                 expect(actual).toEqual(expected);
             });
 
-            it('should set the valueFormat', () => {
+            it('should set the numberFormat', () => {
                 const expected = '%s';
 
                 const chart = tooltip.create(
                     anchor,
-                    {valueFormat: expected}
+                    {numberFormat: expected}
                 );
 
-                const actual = chart.valueFormat();
+                const actual = chart.numberFormat();
 
                 expect(actual).toEqual(expected);
             });
