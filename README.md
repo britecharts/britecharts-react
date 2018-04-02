@@ -57,11 +57,12 @@ The complete set of components is in progress; the following components are curr
 - Stacked Area charts [(API)][stackedAreaChartAPI]
 - Stacked Bar charts [(API)][stackedBarChartAPI]
 - Tooltips [(API)][tooltipAPI]
-- Loading states
+- Step charts [(API)][stepChartAPI]
 
 The following components are not yet implemented:
 - Brush charts
-- Step charts
+- Mini Tooltip
+- Scatter Plot
 
 ## Installation
 Britecharts-React is available as an [NPM module][npmModule] or through CDN links (in [different formats][jsDelivrLib] or a [bundle][jsDelivrDist]).
@@ -103,6 +104,7 @@ Read more in the [license document][licenseGithub]
 [britecharts]: https://github.com/eventbrite/britecharts
 [react]: https://facebook.github.io/react/
 [integration-article]: http://nicolashery.com/integrating-d3js-visualizations-in-a-react-app/
+
 [barChartAPI]: http://eventbrite.github.io/britecharts/module-Bar.html
 [groupedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Grouped-Bar.html
 [donutChartAPI]: http://eventbrite.github.io/britecharts/module-Donut.html
@@ -111,6 +113,8 @@ Read more in the [license document][licenseGithub]
 [stackedAreaChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-area.html
 [stackedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-bar.html
 [tooltipAPI]: http://eventbrite.github.io/britecharts/module-Tooltip.html
+[stepChartAPI]: http://eventbrite.github.io/britecharts/module-Step.html
+
 [license]: https://www.apache.org/licenses/LICENSE-2.0
 [licenseGithub]: https://github.com/eventbrite/britecharts-react/blob/master/LICENSE.md
 [topics]: https://github.com/eventbrite/britecharts-react/blob/master/TOPICS.md
