@@ -4,7 +4,7 @@ const isEventConfig = (configName) => britechartsCustomEvents.indexOf(configName
 const isNotEventConfig = (configName) => !isEventConfig(configName);
 
 const setChartProperty = (chart, configuration, key) => {
-    if (configuration[key]) {
+    if (configuration[key] || typeof configuration[key] === 'string') {
         chart[key](configuration[key]);
     }
 };
