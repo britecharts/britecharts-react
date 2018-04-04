@@ -3,7 +3,7 @@ import {select} from 'd3-selection';
 import {validateConfiguration, validateContainer} from '../helpers/validation';
 import {applyConfiguration} from '../helpers/configuration';
 
-import { line as stackedAreaLoadingState } from 'britecharts/dist/umd/loading.min';
+import { stackedArea as stackedAreaLoadingState } from 'britecharts/dist/umd/loading.min';
 
 const stackedArea = {};
 
