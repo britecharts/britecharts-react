@@ -50,7 +50,7 @@
         data={lineData.fiveTopics()}
         render={renderLine}
         topicLabel="topics"
-        title="Demo Title"
+        title=""
     />
 ```
 
