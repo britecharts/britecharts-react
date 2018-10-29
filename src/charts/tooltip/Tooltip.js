@@ -117,6 +117,8 @@ export default class Tooltip extends React.Component {
                 customMouseOver: this._handleMouseOver.bind(this),
             });
         }
+
+        this._setRef = this._setRef.bind(this);
     }
 
     state = {
@@ -210,7 +212,7 @@ export default class Tooltip extends React.Component {
 
     render() {
         return (
-            <div className="tooltip-chart-wrapper" ref={this._setRef.bind(this)}>
+            <div className="tooltip-chart-wrapper" ref={this._setRef}>
                 {this.childChart}
             </div>
         );
