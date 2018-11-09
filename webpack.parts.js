@@ -1,6 +1,7 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 exports.devServer = ({ host, port } = {}) => ({
     devServer: {
@@ -64,34 +65,23 @@ exports.generateSourceMaps = ({ type }) => ({
 });
 
 exports.minifyJavaScript = () => ({
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            beautify: false,
-            comments: false,
-            mangle: {
-                'screw_ie8': true,
-                'keep_fnames': true,
-            },
-            parallel: {
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                sourceMap: true,
                 cache: true,
-                workers: 2,
-            },
-            compress: {
-                'screw_ie8': true,
-                'properties': true,
-                'drop_debugger': true,
-                'dead_code': true,
-                'conditionals': true,
-                'booleans': true,
-                'unused': true,
-                'if_return': true,
-                'join_vars': true,
-                'drop_console': true,
-                'warnings': false,
-            },
-        }),
-    ],
+                parallel: 2,
+                uglifyOptions: {
+                    mangle: true,
+                    ie8: true,
+                    keep_fnames: true,
+                    compress: {
+                        'drop_console': true,
+                    },
+                }
+            })
+        ]
+    }
 });
 
 exports.bundleTreeChart = () => ({
