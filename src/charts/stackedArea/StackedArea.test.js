@@ -9,7 +9,7 @@ import stackedArea from './stackedAreaChart';
 describe('Stacked Area Chart', () => {
 
     describe('render', () => {
-        
+
         describe('when data passed in', () => {
             let createSpy;
 

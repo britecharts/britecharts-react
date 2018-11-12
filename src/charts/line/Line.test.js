@@ -9,7 +9,7 @@ import line from './lineChart';
 describe('Line Chart', () => {
 
     describe('render', () => {
-        
+
         describe('when data passed in', () => {
             let createSpy;
 

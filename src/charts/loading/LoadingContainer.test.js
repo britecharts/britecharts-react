@@ -72,8 +72,8 @@ describe('Loading Container', () => {
                 wrapper.unmount();
             });
 
-            it ('should include the loading class on the chart', () => {
-                let expected = 'display:none;';
+            it('should include the loading class on the chart', () => {
+                let expected = 'display:none';
 
                 let childContainer = wrapper.find('.loading-container__children');
 

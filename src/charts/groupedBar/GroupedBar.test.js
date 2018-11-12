@@ -7,9 +7,9 @@ import groupedBarData from './groupedBarChart.fixtures';
 import groupedBar from './groupedBarChart';
 
 describe('Grouped Bar Chart', () => {
-  
+
     describe('render', () => {
-        
+
         describe('when data passed in', () => {
             let createSpy;
 
@@ -169,5 +169,4 @@ describe('Grouped Bar Chart', () => {
         });
     });
 });
-  
-  
+

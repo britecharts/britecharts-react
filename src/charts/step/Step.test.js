@@ -9,7 +9,7 @@ import step from './stepChart';
 describe('Step Chart', () => {
 
     describe('render', () => {
-        
+
         describe('when data passed in', () => {
             let createSpy;
 

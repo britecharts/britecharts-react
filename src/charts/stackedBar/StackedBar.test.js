@@ -9,7 +9,7 @@ import stackedBar from './stackedBarChart';
 describe('Stacked Bar Chart', () => {
 
     describe('render', () => {
-        
+
         describe('when data passed in', () => {
             let createSpy;
 
