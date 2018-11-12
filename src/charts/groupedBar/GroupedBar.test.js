@@ -1,13 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { shallow, mount } from 'enzyme';
 
 import GroupedBar from './GroupedBar';
 import groupedBarData from './groupedBarChart.fixtures';
 
 import groupedBar from './groupedBarChart';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Grouped Bar Chart', () => {
   

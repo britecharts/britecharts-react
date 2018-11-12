@@ -1,13 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { shallow, mount } from 'enzyme';
 
 import Step from './Step';
 import stepData from './stepChart.fixtures';
 
 import step from './stepChart';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Step Chart', () => {
 

@@ -1,13 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { shallow, mount } from 'enzyme';
 
 import Donut from './Donut';
 import donutData from './donutChart.fixtures';
 
 import donut from './donutChart';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Donut Chart', () => {
 

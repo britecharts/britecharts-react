@@ -1,13 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { shallow, mount } from 'enzyme';
 
 import StackedBar from './StackedBar';
 import stackedBarData from './stackedBarChart.fixtures';
 
 import stackedBar from './stackedBarChart';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Stacked Bar Chart', () => {
 
