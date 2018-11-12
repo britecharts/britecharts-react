@@ -1,12 +1,12 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
 import StackedBar from './StackedBar';
 import stackedBarData from './stackedBarChart.fixtures';
 
 import stackedBar from './stackedBarChart';
 
-describe('Stacked Bar Chart', () => {
+describe('stacked Bar Chart', () => {
 
     describe('render', () => {
 
@@ -25,8 +25,8 @@ describe('Stacked Bar Chart', () => {
             it('should call the create method or the chart', () => {
                 mount(<StackedBar chart={stackedBar} data={stackedBarData.with3Sources()} />);
 
-                let expected = 1;
-                let actual = createSpy.mock.calls.length;
+                const expected = 1;
+                const actual = createSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
@@ -34,8 +34,8 @@ describe('Stacked Bar Chart', () => {
             it('should call the create method or the chart with the container as the first argument', () => {
                 const wrapper = mount(<StackedBar chart={stackedBar} data={stackedBarData.with3Sources()} />);
 
-                let expected = wrapper.find('.stacked-bar-container').instance();
-                let actual = createSpy.mock.calls[0][0];
+                const expected = wrapper.find('.stacked-bar-container').instance();
+                const actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
             });
@@ -45,15 +45,15 @@ describe('Stacked Bar Chart', () => {
 
                 mount(<StackedBar chart={stackedBar} data={dataSet} />);
 
-                let expectedData = dataSet;
-                let actualData = createSpy.mock.calls[0][1];
+                const expectedData = dataSet;
+                const actualData = createSpy.mock.calls[0][1];
 
                 expect(actualData).toEqual(expectedData);
             });
 
             it('should allow setting width', () => {
                 const dataSet = stackedBarData.with3Sources();
-                let expected = 500;
+                const expected = 500;
 
                 mount(
                     <StackedBar
@@ -63,14 +63,14 @@ describe('Stacked Bar Chart', () => {
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].width;
+                const actual = createSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should allow setting height', () => {
                 const dataSet = stackedBarData.with3Sources();
-                let expected = 500;
+                const expected = 500;
 
                 mount(
                     <StackedBar
@@ -80,7 +80,7 @@ describe('Stacked Bar Chart', () => {
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].height;
+                const actual = createSpy.mock.calls[0][2].height;
 
                 expect(actual).toEqual(expected);
             });
@@ -109,8 +109,8 @@ describe('Stacked Bar Chart', () => {
                     data: stackedBarData.with2Sources(),
                 });
 
-                let expected = 1;
-                let actual = updateSpy.mock.calls.length;
+                const expected = 1;
+                const actual = updateSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
@@ -123,8 +123,8 @@ describe('Stacked Bar Chart', () => {
                     data: stackedBarData.with2Sources(),
                 });
 
-                let expected = stackedBarData.with2Sources().length;
-                let actual = updateSpy.mock.calls[0][1].length;
+                const expected = stackedBarData.with2Sources().length;
+                const actual = updateSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });
@@ -138,7 +138,7 @@ describe('Stacked Bar Chart', () => {
                     width: expected,
                 });
 
-                let actual = updateSpy.mock.calls[0][2].width;
+                const actual = updateSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
@@ -162,8 +162,8 @@ describe('Stacked Bar Chart', () => {
 
             wrapper.unmount();
 
-            let expected = 1;
-            let actual = createSpy.mock.calls.length;
+            const expected = 1;
+            const actual = createSpy.mock.calls.length;
 
             expect(actual).toEqual(expected);
         });

@@ -1,7 +1,7 @@
 import stackedAreaData from './stackedAreaChart.fixtures';
 import stackedArea from './stackedAreaChart';
 
-describe('Stacked Area Chart', () => {
+describe('stacked Area Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -20,7 +20,7 @@ describe('Stacked Area Chart', () => {
                             stackedAreaData.with3Sources(),
                             {}
                         );
-                    }).toThrowError('A root container is required');
+                    }).toThrow('A root container is required');
                 });
             });
 
@@ -32,7 +32,7 @@ describe('Stacked Area Chart', () => {
                             stackedAreaData.with3Sources(),
                             { test: 'test' }
                         );
-                    }).toThrowError('Method not supported by Britechart: test');
+                    }).toThrow('Method not supported by Britechart: test');
                 });
             });
 
@@ -46,7 +46,7 @@ describe('Stacked Area Chart', () => {
                             stackedAreaData.with3Sources(),
                             { customFakeEvent: callback }
                         );
-                    }).toThrowError('Method not supported by Britechart: customFakeEvent');
+                    }).toThrow('Method not supported by Britechart: customFakeEvent');
                 });
             });
         });
@@ -179,7 +179,7 @@ describe('Stacked Area Chart', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = stackedAreaData.with3Sources();
                     const secondDataSet = stackedAreaData.with2Sources();
-                    let chart = stackedArea.create(anchor, firstDataSet, {});
+                    const chart = stackedArea.create(anchor, firstDataSet, {});
 
                     stackedArea.update(anchor, secondDataSet, {}, chart);
 
@@ -193,7 +193,7 @@ describe('Stacked Area Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = stackedAreaData.with3Sources();
-                    let chart = stackedArea.create(anchor, dataSet, {});
+                    const chart = stackedArea.create(anchor, dataSet, {});
 
                     stackedArea.update(anchor, [], {}, chart);
 

@@ -16,7 +16,7 @@ const setChartEventHandler = (chart, configuration, key) => {
 };
 
 export const applyConfiguration = (chart, configuration) => {
-    let configurationProperties = Object.keys(configuration);
+    const configurationProperties = Object.keys(configuration);
 
     // Regular properties
     configurationProperties

@@ -167,12 +167,25 @@ class Line extends React.Component {
          * @ignore
          */
         chart: PropTypes.object,
+
+        /**
+         * Internally used, do not overwrite.
+         *
+         * @ignore
+         */
+        createTooltip: PropTypes.func,
     }
 
     static defaultProps = {
         chart: line,
         createTooltip: () => null,
         shouldShowLoadingState: false,
+    }
+
+    constructor(props) {
+        super(props);
+
+        this._setRef = this._setRef.bind(this);
     }
 
     componentDidMount() {
@@ -218,7 +231,7 @@ class Line extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = { ...this.props };
+        const configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;
@@ -236,7 +249,7 @@ class Line extends React.Component {
         return loadingContainerWrapper(
             this.props,
             this.props.loadingState || this.props.chart.loading(),
-            <div className="line-container" ref={this._setRef.bind(this)} />
+            <div className="line-container" ref={this._setRef} />
         );
     }
 }

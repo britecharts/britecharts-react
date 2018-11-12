@@ -1,12 +1,12 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
 import Line from './Line';
 import lineData from './lineChart.fixtures';
 
 import line from './lineChart';
 
-describe('Line Chart', () => {
+describe('line Chart', () => {
 
     describe('render', () => {
 

@@ -6,14 +6,14 @@ import LoadingContainer from './LoadingContainer';
 import barData from '../bar/barChart.fixtures';
 import bar from '../bar/barChart';
 
-describe('Loading Container', () => {
+describe('loading Container', () => {
 
     it('should render without errors', () => {
         expect(() => (
             mount(
                 <LoadingContainer
                     data={barData}
-                    loadingState={'.load-state'}
+                    loadingState=".load-state"
                 >
                     <div className="chart" />
                 </LoadingContainer>
@@ -21,7 +21,7 @@ describe('Loading Container', () => {
         ).unmount()).not.toThrow();
     });
 
-    describe('Loading States', () => {
+    describe('loading States', () => {
 
         describe('when data is not null', () => {
             let wrapper;
@@ -30,7 +30,7 @@ describe('Loading Container', () => {
                 wrapper = mount(
                     <LoadingContainer
                         data={barData}
-                        loadingState={'.load-state'}
+                        loadingState=".load-state"
                     >
                         <div className="chart" />
                     </LoadingContainer>
@@ -38,8 +38,8 @@ describe('Loading Container', () => {
             });
 
             it('should not show the loadingState after mounting', () => {
-                let expected = false;
-                let actual = wrapper.html().indexOf('load-state') > -1;
+                const expected = false;
+                const actual = wrapper.html().indexOf('load-state') > -1;
 
                 expect(actual).toEqual(expected);
 
@@ -64,8 +64,8 @@ describe('Loading Container', () => {
             });
 
             it('should render the loading state', () => {
-                let expected = true;
-                let actual = wrapper.html().indexOf('load-state') > -1;
+                const expected = true;
+                const actual = wrapper.html().indexOf('load-state') > -1;
 
                 expect(actual).toEqual(expected);
 
@@ -73,11 +73,11 @@ describe('Loading Container', () => {
             });
 
             it('should include the loading class on the chart', () => {
-                let expected = 'display:none';
+                const expected = 'display:none';
 
-                let childContainer = wrapper.find('.loading-container__children');
+                const childContainer = wrapper.find('.loading-container__children');
 
-                let actual = childContainer.html().match(/style="([^"]*)"/i)[1];
+                const actual = childContainer.html().match(/style="([^"]*)"/i)[1];
 
                 expect(actual).toEqual(expected);
 

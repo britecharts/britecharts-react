@@ -1,7 +1,7 @@
 import donutData from './donutChart.fixtures';
 import donut from './donutChart';
 
-describe('Donut Chart', () => {
+describe('donut Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -20,7 +20,7 @@ describe('Donut Chart', () => {
                             donutData.with4Slices(),
                             {}
                         );
-                    }).toThrowError('A root container is required');
+                    }).toThrow('A root container is required');
                 });
             });
 
@@ -32,7 +32,7 @@ describe('Donut Chart', () => {
                             donutData.with4Slices(),
                             { test: 'test' }
                         );
-                    }).toThrowError('Method not supported by Britechart: test');
+                    }).toThrow('Method not supported by Britechart: test');
                 });
             });
 
@@ -46,7 +46,7 @@ describe('Donut Chart', () => {
                             donutData.with4Slices(),
                             { customFakeEvent: callback }
                         );
-                    }).toThrowError('Method not supported by Britechart: customFakeEvent');
+                    }).toThrow('Method not supported by Britechart: customFakeEvent');
                 });
             });
         });
@@ -156,7 +156,7 @@ describe('Donut Chart', () => {
                         name: 'rick',
                         id: 1,
                     }];
-                    let chart = donut.create(anchor, firstDataSet, {});
+                    const chart = donut.create(anchor, firstDataSet, {});
 
                     donut.update(anchor, secondDataSet, {}, chart);
 
@@ -170,7 +170,7 @@ describe('Donut Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = donutData.with4Slices();
-                    let chart = donut.create(anchor, dataSet, {});
+                    const chart = donut.create(anchor, dataSet, {});
 
                     donut.update(anchor, dataSet, {}, chart);
 

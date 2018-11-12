@@ -1,7 +1,7 @@
 import stepData from './stepChart.fixtures';
 import step from './stepChart';
 
-describe('Step Chart', () => {
+describe('step Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -15,12 +15,12 @@ describe('Step Chart', () => {
             describe('when the DOM element is not passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                      step.create(
+                        step.create(
                             undefined,
                             stepData.firstDataMethod(),
                             {}
                         );
-                    }).toThrowError('A root container is required');
+                    }).toThrow('A root container is required');
                 });
             });
 
@@ -32,7 +32,7 @@ describe('Step Chart', () => {
                             stepData.firstDataMethod(),
                             { test: 'test' }
                         );
-                    }).toThrowError('Method not supported by Britechart: test');
+                    }).toThrow('Method not supported by Britechart: test');
                 });
             });
 
@@ -46,7 +46,7 @@ describe('Step Chart', () => {
                             stepData.firstDataMethod(),
                             { customFakeEvent: callback }
                         );
-                    }).toThrowError('Method not supported by Britechart: customFakeEvent');
+                    }).toThrow('Method not supported by Britechart: customFakeEvent');
                 });
             });
         });
@@ -165,7 +165,7 @@ describe('Step Chart', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = stepData.firstDataMethod();
                     const secondDataSet = stepData.secondDataMethod();
-                    let chart = step.create(anchor, firstDataSet, {});
+                    const chart = step.create(anchor, firstDataSet, {});
 
                     step.update(anchor, secondDataSet, {}, chart);
 
@@ -179,7 +179,7 @@ describe('Step Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = stepData.firstDataMethod();
-                    let chart = step.create(anchor, dataSet, {});
+                    const chart = step.create(anchor, dataSet, {});
 
                     step.update(anchor, [], {}, chart);
 

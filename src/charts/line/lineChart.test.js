@@ -1,7 +1,7 @@
 import lineData from './lineChart.fixtures';
 import line from './lineChart';
 
-describe('Bar Chart', () => {
+describe('bar Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -20,7 +20,7 @@ describe('Bar Chart', () => {
                             lineData.oneSet(),
                             {}
                         );
-                    }).toThrowError('A root container is required');
+                    }).toThrow('A root container is required');
                 });
             });
 
@@ -32,7 +32,7 @@ describe('Bar Chart', () => {
                             lineData.oneSet(),
                             { test: 'test' }
                         );
-                    }).toThrowError('Method not supported by Britechart: test');
+                    }).toThrow('Method not supported by Britechart: test');
                 });
             });
 
@@ -46,7 +46,7 @@ describe('Bar Chart', () => {
                             lineData.oneSet(),
                             { customFakeEvent: callback }
                         );
-                    }).toThrowError('Method not supported by Britechart: customFakeEvent');
+                    }).toThrow('Method not supported by Britechart: customFakeEvent');
                 });
             });
         });

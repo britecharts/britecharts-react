@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {{camelCase componentName}} from './{{camelCase componentName}}Chart';
@@ -31,6 +32,12 @@ class {{pascalCase componentName}} extends React.Component {
         chart: {{camelCase componentName}},
         createTooltip: () => null,
         shouldShowLoadingState: false,
+    }
+
+    constructor(props) {
+        super(props);
+
+        this._setRef = this._setRef.bind(this);
     }
 
     componentDidMount() {
@@ -96,7 +103,7 @@ class {{pascalCase componentName}} extends React.Component {
         return loadingContainerWrapper(
             this.props,
             this.props.chart.loading(),
-            <div className="{{dashCase componentName}}-container" ref={this._setRef.bind(this)} />
+            <div className="{{dashCase componentName}}-container" ref={this._setRef} />
         );
     }
 }

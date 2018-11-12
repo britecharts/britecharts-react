@@ -8,8 +8,8 @@ import { bar as groupedBarLoadingState } from 'britecharts/dist/umd/loading.min'
 const groupedBar = {};
 
 groupedBar.create = (el, data, configuration = {}) => {
-    let container = select(el);
-    let chart = groupedBarChart();
+    const container = select(el);
+    const chart = groupedBarChart();
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
@@ -21,7 +21,7 @@ groupedBar.create = (el, data, configuration = {}) => {
 };
 
 groupedBar.update = (el, data, configuration = {}, chart) => {
-    let container = select(el);
+    const container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);

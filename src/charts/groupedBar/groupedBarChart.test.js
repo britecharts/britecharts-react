@@ -1,7 +1,7 @@
 import groupedBarData from './groupedBarChart.fixtures';
 import groupedBar from './groupedBarChart';
 
-describe('Grouped Bar Chart', () => {
+describe('grouped Bar Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -20,7 +20,7 @@ describe('Grouped Bar Chart', () => {
                             groupedBarData.with3Groups(),
                             {}
                         );
-                    }).toThrowError('A root container is required');
+                    }).toThrow('A root container is required');
                 });
             });
 
@@ -32,7 +32,7 @@ describe('Grouped Bar Chart', () => {
                             groupedBarData.with3Groups(),
                             { test: 'test' }
                         );
-                    }).toThrowError('Method not supported by Britechart: test');
+                    }).toThrow('Method not supported by Britechart: test');
                 });
             });
 
@@ -46,7 +46,7 @@ describe('Grouped Bar Chart', () => {
                             groupedBarData.with3Groups(),
                             { customFakeEvent: callback }
                         );
-                    }).toThrowError('Method not supported by Britechart: customFakeEvent');
+                    }).toThrow('Method not supported by Britechart: customFakeEvent');
                 });
             });
         });
@@ -179,7 +179,7 @@ describe('Grouped Bar Chart', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = groupedBarData.with3Groups();
                     const secondDataSet = groupedBarData.with2Groups();
-                    let chart = groupedBar.create(anchor, firstDataSet, {});
+                    const chart = groupedBar.create(anchor, firstDataSet, {});
 
                     groupedBar.update(anchor, secondDataSet, {}, chart);
 
@@ -193,7 +193,7 @@ describe('Grouped Bar Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = groupedBarData.with3Groups();
-                    let chart = groupedBar.create(anchor, dataSet, {});
+                    const chart = groupedBar.create(anchor, dataSet, {});
 
                     groupedBar.update(anchor, [], {}, chart);
 

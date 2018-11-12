@@ -8,8 +8,8 @@ import { bar as barLoadingState } from 'britecharts/dist/umd/loading.min';
 const bar = {};
 
 bar.create = (el, data, configuration = {}) => {
-    let container = select(el);
-    let chart = barChart();
+    const container = select(el);
+    const chart = barChart();
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
@@ -20,7 +20,7 @@ bar.create = (el, data, configuration = {}) => {
 };
 
 bar.update = (el, data, configuration = {}, chart) => {
-    let container = select(el);
+    const container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
