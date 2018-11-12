@@ -1,13 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { shallow, mount } from 'enzyme';
 
 import Legend from './Legend';
 import legendData from './legendChart.fixtures';
 
 import legendChart from './legendChart';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Legend Chart', () => {
 

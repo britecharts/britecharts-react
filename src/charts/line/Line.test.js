@@ -1,13 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { shallow, mount } from 'enzyme';
 
 import Line from './Line';
 import lineData from './lineChart.fixtures';
 
 import line from './lineChart';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Line Chart', () => {
 

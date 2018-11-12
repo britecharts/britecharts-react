@@ -1,13 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { shallow, mount } from 'enzyme';
 
 import StackedArea from './StackedArea';
 import stackedAreaData from './stackedAreaChart.fixtures';
 
 import stackedArea from './stackedAreaChart';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Stacked Area Chart', () => {
 

@@ -1,13 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { shallow, mount } from 'enzyme';
 
 import Sparkline from './Sparkline';
 import sparklineData from './sparklineChart.fixtures';
 
 import sparkline from './sparklineChart';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Sparkline Chart', () => {
 

@@ -1,13 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { shallow, mount } from 'enzyme';
 
 import LoadingContainer from './LoadingContainer';
 
 import barData from '../bar/barChart.fixtures';
 import bar from '../bar/barChart';
-``
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Loading Container', () => {
 

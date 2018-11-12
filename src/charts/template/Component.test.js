@@ -1,13 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { shallow, mount } from 'enzyme';
 
 import {{pascalCase componentName}} from './{{pascalCase componentName}}';
 import {{camelCase componentName}}Data from './{{camelCase componentName}}Chart.fixtures';
 
 import {{camelCase componentName}} from './{{camelCase componentName}}Chart';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('{{titleCase componentName}} Chart', () => {
 
