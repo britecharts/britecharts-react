@@ -12,7 +12,7 @@ const FakeChart = () => (
 
 const renderFakeChart = () => <FakeChart />;
 
-describe('Tooltip', () => {
+describe('tooltip', () => {
 
     describe('render', () => {
         let createSpy;
@@ -34,8 +34,8 @@ describe('Tooltip', () => {
                 />
             );
 
-            let expected = 1;
-            let actual = createSpy.mock.calls.length;
+            const expected = 1;
+            const actual = createSpy.mock.calls.length;
 
             expect(actual).toEqual(expected);
         });
@@ -48,14 +48,14 @@ describe('Tooltip', () => {
                 />
             );
 
-            let expected = wrapper.find('.vertical-marker-container').instance();
-            let actual = createSpy.mock.calls[0][0];
+            const expected = wrapper.find('.vertical-marker-container').instance();
+            const actual = createSpy.mock.calls[0][0];
 
             expect(actual).toEqual(expected);
         });
 
         it('should allow setting locale', () => {
-            let expected = 'en-US';
+            const expected = 'en-US';
 
             mount(
                 <Tooltip
@@ -65,13 +65,13 @@ describe('Tooltip', () => {
                 />
             );
 
-            let actual = createSpy.mock.calls[0][1].locale;
+            const actual = createSpy.mock.calls[0][1].locale;
 
             expect(actual).toEqual(expected);
         });
 
         it('should allow setting title', () => {
-            let expected = 'title';
+            const expected = 'title';
 
             mount(
                 <Tooltip
@@ -81,7 +81,7 @@ describe('Tooltip', () => {
                 />
             );
 
-            let actual = createSpy.mock.calls[0][1].title;
+            const actual = createSpy.mock.calls[0][1].title;
 
             expect(actual).toEqual(expected);
         });
@@ -114,8 +114,8 @@ describe('Tooltip', () => {
                     title: 'DummyTitle',
                 });
 
-                let expected = 1;
-                let actual = createSpy.mock.calls.length;
+                const expected = 1;
+                const actual = createSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
@@ -134,7 +134,7 @@ describe('Tooltip', () => {
                     title: expected,
                 });
 
-                let actual = createSpy.mock.calls[0][1].title;
+                const actual = createSpy.mock.calls[0][1].title;
 
                 expect(actual).toEqual(expected);
             });
@@ -146,14 +146,14 @@ describe('Tooltip', () => {
                         render={renderFakeChart}
                     />
                 );
-                let expected = true;
+                const expected = true;
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setState({
                     isActive: expected,
                 });
 
-                let actual = createSpy.mock.calls[0][2].isActive;
+                const actual = createSpy.mock.calls[0][2].isActive;
 
                 expect(actual).toEqual(expected);
             });
@@ -182,8 +182,8 @@ describe('Tooltip', () => {
 
             wrapper.unmount();
 
-            let expected = 1;
-            let actual = createSpy.mock.calls.length;
+            const expected = 1;
+            const actual = createSpy.mock.calls.length;
 
             expect(actual).toEqual(expected);
         });

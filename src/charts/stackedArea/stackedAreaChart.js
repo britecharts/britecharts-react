@@ -8,8 +8,8 @@ import { stackedArea as stackedAreaLoadingState } from 'britecharts/dist/umd/loa
 const stackedArea = {};
 
 stackedArea.create = (el, data, configuration = {}) => {
-    let container = select(el);
-    let chart = stackedAreaChart();
+    const container = select(el);
+    const chart = stackedAreaChart();
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
@@ -21,7 +21,7 @@ stackedArea.create = (el, data, configuration = {}) => {
 };
 
 stackedArea.update = (el, data, configuration = {}, chart) => {
-    let container = select(el);
+    const container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);

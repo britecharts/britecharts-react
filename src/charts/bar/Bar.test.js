@@ -1,12 +1,12 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
 import Bar from './Bar';
 import barData from './barChart.fixtures';
 
 import bar from './barChart';
 
-describe('Bar Chart', () => {
+describe('bar Chart', () => {
 
     describe('render', () => {
 

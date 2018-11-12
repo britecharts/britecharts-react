@@ -43,7 +43,7 @@ class Sparkline extends React.Component {
          */
         isAnimated: PropTypes.bool,
 
-         /**
+        /**
          * Gets or Sets the lineGradient of the chart
          */
         lineGradient: PropTypes.arrayOf(PropTypes.string),
@@ -52,6 +52,11 @@ class Sparkline extends React.Component {
          * Gets or Sets the loading state of the chart
          */
         loadingState: PropTypes.string,
+
+        /**
+         * Gets or Sets whether a loading state will be shown
+         */
+        shouldShowLoadingState: PropTypes.bool,
 
         /**
          * Gets or Sets the margin of the chart
@@ -73,7 +78,7 @@ class Sparkline extends React.Component {
          * Gets or Sets the text style object of the title at the top of sparkline.
          * Using this method, you can set font-family, font-size, font-weight, font-style,
          * and color (fill). The default text font settings:
-         * 
+         *
          * <pre>
          * <code>
          * {
@@ -85,7 +90,7 @@ class Sparkline extends React.Component {
          * }
          * </code>
          * </pre>
-         * 
+         *
          * You can set attributes individually. Setting just 'font-family'
          * within the object will set custom 'font-family` while the rest
          * of the attributes will have the default values provided above.
@@ -114,12 +119,25 @@ class Sparkline extends React.Component {
          * @ignore
          */
         chart: PropTypes.object,
+
+        /**
+         * Internally used, do not overwrite.
+         *
+         * @ignore
+         */
+        createTooltip: PropTypes.func,
     }
 
     static defaultProps = {
         chart: sparkline,
         createTooltip: () => null,
         shouldShowLoadingState: false,
+    }
+
+    constructor(props) {
+        super(props);
+
+        this._setRef = this._setRef.bind(this);
     }
 
     componentDidMount() {
@@ -167,7 +185,7 @@ class Sparkline extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = {...this.props};
+        const configuration = {...this.props};
 
         delete configuration.data;
         delete configuration.chart;
@@ -185,7 +203,7 @@ class Sparkline extends React.Component {
         return loadingContainerWrapper(
             this.props,
             this.props.chart.loading(),
-            <div className="sparkline-container" ref={this._setRef.bind(this)} />
+            <div className="sparkline-container" ref={this._setRef} />
         );
     }
 }

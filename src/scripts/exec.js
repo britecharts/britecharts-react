@@ -1,40 +1,41 @@
 import { exec as processExec } from 'child-process-promise';
 import 'colors';
 
-let executionOptions = {
+const executionOptions = {
     dryRun: false,
-    verbose: false
+    verbose: false,
 };
 
-function logWithPrefix(prefix, message) {
+const logWithPrefix = function(prefix, message) {
     console.log(
         message.toString().trim()
             .split('\n')
             .map((line) => `${prefix.grey} ${line}`)
             .join('\n')
     );
-}
+};
 
-export function exec(command, options = {}) {
-    let proc = processExec(command, options);
+export const exec = function(command, options = {}) {
+    const proc = processExec(command, options);
+
     if (!executionOptions.verbose) {
         return proc;
     }
-    let title = options.title || command;
-    let output = (data, type) => logWithPrefix(`[${title}] ${type}:`, data);
+    const title = options.title || command;
+    const output = (data, type) => logWithPrefix(`[${title}] ${type}:`, data);
 
     return proc.progress(({ stdout, stderr }) => {
-        stdout.on('data', data => output(data, 'stdout'));
-        stderr.on('data', data => output(data, 'stderr'));
+        stdout.on('data', (data) => output(data, 'stdout'));
+        stderr.on('data', (data) => output(data, 'stderr'));
     })
-        .then(result => {
+        .then((result) => {
             logWithPrefix(`[${title}]`, 'Complete'.cyan);
             return result;
         });
-}
+};
 
-export function safeExec(command, options = {}) {
-    let title = options.title || command;
+export const safeExec = function(command, options = {}) {
+    const title = options.title || command;
 
     if (executionOptions.dryRun) {
         logWithPrefix(`[${title}]`.grey, 'DRY RUN'.magenta);
@@ -42,8 +43,8 @@ export function safeExec(command, options = {}) {
     }
 
     return exec(command, options);
-}
+};
 
-export function setExecOptions(options) {
+export const setExecOptions = function(options) {
     Object.assign(executionOptions, options);
-}
+};

@@ -1,7 +1,7 @@
 import stackedBarData from './stackedBarChart.fixtures';
 import stackedBar from './stackedBarChart';
 
-describe('Stacked Bar Chart', () => {
+describe('stacked Bar Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -18,9 +18,9 @@ describe('Stacked Bar Chart', () => {
                         stackedBar.create(
                             undefined,
                             stackedBarData.with3Sources(),
-                            {} 
+                            {}
                         );
-                    }).toThrowError('A root container is required');
+                    }).toThrow('A root container is required');
                 });
             });
 
@@ -32,7 +32,7 @@ describe('Stacked Bar Chart', () => {
                             stackedBarData.with3Sources(),
                             { test: 'test' }
                         );
-                    }).toThrowError('Method not supported by Britechart: test');
+                    }).toThrow('Method not supported by Britechart: test');
                 });
             });
 
@@ -46,13 +46,13 @@ describe('Stacked Bar Chart', () => {
                             stackedBarData.with3Sources(),
                             { customFakeEvent: callback }
                         );
-                    }).toThrowError('Method not supported by Britechart: customFakeEvent');
+                    }).toThrow('Method not supported by Britechart: customFakeEvent');
                 });
             });
         });
 
         describe('when proper arguments are passed', () => {
-          
+
             it('should set data as a DOM property', () => {
                 const expected = stackedBarData.with3Sources().length;
 
@@ -172,14 +172,14 @@ describe('Stacked Bar Chart', () => {
     });
 
     describe('update', () => {
-      
+
         describe('when updating data', () => {
 
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = stackedBarData.with3Sources();
                     const secondDataSet = stackedBarData.with2Sources();
-                    let chart = stackedBar.create(anchor, firstDataSet, {});
+                    const chart = stackedBar.create(anchor, firstDataSet, {});
 
                     stackedBar.update(anchor, secondDataSet, {}, chart);
 
@@ -193,7 +193,7 @@ describe('Stacked Bar Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = stackedBarData.with3Sources();
-                    let chart = stackedBar.create(anchor, dataSet, {});
+                    const chart = stackedBar.create(anchor, dataSet, {});
 
                     stackedBar.update(anchor, [], {}, chart);
 

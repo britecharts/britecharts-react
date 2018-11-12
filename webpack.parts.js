@@ -1,5 +1,5 @@
+/* eslint-disable import/no-commonjs, line-comment-position */
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
@@ -74,14 +74,14 @@ exports.minifyJavaScript = () => ({
                 uglifyOptions: {
                     mangle: true,
                     ie8: true,
-                    keep_fnames: true,
+                    keep_fnames: true, // eslint-disable-line
                     compress: {
                         'drop_console': true,
                     },
-                }
-            })
-        ]
-    }
+                },
+            }),
+        ],
+    },
 });
 
 exports.bundleTreeChart = () => ({

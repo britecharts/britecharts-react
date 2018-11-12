@@ -1,6 +1,6 @@
 import tooltip from './tooltipChart';
 
-describe('Tooltip Chart', () => {
+describe('tooltip Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -18,7 +18,7 @@ describe('Tooltip Chart', () => {
                             undefined,
                             {}
                         );
-                    }).toThrowError('A root container is required');
+                    }).toThrow('A root container is required');
                 });
             });
 
@@ -29,7 +29,7 @@ describe('Tooltip Chart', () => {
                             anchor,
                             {test: 'test'}
                         );
-                    }).toThrowError('Method not supported by Britechart: test');
+                    }).toThrow('Method not supported by Britechart: test');
                 });
             });
         });

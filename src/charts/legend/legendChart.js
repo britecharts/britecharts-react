@@ -6,8 +6,8 @@ import {applyConfiguration} from '../helpers/configuration';
 const legend = {};
 
 legend.create = (el, data, configuration = {}) => {
-    let container = select(el);
-    let chart = legendChart();
+    const container = select(el);
+    const chart = legendChart();
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
@@ -19,7 +19,7 @@ legend.create = (el, data, configuration = {}) => {
 };
 
 legend.update = (el, data, configuration = {}, chart) => {
-    let container = select(el);
+    const container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);

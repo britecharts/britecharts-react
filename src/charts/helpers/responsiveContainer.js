@@ -2,9 +2,14 @@ import React, {Component} from 'react';
 import optimizedResize from './optimizedResize.js';
 
 export default class ResponsiveContainer extends Component {
+    constructor(props) {
+        super(props);
 
-    state = {
-        width: 500,
+        this.state = {
+            width: 500,
+        };
+
+        this._setRef = this._setRef.bind(this);
     }
 
     componentDidMount() {
@@ -21,7 +26,7 @@ export default class ResponsiveContainer extends Component {
 
     updateSize() {
         if (this._rootNode) {
-            let width = this._rootNode.clientWidth;
+            const width = this._rootNode.clientWidth;
 
             if (width !== this.state.width) {
                 this.setState({
@@ -37,7 +42,7 @@ export default class ResponsiveContainer extends Component {
 
     render() {
         return (
-            <div className="responsive-container" ref={this._setRef.bind(this)}>
+            <div className="responsive-container" ref={this._setRef}>
                 {this.props.render({ width: this.state.width })}
             </div>
         );
