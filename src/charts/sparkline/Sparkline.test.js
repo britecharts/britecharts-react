@@ -9,7 +9,7 @@ import sparkline from './sparklineChart';
 describe('Sparkline Chart', () => {
 
     describe('render', () => {
-        
+
         describe('when data passed in', () => {
             let createSpy;
 
