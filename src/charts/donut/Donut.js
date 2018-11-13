@@ -105,6 +105,8 @@ export default class Donut extends Component {
 
         customMouseOver: PropTypes.func,
         customMouseOut: PropTypes.func,
+        customMouseMove: PropTypes.func,
+        customClick: PropTypes.func,
 
         /**
          * Internally used, do not overwrite.
