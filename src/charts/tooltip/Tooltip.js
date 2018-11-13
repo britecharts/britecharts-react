@@ -84,9 +84,14 @@ export default class Tooltip extends React.Component {
         update: PropTypes.func,
 
         /**
-         * Gets or Sets the valueFormat of the tooltip
+         * Gets or Sets the number format for the value displayed on the tooltip
          */
-        valueFormat: PropTypes.string,
+        numberFormat: PropTypes.string,
+
+        /**
+         * Gets or Sets the formatter function for the value displayed on the tooltip.
+        */
+        valueFormatter: PropTypes.func,
 
         /**
          * Gets or Sets the valueLabel of the data
