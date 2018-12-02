@@ -3,7 +3,7 @@ import {
     colorGradientsHuman,
     colorSchemas,
     colorSchemasHuman,
-    singleColors,
+    singleColors
 } from 'britecharts/dist/umd/colors.min';
 
 export {
@@ -11,5 +11,5 @@ export {
     colorGradientsHuman,
     colorSchemas,
     colorSchemasHuman,
-    singleColors,
+    singleColors
 };
