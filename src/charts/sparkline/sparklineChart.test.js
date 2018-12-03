@@ -1,7 +1,7 @@
 import sparklineData from './sparklineChart.fixtures';
 import sparkline from './sparklineChart';
 
-describe('Sparkline Chart', () => {
+describe('sparkline Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -15,12 +15,12 @@ describe('Sparkline Chart', () => {
             describe('when the DOM element is not passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                      sparkline.create(
+                        sparkline.create(
                             undefined,
                             sparklineData.with1Source(),
                             {}
                         );
-                    }).toThrowError('A root container is required');
+                    }).toThrow('A root container is required');
                 });
             });
 
@@ -32,7 +32,7 @@ describe('Sparkline Chart', () => {
                             sparklineData.with1Source(),
                             { test: 'test' }
                         );
-                    }).toThrowError('Method not supported by Britechart: test');
+                    }).toThrow('Method not supported by Britechart: test');
                 });
             });
 
@@ -46,7 +46,7 @@ describe('Sparkline Chart', () => {
                             sparklineData.with1Source(),
                             { customFakeEvent: callback }
                         );
-                    }).toThrowError('Method not supported by Britechart: customFakeEvent');
+                    }).toThrow('Method not supported by Britechart: customFakeEvent');
                 });
             });
         });
@@ -120,7 +120,7 @@ describe('Sparkline Chart', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = sparklineData.with1Source();
                     const secondDataSet = sparklineData.withLowValues();
-                    let chart = sparkline.create(anchor, firstDataSet, {});
+                    const chart = sparkline.create(anchor, firstDataSet, {});
 
                     sparkline.update(anchor, secondDataSet, {}, chart);
 
@@ -134,7 +134,7 @@ describe('Sparkline Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = sparklineData.with1Source();
-                    let chart = sparkline.create(anchor, dataSet, {});
+                    const chart = sparkline.create(anchor, dataSet, {});
 
                     sparkline.update(anchor, [], {}, chart);
 

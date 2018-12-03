@@ -8,8 +8,8 @@ import { donut as donutLoadingState } from 'britecharts/dist/umd/loading.min';
 const donut = {};
 
 donut.create = (el, data, configuration = {}) => {
-    let container = select(el);
-    let chart = donutChart();
+    const container = select(el);
+    const chart = donutChart();
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
@@ -21,7 +21,7 @@ donut.create = (el, data, configuration = {}) => {
 };
 
 donut.update = (el, data, configuration = {}, chart) => {
-    let container = select(el);
+    const container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);

@@ -8,10 +8,10 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/britecharts.svg?style=social&label=Follow)](https://twitter.com/Britecharts/followers)
 
 
-| [![Stacked Area Chart][stackedAreaImg]][stackedAreaDemo] | [![Bar Chart][barChartImg]][barChartDemo] | [![Line Chart][lineChartImg]][lineChartDemo] |
+| [![Stacked Area Chart](https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/stacked-area.png)](https://eventbrite.github.io/britecharts-react/#stackedarea) | [![Bar Chart](https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/bar-chart.png)](https://eventbrite.github.io/britecharts-react/#bar) | [![Line Chart](https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/line-chart.png)](https://eventbrite.github.io/britecharts-react/#line) |
 | ------------- | ------------- | ------------- |
-| [![Donut Chart][donutChartImg]][donutChartDemo] | [![Legend][legendImg]][legendDemo] | [![Tooltip][tooltipImg]][tooltipDemo] |
-| [![Sparkline Chart][sparklineImg]][sparklineDemo] |
+| [![Donut Chart](https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/donut-chart.png)](https://eventbrite.github.io/britecharts-react/#donut) | [![Legend](https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/legend.png)](https://eventbrite.github.io/britecharts-react/#legend) | [![Tooltip](https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/legend.png)](https://eventbrite.github.io/britecharts-react/#tooltip) |
+| [![Sparkline Chart](https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/sparkline.png)](https://eventbrite.github.io/britecharts-react/#sparkline) |
 
 ## Usage
 Import components from Britecharts-React:
@@ -126,25 +126,3 @@ Read more in the [license document][licenseGithub]
 [codeOfConduct]: https://github.com/eventbrite/britecharts-react/blob/master/CODE_OF_CONDUCT.md
 [homepage]: https://eventbrite.github.io/britecharts-react/
 [testProject]: https://github.com/Golodhros/britecharts-react-test-project
-
-[stackedAreaDemo]: https://eventbrite.github.io/britecharts-react/#stackedarea "Check the Demo"
-[stackedAreaImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/stacked-area.png
-
-[barChartDemo]: https://eventbrite.github.io/britecharts-react/#bar "Check the Demo"
-[barChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/bar-chart.png
-
-[donutChartDemo]: https://eventbrite.github.io/britecharts-react/#donut "Check the Demo"
-[donutChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/donut-chart.png
-
-[lineChartDemo]: https://eventbrite.github.io/britecharts-react/#line "Check the Demo"
-[lineChartImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/line-chart.png
-
-[sparklineDemo]: https://eventbrite.github.io/britecharts-react/#sparkline "Check the Demo"
-[sparklineImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/sparkline.png
-
-[legendDemo]: https://eventbrite.github.io/britecharts-react/#legend "Check the Demo"
-[legendImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/legend.png
-
-[tooltipDemo]: https://eventbrite.github.io/britecharts-react/#tooltip "Check the Demo"
-[tooltipImg]: https://raw.githubusercontent.com/eventbrite/britecharts-react/master/src/docs/images/thumbnails/tooltip.png
-

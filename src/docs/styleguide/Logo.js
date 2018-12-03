@@ -1,6 +1,7 @@
+/* eslint-disable new-cap */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Styled from 'rsg-components/Styled';
+import Styled from 'rsg-components/Styled'; // eslint-disable-line
 
 const styles = ({ color, fontFamily, fontSize }) => ({
     logo: {

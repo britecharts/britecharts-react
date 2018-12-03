@@ -9,8 +9,8 @@ import { line as lineLoadingState } from 'britecharts/dist/umd/loading.min';
 const line = {};
 
 line.create = (el, data, configuration = {}) => {
-    let container = select(el);
-    let chart = lineChart();
+    const container = select(el);
+    const chart = lineChart();
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
@@ -22,7 +22,7 @@ line.create = (el, data, configuration = {}) => {
 };
 
 line.update = (el, data, configuration = {}, chart) => {
-    let container = select(el);
+    const container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);

@@ -1,6 +1,5 @@
+/* eslint-disable import/no-commonjs */
 module.exports = function(grunt) {
-    'use strict';
-
     grunt.renameTask('release', 'bump-version');
     grunt.config.set('bump-version', {
         'options': {
@@ -20,7 +19,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('release', (...args) => {
-        let bumpTask = `bump-version${args.map((val) => `:${val}`)}`;
+        const bumpTask = `bump-version${args.map((val) => `:${val}`)}`;
 
         grunt.task.run(bumpTask);
     });

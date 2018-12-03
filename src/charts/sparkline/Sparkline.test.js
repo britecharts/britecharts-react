@@ -1,18 +1,15 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { mount } from 'enzyme';
 
 import Sparkline from './Sparkline';
 import sparklineData from './sparklineChart.fixtures';
 
 import sparkline from './sparklineChart';
 
-Enzyme.configure({ adapter: new Adapter() });
-
-describe('Sparkline Chart', () => {
+describe('sparkline Chart', () => {
 
     describe('render', () => {
-        
+
         describe('when data passed in', () => {
             let createSpy;
 
@@ -30,8 +27,8 @@ describe('Sparkline Chart', () => {
 
                 mount(<Sparkline chart={sparkline} data={dataSet} />);
 
-                let expected = 1;
-                let actual = createSpy.mock.calls.length;
+                const expected = 1;
+                const actual = createSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
@@ -41,8 +38,8 @@ describe('Sparkline Chart', () => {
 
                 const wrapper = mount(<Sparkline chart={sparkline} data={dataSet} />);
 
-                let expected = wrapper.find('.sparkline-container').instance();
-                let actual = createSpy.mock.calls[0][0];
+                const expected = wrapper.find('.sparkline-container').instance();
+                const actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
             });
@@ -52,15 +49,15 @@ describe('Sparkline Chart', () => {
 
                 mount(<Sparkline chart={sparkline} data={dataSet} />);
 
-                let expectedData = dataSet;
-                let actualData = createSpy.mock.calls[0][1];
+                const expectedData = dataSet;
+                const actualData = createSpy.mock.calls[0][1];
 
                 expect(actualData).toEqual(expectedData);
             });
 
             it('should allow setting width', () => {
                 const dataSet = sparklineData.with1Source();
-                let expected = 500;
+                const expected = 500;
 
                 mount(
                     <Sparkline
@@ -70,14 +67,14 @@ describe('Sparkline Chart', () => {
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].width;
+                const actual = createSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should allow setting height', () => {
                 const dataSet = sparklineData.with1Source();
-                let expected = 500;
+                const expected = 500;
 
                 mount(
                     <Sparkline
@@ -87,7 +84,7 @@ describe('Sparkline Chart', () => {
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].height;
+                const actual = createSpy.mock.calls[0][2].height;
 
                 expect(actual).toEqual(expected);
             });
@@ -117,8 +114,8 @@ describe('Sparkline Chart', () => {
                     data: sparklineData.withLowValues(),
                 });
 
-                let expected = 1;
-                let actual = updateSpy.mock.calls.length;
+                const expected = 1;
+                const actual = updateSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
@@ -132,8 +129,8 @@ describe('Sparkline Chart', () => {
                     data: sparklineData.withLowValues(),
                 });
 
-                let expected = sparklineData.withLowValues().length;
-                let actual = updateSpy.mock.calls[0][1].length;
+                const expected = sparklineData.withLowValues().length;
+                const actual = updateSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });
@@ -148,7 +145,7 @@ describe('Sparkline Chart', () => {
                     width: expected,
                 });
 
-                let actual = updateSpy.mock.calls[0][2].width;
+                const actual = updateSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
@@ -173,8 +170,8 @@ describe('Sparkline Chart', () => {
 
             wrapper.unmount();
 
-            let expected = 1;
-            let actual = createSpy.mock.calls.length;
+            const expected = 1;
+            const actual = createSpy.mock.calls.length;
 
             expect(actual).toEqual(expected);
         });

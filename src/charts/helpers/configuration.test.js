@@ -1,6 +1,6 @@
 import { applyConfiguration } from './configuration';
 
-describe('Configuration', () => {
+describe('configuration', () => {
     it('should allow setting empty string', () => {
         const expected = '';
         const mockChart = {
@@ -8,7 +8,7 @@ describe('Configuration', () => {
                 mockChart._expected = value;
             },
         };
-        let actual = applyConfiguration(mockChart, { expected: '' })._expected;
+        const actual = applyConfiguration(mockChart, { expected: '' })._expected;
 
         expect(actual).toEqual(expected);
     });

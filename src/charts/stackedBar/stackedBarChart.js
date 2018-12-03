@@ -8,8 +8,8 @@ import { bar as stackedBarLoadingState } from 'britecharts/dist/umd/loading.min'
 const stackedBar = {};
 
 stackedBar.create = (el, data, configuration = {}) => {
-    let container = select(el);
-    let chart = stackedBarChart();
+    const container = select(el);
+    const chart = stackedBarChart();
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
@@ -21,7 +21,7 @@ stackedBar.create = (el, data, configuration = {}) => {
 };
 
 stackedBar.update = (el, data, configuration = {}, chart) => {
-    let container = select(el);
+    const container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);

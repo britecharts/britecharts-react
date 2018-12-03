@@ -1,18 +1,15 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { mount } from 'enzyme';
 
 import GroupedBar from './GroupedBar';
 import groupedBarData from './groupedBarChart.fixtures';
 
 import groupedBar from './groupedBarChart';
 
-Enzyme.configure({ adapter: new Adapter() });
+describe('grouped Bar Chart', () => {
 
-describe('Grouped Bar Chart', () => {
-  
     describe('render', () => {
-        
+
         describe('when data passed in', () => {
             let createSpy;
 
@@ -28,8 +25,8 @@ describe('Grouped Bar Chart', () => {
             it('should call the create method or the chart', () => {
                 mount(<GroupedBar chart={groupedBar} data={groupedBarData.with3Groups()} />);
 
-                let expected = 1;
-                let actual = createSpy.mock.calls.length;
+                const expected = 1;
+                const actual = createSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
@@ -37,8 +34,8 @@ describe('Grouped Bar Chart', () => {
             it('should call the create method or the chart with the container as the first argument', () => {
                 const wrapper = mount(<GroupedBar chart={groupedBar} data={groupedBarData.with3Groups()} />);
 
-                let expected = wrapper.find('.grouped-bar-container').instance();
-                let actual = createSpy.mock.calls[0][0];
+                const expected = wrapper.find('.grouped-bar-container').instance();
+                const actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
             });
@@ -48,15 +45,15 @@ describe('Grouped Bar Chart', () => {
 
                 mount(<GroupedBar chart={groupedBar} data={dataSet} />);
 
-                let expectedData = dataSet;
-                let actualData = createSpy.mock.calls[0][1];
+                const expectedData = dataSet;
+                const actualData = createSpy.mock.calls[0][1];
 
                 expect(actualData).toEqual(expectedData);
             });
 
             it('should allow setting width', () => {
                 const dataSet = groupedBarData.with3Groups();
-                let expected = 500;
+                const expected = 500;
 
                 mount(
                     <GroupedBar
@@ -66,14 +63,14 @@ describe('Grouped Bar Chart', () => {
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].width;
+                const actual = createSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should allow setting height', () => {
                 const dataSet = groupedBarData.with3Groups();
-                let expected = 500;
+                const expected = 500;
 
                 mount(
                     <GroupedBar
@@ -83,7 +80,7 @@ describe('Grouped Bar Chart', () => {
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].height;
+                const actual = createSpy.mock.calls[0][2].height;
 
                 expect(actual).toEqual(expected);
             });
@@ -112,8 +109,8 @@ describe('Grouped Bar Chart', () => {
                     data: groupedBarData.with2Groups(),
                 });
 
-                let expected = 1;
-                let actual = updateSpy.mock.calls.length;
+                const expected = 1;
+                const actual = updateSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
@@ -126,8 +123,8 @@ describe('Grouped Bar Chart', () => {
                     data: groupedBarData.with2Groups(),
                 });
 
-                let expected = groupedBarData.with2Groups().length;
-                let actual = updateSpy.mock.calls[0][1].length;
+                const expected = groupedBarData.with2Groups().length;
+                const actual = updateSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });
@@ -141,7 +138,7 @@ describe('Grouped Bar Chart', () => {
                     width: expected,
                 });
 
-                let actual = updateSpy.mock.calls[0][2].width;
+                const actual = updateSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
@@ -165,12 +162,11 @@ describe('Grouped Bar Chart', () => {
 
             wrapper.unmount();
 
-            let expected = 1;
-            let actual = createSpy.mock.calls.length;
+            const expected = 1;
+            const actual = createSpy.mock.calls.length;
 
             expect(actual).toEqual(expected);
         });
     });
 });
-  
-  
+

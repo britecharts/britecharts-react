@@ -27,6 +27,11 @@ class Step extends React.Component {
         loadingState: PropTypes.string,
 
         /**
+         * Gets or Sets whether a loading state will be shown
+         */
+        shouldShowLoadingState: PropTypes.bool,
+
+        /**
          * Gets or Sets the margin of the chart
          */
         margin: PropTypes.shape({
@@ -76,12 +81,25 @@ class Step extends React.Component {
          * @ignore
          */
         chart: PropTypes.object,
+
+        /**
+         * Internally used, do not overwrite.
+         *
+         * @ignore
+         */
+        createTooltip: PropTypes.func,
     }
 
     static defaultProps = {
         chart: step,
         createTooltip: () => null,
         shouldShowLoadingState: false,
+    }
+
+    constructor(props) {
+        super(props);
+
+        this._setRef = this._setRef.bind(this);
     }
 
     componentDidMount() {
@@ -129,7 +147,7 @@ class Step extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = {...this.props};
+        const configuration = {...this.props};
 
         delete configuration.data;
         delete configuration.chart;
@@ -147,7 +165,7 @@ class Step extends React.Component {
         return loadingContainerWrapper(
             this.props,
             this.props.chart.loading(),
-            <div className="step-container" ref={this._setRef.bind(this)} />
+            <div className="step-container" ref={this._setRef} />
         );
     }
 }

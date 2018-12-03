@@ -28,6 +28,9 @@ export default class LoadingContainer extends PureComponent {
             ]
         ),
         loadingState: PropTypes.string,
+        height: PropTypes.number,
+        width: PropTypes.number,
+        shouldShowLoadingState: PropTypes.bool,
     }
 
     render() {
@@ -44,7 +47,7 @@ export default class LoadingContainer extends PureComponent {
             chartStyles.display = 'none';
         }
 
-        let loadingContainer = (
+        const loadingContainer = (
             <div
                 className="loading-container__svg-container"
                 // eslint-disable-next-line react/no-danger
