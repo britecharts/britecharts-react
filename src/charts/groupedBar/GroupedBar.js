@@ -138,12 +138,25 @@ class GroupedBar extends React.Component {
          * @ignore
          */
         chart: PropTypes.object,
+
+        /**
+         * Internally used, do not overwrite.
+         *
+         * @ignore
+         */
+        createTooltip: PropTypes.func,
     }
 
     static defaultProps = {
         chart: groupedBar,
         createTooltip: () => null,
         shouldShowLoadingState: false,
+    }
+
+    constructor(props) {
+        super(props);
+
+        this._setRef = this._setRef.bind(this);
     }
 
     componentDidMount() {
@@ -191,7 +204,7 @@ class GroupedBar extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = {...this.props};
+        const configuration = {...this.props};
 
         delete configuration.data;
         delete configuration.chart;
@@ -209,7 +222,7 @@ class GroupedBar extends React.Component {
         return loadingContainerWrapper(
             this.props,
             this.props.chart.loading(),
-            <div className="grouped-bar-container" ref={this._setRef.bind(this)} />
+            <div className="grouped-bar-container" ref={this._setRef} />
         );
     }
 }

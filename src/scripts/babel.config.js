@@ -1,4 +1,4 @@
-
+/* eslint-disable import/no-commonjs */
 // Duplicated with ../.babelrc for now.
 const baseConfig = {
     'presets': [
@@ -28,12 +28,12 @@ const baseConfig = {
     },
 };
 
-module.exports = (type) => {
-    return {
-        'es': {
-            babelrc: false,
-            presets: ['react'],
-            plugins: baseConfig.plugins,
-        },
-    }[type] || (() => { throw new Error(`Unsupported type for babel ${type}`) })();
-};
+module.exports = (type) => ({
+    'es': {
+        babelrc: false,
+        presets: ['react'],
+        plugins: baseConfig.plugins,
+    },
+}[type] || (() => {
+    throw new Error(`Unsupported type for babel ${type}`);
+})());

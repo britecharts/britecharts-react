@@ -90,6 +90,12 @@ export default class Legend extends React.Component {
         chart: PropTypes.object,
     }
 
+    constructor(props) {
+        super(props);
+
+        this._setRef = this._setRef.bind(this);
+    }
+
     componentDidMount() {
         this._chart = this.props.chart.create(
             this._rootNode,
@@ -116,7 +122,7 @@ export default class Legend extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = { ...this.props };
+        const configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;
@@ -130,7 +136,7 @@ export default class Legend extends React.Component {
 
     render() {
         return (
-            <div className="legend-container" ref={this._setRef.bind(this)} />
+            <div className="legend-container" ref={this._setRef} />
         );
     }
 }

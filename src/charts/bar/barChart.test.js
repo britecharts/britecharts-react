@@ -1,7 +1,7 @@
 import barData from './barChart.fixtures';
 import bar from './barChart';
 
-describe('Bar Chart', () => {
+describe('bar Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -20,7 +20,7 @@ describe('Bar Chart', () => {
                             barData.withLetters(),
                             {}
                         );
-                    }).toThrowError('A root container is required');
+                    }).toThrow('A root container is required');
                 });
             });
             describe('when a non-supported method is passed', () => {
@@ -31,7 +31,7 @@ describe('Bar Chart', () => {
                             barData.withLetters(),
                             { test: 'test' }
                         );
-                    }).toThrowError('Method not supported by Britechart: test');
+                    }).toThrow('Method not supported by Britechart: test');
                 });
             });
 
@@ -45,7 +45,7 @@ describe('Bar Chart', () => {
                             barData.withLetters(),
                             { customFakeEvent: callback }
                         );
-                    }).toThrowError('Method not supported by Britechart: customFakeEvent');
+                    }).toThrow('Method not supported by Britechart: customFakeEvent');
                 });
             });
         });
@@ -108,7 +108,7 @@ describe('Bar Chart', () => {
                         name: 'Shining',
                         value: 5,
                     }];
-                    let chart = bar.create(anchor, firstDataSet, {});
+                    const chart = bar.create(anchor, firstDataSet, {});
 
                     bar.update(anchor, secondDataSet, {}, chart);
 
@@ -122,7 +122,7 @@ describe('Bar Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = barData.withColors();
-                    let chart = bar.create(anchor, dataSet, {});
+                    const chart = bar.create(anchor, dataSet, {});
 
                     bar.update(anchor, dataSet, {}, chart);
 

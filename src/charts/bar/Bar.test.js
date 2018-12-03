@@ -1,15 +1,12 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { mount } from 'enzyme';
 
 import Bar from './Bar';
 import barData from './barChart.fixtures';
 
 import bar from './barChart';
 
-Enzyme.configure({ adapter: new Adapter() });
-
-describe('Bar Chart', () => {
+describe('bar Chart', () => {
 
     describe('render', () => {
 

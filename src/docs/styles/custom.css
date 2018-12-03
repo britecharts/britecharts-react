@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
-
 body,
 .britechart {
     font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
-#app h1,
-#app h2,
-#app h2 a {
+.rsg--body-0 h1,
+.rsg--body-0 h2,
+.rsg--body-0 h2 a {
     font-weight: 300;
 }
 
@@ -47,45 +45,45 @@ body,
 
 
 /* Body */
-#app #introduction {
+.rsg--body-0 #introduction {
     display: none;
 }
-#app blockquote {
+.rsg--body-0 blockquote {
     font-size: 24px;
     margin: 16px 0 24px 0;
 }
 
 /* Headings */
-#app h1 {
+.rsg--body-0 h1 {
     font-size: 48px;
 }
-#app h2 {
+.rsg--body-0 h2 {
     font-size: 32px;
     margin-bottom: 16px;
 }
-#app .rsg--heading-11 {
+.rsg--body-0 .rsg--heading-11 {
     font-weight: 300;
 }
 
 
-#app .rsg--content-3 {
+.rsg--body-0 .rsg--content-3 {
     padding: 60px 32px;
 }
 
-#app .rsg--preview-59 {
+.rsg--body-0 .rsg--preview-59 {
     padding: 0;
 }
 
-#app table thead {
+.rsg--body-0 table thead {
     border-style: none;
 }
-#app table a {
+.rsg--body-0 table a {
     display: block;
 }
-#app table img {
+.rsg--body-0 table img {
     max-width: 100%;
     vertical-align: middle;
 }
-#app table td {
+.rsg--body-0 table td {
     text-align: center;
 }

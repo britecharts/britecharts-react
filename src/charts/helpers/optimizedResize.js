@@ -2,7 +2,7 @@
 
 const optimizedResize = (function() {
 
-    let callbacks = [];
+    const callbacks = [];
     let running = false;
     let cachedWidth = window.innerWidth;
     const delay = 66;
@@ -32,7 +32,7 @@ const optimizedResize = (function() {
     };
 
     const resizeHorizontal = () => {
-        let newWidth = window.innerWidth;
+        const newWidth = window.innerWidth;
 
         if (cachedWidth !== newWidth) {
             cachedWidth = newWidth;
@@ -51,7 +51,7 @@ const optimizedResize = (function() {
 
     const resizeMainHorizontal = () => {
         // This searches for a main tag, that is found in the main section of the React Styleguidist layout.
-        let newWidth = document.querySelector('main').offsetWidth;
+        const newWidth = document.querySelector('main').offsetWidth;
 
         if (cachedWidth !== newWidth) {
             cachedWidth = newWidth;

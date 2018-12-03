@@ -104,6 +104,41 @@ export default class Tooltip extends React.Component {
          * @ignore
          */
         chart: PropTypes.object,
+
+        /**
+         * Internally used, do not overwrite.
+         *
+         * @ignore
+         */
+        render: PropTypes.func,
+
+        /**
+         * Internally used, do not overwrite.
+         *
+         * @ignore
+         */
+        data: PropTypes.object,
+
+        /**
+         * Internally used, do not overwrite.
+         *
+         * @ignore
+         */
+        customMouseMove: PropTypes.func,
+
+        /**
+         * Internally used, do not overwrite.
+         *
+         * @ignore
+         */
+        customMouseOut: PropTypes.func,
+
+        /**
+         * Internally used, do not overwrite.
+         *
+         * @ignore
+         */
+        customMouseOver: PropTypes.func,
     }
 
     static defaultProps = {
@@ -139,7 +174,7 @@ export default class Tooltip extends React.Component {
     }
 
     componentDidUpdate() {
-        let tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
+        const tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
 
         if (tooltipContainer) {
             this._chart = this.props.chart.update(tooltipContainer, this._getChartConfiguration(), this.state, this._chart);
@@ -151,7 +186,7 @@ export default class Tooltip extends React.Component {
     }
 
     _createTooltip = () => {
-        let tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
+        const tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
 
         if (tooltipContainer) {
             this._chart = this.props.chart.create(tooltipContainer, this._getChartConfiguration());
@@ -163,7 +198,7 @@ export default class Tooltip extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = {...this.props};
+        const configuration = {...this.props};
 
         delete configuration.data;
         delete configuration.chart;
@@ -182,7 +217,7 @@ export default class Tooltip extends React.Component {
             y,
         }));
 
-        let {customMouseMove} = this.props;
+        const {customMouseMove} = this.props;
 
         if (customMouseMove) {
             customMouseMove(dataPoint, topicColorMap, x, y);
@@ -193,7 +228,7 @@ export default class Tooltip extends React.Component {
         // Update Tooltip State
         this.setState((state) => ({...state, isActive: false}));
 
-        let {customMouseOut} = this.props;
+        const {customMouseOut} = this.props;
 
         if (customMouseOut) {
             customMouseOut();
@@ -204,7 +239,7 @@ export default class Tooltip extends React.Component {
         // Update Tooltip State
         this.setState((state) => ({...state, isActive: true}));
 
-        let {customMouseOver} = this.props;
+        const {customMouseOver} = this.props;
 
         if (customMouseOver) {
             customMouseOver();

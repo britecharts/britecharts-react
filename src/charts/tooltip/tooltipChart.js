@@ -6,15 +6,15 @@ import {applyConfiguration} from '../helpers/configuration';
 const tooltip = {};
 
 tooltip.create = (el, configuration = {}) => {
-    let container = select(el);
-    let chart = tooltipChart();
+    const container = select(el);
+    const chart = tooltipChart();
 
     chart.topicLabel('values');
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
 
-    let chartConfigured = applyConfiguration(chart, configuration);
+    const chartConfigured = applyConfiguration(chart, configuration);
 
     // Calls the chart with the container and dataset
     container.datum([]).call(chartConfigured);
@@ -23,12 +23,12 @@ tooltip.create = (el, configuration = {}) => {
 };
 
 tooltip.update = (el, configuration = {}, state = {}, chart) => {
-    let container = select(el);
+    const container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
 
-    let chartConfigured = applyConfiguration(chart, configuration);
+    const chartConfigured = applyConfiguration(chart, configuration);
 
     container.call(chartConfigured);
 

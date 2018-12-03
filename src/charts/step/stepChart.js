@@ -9,8 +9,8 @@ import { bar as stepLoadingState } from 'britecharts/dist/umd/loading.min';
 const step = {};
 
 step.create = (el, data, configuration = {}) => {
-    let container = select(el);
-    let chart = stepChart();
+    const container = select(el);
+    const chart = stepChart();
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
@@ -22,7 +22,7 @@ step.create = (el, data, configuration = {}) => {
 };
 
 step.update = (el, data, configuration = {}, chart) => {
-    let container = select(el);
+    const container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);

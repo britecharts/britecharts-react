@@ -8,8 +8,8 @@ import { line as sparklineLoadingState } from 'britecharts/dist/umd/loading.min'
 const sparkline = {};
 
 sparkline.create = (el, data, configuration = {}) => {
-    let container = select(el);
-    let chart = sparklineChart();
+    const container = select(el);
+    const chart = sparklineChart();
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
@@ -21,7 +21,7 @@ sparkline.create = (el, data, configuration = {}) => {
 };
 
 sparkline.update = (el, data, configuration = {}, chart) => {
-    let container = select(el);
+    const container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);

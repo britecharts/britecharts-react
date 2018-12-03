@@ -120,6 +120,12 @@ export default class Donut extends Component {
         shouldShowLoadingState: false,
     }
 
+    constructor(props) {
+        super(props);
+
+        this._setRef = this._setRef.bind(this);
+    }
+
     componentDidMount() {
         if (!this.props.shouldShowLoadingState) {
             this._createChart();
@@ -162,7 +168,7 @@ export default class Donut extends Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = {...this.props};
+        const configuration = {...this.props};
 
         delete configuration.data;
         delete configuration.chart;
@@ -179,7 +185,7 @@ export default class Donut extends Component {
         return loadingContainerWrapper(
             this.props,
             this.props.loadingState || this.props.chart.loading(),
-            <div className="donut-container" ref={this._setRef.bind(this)} />
+            <div className="donut-container" ref={this._setRef} />
         );
     }
 }

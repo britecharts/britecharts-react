@@ -1,15 +1,12 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { mount } from 'enzyme';
 
 import Donut from './Donut';
 import donutData from './donutChart.fixtures';
 
 import donut from './donutChart';
 
-Enzyme.configure({ adapter: new Adapter() });
-
-describe('Donut Chart', () => {
+describe('donut Chart', () => {
 
     describe('render', () => {
 
@@ -28,8 +25,8 @@ describe('Donut Chart', () => {
             it('should call the create method or the chart', () => {
                 mount(<Donut chart={donut} data={donutData.with4Slices()} />);
 
-                let expected = 1;
-                let actual = createSpy.mock.calls.length;
+                const expected = 1;
+                const actual = createSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
@@ -37,8 +34,8 @@ describe('Donut Chart', () => {
             it('should call the create method or the chart with the container as the first argument', () => {
                 const wrapper = mount(<Donut chart={donut} data={donutData.with4Slices()} />);
 
-                let expected = wrapper.find('.donut-container').instance();
-                let actual = createSpy.mock.calls[0][0];
+                const expected = wrapper.find('.donut-container').instance();
+                const actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
             });
@@ -48,15 +45,15 @@ describe('Donut Chart', () => {
 
                 mount(<Donut chart={donut} data={dataSet} />);
 
-                let expectedData = dataSet;
-                let actualData = createSpy.mock.calls[0][1];
+                const expectedData = dataSet;
+                const actualData = createSpy.mock.calls[0][1];
 
                 expect(actualData).toEqual(expectedData);
             });
 
             it('should allow setting width', () => {
                 const dataSet = donutData.with4Slices();
-                let expected = 500;
+                const expected = 500;
 
                 mount(
                     <Donut
@@ -66,14 +63,14 @@ describe('Donut Chart', () => {
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].width;
+                const actual = createSpy.mock.calls[0][2].width;
 
                 expect(actual).toEqual(expected);
             });
 
             it('should allow setting height', () => {
                 const dataSet = donutData.with4Slices();
-                let expected = 500;
+                const expected = 500;
 
                 mount(
                     <Donut
@@ -83,7 +80,7 @@ describe('Donut Chart', () => {
                     />
                 );
 
-                let actual = createSpy.mock.calls[0][2].height;
+                const actual = createSpy.mock.calls[0][2].height;
 
                 expect(actual).toEqual(expected);
             });
@@ -117,8 +114,8 @@ describe('Donut Chart', () => {
                     data: donutData.with4Slices(),
                 });
 
-                let expected = 1;
-                let actual = updateSpy.mock.calls.length;
+                const expected = 1;
+                const actual = updateSpy.mock.calls.length;
 
                 expect(actual).toEqual(expected);
             });
@@ -136,8 +133,8 @@ describe('Donut Chart', () => {
                     data: donutData.with4Slices(),
                 });
 
-                let expected = donutData.with4Slices().length;
-                let actual = updateSpy.mock.calls[0][1].length;
+                const expected = donutData.with4Slices().length;
+                const actual = updateSpy.mock.calls[0][1].length;
 
                 expect(actual).toEqual(expected);
             });

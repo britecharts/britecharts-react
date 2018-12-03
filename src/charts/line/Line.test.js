@@ -1,18 +1,15 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import { mount } from 'enzyme';
 
 import Line from './Line';
 import lineData from './lineChart.fixtures';
 
 import line from './lineChart';
 
-Enzyme.configure({ adapter: new Adapter() });
-
-describe('Line Chart', () => {
+describe('line Chart', () => {
 
     describe('render', () => {
-        
+
         describe('when data passed in', () => {
             let createSpy;
 
