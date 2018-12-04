@@ -1,14 +1,85 @@
 0.4.1
+-----
+Features
+* Changing loading states of stacked area and step charts
+* Updating Readme
+* Updating Britecharts version to 2.8.0 and fixing tests
+* Updating meta tags and logo
+* Implemented Sparkline chart
+* Adds donut + legend demo
+
+Fixes
+* Allow setChartProperty to handle empty string values
+* Added correct twitter link and fixed alignment of imgs
+* Updating props of Donut and Bar charts
+* Updating props of Legend, Line and Grouped bar charts
+* Updating props of StackedArea, StackedBar, Step and Tooltip
+* Removing validateData helper
+* Updating paths to work on github pages
+* Updates authors and tags in package.json
+* Fix boolean proptypes for Donut
+
 0.4.0
-0.3.32
-0.3.31
-0.3.30
+-----
+Features
+* Changing bundle from commonjs into umd
+* Adds Step component with Plop workflow, and fixes bugs preventing documentation from rendering properly
+* Switches custom css to responsive chart, per Bar.js
+* Auto-generated component boilerplate with Plop
+* Adds StackedBar component, tests and Readme for same
+* Grouped Bar Charts
+
+Fixes
+* Fixing proptypes naming on Donut chart
+* Updating issue and PR templates
+* Fixed links in demos to charts and corrected demos local port
+* Fix docs update
+
+0.3.32, 0.3.31, 0.3.30
+----------------------
+* Fix loading state styles
+* Fixes legend chart test
+* Updating dependencies
+* Fixes loading states style/bugs and adds them to demos
+* Adding google analytics tracking
+* Updating fixtures to use a valid date format
+
 0.3.29
+------
+* Switches -> in (leftover change from pull request
+* Updating readme with test project
+* Adds esm modules with babel-cli
+
 0.3.28
+------
+* Add loading states
+* Copying Britecharts styles over
+* Updating docs and renaming charts by removing 'component' from the name
+* Adding badges and hiding introduction header
+* Featured img update
+* Cleaning demo thumbnails stuff
+* Adds a set of thumbnails of our charts at the top of the readme file
+* Fix Linechart demos and update docs
+
 0.3.27
+------
+* Retrieving old yarn.lock
+
 0.3.26
+------
+* Removing d3-selection from externals
+
 0.3.25
+------
+* Adding CommonJS target on lib folder
+* Updating demos and hacking fix for responsive container
+* Adds simple github link in docs homepage
+
 0.3.24
+------
+* Upgrade to latest britecharts
+* Fix tooltip not rendering the first data item due to falsy number check
+
 0.3.23
 0.3.22
 0.3.21
