@@ -49,25 +49,6 @@ const optimizedResize = (function() {
         }
     };
 
-    const resizeMainHorizontal = () => {
-        // This searches for a main tag, that is found in the main section of the React Styleguidist layout.
-        const newWidth = document.querySelector('main').offsetWidth;
-
-        if (cachedWidth !== newWidth) {
-            cachedWidth = newWidth;
-
-            if (!running) {
-                running = true;
-
-                if (window.requestAnimationFrame) {
-                    window.requestAnimationFrame(runCallbacks);
-                } else {
-                    setTimeout(runCallbacks, delay);
-                }
-            }
-        }
-    };
-
     // adds callback to loop
     const addCallback = (callback) => {
 
@@ -87,12 +68,6 @@ const optimizedResize = (function() {
         addHorizontal(callback) {
             if (!callbacks.length) {
                 window.addEventListener('resize', resizeHorizontal);
-            }
-            addCallback(callback);
-        },
-        addHorizontalMain(callback) {
-            if (!callbacks.length) {
-                window.addEventListener('resize', resizeMainHorizontal);
             }
             addCallback(callback);
         },
