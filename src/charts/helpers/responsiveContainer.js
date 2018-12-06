@@ -10,10 +10,11 @@ export default class ResponsiveContainer extends Component {
         };
 
         this._setRef = this._setRef.bind(this);
+        this.updateSize = this.updateSize.bind(this);
     }
 
     componentDidMount() {
-        optimizedResize.addHorizontalMain(this.updateSize.bind(this));
+        optimizedResize.addHorizontal(this.updateSize);
 
         this.updateSize();
     }

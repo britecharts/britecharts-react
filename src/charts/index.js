@@ -8,3 +8,6 @@ export {default as StackedArea} from './stackedArea/StackedArea.js';
 export {default as StackedBar} from './stackedBar/StackedBar.js';
 export {default as Step} from './step/Step.js';
 export {default as Tooltip} from './tooltip/Tooltip.js';
+
+export {default as ResponsiveContainer } from './helpers/responsiveContainer.js';
+export {default as withResponsiveness} from './helpers/withResponsiveness.js';
