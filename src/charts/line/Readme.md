@@ -1,7 +1,7 @@
 ### With one line with tooltip and basis curve
 ```js
     const lineData = require('./lineChart.fixtures').default;
-    const ResponsiveContainer = require('../helpers/ResponsiveContainer.js').default;
+    const ResponsiveContainer = require('../helpers/responsiveContainer.js').default;
     const margin = {
         top: 60,
         right: 30,
