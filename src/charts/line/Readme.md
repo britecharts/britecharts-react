@@ -1,8 +1,7 @@
 ### With one line with tooltip and basis curve
 ```js
     const lineData = require('./lineChart.fixtures').default;
-    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveLineChart = withResponsiveness(Line);
+    const ResponsiveContainer = require('../helpers/ResponsiveContainer.js').default;
     const margin = {
         top: 60,
         right: 30,
@@ -11,10 +10,16 @@
     };
 
     const renderLine = (props) => (
-        <Line
-            margin={margin}
-            lineCurve="basis"
-            {...props}
+        <ResponsiveContainer
+            render={
+                ({width}) =>
+                    <Line
+                        margin={margin}
+                        lineCurve="basis"
+                        width={width}
+                        {...props}
+                    />
+            }
         />
     );
 
@@ -39,7 +44,7 @@
     };
 
     const renderLine = (props) => (
-        <Line
+        <ResponsiveLineChart
             tooltipThreshold={0}
             margin={margin}
             {...props}
@@ -67,7 +72,7 @@
         left: 70,
     };
 
-    <Line
+    <ResponsiveLineChart
         data={lineData.fiveTopics()}
         margin={margin}
         lineCurve="stepBefore"
