@@ -1,4 +1,17 @@
+0.5.1
+-----
+* Fixes responsive container and responsive HOC
+
 0.5.0
+-----
+Features
+* Updates dependencies
+* Updates React version to 16
+* Added click handlers on Donut
+
+Fixes
+* Moved setRef to the class constructor
+
 0.4.1
 -----
 Features
