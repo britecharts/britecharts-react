@@ -1,189 +1,232 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-
-import {{ pascalCase componentName }} from './{{pascalCase componentName}}';
-import {{ camelCase componentName }}Data from './{{camelCase componentName}}Chart.fixtures';
-
-import {{ camelCase componentName }} from './{{camelCase componentName}}Chart';
+import {{camelCase componentName}}Data from './{{camelCase componentName}}Chart.fixtures';
+import {{camelCase componentName}} from './{{camelCase componentName}}Chart';
 
 describe('{{titleCase componentName}} Chart', () => {
-
-    describe('render', () => {
-
-        describe('when data passed in', () => {
-            let createSpy;
-
-            beforeEach(() => {
-                createSpy = jest.spyOn({{ camelCase componentName }}, 'create');
-        });
-
-        afterEach(() => {
-            createSpy.mockReset();
-            createSpy.mockRestore();
-        });
-
-        it('should call the create method or the chart', () => {
-            const dataSet = {{ camelCase componentName }
-        }Data.firstDataMethod();
-
-        mount(< {{ pascalCase componentName }} chart = {{ openBrace }}{{ camelCase componentName }}{{ closeBrace }} data = { dataSet } />);
-
-let expected = 1;
-let actual = createSpy.mock.calls.length;
-
-expect(actual).toEqual(expected);
-            });
-
-it('should call the create method or the chart with the container as the first argument', () => {
-    const dataSet = {{ camelCase componentName }
-}Data.firstDataMethod();
-
-const wrapper = mount(< {{ pascalCase componentName }} chart = {{ openBrace }}{ { camelCase componentName } } { { closeBrace } } data = { dataSet } />);
-
-let expected = wrapper.find('.{{dashCase componentName}}-container').instance();
-let actual = createSpy.mock.calls[0][0];
-
-expect(actual).toEqual(expected);
-            });
-
-it('should call the create method or the chart with the configuration object as the second argument', () => {
-    const dataSet = {{ camelCase componentName }
-}Data.firstDataMethod();
-
-mount(< {{ pascalCase componentName }} chart = {{ openBrace }}{{ camelCase componentName }}{{ closeBrace }} data = { dataSet } />);
-
-let expectedData = dataSet;
-let actualData = createSpy.mock.calls[0][1];
-
-expect(actualData).toEqual(expectedData);
-            });
-
-it('should allow setting width', () => {
-    const dataSet = {{ camelCase componentName }
-}Data.firstDataMethod();
-let expected = 500;
-
-mount(
-                    < {{ pascalCase componentName }}
-    chart = {{ openBrace }}{{ camelCase componentName }}{{ closeBrace }}
-    data = { dataSet }
-                        width = { expected }
-    />
-                );
-
-let actual = createSpy.mock.calls[0][2].width;
-
-expect(actual).toEqual(expected);
-            });
-
-it('should allow setting height', () => {
-    const dataSet = {{ camelCase componentName }
-}Data.firstDataMethod();
-let expected = 500;
-
-mount(
-                    < {{ pascalCase componentName }}
-    chart = {{ openBrace }}{{ camelCase componentName }}{{ closeBrace }}
-    data = { dataSet }
-                        height = { expected }
-    />
-                );
-
-let actual = createSpy.mock.calls[0][2].height;
-
-expect(actual).toEqual(expected);
-            });
-        });
-    });
-
-describe('update', () => {
-
-    describe('when data changes', () => {
-        let updateSpy;
-
-        beforeEach(() => {
-            updateSpy = jest.spyOn({{ camelCase componentName }}, 'update');
-    });
-
-    afterEach(() => {
-        updateSpy.mockReset();
-        updateSpy.mockRestore();
-    });
-
-    it('should call the update method or the chart', () => {
-        const dataSet = {{ camelCase componentName }
-    }Data.firstDataMethod();
-    const wrapper = mount(< {{ pascalCase componentName }} chart = {{ openBrace }}{{ camelCase componentName }}{{ closeBrace }} data = { dataSet } />);
-
-// Changing properties should trigger a componentDidUpdate
-wrapper.setProps({
-    data: {{ camelCase componentName }}Data.secondDataMethod(),
-                });
-
-let expected = 1;
-let actual = updateSpy.mock.calls.length;
-
-expect(actual).toEqual(expected);
-            });
-
-it('should pass in the new data to the update method', () => {
-    const dataSet = {{ camelCase componentName }
-}Data.firstDataMethod();
-const wrapper = mount(< {{ pascalCase componentName }} chart = {{ openBrace }}{ { camelCase componentName } } { { closeBrace } } data = { dataSet } />);
-
-// Changing properties should trigger a componentDidUpdate
-wrapper.setProps({
-    data: {{ camelCase componentName }}Data.secondDataMethod(),
-                });
-
-let expected = {{ camelCase componentName }}Data.secondDataMethod().length;
-let actual = updateSpy.mock.calls[0][1].length;
-
-expect(actual).toEqual(expected);
-            });
-
-it('should pass in the new configuration to the update method', () => {
-    const dataSet = {{ camelCase componentName }
-}Data.firstDataMethod();
-const wrapper = mount(< {{ pascalCase componentName }} chart = {{ openBrace }}{ { camelCase componentName } } { { closeBrace } } data = { dataSet } />);
-const expected = 20;
-
-// Changing properties should trigger a componentDidUpdate
-wrapper.setProps({
-    width: expected,
-});
-
-let actual = updateSpy.mock.calls[0][2].width;
-
-expect(actual).toEqual(expected);
-            });
-        });
-    });
-
-describe('unmount', () => {
-    let createSpy;
+    let anchor;
 
     beforeEach(() => {
-        createSpy = jest.spyOn({{ camelCase componentName }}, 'destroy');
-});
+        anchor = document.createElement('div');
+    });
 
-afterEach(() => {
-    createSpy.mockReset();
-    createSpy.mockRestore();
-});
+    describe('create', () => {
 
-it('should call the destroy method or the chart', () => {
-    const dataSet = {{ camelCase componentName }
-}Data.firstDataMethod();
-const wrapper = mount(< {{ pascalCase componentName }} chart = {{ openBrace }}{ { camelCase componentName } } { { closeBrace } } data = { dataSet } />);
+        describe('when incorrect arguments are used', () => {
 
-wrapper.unmount();
+            describe('when the DOM element is not passed', () => {
+                it('should throw an error', () => {
+                    expect(() => {
+                      {{camelCase componentName}}.create(
+                            undefined,
+                            {{camelCase componentName}}Data.firstDataMethod(),
+                            {}
+                        );
+                    }).toThrowError('A root container is required');
+                });
+            });
 
-let expected = 1;
-let actual = createSpy.mock.calls.length;
+            describe('when a non-supported method is passed', () => {
+                it('should throw an error', () => {
+                    expect(() => {
+                        {{camelCase componentName}}.create(
+                            anchor,
+                            {{camelCase componentName}}Data.firstDataMethod(),
+                            { test: 'test' }
+                        );
+                    }).toThrowError('Method not supported by Britechart: test');
+                });
+            });
 
-expect(actual).toEqual(expected);
+            describe('when wrong event handlers are passed', () => {
+                it('should throw ane error', () => {
+                    const callback = jest.fn();
+
+                    expect(() => {
+                        {{camelCase componentName}}.create(
+                            anchor,
+                            {{camelCase componentName}}Data.firstDataMethod(),
+                            { customFakeEvent: callback }
+                        );
+                    }).toThrowError('Method not supported by Britechart: customFakeEvent');
+                });
+            });
+        });
+
+        describe('when proper arguments are passed', () => {
+
+            it('should set data as a DOM property', () => {
+                const expected = {{camelCase componentName}}Data.firstDataMethod().length;
+
+                {{camelCase componentName}}.create(anchor, {{camelCase componentName}}Data.firstDataMethod());
+
+                const actual = anchor.__data__.length;
+
+                expect(actual).toEqual(expected);
+            });
+
+            it('should set the width', () => {
+                const expected = 500;
+
+                const chart = {{camelCase componentName}}.create(
+                    anchor,
+                    {{camelCase componentName}}Data.firstDataMethod(),
+                    { width: expected }
+                );
+
+                const actual = chart.width();
+
+                expect(actual).toEqual(expected);
+            });
+
+            it('should set the height', () => {
+                const expected = 600;
+
+                const chart = {{camelCase componentName}}.create(
+                    anchor,
+                    {{camelCase componentName}}Data.firstDataMethod(),
+                    { height: expected }
+                );
+
+                const actual = chart.height();
+
+                expect(actual).toEqual(expected);
+            });
+
+            it('should set the margin', () => {
+                const expected = {
+                    top: 0,
+                    bottom: 1,
+                    left: 2,
+                    right: 3,
+                };
+
+                const chart = {{camelCase componentName}}.create(
+                    anchor,
+                    {{camelCase componentName}}Data.firstDataMethod(),
+                    { margin: expected }
+                );
+
+                const actual = chart.margin();
+
+                expect(actual).toEqual(expected);
+            });
+
+            /**
+             * The grid is not supported by every chart, and this test should only be included if necessary
+             */
+            it('should set the grid', () => {
+                const expected = 'vertical';
+
+                const chart = {{camelCase componentName}}.create(
+                    anchor,
+                    {{camelCase componentName}}Data.firstDataMethod(),
+                    { grid: expected }
+                );
+
+                const actual = chart.grid();
+
+                expect(actual).toEqual(expected);
+            });
+
+            describe('when event handlers are passed', () => {
+
+                it('should set customMouseOver callback', () => {
+                    const expected = jest.fn();
+
+                    const chart = {{camelCase componentName}}.create(
+                        anchor,
+                        {{camelCase componentName}}Data.firstDataMethod(),
+                        { customMouseOver: expected }
+                    );
+
+                    const actual = chart.on('customMouseOver');
+
+                    expect(actual).toEqual(expected);
+                });
+
+                it('should set customMouseMove callback', () => {
+                    const expected = jest.fn();
+
+                    const chart = {{camelCase componentName}}.create(
+                        anchor,
+                        {{camelCase componentName}}Data.firstDataMethod(),
+                        { customMouseMove: expected }
+                    );
+
+                    const actual = chart.on('customMouseMove');
+
+                    expect(actual).toEqual(expected);
+                });
+
+                it('should set customMouseOut callback', () => {
+                    const expected = jest.fn();
+
+                    const chart = {{camelCase componentName}}.create(
+                        anchor,
+                        {{camelCase componentName}}Data.firstDataMethod(),
+                        { customMouseOut: expected }
+                    );
+
+                    const actual = chart.on('customMouseOut');
+
+                    expect(actual).toEqual(expected);
+                });
+            });
+        });
+    });
+
+    describe('update', () => {
+
+        describe('when updating data', () => {
+
+            describe('when new data is passed', () => {
+                it('should update the data in the container', () => {
+                    const firstDataSet = {{camelCase componentName}}Data.firstDataMethod();
+                    const secondDataSet = {{camelCase componentName}}Data.secondDataMethod();
+                    let chart = {{camelCase componentName}}.create(anchor, firstDataSet, {});
+
+                    {{camelCase componentName}}.update(anchor, secondDataSet, {}, chart);
+
+                    const expected = secondDataSet.length;
+                    const actual = anchor.__data__.length;
+
+                    expect(actual).toEqual(expected);
+                });
+            });
+
+            describe('when new data is not passed', () => {
+                it('should keep the data in the container', () => {
+                    const dataSet = {{camelCase componentName}}Data.firstDataMethod();
+                    let chart = {{camelCase componentName}}.create(anchor, dataSet, {});
+
+                    {{camelCase componentName}}.update(anchor, [], {}, chart);
+
+                    const expected = dataSet.length;
+                    const actual = anchor.__data__.length;
+
+                    expect(actual).toEqual(expected);
+                });
+            });
+        });
+
+        describe('when updating configuration', () => {
+
+            describe('when new configuration is passed', () => {
+                it('should update the configuration in the chart', () => {
+                    const expected = 500;
+                    const firstWidth = 200;
+                    const chart = {{camelCase componentName}}.create(
+                        anchor,
+                        {{camelCase componentName}}Data.firstDataMethod(),
+                        { width: firstWidth }
+                    );
+
+                    {{camelCase componentName}}.update(anchor, [], { width: expected }, chart);
+
+                    const actual = chart.width();
+
+                    expect(actual).toEqual(expected);
+                });
+            });
         });
     });
 });
-
