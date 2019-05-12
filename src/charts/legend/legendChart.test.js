@@ -1,7 +1,7 @@
 import legendData from './legendChart.fixtures';
 import legendChart from './legendChart';
 
-describe('Legend Chart', () => {
+describe('legend Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -20,7 +20,7 @@ describe('Legend Chart', () => {
                             legendData.with6Points(),
                             {}
                         );
-                    }).toThrowError('A root container is required');
+                    }).toThrow('A root container is required');
                 });
             });
 
@@ -32,7 +32,7 @@ describe('Legend Chart', () => {
                             legendData.with6Points(),
                             { test: 'test' }
                         );
-                    }).toThrowError('Method not supported by Britechart: test');
+                    }).toThrow('Method not supported by Britechart: test');
                 });
             });
         });
@@ -106,7 +106,8 @@ describe('Legend Chart', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = legendData.with6Points();
                     const secondDataSet = legendData.with6Points();
-                    let chart = legendChart.create(anchor, firstDataSet, {});
+
+                    const chart = legendChart.create(anchor, firstDataSet, {});
 
                     legendChart.update(anchor, secondDataSet, {}, chart);
 
@@ -120,7 +121,8 @@ describe('Legend Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = legendData.with6Points();
-                    let chart = legendChart.create(anchor, dataSet, {});
+
+                    const chart = legendChart.create(anchor, dataSet, {});
 
                     legendChart.update(anchor, [], {}, chart);
 
