@@ -3,7 +3,9 @@
 const optimizedResize = (function() {
 
     const callbacks = [];
+
     let running = false;
+
     let cachedWidth = window.innerWidth;
     const delay = 66;
 
