@@ -18,6 +18,11 @@ module.exports = {
             "version": "detect"
         }
     },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
     rules: {
         indent: ['error', 4],
         'linebreak-style': ['error', 'unix'],
