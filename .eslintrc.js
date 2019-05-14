@@ -10,8 +10,8 @@ module.exports = {
     parserOptions: {
         sourceType: 'module',
     },
-    'globals': {
-        'jest': true,
+    globals: {
+        jest: true,
     },
     rules: {
         indent: ['error', 4],
