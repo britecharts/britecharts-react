@@ -21,7 +21,7 @@ deploy:
       repo: eventbrite/britecharts-react
   - provider: pages
     skip_cleanup: true
-    github_token: $GITHUB_TOKEN
+    github_token: $GITHUB_TOKEN_JAYLUM_CHEN
     local_dir: docs
     on:
       branch: master
