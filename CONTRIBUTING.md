@@ -24,7 +24,7 @@
 
 0. Fork repository by clicking the fork button on github
 0. Clone repository with `git clone https://github.com/<your handle>/britecharts-react.git`
-0. Navigate to the repository folder and install dependencies with: `yarn install` (we require [node][node] 6.11.x at the moment)
+0. Navigate to the repository folder and install dependencies with: `yarn install` (we use [node][node] 12.2.0 at the moment)
 0. If you don't have yarn installed, it can be easily installed with homebrew following the instruction in the [yarn docs][yarn]
 
 
@@ -38,32 +38,25 @@
 
     `git pull --rebase upstream master`
 
-0. Branch names should be prefixed with either `fix-` or `feat-` depending on your PR content. Create a new branch by typing:
+0. Branch names should be prefixed with either `fix-`, `feat-` or `ref-` depending on your PR content. Create a new branch by typing:
 
-     `git checkout -b [fix|feat]-<your branch name>`
+     `git checkout -b [fix|feat|ref]-<your branch name>`
 
 
 ### Running the Demos
 
 In order to generate the demos and see the documentation for the library you would need to:
 
- + Download and install node (note we need npm version 2.X)
+ + Download and install node
  + Ensure you have [yarn][yarn] installed as well
  + Clone the repository with:
-
     `git clone git@github.com:eventbrite/britecharts-react.git`
-
  + Change directory into the repository root and install its dependencies:
-
     `yarn install`
-
  + In the root or the repository folder, run:
-
     `yarn run test`
-
  + In a second terminal window, run:
-
-    `yarn run styleguide`
+    `yarn start`
 
 
 This process will generate the styleguide and show it in ``localhost:6060``. You can use this demos as your testing platform when creating new charts.
