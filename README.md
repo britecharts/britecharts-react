@@ -51,6 +51,7 @@ From there, we will proceed to pass each of the configurations through the usual
 
 The complete set of components is in progress; the following components are currently implemented and available for use:
 - Bar charts [(API)][barChartAPI]
+- Bullet charts [(API)][bulletAPI]
 - Grouped Bar charts [(API)][groupedBarChartAPI]
 - Donut charts [(API)][donutChartAPI]
 - Line charts [(API)][lineChartAPI]
@@ -133,6 +134,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [tooltipAPI]: http://eventbrite.github.io/britecharts/module-Tooltip.html
 [stepChartAPI]: http://eventbrite.github.io/britecharts/module-Step.html
 [legendAPI]: http://eventbrite.github.io/britecharts/module-Legend.html
+[bulletAPI]: http://eventbrite.github.io/britecharts/module-Bullet.html
 
 
 [license]: https://www.apache.org/licenses/LICENSE-2.0
