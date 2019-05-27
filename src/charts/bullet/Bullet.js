@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+/* eslint-disable */
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import donut from './donutChart';
+import bullet from './bulletChart';
 import {loadingContainerWrapper} from '../loading/LoadingContainer';
 
-export default class Donut extends Component {
+class Bullet extends React.Component {
 
     static propTypes = {
         /**
@@ -13,30 +14,24 @@ export default class Donut extends Component {
         data: PropTypes.array,
 
         /**
-         * Gets or Sets the centeredTextFunction of the chart. If function is provided the format will be changed by the custom function's value format. The default format function value is "${d.percentage}% ${d.name}". The callback will provide the data object with id, name, percentage, and quantity. Also provides the component added by the user in each data entry
+         * Gets or Sets the aspect ratio of the chart
          */
-        centeredTextFunction: PropTypes.func,
+        aspectRatio: PropTypes.number,
 
         /**
-         * Gets or Sets the colorSchema of the chart
+         * Gets or Sets the colorSchema of the chart. The first color from the array will be applied to range bars (the wider bars). The second color from the array will be applied to measure bars (the narrow bars) and marker lines.
          */
         colorSchema: PropTypes.arrayOf(PropTypes.string),
 
         /**
-         * Gets or Sets the emptyDataConfig of the chart. If set and data is empty (quantity adds up to zero or there are no entries), the chart will render an empty slice with a given color (light gray by default)
+         * Gets or Sets the subtitle for measure identifier range.
          */
-        emptyDataConfig: PropTypes.object,
+        customSubtitle: PropTypes.string,
 
         /**
-         * Gets or Sets the externalRadius of the chart
+         * Gets or Sets the title for measure identifier range.
          */
-        externalRadius: PropTypes.number,
-
-        /**
-         * Gets or Sets the hasFixedHighlightedSlice property of the chart, making it
-         * to highlight the selected slice id set with `highlightSliceById` all the time.
-         */
-        hasFixedHighlightedSlice: PropTypes.bool,
+        customTitle: PropTypes.string,
 
         /**
          * Gets or Sets the height of the chart
@@ -44,20 +39,9 @@ export default class Donut extends Component {
         height: PropTypes.number,
 
         /**
-         * Gets or Sets the id of the slice to highlight
+         * Gets or Sets the isReverse status of the chart. If true, the elements will be rendered in reverse order.
          */
-        highlightSliceById: PropTypes.number,
-
-        /**
-         * Gets or Sets the internalRadius of the chart
-         */
-        internalRadius: PropTypes.number,
-
-        /**
-         * Gets or Sets the isAnimated property of the chart, making it to animate
-         * when render. By default this is 'false'
-         */
-        isAnimated: PropTypes.bool,
+        isReverse: PropTypes.bool,
 
         /**
          * Gets or Sets the loading state of the chart
@@ -75,49 +59,43 @@ export default class Donut extends Component {
         }),
 
         /**
-         * Gets or Sets the number format of the donut chart
+         * Gets or Sets the number format of the bar chart
          */
         numberFormat: PropTypes.string,
 
         /**
-         * Changes the order of items given custom function
+         * Space between axis and chart
          */
-        orderingFunction: PropTypes.func,
+        paddingBetweenAxisAndChart: PropTypes.number,
 
         /**
-         * Gets or Sets the percentage format for the percentage label
+         * Gets or Sets the starting point of the capacity range.
+         * Default is 0.5
          */
-        percentageFormat: PropTypes.string,
+        startMaxRangeOpacity: PropTypes.number,
 
         /**
-         * Gets or Sets the radiusHoverOffset of the chart
+         * Gets or Sets the number of ticks of the x axis on the chart
+         * Default is 5
          */
-        radiusHoverOffset: PropTypes.number,
-
-        /**
-         * Gets or Sets whether a loading state will be shown
-         */
-        shouldShowLoadingState: PropTypes.bool,
+        ticks: PropTypes.number,
 
         /**
          * Gets or Sets the width of the chart
          */
         width: PropTypes.number,
 
-        customMouseOver: PropTypes.func,
-        customMouseOut: PropTypes.func,
-        customMouseMove: PropTypes.func,
-        customClick: PropTypes.func,
-
         /**
          * Internally used, do not overwrite.
+         *
+         * @ignore
          */
         chart: PropTypes.object,
     }
 
     static defaultProps = {
-        chart: donut,
-        isAnimated: true,
+        chart: bullet,
+        createTooltip: () => null,
         shouldShowLoadingState: false,
     }
 
@@ -129,7 +107,9 @@ export default class Donut extends Component {
 
     componentDidMount() {
         if (!this.props.shouldShowLoadingState) {
-            this._createChart();
+            if (this.props.data !== null) {
+                this._createChart();
+            }
         }
     }
 
@@ -139,6 +119,7 @@ export default class Donut extends Component {
                 this._createChart();
             } else {
                 this._updateChart();
+                this.props.createTooltip();
             }
         }
     }
@@ -169,10 +150,11 @@ export default class Donut extends Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        const configuration = {...this.props};
+        let configuration = {...this.props};
 
         delete configuration.data;
         delete configuration.chart;
+        delete configuration.createTooltip;
         delete configuration.shouldShowLoadingState;
 
         return configuration;
@@ -186,7 +168,9 @@ export default class Donut extends Component {
         return loadingContainerWrapper(
             this.props,
             this.props.loadingState || this.props.chart.loading(),
-            <div className="donut-container" ref={this._setRef} />
+            <div className="bullet-container" ref={this._setRef} />
         );
     }
 }
+
+export default Bullet;
