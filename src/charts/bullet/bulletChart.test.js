@@ -54,11 +54,11 @@ describe('Bullet Chart', () => {
         describe('when proper arguments are passed', () => {
 
             it('should set data as a DOM property', () => {
-                const expected = bulletData.fullTestData().length;
+                const expected = bulletData.fullTestData()[0];
 
                 bullet.create(anchor, bulletData.fullTestData());
 
-                const actual = anchor.__data__.length;
+                const actual = anchor.__data__;
 
                 expect(actual).toEqual(expected);
             });
@@ -124,8 +124,8 @@ describe('Bullet Chart', () => {
 
                     bullet.update(anchor, secondDataSet, {}, chart);
 
-                    const expected = secondDataSet.length;
-                    const actual = anchor.__data__.length;
+                    const expected = secondDataSet[0];
+                    const actual = anchor.__data__;
 
                     expect(actual).toEqual(expected);
                 });
@@ -138,8 +138,8 @@ describe('Bullet Chart', () => {
 
                     bullet.update(anchor, [], {}, chart);
 
-                    const expected = dataSet.length;
-                    const actual = anchor.__data__.length;
+                    const expected = dataSet[0];
+                    const actual = anchor.__data__;
 
                     expect(actual).toEqual(expected);
                 });
