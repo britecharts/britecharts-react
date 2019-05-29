@@ -1,3 +1,11 @@
+---
+name: Feature Request
+about: Create a feature request proposal for Britecharts React
+title: Feature Proposal
+labels: proposal
+assignees: ''
+
+---
 <!--- Provide a general summary of the feature request or improvement in the Title above -->
 <!--- Look through existing open and closed feature proposals to see if someone has asked for the feature before -->
 

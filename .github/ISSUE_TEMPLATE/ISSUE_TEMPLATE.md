@@ -1,3 +1,11 @@
+---
+name: Bug Report
+about: Create a bug report for Britecharts-React
+title: Bug Report
+labels: bug
+assignees: ''
+
+---
 <!--- Provide a general summary of the issue in the Title above -->
 <!--- Look through existing open and closed issues to see if someone has reported the issue before -->
 
