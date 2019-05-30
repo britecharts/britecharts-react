@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "jchen-eb",
+      "name": "jchen-eb",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/31455015?v=4",
+      "profile": "https://github.com/jchen-eb",
+      "contributions": [
+        "code",
+        "ideas",
+        "maintenance",
+        "review"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "britecharts-react",
+  "projectOwner": "eventbrite",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
