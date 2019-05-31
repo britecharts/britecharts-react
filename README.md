@@ -1,11 +1,11 @@
 # Britecharts React
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 > Britecharts-react is a [React][react] wrapper for the [Britecharts][britecharts] charting library.
 
 [![Build Status](https://travis-ci.org/eventbrite/britecharts-react.svg?branch=master)](https://travis-ci.org/eventbrite/britecharts-react)
 [![npm version](https://badge.fury.io/js/britecharts-react.svg)](https://badge.fury.io/js/britecharts-react)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/eventbrite/britecharts-react/blob/master/CONTRIBUTING.md)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 [![Twitter Follow](https://img.shields.io/twitter/follow/britecharts.svg?style=social&label=Follow)](https://twitter.com/Britecharts/followers)
 
 
@@ -25,7 +25,7 @@ import { StackedArea } from 'britecharts-react';
 const { StackedArea } = require('britecharts-react');
 ```
 
-Britecharts-React components are used just like any other stateless React component. You will pass in some props and it would render a chart:
+Britecharts-React components are used just like any other stateless React component. You will pass in some props, and it would render a chart:
 
 ```js static
 <StackedArea
@@ -37,7 +37,7 @@ Britecharts-React components are used just like any other stateless React compon
 ```
 
 ## API
-Each component's API will be a reflect of [Britecharts][britecharts] charts and their APIs. That way, if we need to render a bar chart, we will first check the [bar chart's API][barChartAPI] in the main project API reference page. You can read more about the approach [here][topics]
+Each component's API will be a reflection of [Britecharts][britecharts] charts and their APIs. That way, if we need to render a bar chart, we will first check the [bar chart's API][barChartAPI] in the main project API reference page. You can read more about the approach [here][topics]
 
 From there, we will proceed to pass each of the configurations through the usual props as we do in React projects:
 ```js static
@@ -51,6 +51,7 @@ From there, we will proceed to pass each of the configurations through the usual
 
 The complete set of components is in progress; the following components are currently implemented and available for use:
 - Bar charts [(API)][barChartAPI]
+- Bullet charts [(API)][bulletAPI]
 - Grouped Bar charts [(API)][groupedBarChartAPI]
 - Donut charts [(API)][donutChartAPI]
 - Line charts [(API)][lineChartAPI]
@@ -59,21 +60,25 @@ The complete set of components is in progress; the following components are curr
 - Stacked Bar charts [(API)][stackedBarChartAPI]
 - Tooltips [(API)][tooltipAPI]
 - Step charts [(API)][stepChartAPI]
+- Legends [(API)][legendAPI]
 
-The following components are not yet implemented:
+The following components haven't been migrated yet from Britecharts:
 - Brush charts
-- Mini Tooltip
-- Scatter Plot
+- Heatmaps
+- Mini Tooltips
+- Scatter Plots
+
+If you need to use one of the missing charts, check out our [how-to guide for creating new charts][howtoCreate].
 
 ## Installation
 Britecharts-React is available as an [NPM module][npmModule] or through CDN links (in [different formats][jsDelivrLib] or a [bundle][jsDelivrDist]).
 
-You can also use individual bundles in UMD format (`dist/umd/`), CommonJS format (`lib/cjs`) and tree-shaking enabling ES2015 modules (`lib/esm`) to add to your bundle. You can see more on our [test project][testProject].
+You can also use individual bundles in UMD format (`dist/umd/`), CommonJS format (`lib/cjs`), and tree-shaking-enabling ES2015 modules (`lib/esm`) to add to your bundle. You can see more on our [test project][testProject].
 
-You would also need to load the stylesheets located in `dist/britecharts-react.min.css` in order to style the charts properly.
+Developers also need to load the stylesheets located in `dist/britecharts-react.min.css` to style the charts correctly.
 
 ## Next steps
-We are accepting PRs for creating wrappers for Britecharts components. Check our [contributing guide][contributingGuide], drop by the #britecharts channel in the [d3 slack][d3Slack] or just create an issue if you want to know more.
+We are accepting PRs for creating wrappers for Britecharts components. Check our [contributing guide][contributingGuide], drop by the #britecharts channel in the [d3 slack][d3Slack], or create an issue if you want to know more.
 
 
 ## Acknowledgments
@@ -100,33 +105,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-Read more in the [license document][licenseGithub]
+Read more in the [license document][licenseGithub].
 
 [britecharts]: https://github.com/eventbrite/britecharts
-[react]: https://facebook.github.io/react/
-[integration-article]: http://nicolashery.com/integrating-d3js-visualizations-in-a-react-app/
-
-[barChartAPI]: http://eventbrite.github.io/britecharts/module-Bar.html
-[groupedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Grouped-Bar.html
-[donutChartAPI]: http://eventbrite.github.io/britecharts/module-Donut.html
-[lineChartAPI]: http://eventbrite.github.io/britecharts/module-Line.html
-[sparklineChartAPI]: http://eventbrite.github.io/britecharts/module-Sparkline.html
-[stackedAreaChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-area.html
-[stackedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-bar.html
-[tooltipAPI]: http://eventbrite.github.io/britecharts/module-Tooltip.html
-[stepChartAPI]: http://eventbrite.github.io/britecharts/module-Step.html
-
-[license]: https://www.apache.org/licenses/LICENSE-2.0
-[licenseGithub]: https://github.com/eventbrite/britecharts-react/blob/master/LICENSE.md
-[topics]: https://github.com/eventbrite/britecharts-react/blob/master/TOPICS.md
-[jsDelivrLib]: https://cdn.jsdelivr.net/npm/britecharts-react@latest/lib/
-[jsDelivrDist]: https://cdn.jsdelivr.net/npm/britecharts-react@latest/dist/
-[npmModule]: https://www.npmjs.com/package/britecharts-react
-[contributingGuide]: https://github.com/eventbrite/britecharts-react/blob/master/CONTRIBUTING.md
-[d3Slack]: https://d3js.slack.com/
-[codeOfConduct]: https://github.com/eventbrite/britecharts-react/blob/master/CODE_OF_CONDUCT.md
-[homepage]: https://eventbrite.github.io/britecharts-react/
-[testProject]: https://github.com/Golodhros/britecharts-react-test-project
 
 ## Contributors
 
@@ -139,3 +120,32 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+[react]: https://facebook.github.io/react/
+[integration-article]: http://nicolashery.com/integrating-d3js-visualizations-in-a-react-app/
+
+[barChartAPI]: http://eventbrite.github.io/britecharts/module-Bar.html
+[groupedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Grouped-Bar.html
+[donutChartAPI]: http://eventbrite.github.io/britecharts/module-Donut.html
+[lineChartAPI]: http://eventbrite.github.io/britecharts/module-Line.html
+[sparklineChartAPI]: http://eventbrite.github.io/britecharts/module-Sparkline.html
+[stackedAreaChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-area.html
+[stackedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-bar.html
+[tooltipAPI]: http://eventbrite.github.io/britecharts/module-Tooltip.html
+[stepChartAPI]: http://eventbrite.github.io/britecharts/module-Step.html
+[legendAPI]: http://eventbrite.github.io/britecharts/module-Legend.html
+[bulletAPI]: http://eventbrite.github.io/britecharts/module-Bullet.html
+
+
+[license]: https://www.apache.org/licenses/LICENSE-2.0
+[licenseGithub]: https://github.com/eventbrite/britecharts-react/blob/master/LICENSE.md
+[topics]: https://github.com/eventbrite/britecharts-react/blob/master/TOPICS.md
+[jsDelivrLib]: https://cdn.jsdelivr.net/npm/britecharts-react@latest/lib/
+[jsDelivrDist]: https://cdn.jsdelivr.net/npm/britecharts-react@latest/dist/
+[npmModule]: https://www.npmjs.com/package/britecharts-react
+[contributingGuide]: https://github.com/eventbrite/britecharts-react/blob/master/CONTRIBUTING.md
+[d3Slack]: https://d3js.slack.com/
+[codeOfConduct]: https://github.com/eventbrite/britecharts-react/blob/master/CODE_OF_CONDUCT.md
+[homepage]: https://eventbrite.github.io/britecharts-react/
+[testProject]: https://github.com/Golodhros/britecharts-react-test-project
+[howtoCreate]: https://github.com/eventbrite/britecharts-react/blob/master/CONTRIBUTING.md#creating-a-new-chart

@@ -15,6 +15,10 @@ class {{pascalCase componentName}} extends React.Component {
         /**
          * TODO: Add your propTypes here!
          */
+        /**
+         *
+         */
+        : PropTypes.,
 
         customMouseOver: PropTypes.func,
         customMouseMove: PropTypes.func,
