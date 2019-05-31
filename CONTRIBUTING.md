@@ -137,19 +137,19 @@ Please use the [issues](https://github.com/eventbrite/britecharts-react/issues) 
 
 The build sequence consists of a small set of [Node][node] tasks. While you'll probably only need `yarn run test` and `yarn run build` most of the time, the other tasks can be called independently or combined in order to see the docs.
 
-| Task                         | Description
-| ---------                    | ---
-| `yarn run start`             | Start the development process that is going to transpile the files
-| `yarn run test`              | Run the Jest runner to see if the tests are running
-| `yarn run test:watch`        | Start the Jest runner that will test the project and keep watching for changes.
-| `yarn run styleguide`        | Serves the demos in localhost:6060.
-| `yarn run styleguide:build`  | Builds the styleguide.
-| `yarn run build`             | Build everything and generate the distribution version of the charts.
-| `yarn run lint`              | Runs the eslint linter
-| `yarn run lint:fix`          | Runs the eslint linter fixing easy problems
-| `yarn run release`           | Create a new release of the library.
-| `yarn run release:minor`     | Create a new release of the library by bumping the second number of the version (1.N.1)
-| `yarn run release:major`     | Create a new release of the library by bumping the third number of the version (N.1.1)
+| Task                        | Description                                                                             |
+| --------------------------- | --------------------------------------------------------------------------------------- |
+| `yarn run start`            | Start the development process that is going to transpile the files                      |
+| `yarn run test`             | Run the Jest runner to see if the tests are running                                     |
+| `yarn run test:watch`       | Start the Jest runner that will test the project and keep watching for changes.         |
+| `yarn run styleguide`       | Serves the demos in localhost:6060.                                                     |
+| `yarn run styleguide:build` | Builds the styleguide.                                                                  |
+| `yarn run build`            | Build everything and generate the distribution version of the charts.                   |
+| `yarn run lint`             | Runs the eslint linter                                                                  |
+| `yarn run lint:fix`         | Runs the eslint linter fixing easy problems                                             |
+| `yarn run release`          | Create a new release of the library.                                                    |
+| `yarn run release:minor`    | Create a new release of the library by bumping the second number of the version (1.N.1) |
+| `yarn run release:major`    | Create a new release of the library by bumping the third number of the version (N.1.1)  |
 
 ## Project Structure
 
@@ -168,16 +168,16 @@ britecharts-react
 ```
 
 
-| Folder                  | Description
-| ---                     | ---
-| **dist**                | Where the production ready bundle of our charts will be placed
-| **docs**                | Where the generated demo website lives
-| **lib**                 | Where the production ready individual UMD bundles will live, alongside with the ES6 modules version of them
-| **src**                 | Where we will place the code we create
-| **src/charts**          | Where our charts live
-| **src/charts/helpers**  | Where our chart helpers live
-| **src/helpers**         | Where our general helpers live, like test data generators
-| **src/tasks**           | Some of our grunt tasks configuration
+| Folder                 | Description                                                                                                 |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **dist**               | Where the production ready bundle of our charts will be placed                                              |
+| **docs**               | Where the generated demo website lives                                                                      |
+| **lib**                | Where the production ready individual UMD bundles will live, alongside with the ES6 modules version of them |
+| **src**                | Where we will place the code we create                                                                      |
+| **src/charts**         | Where our charts live                                                                                       |
+| **src/charts/helpers** | Where our chart helpers live                                                                                |
+| **src/helpers**        | Where our general helpers live, like test data generators                                                   |
+| **src/tasks**          | Some of our grunt tasks configuration                                                                       |
 
 
 [node]: http://nodejs.org
