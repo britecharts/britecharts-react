@@ -54,9 +54,9 @@ In order to generate the demos and see the documentation for the library you wou
  + Change directory into the repository root and install its dependencies:
     `yarn install`
  + In the root or the repository folder, run:
-    `yarn run test`
+    `yarn run test:watch`
  + In a second terminal window, run:
-    `yarn start`
+    `yarn run styleguide`
 
 
 This process will generate the styleguide and show it in ``localhost:6060``. You can use this demos as your testing platform when creating new charts.
