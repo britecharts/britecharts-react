@@ -9,8 +9,8 @@ import { line as {{camelCase componentName}}LoadingState } from 'britecharts/dis
 const {{camelCase componentName}} = {};
 
 {{camelCase componentName}}.create = (el, data, configuration = {}) => {
-    let container = select(el);
-    let chart = {{camelCase componentName}}Chart();
+    const container = select(el);
+    const chart = {{camelCase componentName}}Chart();
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
@@ -22,7 +22,7 @@ const {{camelCase componentName}} = {};
 };
 
 {{camelCase componentName}}.update = (el, data, configuration = {}, chart) => {
-    let container = select(el);
+    const container = select(el);
 
     validateContainer(container);
     validateConfiguration(chart, configuration);

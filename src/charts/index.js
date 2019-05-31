@@ -1,4 +1,5 @@
 export {default as Bar} from './bar/Bar.js';
+export {default as Bullet} from './bullet/Bullet.js';
 export {default as Donut} from './donut/Donut.js';
 export {default as GroupedBar} from './groupedBar/GroupedBar.js';
 export {default as Legend} from './legend/Legend.js';

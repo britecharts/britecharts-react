@@ -107,8 +107,7 @@ Alternatively, you can use Plop to generate the boilerplate for your new compone
 1. On a new terminal, run ``yarn run plop``. When prompted, enter your chart's name (be sure to use PascalCase capitalization!). This will generate a new folder for your component in ``src/charts/chartName``, with all necessary files.
 1. Before starting to modify the boilerplate, start the test suite: ``yarn run test:watch``.
 1. Follow the tasks in ``src/charts/chartName/Checklist.md`` to complete your component
-1. Once completed, create a pull request with your branch and ping one of the core authors to get it reviewed.
-1. Once you have a shipit, merge it
+1. Once completed, create a pull request with your branch and ping one of the core authors to get it reviewed and merged.
 
 
 ## Pull Requests
