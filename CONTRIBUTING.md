@@ -59,7 +59,7 @@ In order to generate the demos and see the documentation for the library you wou
     `yarn run styleguide`
 
 
-This process will generate the styleguide and show it in ``localhost:6060``. You can use this demos as your testing platform when creating new charts.
+This process will generate the styleguide and show it in `localhost:6060`. You can use this demos as your testing platform when creating new charts.
 
 
 ## Modifying a chart
@@ -69,18 +69,18 @@ We have created this components with Tests First, and we encourage you to do the
 For a TDD workflow, the process would look like this:
 
 1. Create a new branch for your modification
-1. On a new terminal, run ``yarn start`` and ``yarn run styleguide`` and navigate to the chart's demo or create a new demo in ``/src/charts/*/Readme.md``
-1. Find the test of the chart you want to modify in ``/src/charts/*/*.test.js``
-1. Write a failing test for the feature you want to add
-1. On a new terminal, run ``yarn run test:watch``
-1. Check that the test fail
-1. Write the code that would make that test pass on the chart located in ``/src/charts/*/*Component.js`` or ``/src/charts/*/*Chart.js``. Please follow the code style in the current files.
-1. Make the test pass by writing the less amount of code
-1. Refactor until you get a nice and clean code
-1. Check the demo to see the code in action
-1. Update the documentation so that the proper demos gets generated when you run ``yarn run styleguide:build``
-1. Create a pull request and ask people of the team to review it
-1. Once you have the OK, merge it!
+2. On a new terminal, run `yarn start` and `yarn run styleguide` and navigate to the chart's demo or create a new demo in `/src/charts/*/Readme.md`
+3. Find the test of the chart you want to modify in `/src/charts/*/*.test.js`
+4. Write a failing test for the feature you want to add
+5. On a new terminal, run `yarn run test:watch`
+6. Check that the test fail
+7. Write the code that would make that test pass on the chart located in `/src/charts/*/*Component.js` or `/src/charts/*/*Chart.js`. Please follow the code style in the current files.
+8. Make the test pass by writing the less amount of code
+9. Refactor until you get a nice and clean code
+10. Check the demo to see the code in action
+11. Update the documentation so that the proper demos gets generated when you run `yarn run styleguide:build`
+12. Create a pull request and ask people of the team to review it
+13. Once you have the OK, merge it!
 
 
 ## Creating a new chart
@@ -88,25 +88,25 @@ For a TDD workflow, the process would look like this:
 Adding a new chart is a bunch of work, but we hope that using the current code and documentation will help in the process.
 
 1. Create a new branch for your new chart
-1. On a new terminal, run ``yarn start`` ``yarn run styleguide`` to get ready the demos and turn on the dev server.
-1. Given that you new chart is ``ChartName``, create in ``/src/charts/ChartName`` a new file ``ChartName.js`` and test file ``ChartName.test.js``.
-1. Create also a new component in ``/src/charts/ChartName`` a new file ``ChartNameComponent.js`` and test file ``ChartNameComponent.test.js``.
-1. Add the new demo entry on ``/src/charts/ChartName/Readme.md``, keeping the same format.
-7. Go to ``webpack.config.js`` and add the new chart to the ``CHARTS`` object, follow the same style.
-8. Go to your test file ``ChartName.test.js`` and, taking another test as an example, copy over pieces until you have the first test case.
-1. Add one test and make it fail calling ``yarn run test:watch``.
+1. On a new terminal, run `yarn start` `yarn run styleguide` to get ready the demos and turn on the dev server.
+1. Given that you new chart is `ChartName`, create in `/src/charts/ChartName` a new file `ChartName.js` and test file `ChartName.test.js`.
+1. Create also a new component in `/src/charts/ChartName` a new file `ChartNameComponent.js` and test file `ChartNameComponent.test.js`.
+1. Add the new demo entry on `/src/charts/ChartName/Readme.md`, keeping the same format.
+7. Go to `webpack.config.js` and add the new chart to the `CHARTS` object, follow the same style.
+8. Go to your test file `ChartName.test.js` and, taking another test as an example, copy over pieces until you have the first test case.
+1. Add one test and make it fail calling `yarn run test:watch`.
 1. Keep on coding according to the code style you can see in the current charts, using the stackedAreaChart as a reference.
-1. Generate your docs with ``yarn run styleguide:build`` and manually test the demos.
+1. Generate your docs with `yarn run styleguide:build` and manually test the demos.
 1. Create a pull request with your branch and ping one of the core authors to get it reviewed.
 1. Once you have a shipit, merge it
 
 Alternatively, you can use Plop to generate the boilerplate for your new component, if the component already exists in Britecharts.
 
 1. Create a new branch for your new chart
-1. On a new terminal, run ``yarn start`` ``yarn run styleguide`` to prepare the demos and turn on the dev server.
-1. On a new terminal, run ``yarn run plop``. When prompted, enter your chart's name (be sure to use PascalCase capitalization!). This will generate a new folder for your component in ``src/charts/chartName``, with all necessary files.
-1. Before starting to modify the boilerplate, start the test suite: ``yarn run test:watch``.
-1. Follow the tasks in ``src/charts/chartName/Checklist.md`` to complete your component
+1. On a new terminal, run `yarn start` `yarn run styleguide` to prepare the demos and turn on the dev server.
+1. On a new terminal, run `yarn run plop`. When prompted, enter your chart's name (be sure to use PascalCase capitalization!). This will generate a new folder for your component in `src/charts/chartName`, with all necessary files.
+1. Before starting to modify the boilerplate, start the test suite: `yarn run test:watch`.
+1. Follow the tasks in `src/charts/chartName/Checklist.md` to complete your component
 1. Once completed, create a pull request with your branch and ping one of the core authors to get it reviewed and merged.
 
 
