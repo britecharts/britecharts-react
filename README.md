@@ -1,4 +1,5 @@
 # Britecharts React
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 > Britecharts-react is a [React][react] wrapper for the [Britecharts][britecharts] charting library.
 
 [![Build Status](https://travis-ci.org/eventbrite/britecharts-react.svg?branch=master)](https://travis-ci.org/eventbrite/britecharts-react)
@@ -126,3 +127,15 @@ Read more in the [license document][licenseGithub]
 [codeOfConduct]: https://github.com/eventbrite/britecharts-react/blob/master/CODE_OF_CONDUCT.md
 [homepage]: https://eventbrite.github.io/britecharts-react/
 [testProject]: https://github.com/Golodhros/britecharts-react-test-project
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table><tr><td align="center"><a href="http://davidgomez.dev"><img src="https://avatars0.githubusercontent.com/u/282903?v=4" width="100px;" alt="David Gómez"/><br /><sub><b>David Gómez</b></sub></a><br /><a href="https://github.com/eventbrite/britecharts-react/commits?author=davegomez" title="Code">💻</a> <a href="#ideas-davegomez" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-davegomez" title="Maintenance">🚧</a> <a href="#review-davegomez" title="Reviewed Pull Requests">👀</a></td></tr></table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
