@@ -10,7 +10,13 @@ const FakeChart = () => (
     </div>
 );
 
+const FakeChartNoMarker = () => (
+    <div className="metadata-group" />
+);
+
 const renderFakeChart = () => <FakeChart />;
+
+const renderFakeChartNoMarker = () => <FakeChartNoMarker />;
 
 describe('tooltip', () => {
 
@@ -49,6 +55,21 @@ describe('tooltip', () => {
             );
 
             const expected = wrapper.find('.vertical-marker-container').instance();
+            const actual = createSpy.mock.calls[0][0];
+
+            expect(actual).toEqual(expected);
+        });
+
+
+        it('should call the create method or the chart with the container as the first argument when no vertical marker is present', () => {
+            const wrapper = mount(
+                <Tooltip
+                    chart={tooltip}
+                    render={renderFakeChartNoMarker}
+                />
+            );
+
+            const expected = wrapper.find('.metadata-group').instance();
             const actual = createSpy.mock.calls[0][0];
 
             expect(actual).toEqual(expected);

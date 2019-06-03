@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import tooltip from './tooltipChart';
 
-const tooltipContainerSelector = '.metadata-group .vertical-marker-container';
+const tooltipContainerWithMarkerSelector = '.metadata-group .vertical-marker-container';
+const tooltipContainerSelector = '.metadata-group';
 
 
 export default class Tooltip extends React.Component {
@@ -174,10 +175,11 @@ export default class Tooltip extends React.Component {
     }
 
     componentDidUpdate() {
+        const tooltipWithMarkerContainer = this._rootNode.querySelector(tooltipContainerWithMarkerSelector);
         const tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
 
-        if (tooltipContainer) {
-            this._chart = this.props.chart.update(tooltipContainer, this._getChartConfiguration(), this.state, this._chart);
+        if (tooltipWithMarkerContainer || tooltipContainer) {
+            this._chart = this.props.chart.update(tooltipWithMarkerContainer || tooltipContainer, this._getChartConfiguration(), this.state, this._chart);
         }
     }
 
@@ -186,10 +188,11 @@ export default class Tooltip extends React.Component {
     }
 
     _createTooltip = () => {
+        const tooltipWithMarkerContainer = this._rootNode.querySelector(tooltipContainerWithMarkerSelector);
         const tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
 
-        if (tooltipContainer) {
-            this._chart = this.props.chart.create(tooltipContainer, this._getChartConfiguration());
+        if (tooltipWithMarkerContainer || tooltipContainer) {
+            this._chart = this.props.chart.create(tooltipWithMarkerContainer || tooltipContainer, this._getChartConfiguration());
         }
     }
 
