@@ -118,7 +118,7 @@ export default class Tooltip extends React.Component {
          *
          * @ignore
          */
-        data: PropTypes.object,
+        data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
 
         /**
          * Internally used, do not overwrite.
