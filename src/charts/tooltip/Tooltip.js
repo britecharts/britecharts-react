@@ -178,6 +178,10 @@ export default class Tooltip extends React.Component {
         const tooltipWithMarkerContainer = this._rootNode.querySelector(tooltipContainerWithMarkerSelector);
         const tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
 
+        this.childChart = this.props.render({
+            data: this.props.data,
+        });
+
         if (tooltipWithMarkerContainer || tooltipContainer) {
             this._chart = this.props.chart.update(tooltipWithMarkerContainer || tooltipContainer, this._getChartConfiguration(), this.state, this._chart);
         }
