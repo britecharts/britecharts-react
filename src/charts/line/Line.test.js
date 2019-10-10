@@ -7,6 +7,11 @@ import lineData from './lineChart.fixtures';
 import line from './lineChart';
 
 describe('line Chart', () => {
+    let chartData;
+
+    beforeEach(() => {
+        chartData = lineData.flatData.a;
+    });
 
     describe('render', () => {
 
@@ -23,7 +28,7 @@ describe('line Chart', () => {
             });
 
             it('should call the create method or the chart', () => {
-                mount(<Line chart={line} data={lineData.fiveTopics()} />);
+                mount(<Line chart={line} data={chartData} />);
 
                 const expected = 1;
                 const actual = createSpy.mock.calls.length;
@@ -32,7 +37,7 @@ describe('line Chart', () => {
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<Line chart={line} data={lineData.fiveTopics()} />);
+                const wrapper = mount(<Line chart={line} data={chartData} />);
 
                 const expected = wrapper.find('.line-container').instance();
                 const actual = createSpy.mock.calls[0][0];
@@ -41,7 +46,7 @@ describe('line Chart', () => {
             });
 
             it('should call the create method or the chart with the configuration object as the second argument', () => {
-                const dataSet = lineData.fiveTopics();
+                const dataSet = chartData;
 
                 mount(<Line chart={line} data={dataSet} />);
 
@@ -52,7 +57,7 @@ describe('line Chart', () => {
             });
 
             it('should allow setting width', () => {
-                const dataSet = lineData.fiveTopics();
+                const dataSet = chartData;
                 const expected = 500;
 
                 mount(
@@ -69,7 +74,7 @@ describe('line Chart', () => {
             });
 
             it('should allow setting height', () => {
-                const dataSet = lineData.fiveTopics();
+                const dataSet = chartData;
                 const expected = 500;
 
                 mount(
@@ -102,11 +107,11 @@ describe('line Chart', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const wrapper = mount(<Line chart={line} data={lineData.fiveTopics()} />);
+                const wrapper = mount(<Line chart={line} data={chartData} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: lineData.oneSet(),
+                    data: lineData.flatData.b,
                 });
 
                 const expected = 1;
@@ -116,21 +121,21 @@ describe('line Chart', () => {
             });
 
             it('should pass in the new data to the update method', () => {
-                const wrapper = mount(<Line chart={line} data={lineData.fiveTopics()} />);
+                const wrapper = mount(<Line chart={line} data={chartData} />);
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
-                    data: lineData.oneSet(),
+                    data: lineData.flatData.b,
                 });
 
-                const expected = lineData.oneSet().length;
-                const actual = updateSpy.mock.calls[0][1].length;
+                const expected = lineData.flatData.b;
+                const actual = updateSpy.mock.calls[0][1];
 
                 expect(actual).toEqual(expected);
             });
 
             it('should pass in the new configuration to the update method', () => {
-                const wrapper = mount(<Line chart={line} data={lineData.fiveTopics()} />);
+                const wrapper = mount(<Line chart={line} data={chartData} />);
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -158,7 +163,7 @@ describe('line Chart', () => {
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<Line chart={line} data={lineData.fiveTopics()} />);
+            const wrapper = mount(<Line chart={line} data={chartData} />);
 
             wrapper.unmount();
 

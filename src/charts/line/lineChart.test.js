@@ -9,6 +9,11 @@ describe('bar Chart', () => {
     });
 
     describe('create', () => {
+        let chartData;
+
+        beforeEach(() => {
+            chartData = lineData.flatData.a;
+        });
 
         describe('when incorrect arguments are used', () => {
 
@@ -17,7 +22,7 @@ describe('bar Chart', () => {
                     expect(() => {
                         line.create(
                             undefined,
-                            lineData.oneSet(),
+                            chartData,
                             {}
                         );
                     }).toThrow('A root container is required');
@@ -29,7 +34,7 @@ describe('bar Chart', () => {
                     expect(() => {
                         line.create(
                             anchor,
-                            lineData.oneSet(),
+                            chartData,
                             { test: 'test' }
                         );
                     }).toThrow('Method not supported by Britechart: test');
@@ -43,7 +48,7 @@ describe('bar Chart', () => {
                     expect(() => {
                         line.create(
                             anchor,
-                            lineData.oneSet(),
+                            chartData,
                             { customFakeEvent: callback }
                         );
                     }).toThrow('Method not supported by Britechart: customFakeEvent');
@@ -54,13 +59,11 @@ describe('bar Chart', () => {
         describe('when proper arguments are passed', () => {
 
             it('should set data as a DOM property', () => {
-                const expected = lineData.fiveTopics().length;
+                line.create(anchor, chartData);
 
-                line.create(anchor, lineData.fiveTopics());
+                const actual = anchor.__data__;
 
-                const actual = anchor.__data__.length;
-
-                expect(actual).toEqual(expected);
+                expect(actual).toEqual(chartData);
             });
 
             it('should set the width', () => {
@@ -68,7 +71,7 @@ describe('bar Chart', () => {
 
                 const chart = line.create(
                     anchor,
-                    lineData.fiveTopics(),
+                    chartData,
                     { width: expected }
                 );
 
@@ -87,7 +90,7 @@ describe('bar Chart', () => {
 
                 const chart = line.create(
                     anchor,
-                    lineData.fiveTopics(),
+                    chartData,
                     { margin: expected }
                 );
 
@@ -100,12 +103,44 @@ describe('bar Chart', () => {
 
     describe('update', () => {
 
-        describe('when updating data', () => {
+        describe('when updating data - flat data structure', () => {
 
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
-                    const firstDataSet = lineData.fiveTopics();
-                    const secondDataSet = lineData.oneSet();
+                    const firstDataSet = lineData.flatData.a;
+                    const secondDataSet = lineData.flatData.b;
+                    const chart = line.create(anchor, firstDataSet, {});
+
+                    line.update(anchor, secondDataSet, {}, chart);
+
+                    const expected = secondDataSet;
+                    const actual = anchor.__data__;
+
+                    expect(actual).toEqual(expected);
+                });
+            });
+
+            describe('when new data is not passed', () => {
+                it('should keep the data in the container', () => {
+                    const dataSet = lineData.flatData.a;
+                    const chart = line.create(anchor, dataSet, {});
+
+                    line.update(anchor, dataSet, {}, chart);
+
+                    const expected = dataSet;
+                    const actual = anchor.__data__;
+
+                    expect(actual).toEqual(expected);
+                });
+            });
+        });
+
+        describe('when updating data - dataByTopic structure', () => {
+
+            describe('when new data is passed', () => {
+                it('should update the data in the container', () => {
+                    const firstDataSet = lineData.dataByTopic.a;
+                    const secondDataSet = lineData.dataByTopic.b;
                     const chart = line.create(anchor, firstDataSet, {});
 
                     line.update(anchor, secondDataSet, {}, chart);
@@ -119,7 +154,7 @@ describe('bar Chart', () => {
 
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
-                    const dataSet = lineData.fiveTopics();
+                    const dataSet = lineData.dataByTopic.a;
                     const chart = line.create(anchor, dataSet, {});
 
                     line.update(anchor, dataSet, {}, chart);
@@ -140,7 +175,7 @@ describe('bar Chart', () => {
                     const firstWidth = 200;
                     const chart = line.create(
                         anchor,
-                        lineData.fiveTopics(),
+                        lineData.flatData.a,
                         { width: firstWidth }
                     );
 
