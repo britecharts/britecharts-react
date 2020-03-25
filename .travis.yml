@@ -1,4 +1,7 @@
-language: node_js
+language: "node_js"
+os: "linux"
+dist: "xenial"
+
 node_js:
 - 12.2.0
 env:
@@ -6,24 +9,25 @@ env:
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-test
     packages:
-    - g++-4.8
+      - g++-4.8
+before_install:
+- curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.19.2
+- export PATH=$HOME/.yarn/bin:$PATH
 before_deploy: yarn run build && yarn run docs
 deploy:
-  - provider: npm
-    skip_cleanup: true
-    email: npmjs+eng@eventbrite.com
-    api_key:
-      secure: $NPM_TOKEN
-    on:
-      tags: true
-      repo: eventbrite/britecharts-react
-  - provider: pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    local_dir: docs
-    on:
-      branch: master
-
-  # after_deploy: git remote add origin-pages https://${GITHUB_JAYLUM_CHEN}@github.com/eventbrite/britecharts-react.git > /dev/null 2>&1 && git rm .gitignore && git add docs && git commit -m 'Updating docs' && git push -fu origin-pages HEAD:gh-pages
+- provider: npm
+  cleanup: true
+  email: npmjs+eng@eventbrite.com
+  api_token: $NPM_TOKEN
+  on:
+    tags: true
+    repo: eventbrite/britecharts-react
+- provider: pages
+  cleanup: true
+  strategy: git
+  token: $GITHUB_TOKEN
+  local_dir: docs
+  on:
+    branch: master
