@@ -3,9 +3,9 @@ os: "linux"
 dist: "xenial"
 
 node_js:
-- 12.2.0
+  - 12.2.0
 env:
-- CXX=g++-4.8
+  - CXX=g++-4.8
 addons:
   apt:
     sources:
@@ -13,21 +13,21 @@ addons:
     packages:
       - g++-4.8
 before_install:
-- curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.19.2
-- export PATH=$HOME/.yarn/bin:$PATH
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.19.2
+  - export PATH=$HOME/.yarn/bin:$PATH
 before_deploy: yarn run build && yarn run docs
 deploy:
-- provider: npm
-  cleanup: true
-  email: npmjs+eng@eventbrite.com
-  api_token: $NPM_TOKEN
-  on:
-    tags: true
-    repo: eventbrite/britecharts-react
-- provider: pages
-  cleanup: true
-  strategy: git
-  token: $GITHUB_TOKEN
-  local_dir: docs
-  on:
-    branch: master
+  - provider: npm
+    skip_cleanup: true
+    email: npmjs+eng@eventbrite.com
+    api_token: $NPM_TOKEN
+    on:
+      tags: true
+      repo: eventbrite/britecharts-react
+  - provider: pages
+    skip_cleanup: true
+    strategy: git
+    token: $GITHUB_TOKEN
+    local_dir: docs
+    on:
+      branch: master
