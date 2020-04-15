@@ -43,7 +43,7 @@
       "email": "sundaisf@gmail.com"
     }
   ],
-  "version": "0.5.3",
+  "version": "0.5.4",
   "license": "Apache-2.0",
   "scripts": {
     "start": "webpack-dashboard -- nodemon --watch webpack.config.js --mode development --exec \"webpack-dev-server --env development\"",
