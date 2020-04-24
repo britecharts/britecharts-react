@@ -30,9 +30,9 @@
 
 ### Creating feature branches
 
-0. in local master, set upstream to https://github.com/eventbrite/britecharts-react.git
+0. in local master, set upstream to https://github.com/britecharts/britecharts-react.git
 
-    `git remote add upstream https://github.com/eventbrite/britecharts-react.git`
+    `git remote add upstream https://github.com/britecharts/britecharts-react.git`
 
 0. pull the most recent changes by rebasing master
 
@@ -50,7 +50,7 @@ In order to generate the demos and see the documentation for the library you wou
  + Download and install node
  + Ensure you have [yarn][yarn] installed as well
  + Clone the repository with:
-    `git clone git@github.com:eventbrite/britecharts-react.git`
+    `git clone git@github.com:britecharts/britecharts-react.git`
  + Change directory into the repository root and install its dependencies:
     `yarn install`
  + In the root or the repository folder, run:
@@ -129,7 +129,7 @@ Alternatively, you can use Plop to generate the boilerplate for your new compone
 
 ## Reporting an Issue/Feature Requests
 
-Please use the [issues](https://github.com/eventbrite/britecharts-react/issues) section of the Britecharts-React github profile to submit any bugs found. Please be descriptive and feel free to add pictures or links to docs to make your point as clear as possible.
+Please use the [issues](https://github.com/britecharts/britecharts-react/issues) section of the Britecharts-React github profile to submit any bugs found. Please be descriptive and feel free to add pictures or links to docs to make your point as clear as possible.
 
 ## The Workflow
 

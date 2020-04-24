@@ -25,7 +25,7 @@ Note that the aim of this project is to ‘wrap’ Britecharts with React, so an
 
 Here is what we think is the primary challenge to this project: keeping it up to date with Britecharts. We should figure out smart ways of doing this, trying to parameterize most of the code.
 
-[britecharts]: https://github.com/eventbrite/britecharts
+[britecharts]: https://github.com/britecharts/britecharts
 [react]: https://facebook.github.io/react/
 [d3-react]: http://golodhros.github.io/react-d3/index.html
 [d3-react-video]: https://www.youtube.com/watch?v=xGQtHckAauQ&feature=youtu.be&t=30m56s
