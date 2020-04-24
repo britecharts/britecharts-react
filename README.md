@@ -9,10 +9,10 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/britecharts.svg?style=social&label=Follow)](https://twitter.com/Britecharts/followers)
 
 
-| [![Stacked Area Chart](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/stacked-area.png)](https://eventbrite.github.io/britecharts-react/#stackedarea) | [![Bar Chart](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/bar-chart.png)](https://eventbrite.github.io/britecharts-react/#bar) | [![Line Chart](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/line-chart.png)](https://eventbrite.github.io/britecharts-react/#line) |
+| [![Stacked Area Chart](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/stacked-area.png)](https://britecharts.github.io/britecharts-react/#stackedarea) | [![Bar Chart](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/bar-chart.png)](https://britecharts.github.io/britecharts-react/#bar) | [![Line Chart](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/line-chart.png)](https://britecharts.github.io/britecharts-react/#line) |
 | ------------- | ------------- | ------------- |
-| [![Donut Chart](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/donut-chart.png)](https://eventbrite.github.io/britecharts-react/#donut) | [![Legend](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/legend.png)](https://eventbrite.github.io/britecharts-react/#legend) | [![Tooltip](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/legend.png)](https://eventbrite.github.io/britecharts-react/#tooltip) |
-| [![Sparkline Chart](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/sparkline.png)](https://eventbrite.github.io/britecharts-react/#sparkline) |
+| [![Donut Chart](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/donut-chart.png)](https://britecharts.github.io/britecharts-react/#donut) | [![Legend](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/legend.png)](https://britecharts.github.io/britecharts-react/#legend) | [![Tooltip](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/legend.png)](https://britecharts.github.io/britecharts-react/#tooltip) |
+| [![Sparkline Chart](https://raw.githubusercontent.com/britecharts/britecharts-react/master/src/docs/images/thumbnails/sparkline.png)](https://britecharts.github.io/britecharts-react/#sparkline) |
 
 ## Usage
 Import components from Britecharts-React:
@@ -124,17 +124,17 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [react]: https://facebook.github.io/react/
 [integration-article]: http://nicolashery.com/integrating-d3js-visualizations-in-a-react-app/
 
-[barChartAPI]: http://eventbrite.github.io/britecharts/module-Bar.html
-[groupedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Grouped-Bar.html
-[donutChartAPI]: http://eventbrite.github.io/britecharts/module-Donut.html
-[lineChartAPI]: http://eventbrite.github.io/britecharts/module-Line.html
-[sparklineChartAPI]: http://eventbrite.github.io/britecharts/module-Sparkline.html
-[stackedAreaChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-area.html
-[stackedBarChartAPI]: http://eventbrite.github.io/britecharts/module-Stacked-bar.html
-[tooltipAPI]: http://eventbrite.github.io/britecharts/module-Tooltip.html
-[stepChartAPI]: http://eventbrite.github.io/britecharts/module-Step.html
-[legendAPI]: http://eventbrite.github.io/britecharts/module-Legend.html
-[bulletAPI]: http://eventbrite.github.io/britecharts/module-Bullet.html
+[barChartAPI]: http://britecharts.github.io/britecharts/module-Bar.html
+[groupedBarChartAPI]: http://britecharts.github.io/britecharts/module-Grouped-Bar.html
+[donutChartAPI]: http://britecharts.github.io/britecharts/module-Donut.html
+[lineChartAPI]: http://britecharts.github.io/britecharts/module-Line.html
+[sparklineChartAPI]: http://britecharts.github.io/britecharts/module-Sparkline.html
+[stackedAreaChartAPI]: http://britecharts.github.io/britecharts/module-Stacked-area.html
+[stackedBarChartAPI]: http://britecharts.github.io/britecharts/module-Stacked-bar.html
+[tooltipAPI]: http://britecharts.github.io/britecharts/module-Tooltip.html
+[stepChartAPI]: http://britecharts.github.io/britecharts/module-Step.html
+[legendAPI]: http://britecharts.github.io/britecharts/module-Legend.html
+[bulletAPI]: http://britecharts.github.io/britecharts/module-Bullet.html
 
 
 [license]: https://www.apache.org/licenses/LICENSE-2.0
@@ -146,6 +146,6 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [contributingGuide]: https://github.com/britecharts/britecharts-react/blob/master/CONTRIBUTING.md
 [d3Slack]: https://d3js.slack.com/
 [codeOfConduct]: https://github.com/britecharts/britecharts-react/blob/master/CODE_OF_CONDUCT.md
-[homepage]: https://eventbrite.github.io/britecharts-react/
+[homepage]: https://britecharts.github.io/britecharts-react/
 [testProject]: https://github.com/Golodhros/britecharts-react-test-project
 [howtoCreate]: https://github.com/britecharts/britecharts-react/blob/master/CONTRIBUTING.md#creating-a-new-chart
