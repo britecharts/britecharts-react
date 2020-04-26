@@ -6,11 +6,11 @@
   "browser": "dist/britecharts-react.min.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eventbrite/britecharts-react.git"
+    "url": "https://github.com/britecharts/britecharts-react.git"
   },
-  "homepage": "https://eventbrite.github.io/britecharts-react/",
+  "homepage": "https://britecharts.github.io/britecharts-react/",
   "bugs": {
-    "url": "https://github.com/eventbrite/britecharts-react/issues"
+    "url": "https://github.com/britecharts/britecharts-react/issues"
   },
   "keywords": [
     "d3",

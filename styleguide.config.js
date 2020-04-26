@@ -59,17 +59,17 @@ module.exports = {
                 { name: 'theme-color', content: '#45494e' },
                 { itemprop: 'name', content: 'Britecharts React' },
                 { itemprop: 'description', content: 'Britecharts-react is a React wrapper for the Britecharts charting library.' },
-                { itemprop: 'image', content: 'https://eventbrite.github.io/britecharts-react/images/logo-light.png' },
+                { itemprop: 'image', content: 'https://britecharts.github.io/britecharts-react/images/logo-light.png' },
                 { property: 'og:title', content: 'Britecharts React' },
                 { property: 'og:type', content: 'website' },
-                { property: 'og:image', content: 'https://eventbrite.github.io/britecharts-react/images/logo-light.png' },
-                { property: 'og:url', content: 'https://eventbrite.github.io/britecharts-react/' },
+                { property: 'og:image', content: 'https://britecharts.github.io/britecharts-react/images/logo-light.png' },
+                { property: 'og:url', content: 'https://britecharts.github.io/britecharts-react/' },
                 { property: 'og:description', content: 'Britecharts-react is a React wrapper for the Britecharts charting library.' },
                 { name: 'twitter:title', content: 'Britecharts React' },
                 { name: 'twitter:card', content: 'summary_large_image' },
                 { name: 'twitter:site', content: '@britecharts' },
                 { name: 'twitter:description', content: 'Britecharts-react is a React wrapper for the Britecharts charting library.' },
-                { name: 'twitter:image', content: 'https://eventbrite.github.io/britecharts-react/images/logo-light.png' },
+                { name: 'twitter:image', content: 'https://britecharts.github.io/britecharts-react/images/logo-light.png' },
             ],
             links: [
                 { rel: 'manifest', href: 'icons/manifest.json' },
@@ -89,7 +89,7 @@ module.exports = {
         body: {
             raw: [
                 `
-                    <a class="ribbon" href="https://github.com/eventbrite/britecharts-react" title="Check this project in github">
+                    <a class="ribbon" href="https://github.com/britecharts/britecharts-react" title="Check this project in github">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 250 250" fill="#fff" style="position: absolute; top: 0; right: 0">
                             <path d="M0 0l115 115h15l12 27 108 108V0z" fill="#000"/>
                             <path class="octo-arm" d="M128 109c-15-9-9-19-9-19 3-7 2-11 2-11-1-7 3-2 3-2 4 5 2 11 2 11-3 10 5 15 9 16" style="-webkit-transform-origin: 130px 106px; transform-origin: 130px 106px"/>

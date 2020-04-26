@@ -108,5 +108,5 @@ See more:
 
 
 
-[APILink]: http://eventbrite.github.io/britecharts/module-Donut.html
-[DataLink]: http://eventbrite.github.io/britecharts/global.html#DonutChartData__anchor
+[APILink]: http://britecharts.github.io/britecharts/module-Donut.html
+[DataLink]: http://britecharts.github.io/britecharts/global.html#DonutChartData__anchor

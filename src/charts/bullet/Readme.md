@@ -25,5 +25,5 @@ See more:
 
 
 
-[APILink]: http://eventbrite.github.io/britecharts/module-Bullet.html
-[DataLink]: http://eventbrite.github.io/britecharts/global.html#BulletChartData
+[APILink]: http://britecharts.github.io/britecharts/module-Bullet.html
+[DataLink]: http://britecharts.github.io/britecharts/global.html#BulletChartData

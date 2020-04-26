@@ -28,7 +28,7 @@ const SVGLogo = () => (
 
 export const LogoRenderer = ({ classes, children }) => (
     <h1 className={classes.logo}>
-        <a href="https://eventbrite.github.io/britecharts-react/" className="logo__link" alt={children}>
+        <a href="https://britecharts.github.io/britecharts-react/" className="logo__link" alt={children}>
             <SVGLogo />
         </a>
     </h1>

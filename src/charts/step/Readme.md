@@ -26,5 +26,5 @@ See more:
 
 
 
-[APILink]: http://eventbrite.github.io/britecharts/module-Step.html
-[DataLink]: http://eventbrite.github.io/britecharts/global.html#stackedBarData__anchor
+[APILink]: http://britecharts.github.io/britecharts/module-Step.html
+[DataLink]: http://britecharts.github.io/britecharts/global.html#stackedBarData__anchor
