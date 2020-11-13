@@ -36,4 +36,21 @@ module.exports = {
         'no-invalid-this': 0,
         'no-empty-function': 0,
     },
+    overrides: [
+        {
+            files: ['*.d.ts'],
+            parser: '@typescript-eslint/parser',
+            plugins: ['@typescript-eslint'],
+            rules: {
+                '@typescript-eslint/member-delimiter-style': 2,
+            },
+            settings: {
+                'import/resolver': {
+                    node: {
+                        "extensions": [".d.ts"]
+                    }
+                }
+            },
+        },
+    ],
 };
