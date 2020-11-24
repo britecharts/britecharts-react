@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import optimizedResize from './optimizedResize.js';
 
 export default class ResponsiveContainer extends Component {

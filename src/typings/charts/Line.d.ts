@@ -176,7 +176,6 @@ export interface LineProps {
      * @ignore
      */
     createTooltip?: Function;
-
 }
 
 export default class Line extends Component<LineProps> {}

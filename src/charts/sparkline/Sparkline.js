@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import sparkline from './sparklineChart';
-import {loadingContainerWrapper} from '../loading/LoadingContainer';
+import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class Sparkline extends React.Component {
-
     static propTypes = {
         /**
          * Internally used, do not overwrite.
@@ -100,7 +99,7 @@ class Sparkline extends React.Component {
             'font-size': PropTypes.string,
             'font-weight': PropTypes.number,
             'font-style': PropTypes.string,
-            'fill': PropTypes.string,
+            fill: PropTypes.string,
         }),
 
         /**
@@ -126,13 +125,13 @@ class Sparkline extends React.Component {
          * @ignore
          */
         createTooltip: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         chart: sparkline,
         createTooltip: () => null,
         shouldShowLoadingState: false,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -185,7 +184,7 @@ class Sparkline extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        const configuration = {...this.props};
+        const configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;

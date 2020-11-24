@@ -7,9 +7,7 @@ import stackedAreaData from './stackedAreaChart.fixtures';
 import stackedArea from './stackedAreaChart';
 
 describe('stacked Area Chart', () => {
-
     describe('render', () => {
-
         describe('when data passed in', () => {
             let createSpy;
 
@@ -23,7 +21,12 @@ describe('stacked Area Chart', () => {
             });
 
             it('should call the create method or the chart', () => {
-                mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                mount(
+                    <StackedArea
+                        chart={stackedArea}
+                        data={stackedAreaData.with3Sources()}
+                    />
+                );
 
                 const expected = 1;
                 const actual = createSpy.mock.calls.length;
@@ -32,9 +35,16 @@ describe('stacked Area Chart', () => {
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                const wrapper = mount(
+                    <StackedArea
+                        chart={stackedArea}
+                        data={stackedAreaData.with3Sources()}
+                    />
+                );
 
-                const expected = wrapper.find('.stacked-area-container').instance();
+                const expected = wrapper
+                    .find('.stacked-area-container')
+                    .instance();
                 const actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
@@ -88,7 +98,6 @@ describe('stacked Area Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when data changes', () => {
             let updateSpy;
 
@@ -102,7 +111,12 @@ describe('stacked Area Chart', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const wrapper = mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                const wrapper = mount(
+                    <StackedArea
+                        chart={stackedArea}
+                        data={stackedAreaData.with3Sources()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -116,7 +130,12 @@ describe('stacked Area Chart', () => {
             });
 
             it('should pass in the new data to the update method', () => {
-                const wrapper = mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                const wrapper = mount(
+                    <StackedArea
+                        chart={stackedArea}
+                        data={stackedAreaData.with3Sources()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -130,7 +149,12 @@ describe('stacked Area Chart', () => {
             });
 
             it('should pass in the new configuration to the update method', () => {
-                const wrapper = mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+                const wrapper = mount(
+                    <StackedArea
+                        chart={stackedArea}
+                        data={stackedAreaData.with3Sources()}
+                    />
+                );
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -158,7 +182,12 @@ describe('stacked Area Chart', () => {
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<StackedArea chart={stackedArea} data={stackedAreaData.with3Sources()} />);
+            const wrapper = mount(
+                <StackedArea
+                    chart={stackedArea}
+                    data={stackedAreaData.with3Sources()}
+                />
+            );
 
             wrapper.unmount();
 
@@ -169,4 +198,3 @@ describe('stacked Area Chart', () => {
         });
     });
 });
-

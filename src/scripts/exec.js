@@ -6,16 +6,18 @@ const executionOptions = {
     verbose: false,
 };
 
-const logWithPrefix = function(prefix, message) {
+const logWithPrefix = function (prefix, message) {
     console.log(
-        message.toString().trim()
+        message
+            .toString()
+            .trim()
             .split('\n')
             .map((line) => `${prefix.grey} ${line}`)
             .join('\n')
     );
 };
 
-export const exec = function(command, options = {}) {
+export const exec = function (command, options = {}) {
     const proc = processExec(command, options);
 
     if (!executionOptions.verbose) {
@@ -24,17 +26,18 @@ export const exec = function(command, options = {}) {
     const title = options.title || command;
     const output = (data, type) => logWithPrefix(`[${title}] ${type}:`, data);
 
-    return proc.progress(({ stdout, stderr }) => {
-        stdout.on('data', (data) => output(data, 'stdout'));
-        stderr.on('data', (data) => output(data, 'stderr'));
-    })
+    return proc
+        .progress(({ stdout, stderr }) => {
+            stdout.on('data', (data) => output(data, 'stdout'));
+            stderr.on('data', (data) => output(data, 'stderr'));
+        })
         .then((result) => {
             logWithPrefix(`[${title}]`, 'Complete'.cyan);
             return result;
         });
 };
 
-export const safeExec = function(command, options = {}) {
+export const safeExec = function (command, options = {}) {
     const title = options.title || command;
 
     if (executionOptions.dryRun) {
@@ -45,6 +48,6 @@ export const safeExec = function(command, options = {}) {
     return exec(command, options);
 };
 
-export const setExecOptions = function(options) {
+export const setExecOptions = function (options) {
     Object.assign(executionOptions, options);
 };

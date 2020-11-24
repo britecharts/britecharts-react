@@ -7,9 +7,7 @@ import sparklineData from './sparklineChart.fixtures';
 import sparkline from './sparklineChart';
 
 describe('sparkline Chart', () => {
-
     describe('render', () => {
-
         describe('when data passed in', () => {
             let createSpy;
 
@@ -36,9 +34,13 @@ describe('sparkline Chart', () => {
             it('should call the create method or the chart with the container as the first argument', () => {
                 const dataSet = sparklineData.with1Source();
 
-                const wrapper = mount(<Sparkline chart={sparkline} data={dataSet} />);
+                const wrapper = mount(
+                    <Sparkline chart={sparkline} data={dataSet} />
+                );
 
-                const expected = wrapper.find('.sparkline-container').instance();
+                const expected = wrapper
+                    .find('.sparkline-container')
+                    .instance();
                 const actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
@@ -92,7 +94,6 @@ describe('sparkline Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when data changes', () => {
             let updateSpy;
 
@@ -107,7 +108,9 @@ describe('sparkline Chart', () => {
 
             it('should call the update method or the chart', () => {
                 const dataSet = sparklineData.with1Source();
-                const wrapper = mount(<Sparkline chart={sparkline} data={dataSet} />);
+                const wrapper = mount(
+                    <Sparkline chart={sparkline} data={dataSet} />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -122,7 +125,9 @@ describe('sparkline Chart', () => {
 
             it('should pass in the new data to the update method', () => {
                 const dataSet = sparklineData.with1Source();
-                const wrapper = mount(<Sparkline chart={sparkline} data={dataSet} />);
+                const wrapper = mount(
+                    <Sparkline chart={sparkline} data={dataSet} />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -137,7 +142,9 @@ describe('sparkline Chart', () => {
 
             it('should pass in the new configuration to the update method', () => {
                 const dataSet = sparklineData.with1Source();
-                const wrapper = mount(<Sparkline chart={sparkline} data={dataSet} />);
+                const wrapper = mount(
+                    <Sparkline chart={sparkline} data={dataSet} />
+                );
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -166,7 +173,9 @@ describe('sparkline Chart', () => {
 
         it('should call the destroy method or the chart', () => {
             const dataSet = sparklineData.with1Source();
-            const wrapper = mount(<Sparkline chart={sparkline} data={dataSet} />);
+            const wrapper = mount(
+                <Sparkline chart={sparkline} data={dataSet} />
+            );
 
             wrapper.unmount();
 
@@ -177,4 +186,3 @@ describe('sparkline Chart', () => {
         });
     });
 });
-

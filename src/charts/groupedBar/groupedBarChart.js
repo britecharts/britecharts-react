@@ -1,7 +1,10 @@
 import groupedBarChart from 'britecharts/dist/umd/groupedBar.min';
-import {select} from 'd3-selection';
-import {validateConfiguration, validateContainer} from '../helpers/validation';
-import {applyConfiguration} from '../helpers/configuration';
+import { select } from 'd3-selection';
+import {
+    validateConfiguration,
+    validateContainer,
+} from '../helpers/validation';
+import { applyConfiguration } from '../helpers/configuration';
 
 import { bar as groupedBarLoadingState } from 'britecharts/dist/umd/loading.min';
 

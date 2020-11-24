@@ -6,7 +6,7 @@ const fs = require('fs');
 // https://github.com/facebookincubator/create-react-app/issues/637
 const appDirectory = fs.realpathSync(process.cwd());
 
-const resolveApp = function(relativePath) {
+const resolveApp = function (relativePath) {
     return path.resolve(appDirectory, relativePath);
 };
 

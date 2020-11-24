@@ -1,7 +1,11 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-export const loadingContainerWrapper = ({data, height, shouldShowLoadingState, width}, loadingState, container) => {
+export const loadingContainerWrapper = (
+    { data, height, shouldShowLoadingState, width },
+    loadingState,
+    container
+) => {
     if (shouldShowLoadingState) {
         container = (
             <LoadingContainer
@@ -21,17 +25,12 @@ export const loadingContainerWrapper = ({data, height, shouldShowLoadingState, w
 export default class LoadingContainer extends PureComponent {
     static propTypes = {
         children: PropTypes.element,
-        data: PropTypes.oneOfType(
-            [
-                PropTypes.object,
-                PropTypes.array,
-            ]
-        ),
+        data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
         loadingState: PropTypes.string,
         height: PropTypes.number,
         width: PropTypes.number,
         shouldShowLoadingState: PropTypes.bool,
-    }
+    };
 
     render() {
         const {
@@ -62,7 +61,10 @@ export default class LoadingContainer extends PureComponent {
         return (
             <div>
                 {shouldShowLoadingState && loadingContainer}
-                <div className="loading-container__children" style={chartStyles}>
+                <div
+                    className="loading-container__children"
+                    style={chartStyles}
+                >
                     {children}
                 </div>
             </div>

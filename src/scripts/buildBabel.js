@@ -4,20 +4,27 @@ import fs from 'fs';
 import path from 'path';
 import outputFileSync from 'output-file-sync';
 
-const buildContent = function(content, filename, destination, babelOptions = {}) {
+const buildContent = function (
+    content,
+    filename,
+    destination,
+    babelOptions = {}
+) {
     babelOptions.filename = filename;
 
     try {
         const result = transform(content, babelOptions);
 
-        outputFileSync(destination, result.code, {encoding: 'utf8'});
-    } catch(e) {
-        console.error(`${e.message} (${filename}:${e.loc.line}:${e.loc.column})`);
+        outputFileSync(destination, result.code, { encoding: 'utf8' });
+    } catch (e) {
+        console.error(
+            `${e.message} (${filename}:${e.loc.line}:${e.loc.column})`
+        );
     }
 };
 
-const buildFile = function(filename, destination, babelOptions = {}) {
-    const content = fs.readFileSync(filename, {encoding: 'utf8'});
+const buildFile = function (filename, destination, babelOptions = {}) {
+    const content = fs.readFileSync(filename, { encoding: 'utf8' });
 
     // We only have .js files that we need to build
     if (path.extname(filename) === '.js') {
@@ -28,15 +35,26 @@ const buildFile = function(filename, destination, babelOptions = {}) {
     }
 };
 
-export default function buildBabel(folderPath, destination, babelOptions = {}, firstFolder = true) {
+export default function buildBabel(
+    folderPath,
+    destination,
+    babelOptions = {},
+    firstFolder = true
+) {
     const stats = fs.statSync(folderPath);
 
     if (stats.isFile()) {
         buildFile(folderPath, destination, babelOptions);
     } else if (stats.isDirectory()) {
-        const outputPath = firstFolder ? destination : path.join(destination, path.basename(folderPath));
-        const files = fs.readdirSync(folderPath).map((file) => path.join(folderPath, file));
+        const outputPath = firstFolder
+            ? destination
+            : path.join(destination, path.basename(folderPath));
+        const files = fs
+            .readdirSync(folderPath)
+            .map((file) => path.join(folderPath, file));
 
-        files.forEach((filename) => buildBabel(filename, outputPath, babelOptions, false));
+        files.forEach((filename) =>
+            buildBabel(filename, outputPath, babelOptions, false)
+        );
     }
 }

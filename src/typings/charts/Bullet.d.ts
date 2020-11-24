@@ -1,7 +1,6 @@
 import { Component } from 'react';
 
 export interface BulletChartProps {
-
     /**
      * Internally used, do not overwrite.
      */
@@ -9,8 +8,8 @@ export interface BulletChartProps {
         ranges: number[];
         measures: number[];
         markers: number[];
-        title? : string;
-        subtitle? : string;
+        title?: string;
+        subtitle?: string;
     }[];
 
     /**
@@ -87,6 +86,5 @@ export interface BulletChartProps {
      */
     chart?: any;
 }
-
 
 export default class Bullet extends Component<BulletChartProps> {}

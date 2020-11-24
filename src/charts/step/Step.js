@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import step from './stepChart';
-import {loadingContainerWrapper} from '../loading/LoadingContainer';
+import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class Step extends React.Component {
-
     static propTypes = {
         /**
          * Internally used, do not overwrite.
@@ -88,13 +87,13 @@ class Step extends React.Component {
          * @ignore
          */
         createTooltip: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         chart: step,
         createTooltip: () => null,
         shouldShowLoadingState: false,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -147,7 +146,7 @@ class Step extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        const configuration = {...this.props};
+        const configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;

@@ -9,28 +9,20 @@ describe('bar Chart', () => {
     });
 
     describe('create', () => {
-
         describe('when incorrect arguments are used', () => {
-
             describe('when the DOM element is not passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        bar.create(
-                            undefined,
-                            barData.withLetters(),
-                            {}
-                        );
+                        bar.create(undefined, barData.withLetters(), {});
                     }).toThrow('A root container is required');
                 });
             });
             describe('when a non-supported method is passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        bar.create(
-                            anchor,
-                            barData.withLetters(),
-                            { test: 'test' }
-                        );
+                        bar.create(anchor, barData.withLetters(), {
+                            test: 'test',
+                        });
                     }).toThrow('Method not supported by Britechart: test');
                 });
             });
@@ -40,18 +32,17 @@ describe('bar Chart', () => {
                     const callback = jest.fn();
 
                     expect(() => {
-                        bar.create(
-                            anchor,
-                            barData.withLetters(),
-                            { customFakeEvent: callback }
-                        );
-                    }).toThrow('Method not supported by Britechart: customFakeEvent');
+                        bar.create(anchor, barData.withLetters(), {
+                            customFakeEvent: callback,
+                        });
+                    }).toThrow(
+                        'Method not supported by Britechart: customFakeEvent'
+                    );
                 });
             });
         });
 
         describe('when proper arguments are passed', () => {
-
             it('should set data as a DOM property', () => {
                 const expected = barData.withColors().length;
 
@@ -65,11 +56,9 @@ describe('bar Chart', () => {
             it('should set the width', () => {
                 const expected = 500;
 
-                const chart = bar.create(
-                    anchor,
-                    barData.withColors(),
-                    { width: expected }
-                );
+                const chart = bar.create(anchor, barData.withColors(), {
+                    width: expected,
+                });
 
                 const actual = chart.width();
 
@@ -84,11 +73,9 @@ describe('bar Chart', () => {
                     right: 3,
                 };
 
-                const chart = bar.create(
-                    anchor,
-                    barData.withColors(),
-                    { margin: expected }
-                );
+                const chart = bar.create(anchor, barData.withColors(), {
+                    margin: expected,
+                });
 
                 const actual = chart.margin();
 
@@ -98,16 +85,16 @@ describe('bar Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when updating data', () => {
-
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = barData.withColors();
-                    const secondDataSet = [{
-                        name: 'Shining',
-                        value: 5,
-                    }];
+                    const secondDataSet = [
+                        {
+                            name: 'Shining',
+                            value: 5,
+                        },
+                    ];
                     const chart = bar.create(anchor, firstDataSet, {});
 
                     bar.update(anchor, secondDataSet, {}, chart);
@@ -135,16 +122,13 @@ describe('bar Chart', () => {
         });
 
         describe('when updating configuration', () => {
-
             describe('when new configuration is passed', () => {
                 it('should update the configuration in the chart', () => {
                     const expected = 500;
                     const firstWidth = 200;
-                    const chart = bar.create(
-                        anchor,
-                        barData.withColors(),
-                        { width: firstWidth }
-                    );
+                    const chart = bar.create(anchor, barData.withColors(), {
+                        width: firstWidth,
+                    });
 
                     bar.update(anchor, [], { width: expected }, chart);
 

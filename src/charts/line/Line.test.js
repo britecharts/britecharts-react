@@ -14,7 +14,6 @@ describe('line Chart', () => {
     });
 
     describe('render', () => {
-
         describe('when data passed in', () => {
             let createSpy;
 
@@ -60,13 +59,7 @@ describe('line Chart', () => {
                 const dataSet = chartData;
                 const expected = 500;
 
-                mount(
-                    <Line
-                        chart={line}
-                        data={dataSet}
-                        width={expected}
-                    />
-                );
+                mount(<Line chart={line} data={dataSet} width={expected} />);
 
                 const actual = createSpy.mock.calls[0][2].width;
 
@@ -77,13 +70,7 @@ describe('line Chart', () => {
                 const dataSet = chartData;
                 const expected = 500;
 
-                mount(
-                    <Line
-                        chart={line}
-                        data={dataSet}
-                        height={expected}
-                    />
-                );
+                mount(<Line chart={line} data={dataSet} height={expected} />);
 
                 const actual = createSpy.mock.calls[0][2].height;
 
@@ -93,7 +80,6 @@ describe('line Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when data changes', () => {
             let updateSpy;
 
@@ -174,4 +160,3 @@ describe('line Chart', () => {
         });
     });
 });
-

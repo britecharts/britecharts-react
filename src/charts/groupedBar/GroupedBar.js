@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import groupedBar from './groupedBarChart';
-import {loadingContainerWrapper} from '../loading/LoadingContainer';
+import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class GroupedBar extends React.Component {
-
     static propTypes = {
         /**
          * Internally used, do not overwrite.
@@ -145,13 +144,13 @@ class GroupedBar extends React.Component {
          * @ignore
          */
         createTooltip: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         chart: groupedBar,
         createTooltip: () => null,
         shouldShowLoadingState: false,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -204,7 +203,7 @@ class GroupedBar extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        const configuration = {...this.props};
+        const configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;

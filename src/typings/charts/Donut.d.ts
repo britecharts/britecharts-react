@@ -1,7 +1,6 @@
 import { Component } from 'react';
 
 export interface DonutChartProps {
-
     /**
      * Internally used, do not overwrite.
      */
@@ -116,7 +115,6 @@ export interface DonutChartProps {
      * Internally used, do not overwrite.
      */
     chart?: any;
-
 }
 
 export default class Donut extends Component<DonutChartProps> {}

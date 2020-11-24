@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import donut from './donutChart';
-import {loadingContainerWrapper} from '../loading/LoadingContainer';
+import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 export default class Donut extends Component {
-
     static propTypes = {
         /**
          * Internally used, do not overwrite.
@@ -113,13 +112,13 @@ export default class Donut extends Component {
          * Internally used, do not overwrite.
          */
         chart: PropTypes.object,
-    }
+    };
 
     static defaultProps = {
         chart: donut,
         isAnimated: true,
         shouldShowLoadingState: false,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -169,7 +168,7 @@ export default class Donut extends Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        const configuration = {...this.props};
+        const configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;

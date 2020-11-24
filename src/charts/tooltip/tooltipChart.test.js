@@ -8,16 +8,11 @@ describe('tooltip Chart', () => {
     });
 
     describe('create', () => {
-
         describe('when incorrect arguments are used', () => {
-
             describe('when the DOM element is not passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        tooltip.create(
-                            undefined,
-                            {}
-                        );
+                        tooltip.create(undefined, {});
                     }).toThrow('A root container is required');
                 });
             });
@@ -25,17 +20,13 @@ describe('tooltip Chart', () => {
             describe('when a non-supported method is passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        tooltip.create(
-                            anchor,
-                            {test: 'test'}
-                        );
+                        tooltip.create(anchor, { test: 'test' });
                     }).toThrow('Method not supported by Britechart: test');
                 });
             });
         });
 
         describe('when proper arguments are passed', () => {
-
             it('should set an empty data as a DOM property', () => {
                 const expected = 0;
 
@@ -49,10 +40,7 @@ describe('tooltip Chart', () => {
             it('should set the title', () => {
                 const expected = 'tooltipTitle';
 
-                const chart = tooltip.create(
-                    anchor,
-                    {title: expected}
-                );
+                const chart = tooltip.create(anchor, { title: expected });
 
                 const actual = chart.title();
 
@@ -62,10 +50,9 @@ describe('tooltip Chart', () => {
             it('should set the numberFormat', () => {
                 const expected = '%s';
 
-                const chart = tooltip.create(
-                    anchor,
-                    {numberFormat: expected}
-                );
+                const chart = tooltip.create(anchor, {
+                    numberFormat: expected,
+                });
 
                 const actual = chart.numberFormat();
 
@@ -75,10 +62,7 @@ describe('tooltip Chart', () => {
             it('should set the locale', () => {
                 const expected = 'us-EN';
 
-                const chart = tooltip.create(
-                    anchor,
-                    {locale: expected}
-                );
+                const chart = tooltip.create(anchor, { locale: expected });
 
                 const actual = chart.locale();
 
@@ -88,10 +72,7 @@ describe('tooltip Chart', () => {
             it('should set the dateLabel', () => {
                 const expected = 'dateUTC';
 
-                const chart = tooltip.create(
-                    anchor,
-                    {dateLabel: expected}
-                );
+                const chart = tooltip.create(anchor, { dateLabel: expected });
 
                 const actual = chart.dateLabel();
 
@@ -101,19 +82,14 @@ describe('tooltip Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when updating configuration', () => {
-
             describe('when new configuration is passed', () => {
                 it('should update the configuration in the chart', () => {
                     const expected = 'expectedTitle';
                     const firstTitle = 'title';
-                    const chart = tooltip.create(
-                        anchor,
-                        {title: firstTitle}
-                    );
+                    const chart = tooltip.create(anchor, { title: firstTitle });
 
-                    tooltip.update(anchor, {title: expected}, {}, chart);
+                    tooltip.update(anchor, { title: expected }, {}, chart);
 
                     const actual = chart.title();
 

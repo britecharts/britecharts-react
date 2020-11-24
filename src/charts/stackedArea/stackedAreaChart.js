@@ -1,7 +1,10 @@
 import stackedAreaChart from 'britecharts/dist/umd/stackedArea.min';
-import {select} from 'd3-selection';
-import {validateConfiguration, validateContainer} from '../helpers/validation';
-import {applyConfiguration} from '../helpers/configuration';
+import { select } from 'd3-selection';
+import {
+    validateConfiguration,
+    validateContainer,
+} from '../helpers/validation';
+import { applyConfiguration } from '../helpers/configuration';
 
 import { stackedArea as stackedAreaLoadingState } from 'britecharts/dist/umd/loading.min';
 
@@ -40,6 +43,5 @@ stackedArea.update = (el, data, configuration = {}, chart) => {
 stackedArea.destroy = () => {};
 
 stackedArea.loading = () => stackedAreaLoadingState;
-
 
 export default stackedArea;

@@ -4,11 +4,12 @@ describe('configuration', () => {
     it('should allow setting empty string', () => {
         const expected = '';
         const mockChart = {
-            'expected': (value) => {
+            expected: (value) => {
                 mockChart._expected = value;
             },
         };
-        const actual = applyConfiguration(mockChart, { expected: '' })._expected;
+        const actual = applyConfiguration(mockChart, { expected: '' })
+            ._expected;
 
         expect(actual).toEqual(expected);
     });

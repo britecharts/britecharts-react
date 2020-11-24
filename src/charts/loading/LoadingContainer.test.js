@@ -7,31 +7,23 @@ import barData from '../bar/barChart.fixtures';
 import bar from '../bar/barChart';
 
 describe('loading Container', () => {
-
     it('should render without errors', () => {
-        expect(() => (
+        expect(() =>
             mount(
-                <LoadingContainer
-                    data={barData}
-                    loadingState=".load-state"
-                >
+                <LoadingContainer data={barData} loadingState=".load-state">
                     <div className="chart" />
                 </LoadingContainer>
-            )
-        ).unmount()).not.toThrow();
+            ).unmount()
+        ).not.toThrow();
     });
 
     describe('loading States', () => {
-
         describe('when data is not null', () => {
             let wrapper;
 
             beforeEach(() => {
                 wrapper = mount(
-                    <LoadingContainer
-                        data={barData}
-                        loadingState=".load-state"
-                    >
+                    <LoadingContainer data={barData} loadingState=".load-state">
                         <div className="chart" />
                     </LoadingContainer>
                 );
@@ -45,7 +37,6 @@ describe('loading Container', () => {
 
                 wrapper.unmount();
             });
-
         });
 
         describe('when shouldShowLoadingState is passed', () => {
@@ -75,16 +66,18 @@ describe('loading Container', () => {
             it('should include the loading class on the chart', () => {
                 const expected = 'display:none';
 
-                const childContainer = wrapper.find('.loading-container__children');
+                const childContainer = wrapper.find(
+                    '.loading-container__children'
+                );
 
-                const actual = childContainer.html().match(/style="([^"]*)"/i)[1];
+                const actual = childContainer
+                    .html()
+                    .match(/style="([^"]*)"/i)[1];
 
                 expect(actual).toEqual(expected);
 
                 wrapper.unmount();
             });
-
         });
     });
 });
-

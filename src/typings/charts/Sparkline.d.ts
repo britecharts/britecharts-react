@@ -98,7 +98,7 @@ export interface SparklineProps {
         'font-size'?: string;
         'font-weight'?: number;
         'font-style'?: string;
-        'fill'?: string;
+        fill?: string;
     };
 
     /**

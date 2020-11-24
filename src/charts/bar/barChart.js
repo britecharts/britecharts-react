@@ -1,7 +1,10 @@
 import barChart from 'britecharts/dist/umd/bar.min';
-import {select} from 'd3-selection';
-import {validateConfiguration, validateContainer} from '../helpers/validation';
-import {applyConfiguration} from '../helpers/configuration';
+import { select } from 'd3-selection';
+import {
+    validateConfiguration,
+    validateContainer,
+} from '../helpers/validation';
+import { applyConfiguration } from '../helpers/configuration';
 
 import { bar as barLoadingState } from 'britecharts/dist/umd/loading.min';
 

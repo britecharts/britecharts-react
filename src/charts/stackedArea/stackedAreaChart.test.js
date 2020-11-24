@@ -9,9 +9,7 @@ describe('stacked Area Chart', () => {
     });
 
     describe('create', () => {
-
         describe('when incorrect arguments are used', () => {
-
             describe('when the DOM element is not passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
@@ -46,13 +44,14 @@ describe('stacked Area Chart', () => {
                             stackedAreaData.with3Sources(),
                             { customFakeEvent: callback }
                         );
-                    }).toThrow('Method not supported by Britechart: customFakeEvent');
+                    }).toThrow(
+                        'Method not supported by Britechart: customFakeEvent'
+                    );
                 });
             });
         });
 
         describe('when proper arguments are passed', () => {
-
             it('should set data as a DOM property', () => {
                 const expected = stackedAreaData.with3Sources().length;
 
@@ -125,7 +124,6 @@ describe('stacked Area Chart', () => {
             });
 
             describe('when event handlers are passed', () => {
-
                 it('should set customMouseOver callback', () => {
                     const expected = jest.fn();
 
@@ -172,9 +170,7 @@ describe('stacked Area Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when updating data', () => {
-
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = stackedAreaData.with3Sources();
@@ -206,7 +202,6 @@ describe('stacked Area Chart', () => {
         });
 
         describe('when updating configuration', () => {
-
             describe('when new configuration is passed', () => {
                 it('should update the configuration in the chart', () => {
                     const expected = 500;

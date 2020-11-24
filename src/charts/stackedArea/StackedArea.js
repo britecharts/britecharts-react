@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import stackedArea from './stackedAreaChart';
-import {axisTimeCombinations as combinations} from '../constants';
-import {loadingContainerWrapper} from '../loading/LoadingContainer';
+import { axisTimeCombinations as combinations } from '../constants';
+import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class StackedArea extends React.Component {
-
     static propTypes = {
         /**
          * Internally used, do not overwrite.
@@ -169,13 +168,13 @@ class StackedArea extends React.Component {
          * @ignore
          */
         createTooltip: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         chart: stackedArea,
         createTooltip: () => null,
         shouldShowLoadingState: false,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -228,7 +227,7 @@ class StackedArea extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        const configuration = {...this.props};
+        const configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;
