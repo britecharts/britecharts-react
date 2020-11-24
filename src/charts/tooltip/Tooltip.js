@@ -9,7 +9,6 @@ const tooltipContainerSelector = '.metadata-group';
 
 export default class Tooltip extends React.Component {
     static propTypes = {
-
         /**
          * Exposes the ability to use a custom date format
          */

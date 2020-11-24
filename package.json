@@ -165,6 +165,9 @@
         "setupFiles": [
             "jest-canvas-mock"
         ],
+        "setupFiles": [
+            "jest-canvas-mock"
+        ],
         "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js"
     }
 }
