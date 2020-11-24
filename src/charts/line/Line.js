@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import line from './lineChart';
+import {axisTimeCombinations as combinations} from '../constants';
 import {loadingContainerWrapper} from '../loading/LoadingContainer';
 
 class Line extends React.Component {
@@ -10,12 +11,6 @@ class Line extends React.Component {
          * Internally used, do not overwrite.
          */
         data: PropTypes.object,
-
-        /**
-         * Exposes the constants to be used to force the x axis to respect a
-         * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
-         */
-        axisTimeCombinations: PropTypes.number,
 
         /**
          * Gets or Sets the aspect ratio of the chart
@@ -255,3 +250,9 @@ class Line extends React.Component {
 }
 
 export default Line;
+
+/**
+ * Exposes the constants to be used to force the x axis to respect a
+ * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
+ */
+export const axisTimeCombinations = combinations;
