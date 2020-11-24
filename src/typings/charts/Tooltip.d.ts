@@ -1,7 +1,6 @@
 import { Component } from 'react';
 
 export interface TooltipProps {
-
     /**
      * Exposes the constants to be used to force the x axis to respect a
      * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
@@ -83,13 +82,19 @@ export interface TooltipProps {
 
     /**
      * Gets or Sets the formatter function for the value displayed on the tooltip.
-    */
+     */
     valueFormatter?: Function;
 
     /**
      * Gets or Sets the valueLabel of the data
      */
     valueLabel?: string;
+
+    /**
+     * Gets or Sets the `xAxisValueType` of the data. Choose between 'date' and 'number'.
+     * When set to number, the x-Axis values won't be parsed as dates anymore, but as numbers.
+     */
+    xAxisValueType: 'date' | 'nunber';
 
     /**
      * Internally used, do not overwrite.
@@ -110,7 +115,7 @@ export interface TooltipProps {
      *
      * @ignore
      */
-    data: {[s: string]: any} | any[];
+    data: { [s: string]: any } | any[];
 
     /**
      * Internally used, do not overwrite.

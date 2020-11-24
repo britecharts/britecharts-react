@@ -46,21 +46,22 @@
     "version": "0.5.4",
     "license": "Apache-2.0",
     "scripts": {
-        "start": "webpack-dashboard -- nodemon --watch webpack.config.js --mode development --exec \"webpack-dev-server --env development\"",
-        "prebuild": "rimraf lib && rimraf dist",
-        "build": "webpack --env production --mode production --progress && yarn run build:esm",
         "build:esm": "babel-node src/scripts/es/build.js",
-        "docs": "yarn run styleguide:build",
-        "lint": "eslint src/ webpack.*.js --cache",
-        "lint:fix": "eslint src/ webpack.*.js --cache --fix",
-        "test": "jest",
-        "test:watch": "jest --watch",
-        "styleguide": "styleguidist server",
-        "styleguide:build": "styleguidist build",
+        "build": "webpack --env production --mode production --progress && yarn run build:esm",
         "clean": "yarn cache clean && rimraf node_modules",
-        "release": "grunt release:patch",
+        "docs": "yarn run styleguide:build",
+        "format": "prettier --loglevel warn --write \"src/**/*.{js,ts}\"",
+        "lint:fix": "eslint src/ webpack.*.js --cache --fix",
+        "lint": "eslint src/ webpack.*.js --cache",
+        "prebuild": "rimraf lib && rimraf dist",
+        "release:major": "grunt release:major",
         "release:minor": "grunt release:minor",
-        "release:major": "grunt release:major"
+        "release": "grunt release:patch",
+        "start": "webpack-dashboard -- nodemon --watch webpack.config.js --mode development --exec \"webpack-dev-server --env development\"",
+        "styleguide:build": "styleguidist build",
+        "styleguide": "styleguidist server",
+        "test:watch": "jest --watch",
+        "test": "jest"
     },
     "devDependencies": {
         "@types/react": "^16.9.55",
@@ -136,6 +137,9 @@
         "testPathIgnorePatterns": [
             "<rootDir>/node_modules/",
             "<rootDir>/src/charts/template/"
+        ],
+        "setupFiles": [
+            "jest-canvas-mock"
         ],
         "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js"
     },
