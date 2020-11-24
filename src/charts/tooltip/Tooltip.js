@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import tooltip from './tooltipChart';
+import { axisTimeCombinations as combinations } from '../constants';
 
 const tooltipContainerWithMarkerSelector = '.metadata-group .vertical-marker-container';
 const tooltipContainerSelector = '.metadata-group';
@@ -8,11 +9,6 @@ const tooltipContainerSelector = '.metadata-group';
 
 export default class Tooltip extends React.Component {
     static propTypes = {
-        /**
-         * Exposes the constants to be used to force the x axis to respect a
-         * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
-         */
-        axisTimeCombinations: PropTypes.number,
 
         /**
          * Exposes the ability to use a custom date format
@@ -286,3 +282,9 @@ export default class Tooltip extends React.Component {
         );
     }
 }
+
+/**
+ * Exposes the constants to be used to force the x axis to respect a
+ * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
+ */
+export const axisTimeCombinations = combinations;
