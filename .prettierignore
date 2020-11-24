@@ -1,0 +1,9 @@
+# Artifacts
+dist
+lib
+
+# Plop Templates
+src/templates
+
+# Depenencies
+node_modules
