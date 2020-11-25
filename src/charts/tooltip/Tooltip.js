@@ -1,20 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import tooltip from './tooltipChart';
+import { axisTimeCombinations as combinations } from '../constants';
 
 const tooltipContainerWithMarkerSelector = '.metadata-group .vertical-marker-container';
 const tooltipContainerSelector = '.metadata-group';
 
 
 export default class Tooltip extends React.Component {
-
     static propTypes = {
-
-        /**
-         * Exposes the constants to be used to force the x axis to respect a
-         * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
-         */
-        axisTimeCombinations: PropTypes.number,
 
         /**
          * Exposes the ability to use a custom date format
@@ -91,13 +85,19 @@ export default class Tooltip extends React.Component {
 
         /**
          * Gets or Sets the formatter function for the value displayed on the tooltip.
-        */
+         */
         valueFormatter: PropTypes.func,
 
         /**
          * Gets or Sets the valueLabel of the data
          */
         valueLabel: PropTypes.string,
+
+        /**
+         * Gets or Sets the `xAxisValueType` of the data. Choose between 'date' and 'number'.
+         * When set to number, the x-Axis values won't be parsed as dates anymore, but as numbers.
+         */
+        xAxisValueType: PropTypes.string,
 
         /**
          * Internally used, do not overwrite.
@@ -118,7 +118,8 @@ export default class Tooltip extends React.Component {
          *
          * @ignore
          */
-        data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+        data: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+            .isRequired,
 
         /**
          * Internally used, do not overwrite.
@@ -140,11 +141,11 @@ export default class Tooltip extends React.Component {
          * @ignore
          */
         customMouseOver: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         chart: tooltip,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -168,22 +169,31 @@ export default class Tooltip extends React.Component {
         y: 0,
         dataPoint: null,
         topicColorMap: null,
-    }
+    };
 
     componentDidMount() {
         this._createTooltip();
     }
 
     componentDidUpdate() {
-        const tooltipWithMarkerContainer = this._rootNode.querySelector(tooltipContainerWithMarkerSelector);
-        const tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
+        const tooltipWithMarkerContainer = this._rootNode.querySelector(
+            tooltipContainerWithMarkerSelector
+        );
+        const tooltipContainer = this._rootNode.querySelector(
+            tooltipContainerSelector
+        );
 
         this.childChart = this.props.render({
             data: this.props.data,
         });
 
         if (tooltipWithMarkerContainer || tooltipContainer) {
-            this._chart = this.props.chart.update(tooltipWithMarkerContainer || tooltipContainer, this._getChartConfiguration(), this.state, this._chart);
+            this._chart = this.props.chart.update(
+                tooltipWithMarkerContainer || tooltipContainer,
+                this._getChartConfiguration(),
+                this.state,
+                this._chart
+            );
         }
     }
 
@@ -192,20 +202,27 @@ export default class Tooltip extends React.Component {
     }
 
     _createTooltip = () => {
-        const tooltipWithMarkerContainer = this._rootNode.querySelector(tooltipContainerWithMarkerSelector);
-        const tooltipContainer = this._rootNode.querySelector(tooltipContainerSelector);
+        const tooltipWithMarkerContainer = this._rootNode.querySelector(
+            tooltipContainerWithMarkerSelector
+        );
+        const tooltipContainer = this._rootNode.querySelector(
+            tooltipContainerSelector
+        );
 
         if (tooltipWithMarkerContainer || tooltipContainer) {
-            this._chart = this.props.chart.create(tooltipWithMarkerContainer || tooltipContainer, this._getChartConfiguration());
+            this._chart = this.props.chart.create(
+                tooltipWithMarkerContainer || tooltipContainer,
+                this._getChartConfiguration()
+            );
         }
-    }
+    };
 
     /**
      * We want to remove the chart and data from the props in order to have a configuration object
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        const configuration = {...this.props};
+        const configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;
@@ -224,7 +241,7 @@ export default class Tooltip extends React.Component {
             y,
         }));
 
-        const {customMouseMove} = this.props;
+        const { customMouseMove } = this.props;
 
         if (customMouseMove) {
             customMouseMove(dataPoint, topicColorMap, x, y);
@@ -233,9 +250,9 @@ export default class Tooltip extends React.Component {
 
     _handleMouseOut() {
         // Update Tooltip State
-        this.setState((state) => ({...state, isActive: false}));
+        this.setState((state) => ({ ...state, isActive: false }));
 
-        const {customMouseOut} = this.props;
+        const { customMouseOut } = this.props;
 
         if (customMouseOut) {
             customMouseOut();
@@ -244,9 +261,9 @@ export default class Tooltip extends React.Component {
 
     _handleMouseOver() {
         // Update Tooltip State
-        this.setState((state) => ({...state, isActive: true}));
+        this.setState((state) => ({ ...state, isActive: true }));
 
-        const {customMouseOver} = this.props;
+        const { customMouseOver } = this.props;
 
         if (customMouseOver) {
             customMouseOver();
@@ -264,5 +281,10 @@ export default class Tooltip extends React.Component {
             </div>
         );
     }
-
 }
+
+/**
+ * Exposes the constants to be used to force the x axis to respect a
+ * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
+ */
+export const axisTimeCombinations = combinations;

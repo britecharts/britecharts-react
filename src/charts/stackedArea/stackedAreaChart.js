@@ -41,4 +41,5 @@ stackedArea.destroy = () => {};
 
 stackedArea.loading = () => stackedAreaLoadingState;
 
+
 export default stackedArea;

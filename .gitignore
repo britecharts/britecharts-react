@@ -21,7 +21,10 @@ coverage
 node_modules
 
 # Workspaces
+.idea/
+*.iml
 *.sublime-*
+.vscode/
 
 # OSX
 .DS_Store
