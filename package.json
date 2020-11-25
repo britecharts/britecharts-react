@@ -126,7 +126,7 @@
     "react-dom": ">=15"
   },
   "dependencies": {
-    "britecharts": "2.11.0",
+    "britecharts": "2.17.2",
     "d3-selection": "^1.4.2"
   },
   "jest": {
