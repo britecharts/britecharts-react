@@ -3,6 +3,7 @@
     "description": "Britecharts-react is a React wrapper for the Britecharts charting library",
     "main": "dist/britecharts-react.min.js",
     "module": "lib/esm/index.js",
+    "types": "src/typings/index.d.ts",
     "browser": "dist/britecharts-react.min.js",
     "repository": {
         "type": "git",
@@ -165,6 +166,5 @@
             "jest-canvas-mock"
         ],
         "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js"
-    },
-    "types": "src/typings/index.d.ts"
+    }
 }

@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import line from './lineChart';
-import {axisTimeCombinations as combinations} from '../constants';
-import {loadingContainerWrapper} from '../loading/LoadingContainer';
+import { axisTimeCombinations as combinations } from '../constants';
+import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class Line extends React.Component {
-
     static propTypes = {
         /**
          * Internally used, do not overwrite.
@@ -169,13 +168,13 @@ class Line extends React.Component {
          * @ignore
          */
         createTooltip: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         chart: line,
         createTooltip: () => null,
         shouldShowLoadingState: false,
-    }
+    };
 
     constructor(props) {
         super(props);

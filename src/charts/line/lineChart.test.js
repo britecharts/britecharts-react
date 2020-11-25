@@ -16,15 +16,10 @@ describe('bar Chart', () => {
         });
 
         describe('when incorrect arguments are used', () => {
-
             describe('when the DOM element is not passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        line.create(
-                            undefined,
-                            chartData,
-                            {}
-                        );
+                        line.create(undefined, chartData, {});
                     }).toThrow('A root container is required');
                 });
             });
@@ -32,11 +27,7 @@ describe('bar Chart', () => {
             describe('when a non-supported method is passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        line.create(
-                            anchor,
-                            chartData,
-                            { test: 'test' }
-                        );
+                        line.create(anchor, chartData, { test: 'test' });
                     }).toThrow('Method not supported by Britechart: test');
                 });
             });
@@ -46,18 +37,17 @@ describe('bar Chart', () => {
                     const callback = jest.fn();
 
                     expect(() => {
-                        line.create(
-                            anchor,
-                            chartData,
-                            { customFakeEvent: callback }
-                        );
-                    }).toThrow('Method not supported by Britechart: customFakeEvent');
+                        line.create(anchor, chartData, {
+                            customFakeEvent: callback,
+                        });
+                    }).toThrow(
+                        'Method not supported by Britechart: customFakeEvent'
+                    );
                 });
             });
         });
 
         describe('when proper arguments are passed', () => {
-
             it('should set data as a DOM property', () => {
                 line.create(anchor, chartData);
 
@@ -69,11 +59,9 @@ describe('bar Chart', () => {
             it('should set the width', () => {
                 const expected = 500;
 
-                const chart = line.create(
-                    anchor,
-                    chartData,
-                    { width: expected }
-                );
+                const chart = line.create(anchor, chartData, {
+                    width: expected,
+                });
 
                 const actual = chart.width();
 
@@ -88,11 +76,9 @@ describe('bar Chart', () => {
                     right: 3,
                 };
 
-                const chart = line.create(
-                    anchor,
-                    chartData,
-                    { margin: expected }
-                );
+                const chart = line.create(anchor, chartData, {
+                    margin: expected,
+                });
 
                 const actual = chart.margin();
 
@@ -102,9 +88,7 @@ describe('bar Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when updating data - flat data structure', () => {
-
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = lineData.flatData.a;
@@ -136,7 +120,6 @@ describe('bar Chart', () => {
         });
 
         describe('when updating data - dataByTopic structure', () => {
-
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = lineData.dataByTopic.a;
@@ -168,16 +151,13 @@ describe('bar Chart', () => {
         });
 
         describe('when updating configuration', () => {
-
             describe('when new configuration is passed', () => {
                 it('should update the configuration in the chart', () => {
                     const expected = 500;
                     const firstWidth = 200;
-                    const chart = line.create(
-                        anchor,
-                        lineData.flatData.a,
-                        { width: firstWidth }
-                    );
+                    const chart = line.create(anchor, lineData.flatData.a, {
+                        width: firstWidth,
+                    });
 
                     line.update(anchor, [], { width: expected }, chart);
 

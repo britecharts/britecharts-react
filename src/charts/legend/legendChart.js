@@ -1,7 +1,10 @@
 import legendChart from 'britecharts/dist/umd/legend.min';
-import {select} from 'd3-selection';
-import {validateConfiguration, validateContainer} from '../helpers/validation';
-import {applyConfiguration} from '../helpers/configuration';
+import { select } from 'd3-selection';
+import {
+    validateConfiguration,
+    validateContainer,
+} from '../helpers/validation';
+import { applyConfiguration } from '../helpers/configuration';
 
 const legend = {};
 

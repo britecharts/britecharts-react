@@ -7,9 +7,7 @@ import donutData from './donutChart.fixtures';
 import donut from './donutChart';
 
 describe('donut Chart', () => {
-
     describe('render', () => {
-
         describe('when data passed in', () => {
             let createSpy;
 
@@ -32,7 +30,9 @@ describe('donut Chart', () => {
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<Donut chart={donut} data={donutData.with4Slices()} />);
+                const wrapper = mount(
+                    <Donut chart={donut} data={donutData.with4Slices()} />
+                );
 
                 const expected = wrapper.find('.donut-container').instance();
                 const actual = createSpy.mock.calls[0][0];
@@ -55,13 +55,7 @@ describe('donut Chart', () => {
                 const dataSet = donutData.with4Slices();
                 const expected = 500;
 
-                mount(
-                    <Donut
-                        chart={donut}
-                        data={dataSet}
-                        width={expected}
-                    />
-                );
+                mount(<Donut chart={donut} data={dataSet} width={expected} />);
 
                 const actual = createSpy.mock.calls[0][2].width;
 
@@ -72,13 +66,7 @@ describe('donut Chart', () => {
                 const dataSet = donutData.with4Slices();
                 const expected = 500;
 
-                mount(
-                    <Donut
-                        chart={donut}
-                        data={dataSet}
-                        height={expected}
-                    />
-                );
+                mount(<Donut chart={donut} data={dataSet} height={expected} />);
 
                 const actual = createSpy.mock.calls[0][2].height;
 
@@ -88,7 +76,6 @@ describe('donut Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when data changes', () => {
             let updateSpy;
 
@@ -103,10 +90,7 @@ describe('donut Chart', () => {
 
             it('should call the update method or the chart', () => {
                 const wrapper = mount(
-                    <Donut
-                        chart={donut}
-                        data={donutData.with4Slices()}
-                    />
+                    <Donut chart={donut} data={donutData.with4Slices()} />
                 );
 
                 // Changing properties should trigger a componentDidUpdate
@@ -122,10 +106,7 @@ describe('donut Chart', () => {
 
             it('should pass in the new data to the update method', () => {
                 const wrapper = mount(
-                    <Donut
-                        chart={donut}
-                        data={donutData.with4Slices()}
-                    />
+                    <Donut chart={donut} data={donutData.with4Slices()} />
                 );
 
                 // Changing properties should trigger a componentDidUpdate
@@ -141,10 +122,7 @@ describe('donut Chart', () => {
 
             it('should pass in the new configuration to the createTooltip method', () => {
                 const wrapper = mount(
-                    <Donut
-                        chart={donut}
-                        data={donutData.with4Slices()}
-                    />
+                    <Donut chart={donut} data={donutData.with4Slices()} />
                 );
                 const expected = 20;
 
@@ -173,7 +151,9 @@ describe('donut Chart', () => {
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<Donut chart={donut} data={donutData.with4Slices()} />);
+            const wrapper = mount(
+                <Donut chart={donut} data={donutData.with4Slices()} />
+            );
 
             wrapper.unmount();
 

@@ -6,7 +6,7 @@ import { srcRoot, esRoot } from '../paths';
 import babelConfig from '../babel.config';
 import buildBabel from '../buildBabel';
 
-const BuildES = function() {
+const BuildES = function () {
     console.log('Building: '.cyan + 'es module'.green);
 
     return exec(`rimraf ${esRoot}`)

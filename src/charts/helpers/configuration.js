@@ -1,6 +1,7 @@
-import {britechartsCustomEvents} from '../constants';
+import { britechartsCustomEvents } from '../constants';
 
-const isEventConfig = (configName) => britechartsCustomEvents.indexOf(configName) !== -1;
+const isEventConfig = (configName) =>
+    britechartsCustomEvents.indexOf(configName) !== -1;
 const isNotEventConfig = (configName) => !isEventConfig(configName);
 
 const setChartProperty = (chart, configuration, key) => {

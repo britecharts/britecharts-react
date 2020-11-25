@@ -3,10 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import bullet from './bulletChart';
-import {loadingContainerWrapper} from '../loading/LoadingContainer';
+import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class Bullet extends React.Component {
-
     static propTypes = {
         /**
          * Internally used, do not overwrite.
@@ -91,13 +90,13 @@ class Bullet extends React.Component {
          * @ignore
          */
         chart: PropTypes.object,
-    }
+    };
 
     static defaultProps = {
         chart: bullet,
         createTooltip: () => null,
         shouldShowLoadingState: false,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -150,7 +149,7 @@ class Bullet extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        let configuration = {...this.props};
+        let configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;

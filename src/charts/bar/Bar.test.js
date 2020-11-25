@@ -7,9 +7,7 @@ import barData from './barChart.fixtures';
 import bar from './barChart';
 
 describe('bar Chart', () => {
-
     describe('render', () => {
-
         describe('when data passed in', () => {
             let createSpy;
 
@@ -32,7 +30,9 @@ describe('bar Chart', () => {
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<Bar chart={bar} data={barData.withLetters()} />);
+                const wrapper = mount(
+                    <Bar chart={bar} data={barData.withLetters()} />
+                );
 
                 const expected = wrapper.find('.bar-container').instance();
                 const actual = createSpy.mock.calls[0][0];
@@ -55,13 +55,7 @@ describe('bar Chart', () => {
                 const dataSet = barData.withLetters();
                 const expected = 500;
 
-                mount(
-                    <Bar
-                        chart={bar}
-                        data={dataSet}
-                        width={expected}
-                    />
-                );
+                mount(<Bar chart={bar} data={dataSet} width={expected} />);
 
                 const actual = createSpy.mock.calls[0][2].width;
 
@@ -72,13 +66,7 @@ describe('bar Chart', () => {
                 const dataSet = barData.withLetters();
                 const expected = 500;
 
-                mount(
-                    <Bar
-                        chart={bar}
-                        data={dataSet}
-                        height={expected}
-                    />
-                );
+                mount(<Bar chart={bar} data={dataSet} height={expected} />);
 
                 const actual = createSpy.mock.calls[0][2].height;
 
@@ -88,7 +76,6 @@ describe('bar Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when data changes', () => {
             let updateSpy;
 
@@ -102,7 +89,9 @@ describe('bar Chart', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const wrapper = mount(<Bar chart={bar} data={barData.withLetters()} />);
+                const wrapper = mount(
+                    <Bar chart={bar} data={barData.withLetters()} />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -116,7 +105,9 @@ describe('bar Chart', () => {
             });
 
             it('should pass in the new data to the update method', () => {
-                const wrapper = mount(<Bar chart={bar} data={barData.withLetters()} />);
+                const wrapper = mount(
+                    <Bar chart={bar} data={barData.withLetters()} />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -130,7 +121,9 @@ describe('bar Chart', () => {
             });
 
             it('should pass in the new configuration to the update method', () => {
-                const wrapper = mount(<Bar chart={bar} data={barData.withLetters()} />);
+                const wrapper = mount(
+                    <Bar chart={bar} data={barData.withLetters()} />
+                );
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -158,7 +151,9 @@ describe('bar Chart', () => {
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<Bar chart={bar} data={barData.withLetters()} />);
+            const wrapper = mount(
+                <Bar chart={bar} data={barData.withLetters()} />
+            );
 
             wrapper.unmount();
 
@@ -169,4 +164,3 @@ describe('bar Chart', () => {
         });
     });
 });
-

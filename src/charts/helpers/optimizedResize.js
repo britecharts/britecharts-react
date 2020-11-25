@@ -1,7 +1,6 @@
 // Optimized resize handler based on https://developer.mozilla.org/en-US/docs/Web/Events/resize
 
-const optimizedResize = (function() {
-
+const optimizedResize = (function () {
     const callbacks = [];
 
     let running = false;
@@ -11,7 +10,6 @@ const optimizedResize = (function() {
 
     // run the actual callbacks
     const runCallbacks = () => {
-
         callbacks.forEach((callback) => {
             callback();
         });
@@ -21,7 +19,6 @@ const optimizedResize = (function() {
 
     // fired on resize event
     const resize = () => {
-
         if (!running) {
             running = true;
 
@@ -53,7 +50,6 @@ const optimizedResize = (function() {
 
     // adds callback to loop
     const addCallback = (callback) => {
-
         if (callback) {
             callbacks.push(callback);
         }
@@ -78,7 +74,6 @@ const optimizedResize = (function() {
             window.removeEventListener('resize', resizeHorizontal);
         },
     };
-
 })();
 
 export default optimizedResize;

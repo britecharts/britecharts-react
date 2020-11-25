@@ -9,17 +9,11 @@ describe('Bullet Chart', () => {
     });
 
     describe('create', () => {
-
         describe('when incorrect arguments are used', () => {
-
             describe('when the DOM element is not passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                      bullet.create(
-                            undefined,
-                            bulletData.fullTestData(),
-                            {}
-                        );
+                        bullet.create(undefined, bulletData.fullTestData(), {});
                     }).toThrowError('A root container is required');
                 });
             });
@@ -27,11 +21,9 @@ describe('Bullet Chart', () => {
             describe('when a non-supported method is passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        bullet.create(
-                            anchor,
-                            bulletData.fullTestData(),
-                            { test: 'test' }
-                        );
+                        bullet.create(anchor, bulletData.fullTestData(), {
+                            test: 'test',
+                        });
                     }).toThrowError('Method not supported by Britechart: test');
                 });
             });
@@ -41,18 +33,17 @@ describe('Bullet Chart', () => {
                     const callback = jest.fn();
 
                     expect(() => {
-                        bullet.create(
-                            anchor,
-                            bulletData.fullTestData(),
-                            { customFakeEvent: callback }
-                        );
-                    }).toThrowError('Method not supported by Britechart: customFakeEvent');
+                        bullet.create(anchor, bulletData.fullTestData(), {
+                            customFakeEvent: callback,
+                        });
+                    }).toThrowError(
+                        'Method not supported by Britechart: customFakeEvent'
+                    );
                 });
             });
         });
 
         describe('when proper arguments are passed', () => {
-
             it('should set data as a DOM property', () => {
                 const expected = bulletData.fullTestData()[0];
 
@@ -66,11 +57,9 @@ describe('Bullet Chart', () => {
             it('should set the width', () => {
                 const expected = 500;
 
-                const chart = bullet.create(
-                    anchor,
-                    bulletData.fullTestData(),
-                    { width: expected }
-                );
+                const chart = bullet.create(anchor, bulletData.fullTestData(), {
+                    width: expected,
+                });
 
                 const actual = chart.width();
 
@@ -80,11 +69,9 @@ describe('Bullet Chart', () => {
             it('should set the height', () => {
                 const expected = 600;
 
-                const chart = bullet.create(
-                    anchor,
-                    bulletData.fullTestData(),
-                    { height: expected }
-                );
+                const chart = bullet.create(anchor, bulletData.fullTestData(), {
+                    height: expected,
+                });
 
                 const actual = chart.height();
 
@@ -99,11 +86,9 @@ describe('Bullet Chart', () => {
                     right: 3,
                 };
 
-                const chart = bullet.create(
-                    anchor,
-                    bulletData.fullTestData(),
-                    { margin: expected }
-                );
+                const chart = bullet.create(anchor, bulletData.fullTestData(), {
+                    margin: expected,
+                });
 
                 const actual = chart.margin();
 
@@ -113,9 +98,7 @@ describe('Bullet Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when updating data', () => {
-
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = bulletData.fullTestData();
@@ -147,7 +130,6 @@ describe('Bullet Chart', () => {
         });
 
         describe('when updating configuration', () => {
-
             describe('when new configuration is passed', () => {
                 it('should update the configuration in the chart', () => {
                     const expected = 500;

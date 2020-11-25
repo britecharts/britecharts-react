@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import legendChart from './legendChart';
 
-
 export default class Legend extends React.Component {
-
     static defaultProps = {
         chart: legendChart,
-    }
+    };
 
     static propTypes = {
         /**
@@ -88,7 +86,7 @@ export default class Legend extends React.Component {
          * @ignore
          */
         chart: PropTypes.object,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -135,8 +133,6 @@ export default class Legend extends React.Component {
     }
 
     render() {
-        return (
-            <div className="legend-container" ref={this._setRef} />
-        );
+        return <div className="legend-container" ref={this._setRef} />;
     }
 }

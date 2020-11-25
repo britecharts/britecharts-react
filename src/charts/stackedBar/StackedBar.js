@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import stackedBar from './stackedBarChart';
-import {loadingContainerWrapper} from '../loading/LoadingContainer';
+import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class StackedBar extends React.Component {
-
     static propTypes = {
         /**
          * Internally used, do not overwrite.
@@ -171,13 +170,13 @@ class StackedBar extends React.Component {
          * @ignore
          */
         createTooltip: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         chart: stackedBar,
         createTooltip: () => null,
         shouldShowLoadingState: false,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -230,7 +229,7 @@ class StackedBar extends React.Component {
      * @return {Object} Configuration object for the chart
      */
     _getChartConfiguration() {
-        const configuration = {...this.props};
+        const configuration = { ...this.props };
 
         delete configuration.data;
         delete configuration.chart;

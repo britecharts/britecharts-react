@@ -7,9 +7,7 @@ import legendData from './legendChart.fixtures';
 import legendChart from './legendChart';
 
 describe('legend Chart', () => {
-
     describe('render', () => {
-
         describe('when data passed in', () => {
             let createSpy;
 
@@ -23,7 +21,12 @@ describe('legend Chart', () => {
             });
 
             it('should call the create method or the chart', () => {
-                mount(<Legend chart={legendChart} data={legendData.with6Points()} />);
+                mount(
+                    <Legend
+                        chart={legendChart}
+                        data={legendData.with6Points()}
+                    />
+                );
 
                 const expected = 1;
                 const actual = createSpy.mock.calls.length;
@@ -32,7 +35,12 @@ describe('legend Chart', () => {
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<Legend chart={legendChart} data={legendData.with6Points()} />);
+                const wrapper = mount(
+                    <Legend
+                        chart={legendChart}
+                        data={legendData.with6Points()}
+                    />
+                );
 
                 const expected = wrapper.find('.legend-container').instance();
                 const actual = createSpy.mock.calls[0][0];
@@ -88,7 +96,6 @@ describe('legend Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when data changes', () => {
             let updateSpy;
 
@@ -102,7 +109,12 @@ describe('legend Chart', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const wrapper = mount(<Legend chart={legendChart} data={legendData.with6Points()} />);
+                const wrapper = mount(
+                    <Legend
+                        chart={legendChart}
+                        data={legendData.with6Points()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -116,7 +128,12 @@ describe('legend Chart', () => {
             });
 
             it('should pass in the new data to the update method', () => {
-                const wrapper = mount(<Legend chart={legendChart} data={legendData.with6Points()} />);
+                const wrapper = mount(
+                    <Legend
+                        chart={legendChart}
+                        data={legendData.with6Points()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -130,7 +147,12 @@ describe('legend Chart', () => {
             });
 
             it('should pass in the new configuration to the update method', () => {
-                const wrapper = mount(<Legend chart={legendChart} data={legendData.with6Points()} />);
+                const wrapper = mount(
+                    <Legend
+                        chart={legendChart}
+                        data={legendData.with6Points()}
+                    />
+                );
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -158,7 +180,9 @@ describe('legend Chart', () => {
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<Legend chart={legendChart} data={legendData.with6Points()} />);
+            const wrapper = mount(
+                <Legend chart={legendChart} data={legendData.with6Points()} />
+            );
 
             wrapper.unmount();
 
@@ -169,4 +193,3 @@ describe('legend Chart', () => {
         });
     });
 });
-

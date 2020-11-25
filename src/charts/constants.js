@@ -1,4 +1,8 @@
-export const britechartsCustomEvents = ['customMouseOver', 'customMouseMove', 'customMouseOut'];
+export const britechartsCustomEvents = [
+    'customMouseOver',
+    'customMouseMove',
+    'customMouseOut',
+];
 
 export const axisTimeCombinations = {
     MINUTE_HOUR: 'minute-hour',

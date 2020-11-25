@@ -1,7 +1,10 @@
 import lineChart from 'britecharts/dist/umd/line.min';
 
 import { select } from 'd3-selection';
-import { validateConfiguration, validateContainer} from '../helpers/validation';
+import {
+    validateConfiguration,
+    validateContainer,
+} from '../helpers/validation';
 import { applyConfiguration } from '../helpers/configuration';
 
 import { line as lineLoadingState } from 'britecharts/dist/umd/loading.min';
@@ -23,10 +26,10 @@ line.create = (el, data, configuration = {}) => {
 
 line.update = (el, data, configuration = {}, chart) => {
     const container = select(el);
-    const shouldUpdateData = data && (
-        (data.data && data.data.length) ||
-        (data.dataByTopic && data.dataByTopic.length)
-    );
+    const shouldUpdateData =
+        data &&
+        ((data.data && data.data.length) ||
+            (data.dataByTopic && data.dataByTopic.length));
 
     validateContainer(container);
     validateConfiguration(chart, configuration);
@@ -42,7 +45,7 @@ line.update = (el, data, configuration = {}, chart) => {
     return chart;
 };
 
-line.destroy = () => { };
+line.destroy = () => {};
 
 line.loading = () => lineLoadingState;
 

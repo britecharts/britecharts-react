@@ -1,7 +1,10 @@
 import stepChart from 'britecharts/dist/umd/step.min';
-import {select} from 'd3-selection';
-import {validateConfiguration, validateContainer} from '../helpers/validation';
-import {applyConfiguration} from '../helpers/configuration';
+import { select } from 'd3-selection';
+import {
+    validateConfiguration,
+    validateContainer,
+} from '../helpers/validation';
+import { applyConfiguration } from '../helpers/configuration';
 
 //TODO: Implement the correct loading state(line, bar, and donut are the available options atm)
 import { bar as stepLoadingState } from 'britecharts/dist/umd/loading.min';

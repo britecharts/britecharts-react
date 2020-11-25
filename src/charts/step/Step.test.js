@@ -7,9 +7,7 @@ import stepData from './stepChart.fixtures';
 import step from './stepChart';
 
 describe('step Chart', () => {
-
     describe('render', () => {
-
         describe('when data passed in', () => {
             let createSpy;
 
@@ -59,13 +57,7 @@ describe('step Chart', () => {
                 const dataSet = stepData.firstDataMethod();
                 const expected = 500;
 
-                mount(
-                    <Step
-                        chart={step}
-                        data={dataSet}
-                        width={expected}
-                    />
-                );
+                mount(<Step chart={step} data={dataSet} width={expected} />);
 
                 const actual = createSpy.mock.calls[0][2].width;
 
@@ -76,13 +68,7 @@ describe('step Chart', () => {
                 const dataSet = stepData.firstDataMethod();
                 const expected = 500;
 
-                mount(
-                    <Step
-                        chart={step}
-                        data={dataSet}
-                        height={expected}
-                    />
-                );
+                mount(<Step chart={step} data={dataSet} height={expected} />);
 
                 const actual = createSpy.mock.calls[0][2].height;
 
@@ -92,7 +78,6 @@ describe('step Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when data changes', () => {
             let updateSpy;
 
@@ -177,4 +162,3 @@ describe('step Chart', () => {
         });
     });
 });
-

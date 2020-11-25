@@ -1,6 +1,4 @@
-import {
-    Component,
-} from 'react';
+import { Component } from 'react';
 
 export interface GroupedBarProps {
     /**
@@ -21,9 +19,9 @@ export interface GroupedBarProps {
      */
     colorSchema?: string[];
 
-        /**
-         * Chart exported to png and a download action is fired
-         */
+    /**
+     * Chart exported to png and a download action is fired
+     */
     exportChart?: Function;
 
     /**

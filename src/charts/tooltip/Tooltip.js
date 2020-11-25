@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import tooltip from './tooltipChart';
 import { axisTimeCombinations as combinations } from '../constants';
 
-const tooltipContainerWithMarkerSelector = '.metadata-group .vertical-marker-container';
+const tooltipContainerWithMarkerSelector =
+    '.metadata-group .vertical-marker-container';
 const tooltipContainerSelector = '.metadata-group';
-
 
 export default class Tooltip extends React.Component {
     static propTypes = {
-
         /**
          * Exposes the ability to use a custom date format
          */

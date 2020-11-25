@@ -1,7 +1,6 @@
 import { Component } from 'react';
 
 export interface LegendProps {
-
     /**
      * The data to be used by the chart
      */

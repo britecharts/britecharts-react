@@ -7,9 +7,7 @@ import groupedBarData from './groupedBarChart.fixtures';
 import groupedBar from './groupedBarChart';
 
 describe('grouped Bar Chart', () => {
-
     describe('render', () => {
-
         describe('when data passed in', () => {
             let createSpy;
 
@@ -23,7 +21,12 @@ describe('grouped Bar Chart', () => {
             });
 
             it('should call the create method or the chart', () => {
-                mount(<GroupedBar chart={groupedBar} data={groupedBarData.with3Groups()} />);
+                mount(
+                    <GroupedBar
+                        chart={groupedBar}
+                        data={groupedBarData.with3Groups()}
+                    />
+                );
 
                 const expected = 1;
                 const actual = createSpy.mock.calls.length;
@@ -32,9 +35,16 @@ describe('grouped Bar Chart', () => {
             });
 
             it('should call the create method or the chart with the container as the first argument', () => {
-                const wrapper = mount(<GroupedBar chart={groupedBar} data={groupedBarData.with3Groups()} />);
+                const wrapper = mount(
+                    <GroupedBar
+                        chart={groupedBar}
+                        data={groupedBarData.with3Groups()}
+                    />
+                );
 
-                const expected = wrapper.find('.grouped-bar-container').instance();
+                const expected = wrapper
+                    .find('.grouped-bar-container')
+                    .instance();
                 const actual = createSpy.mock.calls[0][0];
 
                 expect(actual).toEqual(expected);
@@ -88,7 +98,6 @@ describe('grouped Bar Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when data changes', () => {
             let updateSpy;
 
@@ -102,7 +111,12 @@ describe('grouped Bar Chart', () => {
             });
 
             it('should call the update method or the chart', () => {
-                const wrapper = mount(<GroupedBar chart={groupedBar} data={groupedBarData.with3Groups()} />);
+                const wrapper = mount(
+                    <GroupedBar
+                        chart={groupedBar}
+                        data={groupedBarData.with3Groups()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -116,7 +130,12 @@ describe('grouped Bar Chart', () => {
             });
 
             it('should pass in the new data to the update method', () => {
-                const wrapper = mount(<GroupedBar chart={groupedBar} data={groupedBarData.with3Groups()} />);
+                const wrapper = mount(
+                    <GroupedBar
+                        chart={groupedBar}
+                        data={groupedBarData.with3Groups()}
+                    />
+                );
 
                 // Changing properties should trigger a componentDidUpdate
                 wrapper.setProps({
@@ -130,7 +149,12 @@ describe('grouped Bar Chart', () => {
             });
 
             it('should pass in the new configuration to the update method', () => {
-                const wrapper = mount(<GroupedBar chart={groupedBar} data={groupedBarData.with3Groups()} />);
+                const wrapper = mount(
+                    <GroupedBar
+                        chart={groupedBar}
+                        data={groupedBarData.with3Groups()}
+                    />
+                );
                 const expected = 20;
 
                 // Changing properties should trigger a componentDidUpdate
@@ -158,7 +182,12 @@ describe('grouped Bar Chart', () => {
         });
 
         it('should call the destroy method or the chart', () => {
-            const wrapper = mount(<GroupedBar chart={groupedBar} data={groupedBarData.with3Groups()} />);
+            const wrapper = mount(
+                <GroupedBar
+                    chart={groupedBar}
+                    data={groupedBarData.with3Groups()}
+                />
+            );
 
             wrapper.unmount();
 
@@ -169,4 +198,3 @@ describe('grouped Bar Chart', () => {
         });
     });
 });
-

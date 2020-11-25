@@ -1,7 +1,10 @@
 import tooltipChart from 'britecharts/dist/umd/tooltip.min';
-import {select} from 'd3-selection';
-import {validateConfiguration, validateContainer} from '../helpers/validation';
-import {applyConfiguration} from '../helpers/configuration';
+import { select } from 'd3-selection';
+import {
+    validateConfiguration,
+    validateContainer,
+} from '../helpers/validation';
+import { applyConfiguration } from '../helpers/configuration';
 
 const tooltip = {};
 
@@ -39,7 +42,12 @@ tooltip.update = (el, configuration = {}, state = {}, chart) => {
     }
 
     if (state.dataPoint && state.topicColorMap && typeof state.x === 'number') {
-        chartConfigured.update(state.dataPoint, state.topicColorMap, state.x, state.y);
+        chartConfigured.update(
+            state.dataPoint,
+            state.topicColorMap,
+            state.x,
+            state.y
+        );
     }
 
     return chartConfigured;

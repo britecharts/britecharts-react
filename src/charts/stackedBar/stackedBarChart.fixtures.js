@@ -106,7 +106,7 @@ const with3SourcesAndDates = () => [
         name: '2011-01-08',
         stack: 'sunny',
         value: 25,
-    }
+    },
 ];
 
 const with2Sources = () => [

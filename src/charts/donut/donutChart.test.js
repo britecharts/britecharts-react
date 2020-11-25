@@ -9,17 +9,11 @@ describe('donut Chart', () => {
     });
 
     describe('create', () => {
-
         describe('when incorrect arguments are used', () => {
-
             describe('when the DOM element is not passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        donut.create(
-                            undefined,
-                            donutData.with4Slices(),
-                            {}
-                        );
+                        donut.create(undefined, donutData.with4Slices(), {});
                     }).toThrow('A root container is required');
                 });
             });
@@ -27,11 +21,9 @@ describe('donut Chart', () => {
             describe('when a non-supported method is passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        donut.create(
-                            anchor,
-                            donutData.with4Slices(),
-                            { test: 'test' }
-                        );
+                        donut.create(anchor, donutData.with4Slices(), {
+                            test: 'test',
+                        });
                     }).toThrow('Method not supported by Britechart: test');
                 });
             });
@@ -41,18 +33,17 @@ describe('donut Chart', () => {
                     const callback = jest.fn();
 
                     expect(() => {
-                        donut.create(
-                            anchor,
-                            donutData.with4Slices(),
-                            { customFakeEvent: callback }
-                        );
-                    }).toThrow('Method not supported by Britechart: customFakeEvent');
+                        donut.create(anchor, donutData.with4Slices(), {
+                            customFakeEvent: callback,
+                        });
+                    }).toThrow(
+                        'Method not supported by Britechart: customFakeEvent'
+                    );
                 });
             });
         });
 
         describe('when proper arguments are passed', () => {
-
             it('should set data as a DOM property', () => {
                 const expected = donutData.with4Slices().length;
 
@@ -66,11 +57,9 @@ describe('donut Chart', () => {
             it('should set the width', () => {
                 const expected = 500;
 
-                const chart = donut.create(
-                    anchor,
-                    donutData.with4Slices(),
-                    { width: expected }
-                );
+                const chart = donut.create(anchor, donutData.with4Slices(), {
+                    width: expected,
+                });
 
                 const actual = chart.width();
 
@@ -80,11 +69,9 @@ describe('donut Chart', () => {
             it('should set the height', () => {
                 const expected = 600;
 
-                const chart = donut.create(
-                    anchor,
-                    donutData.with4Slices(),
-                    { height: expected }
-                );
+                const chart = donut.create(anchor, donutData.with4Slices(), {
+                    height: expected,
+                });
 
                 const actual = chart.height();
 
@@ -99,11 +86,9 @@ describe('donut Chart', () => {
                     right: 3,
                 };
 
-                const chart = donut.create(
-                    anchor,
-                    donutData.with4Slices(),
-                    { margin: expected }
-                );
+                const chart = donut.create(anchor, donutData.with4Slices(), {
+                    margin: expected,
+                });
 
                 const actual = chart.margin();
 
@@ -111,7 +96,6 @@ describe('donut Chart', () => {
             });
 
             describe('when event handlers are passed', () => {
-
                 it('should set customMouseOver callback', () => {
                     const expected = jest.fn();
 
@@ -144,18 +128,18 @@ describe('donut Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when updating data', () => {
-
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = donutData.with4Slices();
-                    const secondDataSet = [{
-                        quantity: 5,
-                        percentage: 20,
-                        name: 'rick',
-                        id: 1,
-                    }];
+                    const secondDataSet = [
+                        {
+                            quantity: 5,
+                            percentage: 20,
+                            name: 'rick',
+                            id: 1,
+                        },
+                    ];
                     const chart = donut.create(anchor, firstDataSet, {});
 
                     donut.update(anchor, secondDataSet, {}, chart);
@@ -183,7 +167,6 @@ describe('donut Chart', () => {
         });
 
         describe('when updating configuration', () => {
-
             describe('when new configuration is passed', () => {
                 it('should update the configuration in the chart', () => {
                     const expected = 500;

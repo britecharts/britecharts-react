@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import bar from './barChart';
-import {loadingContainerWrapper} from '../loading/LoadingContainer';
+import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class Bar extends Component {
-
     static propTypes = {
         /**
          * Internally used, do not overwrite.
@@ -176,13 +175,13 @@ class Bar extends Component {
          * @ignore
          */
         createTooltip: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         chart: bar,
         createTooltip: () => null,
         shouldShowLoadingState: false,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -248,7 +247,6 @@ class Bar extends Component {
     }
 
     render() {
-
         return loadingContainerWrapper(
             this.props,
             this.props.loadingState || this.props.chart.loading(),

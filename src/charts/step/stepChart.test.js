@@ -9,17 +9,11 @@ describe('step Chart', () => {
     });
 
     describe('create', () => {
-
         describe('when incorrect arguments are used', () => {
-
             describe('when the DOM element is not passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        step.create(
-                            undefined,
-                            stepData.firstDataMethod(),
-                            {}
-                        );
+                        step.create(undefined, stepData.firstDataMethod(), {});
                     }).toThrow('A root container is required');
                 });
             });
@@ -27,11 +21,9 @@ describe('step Chart', () => {
             describe('when a non-supported method is passed', () => {
                 it('should throw an error', () => {
                     expect(() => {
-                        step.create(
-                            anchor,
-                            stepData.firstDataMethod(),
-                            { test: 'test' }
-                        );
+                        step.create(anchor, stepData.firstDataMethod(), {
+                            test: 'test',
+                        });
                     }).toThrow('Method not supported by Britechart: test');
                 });
             });
@@ -41,18 +33,17 @@ describe('step Chart', () => {
                     const callback = jest.fn();
 
                     expect(() => {
-                        step.create(
-                            anchor,
-                            stepData.firstDataMethod(),
-                            { customFakeEvent: callback }
-                        );
-                    }).toThrow('Method not supported by Britechart: customFakeEvent');
+                        step.create(anchor, stepData.firstDataMethod(), {
+                            customFakeEvent: callback,
+                        });
+                    }).toThrow(
+                        'Method not supported by Britechart: customFakeEvent'
+                    );
                 });
             });
         });
 
         describe('when proper arguments are passed', () => {
-
             it('should set data as a DOM property', () => {
                 const expected = stepData.firstDataMethod().length;
 
@@ -66,11 +57,9 @@ describe('step Chart', () => {
             it('should set the width', () => {
                 const expected = 500;
 
-                const chart = step.create(
-                    anchor,
-                    stepData.firstDataMethod(),
-                    { width: expected }
-                );
+                const chart = step.create(anchor, stepData.firstDataMethod(), {
+                    width: expected,
+                });
 
                 const actual = chart.width();
 
@@ -80,11 +69,9 @@ describe('step Chart', () => {
             it('should set the height', () => {
                 const expected = 600;
 
-                const chart = step.create(
-                    anchor,
-                    stepData.firstDataMethod(),
-                    { height: expected }
-                );
+                const chart = step.create(anchor, stepData.firstDataMethod(), {
+                    height: expected,
+                });
 
                 const actual = chart.height();
 
@@ -99,11 +86,9 @@ describe('step Chart', () => {
                     right: 3,
                 };
 
-                const chart = step.create(
-                    anchor,
-                    stepData.firstDataMethod(),
-                    { margin: expected }
-                );
+                const chart = step.create(anchor, stepData.firstDataMethod(), {
+                    margin: expected,
+                });
 
                 const actual = chart.margin();
 
@@ -111,7 +96,6 @@ describe('step Chart', () => {
             });
 
             describe('when event handlers are passed', () => {
-
                 it('should set customMouseOver callback', () => {
                     const expected = jest.fn();
 
@@ -158,9 +142,7 @@ describe('step Chart', () => {
     });
 
     describe('update', () => {
-
         describe('when updating data', () => {
-
             describe('when new data is passed', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = stepData.firstDataMethod();
@@ -192,7 +174,6 @@ describe('step Chart', () => {
         });
 
         describe('when updating configuration', () => {
-
             describe('when new configuration is passed', () => {
                 it('should update the configuration in the chart', () => {
                     const expected = 500;
