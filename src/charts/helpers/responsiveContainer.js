@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import optimizedResize from './optimizedResize.js';
 
 export default class ResponsiveContainer extends Component {
+    static propTypes = {
+        render: PropTypes.func,
+    };
+
     constructor(props) {
         super(props);
-
-        this.state = {
-            width: 500,
-        };
 
         this._setRef = this._setRef.bind(this);
         this.updateSize = this.updateSize.bind(this);
     }
+
+    state = {
+        width: 500,
+    };
 
     componentDidMount() {
         optimizedResize.addHorizontal(this.updateSize);

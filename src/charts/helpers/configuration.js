@@ -31,3 +31,5 @@ export const applyConfiguration = (chart, configuration) => {
 
     return chart;
 };
+
+export default applyConfiguration;
