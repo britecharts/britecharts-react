@@ -86,14 +86,14 @@
         "enzyme": "^3.7.0",
         "enzyme-adapter-react-16": "^1.7.0",
         "eslint": "^7.14.0",
-        "eslint-config-eventbrite": "^5.0.0",
-        "eslint-config-eventbrite-react": "^6.0.0",
+        "eslint-config-airbnb": "^18.2.1",
         "eslint-config-prettier": "^6.15.0",
         "eslint-loader": "^4.0.2",
         "eslint-plugin-babel": "^5.2.1",
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-jest": "^24.1.3",
         "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-react": "^7.21.5",
         "fs": "^0.0.1-security",
         "fs-promise": "^2.0.3",
@@ -143,8 +143,13 @@
             "node": true,
             "jest": true
         },
+        "plugins": [
+            "babel"
+        ],
+        "parser": "babel-eslint",
         "extends": [
-            "eventbrite-react",
+            "airbnb",
+            "plugin:prettier/recommended",
             "prettier"
         ],
         "parserOptions": {
@@ -163,31 +168,23 @@
                 "error",
                 4
             ],
-            "linebreak-style": [
+            "react/static-property-placement": 1,
+            "react/require-default-props": 1,
+            "import/extensions": 0,
+            "import/no-extraneous-dependencies": 0,
+            "no-underscore-dangle": 0,
+            "react/no-unused-prop-types": 0,
+            "react/prefer-stateless-function": 1,
+            "no-underscore-dangle": [
                 "error",
-                "unix"
+                {
+                    "allow": [
+                        "__data__"
+                    ]
+                }
             ],
-            "quotes": [
-                "error",
-                "single"
-            ],
-            "semi": [
-                "error",
-                "always"
-            ],
-            "no-unused-vars": [
-                "warn"
-            ],
-            "no-console": 0,
-            "import/unambiguous": 0,
-            "import/no-commonjs": 0,
-            "no-inline-comments": 0,
-            "object-curly-spacing": 0,
-            "no-multiple-empty-lines": 0,
-            "react/forbid-prop-types": 0,
-            "no-param-reassign": 0,
-            "no-invalid-this": 0,
-            "no-empty-function": 0
+            "react/jsx-filename-extension": 0,
+            "react/forbid-prop-types": 0
         },
         "overrides": [
             {
