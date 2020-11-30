@@ -1,12 +1,11 @@
 import bulletChart from 'britecharts/dist/umd/bullet.min';
 import { select } from 'd3-selection';
+import { bar as bulletLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
 } from '../helpers/validation';
 import { applyConfiguration } from '../helpers/configuration';
-
-import { bar as bulletLoadingState } from 'britecharts/dist/umd/loading.min';
 
 const bullet = {};
 

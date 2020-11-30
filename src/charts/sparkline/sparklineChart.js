@@ -1,12 +1,11 @@
 import sparklineChart from 'britecharts/dist/umd/sparkline.min';
 import { select } from 'd3-selection';
+import { line as sparklineLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
 } from '../helpers/validation';
 import { applyConfiguration } from '../helpers/configuration';
-
-import { line as sparklineLoadingState } from 'britecharts/dist/umd/loading.min';
 
 const sparkline = {};
 

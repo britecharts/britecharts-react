@@ -1,7 +1,7 @@
 /* eslint-disable new-cap */
 import 'colors';
-import { exec } from '../exec';
 import fsp from 'fs-promise';
+import { exec } from '../exec';
 import { srcRoot, esRoot } from '../paths';
 import babelConfig from '../babel.config';
 import buildBabel from '../buildBabel';

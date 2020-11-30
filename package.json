@@ -172,11 +172,11 @@
             "react/require-default-props": 1,
             "import/extensions": 0,
             "import/no-extraneous-dependencies": 0,
-            "no-underscore-dangle": 0,
             "react/no-unused-prop-types": 0,
             "react/prefer-stateless-function": 1,
+            "react/destructuring-assignment": 1,
             "no-underscore-dangle": [
-                "error",
+                1,
                 {
                     "allow": [
                         "__data__"
@@ -184,7 +184,8 @@
                 }
             ],
             "react/jsx-filename-extension": 0,
-            "react/forbid-prop-types": 0
+            "react/forbid-prop-types": 0,
+            "react/jsx-indent": 0
         },
         "overrides": [
             {
