@@ -1,7 +1,7 @@
 import bulletData from './bulletChart.fixtures';
 import bullet from './bulletChart';
 
-describe('Bullet Chart', () => {
+describe('bullet Chart', () => {
     let anchor;
 
     beforeEach(() => {
@@ -103,7 +103,8 @@ describe('Bullet Chart', () => {
                 it('should update the data in the container', () => {
                     const firstDataSet = bulletData.fullTestData();
                     const secondDataSet = bulletData.partialTestData();
-                    let chart = bullet.create(anchor, firstDataSet, {});
+
+                    const chart = bullet.create(anchor, firstDataSet, {});
 
                     bullet.update(anchor, secondDataSet, {}, chart);
 
@@ -117,7 +118,8 @@ describe('Bullet Chart', () => {
             describe('when new data is not passed', () => {
                 it('should keep the data in the container', () => {
                     const dataSet = bulletData.fullTestData();
-                    let chart = bullet.create(anchor, dataSet, {});
+
+                    const chart = bullet.create(anchor, dataSet, {});
 
                     bullet.update(anchor, [], {}, chart);
 

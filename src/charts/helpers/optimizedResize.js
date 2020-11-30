@@ -1,6 +1,6 @@
 // Optimized resize handler based on https://developer.mozilla.org/en-US/docs/Web/Events/resize
 
-const optimizedResize = (function () {
+const optimizedResize = (function() {
     const callbacks = [];
 
     let running = false;

@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import outputFileSync from 'output-file-sync';
 
-const buildContent = function (
+const buildContent = function(
     content,
     filename,
     destination,
@@ -23,7 +23,7 @@ const buildContent = function (
     }
 };
 
-const buildFile = function (filename, destination, babelOptions = {}) {
+const buildFile = function(filename, destination, babelOptions = {}) {
     const content = fs.readFileSync(filename, { encoding: 'utf8' });
 
     // We only have .js files that we need to build

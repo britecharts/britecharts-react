@@ -1,7 +1,7 @@
 import React from 'react';
 import optimizedResize from './optimizedResize.js';
 
-export default function (Component) {
+export default function(Component) {
     return class WithResponsiveness extends React.PureComponent {
         constructor(props) {
             super(props);
