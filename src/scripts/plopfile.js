@@ -1,4 +1,4 @@
-module.exports = function(plop) {
+module.exports = function (plop) {
     plop.setHelper('openBrace', () => '{');
     plop.setHelper('closeBrace', () => '}');
     plop.setGenerator('component', {
