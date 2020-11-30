@@ -1,3 +1,4 @@
+0.6.0
 0.5.1
 -----
 * Fixes responsive container and responsive HOC
