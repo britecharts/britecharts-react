@@ -2,10 +2,9 @@
 
 const optimizedResize = (function () {
     const callbacks = [];
-
+    const isBrowser = typeof window === 'object';
     let running = false;
-
-    let cachedWidth = window.innerWidth;
+    let cachedWidth = isBrowser ? window.innerWidth : 0;
     const delay = 66;
 
     // run the actual callbacks
@@ -22,15 +21,20 @@ const optimizedResize = (function () {
         if (!running) {
             running = true;
 
-            if (window.requestAnimationFrame) {
-                window.requestAnimationFrame(runCallbacks);
-            } else {
-                setTimeout(runCallbacks, delay);
+            if (isBrowser) {
+                if (window.requestAnimationFrame) {
+                    window.requestAnimationFrame(runCallbacks);
+                } else {
+                    setTimeout(runCallbacks, delay);
+                }
             }
         }
     };
 
     const resizeHorizontal = () => {
+        if (!isBrowser) {
+            return;
+        }
         const newWidth = window.innerWidth;
 
         if (cachedWidth !== newWidth) {
@@ -58,18 +62,27 @@ const optimizedResize = (function () {
     return {
         // public method to add additional callback
         add(callback) {
+            if (!isBrowser) {
+                return;
+            }
             if (!callbacks.length) {
                 window.addEventListener('resize', resize);
             }
             addCallback(callback);
         },
         addHorizontal(callback) {
+            if (!isBrowser) {
+                return;
+            }
             if (!callbacks.length) {
                 window.addEventListener('resize', resizeHorizontal);
             }
             addCallback(callback);
         },
         clearAll() {
+            if (!isBrowser) {
+                return;
+            }
             window.removeEventListener('resize', resize);
             window.removeEventListener('resize', resizeHorizontal);
         },
