@@ -1,13 +1,12 @@
 import lineChart from 'britecharts/dist/umd/line.min';
 
 import { select } from 'd3-selection';
+import { line as lineLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
 } from '../helpers/validation';
 import { applyConfiguration } from '../helpers/configuration';
-
-import { line as lineLoadingState } from 'britecharts/dist/umd/loading.min';
 
 const line = {};
 

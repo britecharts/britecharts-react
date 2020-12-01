@@ -47,7 +47,7 @@ describe('loading Container', () => {
                     <LoadingContainer
                         data={null}
                         loadingState={bar.loading()}
-                        shouldShowLoadingState={true}
+                        shouldShowLoadingState
                     >
                         <div className="chart" />
                     </LoadingContainer>

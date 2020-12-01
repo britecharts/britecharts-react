@@ -6,13 +6,13 @@ export default function (Component) {
         constructor(props) {
             super(props);
 
-            this.state = {
-                width: 500,
-            };
-
             this._setRef = this._setRef.bind(this);
             this.updateSize = this.updateSize.bind(this);
         }
+
+        state = {
+            width: 500,
+        };
 
         componentDidMount() {
             optimizedResize.addHorizontal(this.updateSize);

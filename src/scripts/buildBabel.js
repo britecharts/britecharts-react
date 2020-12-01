@@ -10,10 +10,13 @@ const buildContent = function (
     destination,
     babelOptions = {}
 ) {
-    babelOptions.filename = filename;
+    const newOptions = {
+        ...babelOptions,
+        filename,
+    };
 
     try {
-        const result = transform(content, babelOptions);
+        const result = transform(content, newOptions);
 
         outputFileSync(destination, result.code, { encoding: 'utf8' });
     } catch (e) {

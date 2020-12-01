@@ -1,1 +1,2 @@
-src/charts/template/*.js
+src/templates/*.js
+src/scripts/plopfile.js

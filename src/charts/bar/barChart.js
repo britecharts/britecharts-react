@@ -1,12 +1,11 @@
 import barChart from 'britecharts/dist/umd/bar.min';
 import { select } from 'd3-selection';
+import { bar as barLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
 } from '../helpers/validation';
 import { applyConfiguration } from '../helpers/configuration';
-
-import { bar as barLoadingState } from 'britecharts/dist/umd/loading.min';
 
 const bar = {};
 

@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import legendChart from './legendChart';
 
 export default class Legend extends React.Component {
-    static defaultProps = {
-        chart: legendChart,
-    };
-
     static propTypes = {
         /**
          * The data to be used by the chart
@@ -86,6 +82,10 @@ export default class Legend extends React.Component {
          * @ignore
          */
         chart: PropTypes.object,
+    };
+
+    static defaultProps = {
+        chart: legendChart,
     };
 
     constructor(props) {

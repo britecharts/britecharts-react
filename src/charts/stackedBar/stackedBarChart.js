@@ -1,12 +1,11 @@
 import stackedBarChart from 'britecharts/dist/umd/stackedBar.min';
 import { select } from 'd3-selection';
+import { bar as stackedBarLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
 } from '../helpers/validation';
 import { applyConfiguration } from '../helpers/configuration';
-
-import { bar as stackedBarLoadingState } from 'britecharts/dist/umd/loading.min';
 
 const stackedBar = {};
 

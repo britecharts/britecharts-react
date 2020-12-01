@@ -6,8 +6,10 @@ export const loadingContainerWrapper = (
     loadingState,
     container
 ) => {
+    let loadingContainer = container;
+
     if (shouldShowLoadingState) {
-        container = (
+        loadingContainer = (
             <LoadingContainer
                 data={data}
                 height={height}
@@ -19,7 +21,7 @@ export const loadingContainerWrapper = (
             </LoadingContainer>
         );
     }
-    return container;
+    return loadingContainer;
 };
 
 export default class LoadingContainer extends PureComponent {

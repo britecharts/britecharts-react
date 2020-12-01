@@ -47,7 +47,7 @@ const commonSplittedConfig = merge([
             'react/addons': true,
             'react/lib/ExecutionEnvironment': true,
             'react/lib/ReactContext': true,
-            'react': parts.externals().react,
+            react: parts.externals().react,
             'react-dom': parts.externals()['react-dom'],
         },
     },
@@ -71,10 +71,11 @@ const developmentConfig = merge([
             // makes the discovery automatic so you don't have to restart.
             // See https://github.com/facebookincubator/create-react-app/issues/186
             new WatchMissingNodeModulesPlugin(path.resolve('node_modules')),
-            new DashboardPlugin({port: process.env.PORT}),
+            new DashboardPlugin({ port: process.env.PORT }),
         ],
         output: {
-            devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
+            devtoolModuleFilenameTemplate:
+                'webpack:///[absolute-resource-path]',
         },
     },
     parts.babelLoader(),
@@ -127,24 +128,17 @@ const bundleConfig = merge([
     parts.generateSourceMaps({ type: 'source-map' }),
     // parts.bundleTreeChart(),
     parts.minifyJavaScript(),
-    parts.copy(
-        {
-            from: 'node_modules/britecharts/dist/css/britecharts.min.css',
-            to: 'britecharts-react.min.css',
-        }
-    ),
+    parts.copy({
+        from: 'node_modules/britecharts/dist/css/britecharts.min.css',
+        to: 'britecharts-react.min.css',
+    }),
 ]);
-
 
 module.exports = (env) => {
     console.log('%%%%%%%% env', env);
 
     if (env === 'production') {
-        return [
-            libraryCJSConfig,
-            libraryUMDConfig,
-            bundleConfig,
-        ];
+        return [libraryCJSConfig, libraryUMDConfig, bundleConfig];
     }
 
     return merge(commonSplittedConfig, developmentConfig);
