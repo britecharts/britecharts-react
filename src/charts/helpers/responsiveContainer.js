@@ -48,9 +48,10 @@ export default class ResponsiveContainer extends Component {
     }
 
     render() {
+        const { render } = this.props;
         return (
             <div className="responsive-container" ref={this.setRef}>
-                {this.props.render({ width: this.state.width })}
+                {render({ width: this.state.width })}
             </div>
         );
     }

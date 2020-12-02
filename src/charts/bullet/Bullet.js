@@ -105,26 +105,29 @@ class Bullet extends React.Component {
     }
 
     componentDidMount() {
-        if (!this.props.shouldShowLoadingState) {
-            if (this.props.data !== null) {
+        const { data, shouldShowLoadingState } = this.props;
+        if (!shouldShowLoadingState) {
+            if (data !== null) {
                 this.createChart();
             }
         }
     }
 
     componentDidUpdate() {
-        if (!this.props.shouldShowLoadingState) {
+        const { createTooltip, shouldShowLoadingState } = this.props;
+        if (!shouldShowLoadingState) {
             if (!this.chart) {
                 this.createChart();
             } else {
                 this.updateChart();
-                this.props.createTooltip();
+                createTooltip();
             }
         }
     }
 
     componentWillUnmount() {
-        this.props.chart.destroy(this.rootNode);
+        const { chart } = this.props;
+        chart.destroy(this.rootNode);
     }
 
     createChart() {
@@ -164,9 +167,10 @@ class Bullet extends React.Component {
     }
 
     render() {
+        const { chart, loadingState } = this.props;
         return loadingContainerWrapper(
             this.props,
-            this.props.loadingState || this.props.chart.loading(),
+            loadingState || chart.loading(),
             <div className="bullet-container" ref={this.setRef} />
         );
     }

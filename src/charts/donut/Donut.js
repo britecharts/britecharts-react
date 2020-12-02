@@ -127,13 +127,15 @@ export default class Donut extends Component {
     }
 
     componentDidMount() {
-        if (!this.props.shouldShowLoadingState) {
+        const { shouldShowLoadingState } = this.props;
+        if (!shouldShowLoadingState) {
             this.createChart();
         }
     }
 
     componentDidUpdate() {
-        if (!this.props.shouldShowLoadingState) {
+        const { shouldShowLoadingState } = this.props;
+        if (!shouldShowLoadingState) {
             if (!this.chart) {
                 this.createChart();
             } else {
@@ -143,7 +145,8 @@ export default class Donut extends Component {
     }
 
     componentWillUnmount() {
-        this.props.chart.destroy(this.rootNode);
+        const { chart } = this.props;
+        chart.destroy(this.rootNode);
     }
 
     /**
@@ -182,9 +185,10 @@ export default class Donut extends Component {
     }
 
     render() {
+        const { chart, loadingState } = this.props;
         return loadingContainerWrapper(
             this.props,
-            this.props.loadingState || this.props.chart.loading(),
+            loadingState || chart.loading(),
             <div className="donut-container" ref={this.setRef} />
         );
     }

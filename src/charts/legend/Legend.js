@@ -112,7 +112,8 @@ export default class Legend extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.chart.destroy(this.rootNode);
+        const { chart } = this.props;
+        chart.destroy(this.rootNode);
     }
 
     /**

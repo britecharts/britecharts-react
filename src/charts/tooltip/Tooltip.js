@@ -197,7 +197,8 @@ export default class Tooltip extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.chart.destroy(this.rootNode);
+        const { chart } = this.props;
+        chart.destroy(this.rootNode);
     }
 
     handleMouseMove(dataPoint, topicColorMap, x, y) {
