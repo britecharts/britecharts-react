@@ -132,7 +132,7 @@
         "react-dom": ">=15"
     },
     "dependencies": {
-        "britecharts": "2.17.2",
+        "britecharts": "2.17.3",
         "d3-selection": "^1.4.2"
     },
     "eslintConfig": {
@@ -168,8 +168,11 @@
                 "error",
                 4
             ],
-            "react/static-property-placement": 1,
-            "react/require-default-props": 1,
+            "react/static-property-placement": [
+                2,
+                "static public field"
+            ],
+            "react/require-default-props": 0,
             "import/extensions": 0,
             "import/no-extraneous-dependencies": 0,
             "react/no-unused-prop-types": 0,

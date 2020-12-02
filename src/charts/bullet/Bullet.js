@@ -18,7 +18,7 @@ class Bullet extends React.Component {
         aspectRatio: PropTypes.number,
 
         /**
-         * Gets or Sets the colorSchema of the chart. The first color from the array will be applied to range bars (the wider bars). The second color from the array will be applied to measure bars (the narrow bars) and marker lines.
+         * Gets or Sets the colorSchema of the chart. The first color from the array will be applied to range bars (the wider bars). The second color from the array will be applied to measure bars (the narrow bars) and the third to the marker lines.
          */
         colorSchema: PropTypes.arrayOf(PropTypes.string),
 

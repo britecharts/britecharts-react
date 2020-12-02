@@ -30,7 +30,9 @@ describe('tooltip', () => {
         });
 
         it('should call the create method of the chart', () => {
-            mount(<Tooltip chart={tooltip} render={renderFakeChart} data={[]} />);
+            mount(
+                <Tooltip chart={tooltip} render={renderFakeChart} data={[]} />
+            );
 
             const expected = 1;
             const actual = createSpy.mock.calls.length;
