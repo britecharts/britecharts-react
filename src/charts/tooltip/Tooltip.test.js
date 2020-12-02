@@ -30,7 +30,9 @@ describe('tooltip', () => {
         });
 
         it('should call the create method of the chart', () => {
-            mount(<Tooltip chart={tooltip} render={renderFakeChart} />);
+            mount(
+                <Tooltip chart={tooltip} render={renderFakeChart} data={[]} />
+            );
 
             const expected = 1;
             const actual = createSpy.mock.calls.length;
@@ -40,7 +42,7 @@ describe('tooltip', () => {
 
         it('should call the create method or the chart with the container as the first argument', () => {
             const wrapper = mount(
-                <Tooltip chart={tooltip} render={renderFakeChart} />
+                <Tooltip chart={tooltip} render={renderFakeChart} data={[]} />
             );
 
             const expected = wrapper
@@ -53,7 +55,11 @@ describe('tooltip', () => {
 
         it('should call the create method or the chart with the container as the first argument when no vertical marker is present', () => {
             const wrapper = mount(
-                <Tooltip chart={tooltip} render={renderFakeChartNoMarker} />
+                <Tooltip
+                    chart={tooltip}
+                    render={renderFakeChartNoMarker}
+                    data={[]}
+                />
             );
 
             const expected = wrapper.find('.metadata-group').instance();
@@ -70,6 +76,7 @@ describe('tooltip', () => {
                     chart={tooltip}
                     locale={expected}
                     render={renderFakeChart}
+                    data={[]}
                 />
             );
 
@@ -86,6 +93,7 @@ describe('tooltip', () => {
                     chart={tooltip}
                     title={expected}
                     render={renderFakeChart}
+                    data={[]}
                 />
             );
 
@@ -110,7 +118,11 @@ describe('tooltip', () => {
 
             it('should call the update method on the chart', () => {
                 const wrapper = mount(
-                    <Tooltip chart={tooltip} render={renderFakeChart} />
+                    <Tooltip
+                        chart={tooltip}
+                        render={renderFakeChart}
+                        data={[]}
+                    />
                 );
 
                 // Changing properties should trigger a componentDidUpdate
@@ -126,7 +138,11 @@ describe('tooltip', () => {
 
             it('should pass in the new configuration to the update method', () => {
                 const wrapper = mount(
-                    <Tooltip chart={tooltip} render={renderFakeChart} />
+                    <Tooltip
+                        chart={tooltip}
+                        render={renderFakeChart}
+                        data={[]}
+                    />
                 );
                 const expected = 'title';
 
@@ -142,7 +158,11 @@ describe('tooltip', () => {
 
             it('should pass in the new state to the update method', () => {
                 const wrapper = mount(
-                    <Tooltip chart={tooltip} render={renderFakeChart} />
+                    <Tooltip
+                        chart={tooltip}
+                        render={renderFakeChart}
+                        data={[]}
+                    />
                 );
                 const expected = true;
 
@@ -172,7 +192,7 @@ describe('tooltip', () => {
 
         it('should call the destroy method or the chart', () => {
             const wrapper = mount(
-                <Tooltip chart={tooltip} render={renderFakeChart} />
+                <Tooltip chart={tooltip} render={renderFakeChart} data={[]} />
             );
 
             wrapper.unmount();

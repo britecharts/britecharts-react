@@ -152,14 +152,14 @@ export default class Tooltip extends React.Component {
         if (props.render) {
             this.childChart = props.render({
                 data: props.data,
-                createTooltip: this._createTooltip,
-                customMouseMove: this._handleMouseMove.bind(this),
-                customMouseOut: this._handleMouseOut.bind(this),
-                customMouseOver: this._handleMouseOver.bind(this),
+                createTooltip: this.createTooltip,
+                customMouseMove: this.handleMouseMove.bind(this),
+                customMouseOut: this.handleMouseOut.bind(this),
+                customMouseOver: this.handleMouseOver.bind(this),
             });
         }
 
-        this._setRef = this._setRef.bind(this);
+        this.setRef = this.setRef.bind(this);
     }
 
     state = {
@@ -171,14 +171,14 @@ export default class Tooltip extends React.Component {
     };
 
     componentDidMount() {
-        this._createTooltip();
+        this.createTooltip();
     }
 
     componentDidUpdate() {
-        const tooltipWithMarkerContainer = this._rootNode.querySelector(
+        const tooltipWithMarkerContainer = this.rootNode.querySelector(
             tooltipContainerWithMarkerSelector
         );
-        const tooltipContainer = this._rootNode.querySelector(
+        const tooltipContainer = this.rootNode.querySelector(
             tooltipContainerSelector
         );
 
@@ -187,50 +187,21 @@ export default class Tooltip extends React.Component {
         });
 
         if (tooltipWithMarkerContainer || tooltipContainer) {
-            this._chart = this.props.chart.update(
+            this.chart = this.props.chart.update(
                 tooltipWithMarkerContainer || tooltipContainer,
-                this._getChartConfiguration(),
+                this.getChartConfiguration(),
                 this.state,
-                this._chart
+                this.chart
             );
         }
     }
 
     componentWillUnmount() {
-        this.props.chart.destroy(this._rootNode);
+        const { chart } = this.props;
+        chart.destroy(this.rootNode);
     }
 
-    _createTooltip = () => {
-        const tooltipWithMarkerContainer = this._rootNode.querySelector(
-            tooltipContainerWithMarkerSelector
-        );
-        const tooltipContainer = this._rootNode.querySelector(
-            tooltipContainerSelector
-        );
-
-        if (tooltipWithMarkerContainer || tooltipContainer) {
-            this._chart = this.props.chart.create(
-                tooltipWithMarkerContainer || tooltipContainer,
-                this._getChartConfiguration()
-            );
-        }
-    };
-
-    /**
-     * We want to remove the chart and data from the props in order to have a configuration object
-     * @return {Object} Configuration object for the chart
-     */
-    _getChartConfiguration() {
-        const configuration = { ...this.props };
-
-        delete configuration.data;
-        delete configuration.chart;
-        delete configuration.render;
-
-        return configuration;
-    }
-
-    _handleMouseMove(dataPoint, topicColorMap, x, y) {
+    handleMouseMove(dataPoint, topicColorMap, x, y) {
         // Update Tooltip State
         this.setState((state) => ({
             ...state,
@@ -247,7 +218,7 @@ export default class Tooltip extends React.Component {
         }
     }
 
-    _handleMouseOut() {
+    handleMouseOut() {
         // Update Tooltip State
         this.setState((state) => ({ ...state, isActive: false }));
 
@@ -258,7 +229,7 @@ export default class Tooltip extends React.Component {
         }
     }
 
-    _handleMouseOver() {
+    handleMouseOver() {
         // Update Tooltip State
         this.setState((state) => ({ ...state, isActive: true }));
 
@@ -269,13 +240,43 @@ export default class Tooltip extends React.Component {
         }
     }
 
-    _setRef(componentNode) {
-        this._rootNode = componentNode;
+    /**
+     * We want to remove the chart and data from the props in order to have a configuration object
+     * @return {Object} Configuration object for the chart
+     */
+    getChartConfiguration() {
+        const configuration = { ...this.props };
+
+        delete configuration.data;
+        delete configuration.chart;
+        delete configuration.render;
+
+        return configuration;
     }
+
+    setRef(componentNode) {
+        this.rootNode = componentNode;
+    }
+
+    createTooltip = () => {
+        const tooltipWithMarkerContainer = this.rootNode.querySelector(
+            tooltipContainerWithMarkerSelector
+        );
+        const tooltipContainer = this.rootNode.querySelector(
+            tooltipContainerSelector
+        );
+
+        if (tooltipWithMarkerContainer || tooltipContainer) {
+            this.chart = this.props.chart.create(
+                tooltipWithMarkerContainer || tooltipContainer,
+                this.getChartConfiguration()
+            );
+        }
+    };
 
     render() {
         return (
-            <div className="tooltip-chart-wrapper" ref={this._setRef}>
+            <div className="tooltip-chart-wrapper" ref={this.setRef}>
                 {this.childChart}
             </div>
         );

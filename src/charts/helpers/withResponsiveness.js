@@ -6,7 +6,7 @@ export default function (Component) {
         constructor(props) {
             super(props);
 
-            this._setRef = this._setRef.bind(this);
+            this.setRef = this.setRef.bind(this);
             this.updateSize = this.updateSize.bind(this);
         }
 
@@ -26,8 +26,12 @@ export default function (Component) {
             this.updateSize();
         }
 
+        setRef(componentNode) {
+            this.rootNode = componentNode;
+        }
+
         updateSize() {
-            const width = this._rootNode.clientWidth;
+            const width = this.rootNode.clientWidth;
 
             if (width !== this.state.width) {
                 this.setState({
@@ -36,13 +40,9 @@ export default function (Component) {
             }
         }
 
-        _setRef(componentNode) {
-            this._rootNode = componentNode;
-        }
-
         render() {
             return (
-                <div className="responsive-container" ref={this._setRef}>
+                <div className="responsive-container" ref={this.setRef}>
                     <Component width={this.state.width} {...this.props} />
                 </div>
             );

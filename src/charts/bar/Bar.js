@@ -186,52 +186,38 @@ class Bar extends Component {
     constructor(props) {
         super(props);
 
-        this._setRef = this._setRef.bind(this);
+        this.setRef = this.setRef.bind(this);
     }
 
     componentDidMount() {
-        if (!this.props.shouldShowLoadingState) {
-            this._createChart();
+        const { shouldShowLoadingState } = this.props;
+        if (!shouldShowLoadingState) {
+            this.createChart();
         }
     }
 
     componentDidUpdate() {
-        if (!this.props.shouldShowLoadingState) {
-            if (!this._chart) {
-                this._createChart();
+        const { createTooltip, shouldShowLoadingState } = this.props;
+        if (!shouldShowLoadingState) {
+            if (!this.chart) {
+                this.createChart();
             } else {
-                this._updateChart();
-                this.props.createTooltip();
+                this.updateChart();
+                createTooltip();
             }
         }
     }
 
     componentWillUnmount() {
-        this.props.chart.destroy(this._rootNode);
-    }
-
-    _createChart() {
-        this._chart = this.props.chart.create(
-            this._rootNode,
-            this.props.data,
-            this._getChartConfiguration()
-        );
-    }
-
-    _updateChart() {
-        this.props.chart.update(
-            this._rootNode,
-            this.props.data,
-            this._getChartConfiguration(),
-            this._chart
-        );
+        const { chart } = this.props;
+        chart.destroy(this.rootNode);
     }
 
     /**
      * We want to remove the chart and data from the props in order to have a configuration object
      * @return {Object} Configuration object for the chart
      */
-    _getChartConfiguration() {
+    getChartConfiguration() {
         const configuration = { ...this.props };
 
         delete configuration.data;
@@ -242,15 +228,33 @@ class Bar extends Component {
         return configuration;
     }
 
-    _setRef(componentNode) {
-        this._rootNode = componentNode;
+    setRef(componentNode) {
+        this.rootNode = componentNode;
+    }
+
+    createChart() {
+        this.chart = this.props.chart.create(
+            this.rootNode,
+            this.props.data,
+            this.getChartConfiguration()
+        );
+    }
+
+    updateChart() {
+        this.props.chart.update(
+            this.rootNode,
+            this.props.data,
+            this.getChartConfiguration(),
+            this.chart
+        );
     }
 
     render() {
+        const { chart, loadingState } = this.props;
         return loadingContainerWrapper(
             this.props,
-            this.props.loadingState || this.props.chart.loading(),
-            <div className="bar-container" ref={this._setRef} />
+            loadingState || chart.loading(),
+            <div className="bar-container" ref={this.setRef} />
         );
     }
 }

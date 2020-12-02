@@ -98,54 +98,40 @@ class Step extends React.Component {
     constructor(props) {
         super(props);
 
-        this._setRef = this._setRef.bind(this);
+        this.setRef = this.setRef.bind(this);
     }
 
     componentDidMount() {
-        if (!this.props.shouldShowLoadingState) {
-            if (this.props.data !== null) {
-                this._createChart();
+        const { data, shouldShowLoadingState } = this.props;
+        if (!shouldShowLoadingState) {
+            if (data !== null) {
+                this.createChart();
             }
         }
     }
 
     componentDidUpdate() {
-        if (!this.props.shouldShowLoadingState) {
-            if (!this._chart) {
-                this._createChart();
+        const { createTooltip, shouldShowLoadingState } = this.props;
+        if (!shouldShowLoadingState) {
+            if (!this.chart) {
+                this.createChart();
             } else {
-                this._updateChart();
-                this.props.createTooltip();
+                this.updateChart();
+                createTooltip();
             }
         }
     }
 
     componentWillUnmount() {
-        this.props.chart.destroy(this._rootNode);
-    }
-
-    _createChart() {
-        this._chart = this.props.chart.create(
-            this._rootNode,
-            this.props.data,
-            this._getChartConfiguration()
-        );
-    }
-
-    _updateChart() {
-        this.props.chart.update(
-            this._rootNode,
-            this.props.data,
-            this._getChartConfiguration(),
-            this._chart
-        );
+        const { chart } = this.props;
+        chart.destroy(this.rootNode);
     }
 
     /**
      * We want to remove the chart and data from the props in order to have a configuration object
      * @return {Object} Configuration object for the chart
      */
-    _getChartConfiguration() {
+    getChartConfiguration() {
         const configuration = { ...this.props };
 
         delete configuration.data;
@@ -156,15 +142,33 @@ class Step extends React.Component {
         return configuration;
     }
 
-    _setRef(componentNode) {
-        this._rootNode = componentNode;
+    setRef(componentNode) {
+        this.rootNode = componentNode;
+    }
+
+    updateChart() {
+        this.props.chart.update(
+            this.rootNode,
+            this.props.data,
+            this.getChartConfiguration(),
+            this.chart
+        );
+    }
+
+    createChart() {
+        this.chart = this.props.chart.create(
+            this.rootNode,
+            this.props.data,
+            this.getChartConfiguration()
+        );
     }
 
     render() {
+        const { chart } = this.props;
         return loadingContainerWrapper(
             this.props,
-            this.props.chart.loading(),
-            <div className="step-container" ref={this._setRef} />
+            chart.loading(),
+            <div className="step-container" ref={this.setRef} />
         );
     }
 }
