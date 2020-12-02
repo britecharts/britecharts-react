@@ -101,46 +101,46 @@ class Bullet extends React.Component {
     constructor(props) {
         super(props);
 
-        this._setRef = this._setRef.bind(this);
+        this.setRef = this.setRef.bind(this);
     }
 
     componentDidMount() {
         if (!this.props.shouldShowLoadingState) {
             if (this.props.data !== null) {
-                this._createChart();
+                this.createChart();
             }
         }
     }
 
     componentDidUpdate() {
         if (!this.props.shouldShowLoadingState) {
-            if (!this._chart) {
-                this._createChart();
+            if (!this.chart) {
+                this.createChart();
             } else {
-                this._updateChart();
+                this.updateChart();
                 this.props.createTooltip();
             }
         }
     }
 
     componentWillUnmount() {
-        this.props.chart.destroy(this._rootNode);
+        this.props.chart.destroy(this.rootNode);
     }
 
-    _createChart() {
-        this._chart = this.props.chart.create(
-            this._rootNode,
+    createChart() {
+        this.chart = this.props.chart.create(
+            this.rootNode,
             this.props.data,
-            this._getChartConfiguration()
+            this.getChartConfiguration()
         );
     }
 
-    _updateChart() {
+    updateChart() {
         this.props.chart.update(
-            this._rootNode,
+            this.rootNode,
             this.props.data,
-            this._getChartConfiguration(),
-            this._chart
+            this.getChartConfiguration(),
+            this.chart
         );
     }
 
@@ -148,7 +148,7 @@ class Bullet extends React.Component {
      * We want to remove the chart and data from the props in order to have a configuration object
      * @return {Object} Configuration object for the chart
      */
-    _getChartConfiguration() {
+    getChartConfiguration() {
         let configuration = { ...this.props };
 
         delete configuration.data;
@@ -159,15 +159,15 @@ class Bullet extends React.Component {
         return configuration;
     }
 
-    _setRef(componentNode) {
-        this._rootNode = componentNode;
+    setRef(componentNode) {
+        this.rootNode = componentNode;
     }
 
     render() {
         return loadingContainerWrapper(
             this.props,
             this.props.loadingState || this.props.chart.loading(),
-            <div className="bullet-container" ref={this._setRef} />
+            <div className="bullet-container" ref={this.setRef} />
         );
     }
 }

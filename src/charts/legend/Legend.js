@@ -91,35 +91,35 @@ export default class Legend extends React.Component {
     constructor(props) {
         super(props);
 
-        this._setRef = this._setRef.bind(this);
+        this.setRef = this.setRef.bind(this);
     }
 
     componentDidMount() {
-        this._chart = this.props.chart.create(
-            this._rootNode,
+        this.chart = this.props.chart.create(
+            this.rootNode,
             this.props.data,
-            this._getChartConfiguration()
+            this.getChartConfiguration()
         );
     }
 
     componentDidUpdate() {
         this.props.chart.update(
-            this._rootNode,
+            this.rootNode,
             this.props.data,
-            this._getChartConfiguration(),
-            this._chart
+            this.getChartConfiguration(),
+            this.chart
         );
     }
 
     componentWillUnmount() {
-        this.props.chart.destroy(this._rootNode);
+        this.props.chart.destroy(this.rootNode);
     }
 
     /**
      * We want to remove the chart and data from the props in order to have a configuration object
      * @return {Object} Configuration object for the chart
      */
-    _getChartConfiguration() {
+    getChartConfiguration() {
         const configuration = { ...this.props };
 
         delete configuration.data;
@@ -128,11 +128,11 @@ export default class Legend extends React.Component {
         return configuration;
     }
 
-    _setRef(componentNode) {
-        this._rootNode = componentNode;
+    setRef(componentNode) {
+        this.rootNode = componentNode;
     }
 
     render() {
-        return <div className="legend-container" ref={this._setRef} />;
+        return <div className="legend-container" ref={this.setRef} />;
     }
 }

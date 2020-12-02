@@ -11,7 +11,7 @@ export default class ResponsiveContainer extends Component {
     constructor(props) {
         super(props);
 
-        this._setRef = this._setRef.bind(this);
+        this.setRef = this.setRef.bind(this);
         this.updateSize = this.updateSize.bind(this);
     }
 
@@ -31,9 +31,13 @@ export default class ResponsiveContainer extends Component {
         this.updateSize();
     }
 
+    setRef(componentNode) {
+        this.rootNode = componentNode;
+    }
+
     updateSize() {
-        if (this._rootNode) {
-            const width = this._rootNode.clientWidth;
+        if (this.rootNode) {
+            const width = this.rootNode.clientWidth;
 
             if (width !== this.state.width) {
                 this.setState({
@@ -43,13 +47,9 @@ export default class ResponsiveContainer extends Component {
         }
     }
 
-    _setRef(componentNode) {
-        this._rootNode = componentNode;
-    }
-
     render() {
         return (
-            <div className="responsive-container" ref={this._setRef}>
+            <div className="responsive-container" ref={this.setRef}>
                 {this.props.render({ width: this.state.width })}
             </div>
         );
