@@ -12,8 +12,16 @@ const partialTestData = () => [
         markers: [105],
     },
 ];
+const underRangeNoMarker = () => [
+    {
+        ranges: [50, 100],
+        measures: [25],
+        markers: [],
+    },
+];
 
 export default {
     fullTestData,
     partialTestData,
+    underRangeNoMarker,
 };
