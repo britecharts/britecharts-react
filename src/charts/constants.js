@@ -2,6 +2,7 @@ export const britechartsCustomEvents = [
     'customMouseOver',
     'customMouseMove',
     'customMouseOut',
+    'customClick',
 ];
 
 export const axisTimeCombinations = {
