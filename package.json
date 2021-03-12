@@ -112,7 +112,7 @@
     "prettier": "^2.2.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
-    "react-dev-utils": "^6.1.1",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.6.1",
     "react-styleguidist": "^8.0.3",
     "react-test-renderer": "^16.6.1",
