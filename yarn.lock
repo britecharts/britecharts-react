@@ -2208,10 +2208,10 @@ braces@^3.0.1:
   dependencies:
     fill-range "^7.0.1"
 
-britecharts@2.17.6:
-  version "2.17.6"
-  resolved "https://registry.yarnpkg.com/britecharts/-/britecharts-2.17.6.tgz#372e50f64c577e5926e4043658466f322303f4ba"
-  integrity sha512-RYQlTNZy6LUb3czLY3n1/yb0eXSlSuFQ8M8JO+9Y3DoaLuGRJloG/kijwkyyOpUyjP8nQfiHki4gInDZbnUNHA==
+britecharts@2.18.0:
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/britecharts/-/britecharts-2.18.0.tgz#05d8c924996fc5f630d901a62b3aa963ea6a9f20"
+  integrity sha512-dG/kXx3KcUnWaMn+hInrpQNX1hbXgwTCJBawhHUN/GHkVMTe5+aVD/le+5oOhwDpfaMs8nn3TpY9D4o2hdP8HQ==
   dependencies:
     base-64 "^0.1.0"
     d3 "^5.16.0"
