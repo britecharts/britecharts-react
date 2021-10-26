@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import bar from './barChart';
-import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class Bar extends Component {
     static propTypes = {
@@ -14,6 +14,16 @@ class Bar extends Component {
          * Gets or Sets the padding of the chart
          */
         betweenBarsPadding: PropTypes.number,
+
+        /**
+         * Gets or Sets the gradient colors of a bar in the chart
+         */
+        chartGradient: PropTypes.arrayOf(PropTypes.string),
+
+        /**
+         * Current colorMap or Chart module to chain calls
+         */
+        colorMap: PropTypes.object,
 
         /**
          * Gets or Sets the colorSchema of the chart
@@ -57,6 +67,11 @@ class Bar extends Component {
         isHorizontal: PropTypes.bool,
 
         /**
+         * Current loading state flag or Chart module to chain calls
+         */
+        isLoading: PropTypes.bool,
+
+        /**
          * Offset between end of bar and start of the percentage bars
          */
         labelsMargin: PropTypes.number,
@@ -70,11 +85,6 @@ class Bar extends Component {
          * Get or Sets the labels text size
          */
         labelsSize: PropTypes.number,
-
-        /**
-         * Gets or Sets the loading state of the chart
-         */
-        loadingState: PropTypes.string,
 
         /**
          * Gets or Sets the margin of the chart
@@ -108,19 +118,9 @@ class Bar extends Component {
         percentageAxisToMaxRatio: PropTypes.number,
 
         /**
-         * Default 10px. Offset between end of bar and start of the percentage bars
-         */
-        percentageLabelMargin: PropTypes.number,
-
-        /**
          * Gets or Sets whether the color list should be reversed or not
          */
         shouldReverseColorList: PropTypes.bool,
-
-        /**
-         * Gets or Sets whether a loading state will be shown
-         */
-        shouldShowLoadingState: PropTypes.bool,
 
         /**
          * Gets or Sets the valueLabel of the chart
@@ -128,9 +128,24 @@ class Bar extends Component {
         valueLabel: PropTypes.number,
 
         /**
+         * Current locale object or Chart module to chain calls
+         */
+        valueLocale: PropTypes.object,
+
+        /**
          * Gets or Sets the width of the chart
          */
         width: PropTypes.number,
+
+        /**
+         * Label or Chart module to chain calls
+         */
+        xAxisLabel: PropTypes.string,
+
+        /**
+         * Gets or Sets the offset of the xAxisLabel on the chart
+         */
+        xAxisLabelOffset: PropTypes.number,
 
         /**
          * Gets or Sets the number of ticks of the x axis on the chart (Default is 5)
@@ -138,15 +153,14 @@ class Bar extends Component {
         xTicks: PropTypes.number,
 
         /**
-         * Gets or Sets the minimum width of the graph in order
-         * to show the tooltip NOTE: This could also depend on the aspect ratio
+         * Label or Chart module to chain calls
          */
-        tooltipThreshold: PropTypes.number,
+        yAxisLabel: PropTypes.string,
 
         /**
-         * Gets or Sets the numberFormat to a percentage format if true (default false)
+         * Gets or Sets the offset of the xAxisLabel on the chart
          */
-        usePercentage: PropTypes.bool,
+        yAxisLabelOffset: PropTypes.number,
 
         /**
          * Space between y axis and chart (Default 10)
@@ -180,7 +194,6 @@ class Bar extends Component {
     static defaultProps = {
         chart: bar,
         createTooltip: () => null,
-        shouldShowLoadingState: false,
     };
 
     constructor(props) {
@@ -190,26 +203,23 @@ class Bar extends Component {
     }
 
     componentDidMount() {
-        const { shouldShowLoadingState } = this.props;
-        if (!shouldShowLoadingState) {
-            this.createChart();
-        }
+        this.createChart();
     }
 
     componentDidUpdate() {
-        const { createTooltip, shouldShowLoadingState } = this.props;
-        if (!shouldShowLoadingState) {
-            if (!this.chart) {
-                this.createChart();
-            } else {
-                this.updateChart();
-                createTooltip();
-            }
+        const { createTooltip } = this.props;
+
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
+            createTooltip();
         }
     }
 
     componentWillUnmount() {
         const { chart } = this.props;
+
         chart.destroy(this.rootNode);
     }
 
@@ -254,12 +264,7 @@ class Bar extends Component {
     }
 
     render() {
-        const { chart, loadingState } = this.props;
-        return loadingContainerWrapper(
-            this.props,
-            loadingState || chart.loading(),
-            <div className="bar-container" ref={this.setRef} />
-        );
+        return <div className="bar-container" ref={this.setRef} />;
     }
 }
 

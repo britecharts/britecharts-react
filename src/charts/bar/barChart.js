@@ -1,6 +1,5 @@
 import barChart from 'britecharts/dist/umd/bar.min';
 import { select } from 'd3-selection';
-import { bar as barLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
@@ -39,7 +38,5 @@ bar.update = (el, data, configuration = {}, chart) => {
 };
 
 bar.destroy = () => {};
-
-bar.loading = () => barLoadingState;
 
 export default bar;
