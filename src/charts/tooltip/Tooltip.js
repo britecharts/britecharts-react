@@ -175,6 +175,7 @@ export default class Tooltip extends React.Component {
     }
 
     componentDidUpdate() {
+        const { data, chart, render } = this.props;
         const tooltipWithMarkerContainer = this.rootNode.querySelector(
             tooltipContainerWithMarkerSelector
         );
@@ -182,12 +183,12 @@ export default class Tooltip extends React.Component {
             tooltipContainerSelector
         );
 
-        this.childChart = this.props.render({
-            data: this.props.data,
+        this.childChart = render({
+            data,
         });
 
         if (tooltipWithMarkerContainer || tooltipContainer) {
-            this.chart = this.props.chart.update(
+            this.chart = chart.update(
                 tooltipWithMarkerContainer || tooltipContainer,
                 this.getChartConfiguration(),
                 this.state,
@@ -198,6 +199,7 @@ export default class Tooltip extends React.Component {
 
     componentWillUnmount() {
         const { chart } = this.props;
+
         chart.destroy(this.rootNode);
     }
 
@@ -259,6 +261,8 @@ export default class Tooltip extends React.Component {
     }
 
     createTooltip = () => {
+        const { chart } = this.props;
+
         const tooltipWithMarkerContainer = this.rootNode.querySelector(
             tooltipContainerWithMarkerSelector
         );
@@ -267,7 +271,7 @@ export default class Tooltip extends React.Component {
         );
 
         if (tooltipWithMarkerContainer || tooltipContainer) {
-            this.chart = this.props.chart.create(
+            this.chart = chart.create(
                 tooltipWithMarkerContainer || tooltipContainer,
                 this.getChartConfiguration()
             );

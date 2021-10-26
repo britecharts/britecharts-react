@@ -141,6 +141,7 @@ class Sparkline extends React.Component {
 
     componentDidMount() {
         const { data, shouldShowLoadingState } = this.props;
+
         if (!shouldShowLoadingState) {
             if (data !== null) {
                 this.createChart();
@@ -150,6 +151,7 @@ class Sparkline extends React.Component {
 
     componentDidUpdate() {
         const { createTooltip, shouldShowLoadingState } = this.props;
+
         if (!shouldShowLoadingState) {
             if (!this.chart) {
                 this.createChart();
@@ -162,6 +164,7 @@ class Sparkline extends React.Component {
 
     componentWillUnmount() {
         const { chart } = this.props;
+
         chart.destroy(this.rootNode);
     }
 
@@ -185,17 +188,21 @@ class Sparkline extends React.Component {
     }
 
     createChart() {
-        this.chart = this.props.chart.create(
+        const { chart, data } = this.props;
+
+        this.chart = chart.create(
             this.rootNode,
-            this.props.data,
+            data,
             this.getChartConfiguration()
         );
     }
 
     updateChart() {
-        this.props.chart.update(
+        const { chart, data } = this.props;
+
+        chart.update(
             this.rootNode,
-            this.props.data,
+            data,
             this.getChartConfiguration(),
             this.chart
         );

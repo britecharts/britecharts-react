@@ -95,17 +95,21 @@ export default class Legend extends React.Component {
     }
 
     componentDidMount() {
-        this.chart = this.props.chart.create(
+        const { chart, data } = this.props;
+
+        this.chart = chart.create(
             this.rootNode,
-            this.props.data,
+            data,
             this.getChartConfiguration()
         );
     }
 
     componentDidUpdate() {
-        this.props.chart.update(
+        const { chart, data } = this.props;
+
+        chart.update(
             this.rootNode,
-            this.props.data,
+            data,
             this.getChartConfiguration(),
             this.chart
         );

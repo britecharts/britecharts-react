@@ -1,5 +1,5 @@
 const path = require('path');
-const MiniHtmlWebpackPlugin = require('mini-html-webpack-plugin')
+const MiniHtmlWebpackPlugin = require('mini-html-webpack-plugin');
 
 const resolve = (searchPath) => path.join(__dirname, searchPath);
 
@@ -27,7 +27,8 @@ module.exports = {
             sidebarBackground: '#45494E',
         },
         fontFamily: {
-            base: '"Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif',
+            base:
+                '"Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif',
         },
     },
 
@@ -47,44 +48,106 @@ module.exports = {
     template: {
         head: {
             meta: [
-                { name: 'description', content: 'Britecharts-react is a React wrapper for the Britecharts charting library.' },
-                { name: 'keywords', content: 'React, Britecharts, D3, D3.js, Charts' },
+                {
+                    name: 'description',
+                    content:
+                        'Britecharts-react is a React wrapper for the Britecharts charting library.',
+                },
+                {
+                    name: 'keywords',
+                    content: 'React, Britecharts, D3, D3.js, Charts',
+                },
                 { name: 'msapplication-tap-highlight', content: 'no' },
-                { name: 'msapplication-config', content: 'icons/browserconfig.xml' },
+                {
+                    name: 'msapplication-config',
+                    content: 'icons/browserconfig.xml',
+                },
                 { name: 'mobile-web-app-capable', content: 'yes' },
                 { name: 'application-name', content: 'Britecharts React' },
                 { name: 'apple-mobile-web-app-capable', content: 'yes' },
-                { name: 'apple-mobile-web-app-status-bar-style', content: '#009FA1' },
+                {
+                    name: 'apple-mobile-web-app-status-bar-style',
+                    content: '#009FA1',
+                },
                 { name: 'apple-mobile-web-app-title', content: 'Britecharts' },
                 { name: 'theme-color', content: '#45494e' },
                 { itemprop: 'name', content: 'Britecharts React' },
-                { itemprop: 'description', content: 'Britecharts-react is a React wrapper for the Britecharts charting library.' },
-                { itemprop: 'image', content: 'https://britecharts.github.io/britecharts-react/images/logo-light.png' },
+                {
+                    itemprop: 'description',
+                    content:
+                        'Britecharts-react is a React wrapper for the Britecharts charting library.',
+                },
+                {
+                    itemprop: 'image',
+                    content:
+                        'https://britecharts.github.io/britecharts-react/images/logo-light.png',
+                },
                 { property: 'og:title', content: 'Britecharts React' },
                 { property: 'og:type', content: 'website' },
-                { property: 'og:image', content: 'https://britecharts.github.io/britecharts-react/images/logo-light.png' },
-                { property: 'og:url', content: 'https://britecharts.github.io/britecharts-react/' },
-                { property: 'og:description', content: 'Britecharts-react is a React wrapper for the Britecharts charting library.' },
+                {
+                    property: 'og:image',
+                    content:
+                        'https://britecharts.github.io/britecharts-react/images/logo-light.png',
+                },
+                {
+                    property: 'og:url',
+                    content: 'https://britecharts.github.io/britecharts-react/',
+                },
+                {
+                    property: 'og:description',
+                    content:
+                        'Britecharts-react is a React wrapper for the Britecharts charting library.',
+                },
                 { name: 'twitter:title', content: 'Britecharts React' },
                 { name: 'twitter:card', content: 'summary_large_image' },
                 { name: 'twitter:site', content: '@britecharts' },
-                { name: 'twitter:description', content: 'Britecharts-react is a React wrapper for the Britecharts charting library.' },
-                { name: 'twitter:image', content: 'https://britecharts.github.io/britecharts-react/images/logo-light.png' },
+                {
+                    name: 'twitter:description',
+                    content:
+                        'Britecharts-react is a React wrapper for the Britecharts charting library.',
+                },
+                {
+                    name: 'twitter:image',
+                    content:
+                        'https://britecharts.github.io/britecharts-react/images/logo-light.png',
+                },
             ],
             links: [
                 { rel: 'manifest', href: 'icons/manifest.json' },
-                { rel: 'apple-touch-icon', sizes: '180x180', href: 'icons/apple-touch-icon.png' },
-                { rel: 'mask-icon', href: 'icons/safari-pinned-tab.svg', color: '#5bbad5' },
+                {
+                    rel: 'apple-touch-icon',
+                    sizes: '180x180',
+                    href: 'icons/apple-touch-icon.png',
+                },
+                {
+                    rel: 'mask-icon',
+                    href: 'icons/safari-pinned-tab.svg',
+                    color: '#5bbad5',
+                },
                 { rel: 'shortcut icon', href: 'icons/favicon.ico' },
-                { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'icons/favicon-32x32.png' },
-                { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'icons/favicon-16x16.png' },
-                { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Rubik:300,400' },
+                {
+                    rel: 'icon',
+                    type: 'image/png',
+                    sizes: '32x32',
+                    href: 'icons/favicon-32x32.png',
+                },
+                {
+                    rel: 'icon',
+                    type: 'image/png',
+                    sizes: '16x16',
+                    href: 'icons/favicon-16x16.png',
+                },
+                {
+                    rel: 'stylesheet',
+                    href:
+                        'https://fonts.googleapis.com/css?family=Rubik:300,400',
+                },
             ],
             raw: `
                 <!--[if lt IE 9]>
                     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
                 <![endif]-->
-            `
+            `,
         },
         body: {
             raw: [
@@ -120,10 +183,11 @@ module.exports = {
             scripts: [
                 {
                     async: '',
-                    src: 'https://www.googletagmanager.com/gtag/js?id=UA-141520-33'
-                }
+                    src:
+                        'https://www.googletagmanager.com/gtag/js?id=UA-141520-33',
+                },
             ],
-        }
+        },
     },
 
     webpackConfig: {
@@ -136,10 +200,7 @@ module.exports = {
                 },
                 {
                     test: /\.css$/,
-                    loader: [
-                        'style-loader',
-                        'css-loader',
-                    ],
+                    loader: ['style-loader', 'css-loader'],
                 },
             ],
         },
@@ -162,4 +223,3 @@ module.exports = {
 
     styleguideDir: 'docs',
 };
-

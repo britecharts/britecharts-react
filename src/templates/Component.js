@@ -64,21 +64,25 @@ class {{pascalCase componentName}} extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.chart.destroy(this.rootNode);
+        chart.destroy(this.rootNode);
     }
 
     createChart() {
-        this.chart = this.props.chart.create(
+        const { chart, data } = this.props;
+
+        this.chart = chart.create(
             this.rootNode,
-            this.props.data,
+            data,
             this.getChartConfiguration()
         );
     }
 
     updateChart() {
-        this.props.chart.update(
+        const { chart, data } = this.props;
+
+        chart.update(
             this.rootNode,
-            this.props.data,
+            data,
             this.getChartConfiguration(),
             this.chart
         );
@@ -106,7 +110,7 @@ class {{pascalCase componentName}} extends React.Component {
     render() {
         return loadingContainerWrapper(
             this.props,
-            this.props.chart.loading(),
+            chart.loading(),
             <div className="{{dashCase componentName}}-container" ref={this.setRef} />
         );
     }
