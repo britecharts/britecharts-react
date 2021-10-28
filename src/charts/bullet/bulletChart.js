@@ -1,6 +1,5 @@
 import bulletChart from 'britecharts/dist/umd/bullet.min';
 import { select } from 'd3-selection';
-import { bar as bulletLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
@@ -40,7 +39,5 @@ bullet.update = (el, data, configuration = {}, chart) => {
 };
 
 bullet.destroy = () => {};
-
-bullet.loading = () => bulletLoadingState;
 
 export default bullet;

@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import bullet from './bulletChart';
-import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class Bullet extends React.Component {
     static propTypes = {
@@ -11,11 +10,6 @@ class Bullet extends React.Component {
          * Internally used, do not overwrite.
          */
         data: PropTypes.array,
-
-        /**
-         * Gets or Sets the aspect ratio of the chart
-         */
-        aspectRatio: PropTypes.number,
 
         /**
          * Gets or Sets the colorSchema of the chart. The first color from the array will be applied to range bars (the wider bars). The second color from the array will be applied to measure bars (the narrow bars) and the third to the marker lines.
@@ -41,11 +35,6 @@ class Bullet extends React.Component {
          * Gets or Sets the isReverse status of the chart. If true, the elements will be rendered in reverse order.
          */
         isReverse: PropTypes.bool,
-
-        /**
-         * Gets or Sets the loading state of the chart
-         */
-        loadingState: PropTypes.string,
 
         /**
          * Gets or Sets the margin of the chart
@@ -95,7 +84,6 @@ class Bullet extends React.Component {
     static defaultProps = {
         chart: bullet,
         createTooltip: () => null,
-        shouldShowLoadingState: false,
     };
 
     constructor(props) {
@@ -106,27 +94,27 @@ class Bullet extends React.Component {
 
     componentDidMount() {
         const { data, shouldShowLoadingState } = this.props;
-        if (!shouldShowLoadingState) {
-            if (data !== null) {
-                this.createChart();
-            }
+
+        // TODO: Remove or make standard
+        if (data !== null) {
+            this.createChart();
         }
     }
 
     componentDidUpdate() {
-        const { createTooltip, shouldShowLoadingState } = this.props;
-        if (!shouldShowLoadingState) {
-            if (!this.chart) {
-                this.createChart();
-            } else {
-                this.updateChart();
-                createTooltip();
-            }
+        const { createTooltip } = this.props;
+
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
+            createTooltip();
         }
     }
 
     componentWillUnmount() {
         const { chart } = this.props;
+
         chart.destroy(this.rootNode);
     }
 
@@ -161,7 +149,6 @@ class Bullet extends React.Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
-        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -171,12 +158,7 @@ class Bullet extends React.Component {
     }
 
     render() {
-        const { chart, loadingState } = this.props;
-        return loadingContainerWrapper(
-            this.props,
-            loadingState || chart.loading(),
-            <div className="bullet-container" ref={this.setRef} />
-        );
+        return <div className="bullet-container" ref={this.setRef} />;
     }
 }
 
