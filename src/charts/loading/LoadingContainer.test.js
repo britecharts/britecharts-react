@@ -6,7 +6,7 @@ import LoadingContainer from './LoadingContainer';
 import barData from '../bar/barChart.fixtures';
 import bar from '../bar/barChart';
 
-xdescribe('loading Container', () => {
+describe.skip('loading Container', () => {
     it('should render without errors', () => {
         expect(() =>
             mount(

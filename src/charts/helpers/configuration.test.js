@@ -1,6 +1,6 @@
 import { applyConfiguration } from './configuration';
 
-describe('configuration', () => {
+describe.skip('configuration', () => {
     it('should allow setting empty string', () => {
         const expected = '';
         const mockChart = {

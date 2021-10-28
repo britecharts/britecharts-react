@@ -16,7 +16,7 @@ const renderFakeChart = () => <FakeChart />;
 
 const renderFakeChartNoMarker = () => <FakeChartNoMarker />;
 
-describe('tooltip', () => {
+describe.skip('tooltip', () => {
     describe('render', () => {
         let createSpy;
 

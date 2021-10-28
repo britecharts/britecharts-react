@@ -1,5 +1,5 @@
-import { donut as donutChart } from 'britecharts';
-// import donutChart from 'britecharts/dist/umd/donut.min';
+// import { donut as donutChart } from 'britecharts';
+import donutChart from 'britecharts/dist/umd/donut.min';
 import { select } from 'd3-selection';
 import {
     validateConfiguration,

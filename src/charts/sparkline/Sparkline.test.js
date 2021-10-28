@@ -6,7 +6,7 @@ import sparklineData from './sparklineChart.fixtures';
 
 import sparkline from './sparklineChart';
 
-describe('sparkline Chart', () => {
+describe.skip('sparkline Chart', () => {
     describe('render', () => {
         describe('when data passed in', () => {
             let createSpy;

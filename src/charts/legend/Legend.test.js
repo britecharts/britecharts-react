@@ -6,7 +6,7 @@ import legendData from './legendChart.fixtures';
 
 import legendChart from './legendChart';
 
-describe('legend Chart', () => {
+describe.skip('legend Chart', () => {
     describe('render', () => {
         describe('when data passed in', () => {
             let createSpy;

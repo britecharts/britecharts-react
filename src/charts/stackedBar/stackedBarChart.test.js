@@ -1,7 +1,7 @@
 import stackedBarData from './stackedBarChart.fixtures';
 import stackedBar from './stackedBarChart';
 
-describe('stacked Bar Chart', () => {
+describe.skip('stacked Bar Chart', () => {
     let anchor;
 
     beforeEach(() => {

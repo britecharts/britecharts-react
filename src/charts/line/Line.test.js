@@ -6,7 +6,7 @@ import lineData from './lineChart.fixtures';
 
 import line from './lineChart';
 
-describe('line Chart', () => {
+describe.skip('line Chart', () => {
     let chartData;
 
     beforeEach(() => {

@@ -1,7 +1,7 @@
 import stepData from './stepChart.fixtures';
 import step from './stepChart';
 
-describe('step Chart', () => {
+describe.skip('step Chart', () => {
     let anchor;
 
     beforeEach(() => {

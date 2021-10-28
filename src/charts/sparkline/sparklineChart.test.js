@@ -1,7 +1,7 @@
 import sparklineData from './sparklineChart.fixtures';
 import sparkline from './sparklineChart';
 
-describe('sparkline Chart', () => {
+describe.skip('sparkline Chart', () => {
     let anchor;
 
     beforeEach(() => {

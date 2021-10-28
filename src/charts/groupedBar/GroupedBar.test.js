@@ -6,7 +6,7 @@ import groupedBarData from './groupedBarChart.fixtures';
 
 import groupedBar from './groupedBarChart';
 
-describe('grouped Bar Chart', () => {
+describe.skip('grouped Bar Chart', () => {
     describe('render', () => {
         describe('when data passed in', () => {
             let createSpy;

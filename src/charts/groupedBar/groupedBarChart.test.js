@@ -1,7 +1,7 @@
 import groupedBarData from './groupedBarChart.fixtures';
 import groupedBar from './groupedBarChart';
 
-describe('grouped Bar Chart', () => {
+describe.skip('grouped Bar Chart', () => {
     let anchor;
 
     beforeEach(() => {
