@@ -21,13 +21,14 @@ const logMouseOver = () => console.log('Mouse Over');
     externalRadius={100}
     internalRadius={47}
     highlightSliceById={1}
+    isAnimated={false}
 />;
 ```
 
 ### With loading state
 
 ```js
-<Donut data={[]} shouldShowLoadingState={true} />
+<Donut data={[]} isLoading={true} />
 ```
 
 ### With highlighted Legend and fully responsive

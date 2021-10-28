@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import donut from './donutChart';
-import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 export default class Donut extends Component {
     static propTypes = {
@@ -12,9 +11,19 @@ export default class Donut extends Component {
         data: PropTypes.array,
 
         /**
+         * Gets or Sets the duration of the animation
+         */
+        animationDuration: PropTypes.number,
+
+        /**
          * Gets or Sets the centeredTextFunction of the chart. If function is provided the format will be changed by the custom function's value format. The default format function value is "${d.percentage}% ${d.name}". The callback will provide the data object with id, name, percentage, and quantity. Also provides the component added by the user in each data entry
          */
         centeredTextFunction: PropTypes.func,
+
+        /**
+         * Current colorMap or Chart module to chain calls
+         */
+        colorMap: PropTypes.object,
 
         /**
          * Gets or Sets the colorSchema of the chart
@@ -38,6 +47,18 @@ export default class Donut extends Component {
         hasFixedHighlightedSlice: PropTypes.bool,
 
         /**
+         * Gets or Sets the hasHoverAnimation property of the chart. By default, donut chart highlights the hovered slice. This property explicitly disables this hover behavior.
+         */
+        hasHoverAnimation: PropTypes.bool,
+
+        /**
+         * Gets or sets the hasLastHoverSliceHighlighted property.
+         * If property is true, the last hovered slice will be highlighted after 'mouseout` event is triggered.
+         * The last hovered slice will remain in highlight state. Note: if both hasFixedHighlightedSlice and hasLastHoverSliceHighlighted are true, the latter property will override the former.
+         */
+        hasLastHoverSliceHighlighted: PropTypes.bool,
+
+        /**
          * Gets or Sets the height of the chart
          */
         height: PropTypes.number,
@@ -59,9 +80,9 @@ export default class Donut extends Component {
         isAnimated: PropTypes.bool,
 
         /**
-         * Gets or Sets the loading state of the chart
+         * Current loading state flag or Chart module to chain calls
          */
-        loadingState: PropTypes.string,
+        isLoading: PropTypes.bool,
 
         /**
          * Gets or Sets the margin of the chart
@@ -117,7 +138,6 @@ export default class Donut extends Component {
     static defaultProps = {
         chart: donut,
         isAnimated: true,
-        shouldShowLoadingState: false,
     };
 
     constructor(props) {
@@ -127,22 +147,14 @@ export default class Donut extends Component {
     }
 
     componentDidMount() {
-        const { shouldShowLoadingState } = this.props;
-
-        if (!shouldShowLoadingState) {
-            this.createChart();
-        }
+        this.createChart();
     }
 
     componentDidUpdate() {
-        const { shouldShowLoadingState } = this.props;
-
-        if (!shouldShowLoadingState) {
-            if (!this.chart) {
-                this.createChart();
-            } else {
-                this.updateChart();
-            }
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
         }
     }
 
@@ -161,7 +173,6 @@ export default class Donut extends Component {
 
         delete configuration.data;
         delete configuration.chart;
-        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -192,11 +203,6 @@ export default class Donut extends Component {
     }
 
     render() {
-        const { chart, loadingState } = this.props;
-        return loadingContainerWrapper(
-            this.props,
-            loadingState || chart.loading(),
-            <div className="donut-container" ref={this.setRef} />
-        );
+        return <div className="donut-container" ref={this.setRef} />;
     }
 }

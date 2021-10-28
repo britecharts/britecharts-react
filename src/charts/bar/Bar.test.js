@@ -6,7 +6,7 @@ import barData from './barChart.fixtures';
 
 import bar from './barChart';
 
-describe('bar Chart', () => {
+describe.only('bar Chart', () => {
     describe('render', () => {
         describe('when data passed in', () => {
             let createSpy;

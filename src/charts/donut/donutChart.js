@@ -1,6 +1,6 @@
-import donutChart from 'britecharts/dist/umd/donut.min';
+import { donut as donutChart } from 'britecharts';
+// import donutChart from 'britecharts/dist/umd/donut.min';
 import { select } from 'd3-selection';
-import { donut as donutLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
@@ -40,7 +40,5 @@ donut.update = (el, data, configuration = {}, chart) => {
 };
 
 donut.destroy = () => {};
-
-donut.loading = () => donutLoadingState;
 
 export default donut;
