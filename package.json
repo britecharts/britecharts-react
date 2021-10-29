@@ -134,7 +134,7 @@
         "react-dom": ">=15"
     },
     "dependencies": {
-        "britecharts": "^3.0.0-alpha-6.0",
+        "britecharts": "^3.0.0-alpha-6.0.1",
         "d3-selection": "^1.4.1"
     },
     "eslintConfig": {
