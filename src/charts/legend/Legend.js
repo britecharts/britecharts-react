@@ -15,6 +15,11 @@ export default class Legend extends React.Component {
         clearHighlight: PropTypes.func,
 
         /**
+         * Current colorMap or Chart module to chain calls
+         */
+        colorMap: PropTypes.object,
+
+        /**
          * Gets or Sets the colorSchema of the chart
          */
         colorSchema: PropTypes.arrayOf(PropTypes.string),
@@ -117,6 +122,7 @@ export default class Legend extends React.Component {
 
     componentWillUnmount() {
         const { chart } = this.props;
+
         chart.destroy(this.rootNode);
     }
 

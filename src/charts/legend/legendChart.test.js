@@ -1,7 +1,7 @@
 import legendData from './legendChart.fixtures';
 import legendChart from './legendChart';
 
-describe.skip('legend Chart', () => {
+describe('legend Chart', () => {
     let anchor;
 
     beforeEach(() => {
