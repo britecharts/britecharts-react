@@ -1,7 +1,7 @@
 import lineData from './lineChart.fixtures';
 import line from './lineChart';
 
-describe.skip('bar Chart', () => {
+describe('Line Chart', () => {
     let anchor;
 
     beforeEach(() => {

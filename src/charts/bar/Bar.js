@@ -11,6 +11,11 @@ class Bar extends Component {
         data: PropTypes.arrayOf(PropTypes.any),
 
         /**
+         * Gets or Sets the duration of the animation
+         */
+        animationDuration: PropTypes.number,
+
+        /**
          * Gets or Sets the padding of the chart
          */
         betweenBarsPadding: PropTypes.number,

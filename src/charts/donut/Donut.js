@@ -8,7 +8,7 @@ export default class Donut extends Component {
         /**
          * Internally used, do not overwrite.
          */
-        data: PropTypes.array,
+        data: PropTypes.arrayOf(PropTypes.any),
 
         /**
          * Gets or Sets the duration of the animation

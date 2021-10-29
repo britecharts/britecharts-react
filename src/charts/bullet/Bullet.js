@@ -9,7 +9,7 @@ class Bullet extends React.Component {
         /**
          * Internally used, do not overwrite.
          */
-        data: PropTypes.array,
+        data: PropTypes.arrayOf(PropTypes.any),
 
         /**
          * Gets or Sets the colorSchema of the chart. The first color from the array will be applied to range bars (the wider bars). The second color from the array will be applied to measure bars (the narrow bars) and the third to the marker lines.

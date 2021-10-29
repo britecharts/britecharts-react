@@ -78,7 +78,7 @@ const margin = {
 ### With loading state
 
 ```js
-<Line data={null} shouldShowLoadingState={true} />
+<Line data={{data: []}} isLoading={true} />
 ```
 
 See more:

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import line from './lineChart';
 import { axisTimeCombinations as combinations } from '../constants';
-import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class Line extends React.Component {
     static propTypes = {
@@ -12,14 +11,24 @@ class Line extends React.Component {
         data: PropTypes.object,
 
         /**
-         * Gets or Sets the aspect ratio of the chart
+         * Gets or Sets the duration of the animation
          */
-        aspectRatio: PropTypes.number,
+        animationDuration: PropTypes.number,
+
+        /**
+         * Exposes the constants to be used to force the x axis to respect a certain granularity current options:
+         *  MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
+         */
+        axisTimeCombinations: PropTypes.string,
+
+        /**
+         * Current colorMap or Chart module to chain calls
+         */
+        colorMap: PropTypes.object,
 
         /**
          * Gets or Sets the colorSchema of the chart
          */
-
         colorSchema: PropTypes.arrayOf(PropTypes.string),
 
         /**
@@ -49,6 +58,11 @@ class Line extends React.Component {
         isAnimated: PropTypes.bool,
 
         /**
+         * Current loading state flag or Chart module to chain calls
+         */
+        isLoading: PropTypes.bool,
+
+        /**
          * Gets or Sets the curve of the line chart
          */
         lineCurve: PropTypes.string,
@@ -57,11 +71,6 @@ class Line extends React.Component {
          * Gets or Sets the gradient colors of the line chart when there is only one line
          */
         lineGradient: PropTypes.arrayOf(PropTypes.string),
-
-        /**
-         * Gets or Sets the loading state of the chart
-         */
-        loadingState: PropTypes.string,
 
         /**
          * Pass language tag for the tooltip to localize the date. Feature
@@ -84,11 +93,6 @@ class Line extends React.Component {
          * Gets or Sets the number format of the line chart
          */
         numberFormat: PropTypes.string,
-
-        /**
-         * Gets or Sets whether a loading state will be shown
-         */
-        shouldShowLoadingState: PropTypes.bool,
 
         /**
          * Gets or Sets the minimum width of the graph in order
@@ -127,6 +131,18 @@ class Line extends React.Component {
          * Gets or Sets the label of the X axis of the chart
          */
         xAxisLabel: PropTypes.string,
+
+        /**
+         * Gets or Sets the `xAxisScale`. Choose between 'linear' and 'logarithmic'.
+         * The setting will only work if `xAxisValueType` is set to 'number' as well, otherwise it won't influence the visualization.
+         */
+        xAxisScale: PropTypes.string,
+
+        /**
+         * Gets or Sets the `xAxisValueType`. Choose between 'date' and 'number'.
+         * When set to `number` the values of the x-axis must not be dates anymore, but can be arbitrary numbers.
+         */
+        xAxisValueType: PropTypes.string,
 
         /**
          * Exposes the ability to force the chart to show a certain x ticks. It
@@ -173,7 +189,6 @@ class Line extends React.Component {
     static defaultProps = {
         chart: line,
         createTooltip: () => null,
-        shouldShowLoadingState: false,
     };
 
     constructor(props) {
@@ -183,23 +198,17 @@ class Line extends React.Component {
     }
 
     componentDidMount() {
-        const { shouldShowLoadingState } = this.props;
-
-        if (!shouldShowLoadingState) {
-            this.createChart();
-        }
+        this.createChart();
     }
 
     componentDidUpdate() {
-        const { createTooltip, shouldShowLoadingState } = this.props;
+        const { createTooltip } = this.props;
 
-        if (!shouldShowLoadingState) {
-            if (!this.chart) {
-                this.createChart();
-            } else {
-                this.updateChart();
-                createTooltip();
-            }
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
+            createTooltip();
         }
     }
 
@@ -219,7 +228,6 @@ class Line extends React.Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
-        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -250,13 +258,7 @@ class Line extends React.Component {
     }
 
     render() {
-        const { chart, loadingState } = this.props;
-
-        return loadingContainerWrapper(
-            this.props,
-            loadingState || chart.loading(),
-            <div className="line-container" ref={this.setRef} />
-        );
+        return <div className="line-container" ref={this.setRef} />;
     }
 }
 
