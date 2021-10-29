@@ -23,8 +23,8 @@
 ```js
 
     <GroupedBar
-        data={null}
-        shouldShowLoadingState={true}
+        data={[]}
+        isLoading={true}
     />
 ```
 

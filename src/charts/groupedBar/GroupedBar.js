@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import groupedBar from './groupedBarChart';
-import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class GroupedBar extends React.Component {
     static propTypes = {
@@ -11,9 +10,24 @@ class GroupedBar extends React.Component {
         data: PropTypes.arrayOf(PropTypes.any),
 
         /**
-         * Gets or Sets the aspect ratio of the chart
+         * Gets or Sets the duration of the animation
          */
-        aspectRatio: PropTypes.number,
+        animationDuration: PropTypes.number,
+
+        /**
+         * Gets or Sets the padding of the chart
+         */
+        betweenBarsPadding: PropTypes.number,
+
+        /**
+         * Gets or Sets the padding between groups of bars
+         */
+        betweenGroupsPadding: PropTypes.number,
+
+        /**
+         * Current colorMap or Chart module to chain calls
+         */
+        colorMap: PropTypes.object,
 
         /**
          * Gets or Sets the colorSchema of the chart
@@ -52,9 +66,9 @@ class GroupedBar extends React.Component {
         isHorizontal: PropTypes.bool,
 
         /**
-         * Gets or Sets the loading state of the chart
+         * Current loading state flag or Chart module to chain calls
          */
-        loadingState: PropTypes.string,
+        isLoading: PropTypes.bool,
 
         /**
          * Gets or Sets the margin of the chart
@@ -72,14 +86,14 @@ class GroupedBar extends React.Component {
         nameLabel: PropTypes.number,
 
         /**
+         * Gets or Sets the number format of the bar chart
+         */
+        numberFormat: PropTypes.string,
+
+        /**
          * Gets or Sets the minimum width of the graph in order to show the tooltip NOTE: This could also depend on the aspect ratio
          */
         tooltipThreshold: PropTypes.number,
-
-        /**
-         * Gets or Sets whether a loading state will be shown
-         */
-        shouldShowLoadingState: PropTypes.bool,
 
         /**
          * Gets or Sets the valueLabel of the chart
@@ -87,9 +101,9 @@ class GroupedBar extends React.Component {
         valueLabel: PropTypes.number,
 
         /**
-         * Gets or Sets the valueLabelFormat of the chart
+         * Current locale object or Chart module to chain calls
          */
-        valueLabelFormat: PropTypes.string,
+        valueLocale: PropTypes.object,
 
         /**
          * Gets or Sets the width of the chart
@@ -149,7 +163,6 @@ class GroupedBar extends React.Component {
     static defaultProps = {
         chart: groupedBar,
         createTooltip: () => null,
-        shouldShowLoadingState: false,
     };
 
     constructor(props) {
@@ -159,30 +172,27 @@ class GroupedBar extends React.Component {
     }
 
     componentDidMount() {
-        const { data, shouldShowLoadingState } = this.props;
+        const { data } = this.props;
 
-        if (!shouldShowLoadingState) {
-            if (data !== null) {
-                this.createChart();
-            }
+        if (data !== null) {
+            this.createChart();
         }
     }
 
     componentDidUpdate() {
-        const { createTooltip, shouldShowLoadingState } = this.props;
+        const { createTooltip } = this.props;
 
-        if (!shouldShowLoadingState) {
-            if (!this.chart) {
-                this.createChart();
-            } else {
-                this.updateChart();
-                createTooltip();
-            }
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
+            createTooltip();
         }
     }
 
     componentWillUnmount() {
         const { chart } = this.props;
+
         chart.destroy(this.rootNode);
     }
 
@@ -196,7 +206,6 @@ class GroupedBar extends React.Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
-        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -227,12 +236,7 @@ class GroupedBar extends React.Component {
     }
 
     render() {
-        const { chart } = this.props;
-        return loadingContainerWrapper(
-            this.props,
-            chart.loading(),
-            <div className="grouped-bar-container" ref={this.setRef} />
-        );
+        return <div className="grouped-bar-container" ref={this.setRef} />;
     }
 }
 

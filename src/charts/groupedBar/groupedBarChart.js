@@ -1,6 +1,5 @@
 import groupedBarChart from 'britecharts/dist/umd/groupedBar.min';
 import { select } from 'd3-selection';
-import { bar as groupedBarLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
@@ -40,7 +39,5 @@ groupedBar.update = (el, data, configuration = {}, chart) => {
 };
 
 groupedBar.destroy = () => {};
-
-groupedBar.loading = () => groupedBarLoadingState;
 
 export default groupedBar;

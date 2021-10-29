@@ -20,12 +20,6 @@ const ResponsiveBullet = withResponsiveness(Bullet);
 <ResponsiveBullet data={chartData.underRangeNoMarker()} />;
 ```
 
-### With loading state
-
-```js
-<Bullet data={null} shouldShowLoadingState={true} />
-```
-
 See more:
 
 -   [API description][apilink]
