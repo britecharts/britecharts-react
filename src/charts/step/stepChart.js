@@ -1,6 +1,5 @@
 import stepChart from 'britecharts/dist/umd/step.min';
 import { select } from 'd3-selection';
-import { bar as stepLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
@@ -42,7 +41,5 @@ step.update = (el, data, configuration = {}, chart) => {
 };
 
 step.destroy = () => {};
-
-step.loading = () => stepLoadingState;
 
 export default step;

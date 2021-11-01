@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import step from './stepChart';
-import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class Step extends React.Component {
     static propTypes = {
@@ -21,14 +20,9 @@ class Step extends React.Component {
         height: PropTypes.number,
 
         /**
-         * Gets or Sets the loading state of the chart (string must be markup).
+         * Current loading state flag or Chart module to chain calls
          */
-        loadingState: PropTypes.string,
-
-        /**
-         * Gets or Sets whether a loading state will be shown
-         */
-        shouldShowLoadingState: PropTypes.bool,
+        isLoading: PropTypes.bool,
 
         /**
          * Gets or Sets the margin of the chart
@@ -109,19 +103,19 @@ class Step extends React.Component {
     }
 
     componentDidUpdate() {
-        const { createTooltip, shouldShowLoadingState } = this.props;
-        if (!shouldShowLoadingState) {
-            if (!this.chart) {
-                this.createChart();
-            } else {
-                this.updateChart();
-                createTooltip();
-            }
+        const { createTooltip } = this.props;
+
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
+            createTooltip();
         }
     }
 
     componentWillUnmount() {
         const { chart } = this.props;
+
         chart.destroy(this.rootNode);
     }
 
@@ -135,7 +129,6 @@ class Step extends React.Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
-        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -166,12 +159,7 @@ class Step extends React.Component {
     }
 
     render() {
-        const { chart } = this.props;
-        return loadingContainerWrapper(
-            this.props,
-            chart.loading(),
-            <div className="step-container" ref={this.setRef} />
-        );
+        return <div className="step-container" ref={this.setRef} />;
     }
 }
 
