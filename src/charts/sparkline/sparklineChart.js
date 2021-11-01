@@ -41,6 +41,4 @@ sparkline.update = (el, data, configuration = {}, chart) => {
 
 sparkline.destroy = () => {};
 
-sparkline.loading = () => sparklineLoadingState;
-
 export default sparkline;

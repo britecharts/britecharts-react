@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import sparkline from './sparklineChart';
-import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class Sparkline extends React.Component {
     static propTypes = {
@@ -9,6 +8,11 @@ class Sparkline extends React.Component {
          * Internally used, do not overwrite.
          */
         data: PropTypes.arrayOf(PropTypes.any),
+
+        /**
+         * Gets or Sets the duration of the animation
+         */
+        animationDuration: PropTypes.number,
 
         /**
          * Gets or Sets the areaGradient of the chart
@@ -19,11 +23,6 @@ class Sparkline extends React.Component {
          * Gets or Sets the dateLabel of the chart
          */
         dateLabel: PropTypes.string,
-
-        /**
-         * Gets or Sets the duration of the animation
-         */
-        duration: PropTypes.number,
 
         /**
          * Chart exported to png and a download action is fired
@@ -43,19 +42,14 @@ class Sparkline extends React.Component {
         isAnimated: PropTypes.bool,
 
         /**
+         * Current loading state flag or Chart module to chain calls
+         */
+        isLoading: PropTypes.bool,
+
+        /**
          * Gets or Sets the lineGradient of the chart
          */
         lineGradient: PropTypes.arrayOf(PropTypes.string),
-
-        /**
-         * Gets or Sets the loading state of the chart
-         */
-        loadingState: PropTypes.string,
-
-        /**
-         * Gets or Sets whether a loading state will be shown
-         */
-        shouldShowLoadingState: PropTypes.bool,
 
         /**
          * Gets or Sets the margin of the chart
@@ -130,7 +124,6 @@ class Sparkline extends React.Component {
     static defaultProps = {
         chart: sparkline,
         createTooltip: () => null,
-        shouldShowLoadingState: false,
     };
 
     constructor(props) {
@@ -140,25 +133,21 @@ class Sparkline extends React.Component {
     }
 
     componentDidMount() {
-        const { data, shouldShowLoadingState } = this.props;
+        const { data } = this.props;
 
-        if (!shouldShowLoadingState) {
-            if (data !== null) {
-                this.createChart();
-            }
+        if (data !== null) {
+            this.createChart();
         }
     }
 
     componentDidUpdate() {
-        const { createTooltip, shouldShowLoadingState } = this.props;
+        const { createTooltip } = this.props;
 
-        if (!shouldShowLoadingState) {
-            if (!this.chart) {
-                this.createChart();
-            } else {
-                this.updateChart();
-                createTooltip();
-            }
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
+            createTooltip();
         }
     }
 
@@ -178,7 +167,6 @@ class Sparkline extends React.Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
-        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -209,12 +197,7 @@ class Sparkline extends React.Component {
     }
 
     render() {
-        const { chart } = this.props;
-        return loadingContainerWrapper(
-            this.props,
-            chart.loading(),
-            <div className="sparkline-container" ref={this.setRef} />
-        );
+        return <div className="sparkline-container" ref={this.setRef} />;
     }
 }
 
