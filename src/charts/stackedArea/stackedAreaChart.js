@@ -41,6 +41,4 @@ stackedArea.update = (el, data, configuration = {}, chart) => {
 
 stackedArea.destroy = () => {};
 
-stackedArea.loading = () => stackedAreaLoadingState;
-
 export default stackedArea;

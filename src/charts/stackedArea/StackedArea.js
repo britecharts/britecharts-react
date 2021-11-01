@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import stackedArea from './stackedAreaChart';
 import { axisTimeCombinations as combinations } from '../constants';
-import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class StackedArea extends React.Component {
     static propTypes = {
@@ -10,6 +9,17 @@ class StackedArea extends React.Component {
          * Internally used, do not overwrite.
          */
         data: PropTypes.arrayOf(PropTypes.any),
+
+        /**
+         * Gets or Sets the duration of the animation
+         */
+        animationDuration: PropTypes.number,
+
+        /**
+         * Exposes the constants to be used to force the x axis to respect a certain granularity current options:
+         *  MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
+         */
+        axisTimeCombinations: PropTypes.string,
 
         /**
          * Gets or Sets the area curve of the stacked area.
@@ -23,9 +33,9 @@ class StackedArea extends React.Component {
         areaOpacity: PropTypes.number,
 
         /**
-         * Gets or Sets the aspect ratio of the chart
+         * Current colorMap or Chart module to chain calls
          */
-        aspectRatio: PropTypes.number,
+        colorMap: PropTypes.object,
 
         /**
          * Gets or Sets the colorSchema of the chart
@@ -64,14 +74,14 @@ class StackedArea extends React.Component {
         isAnimated: PropTypes.bool,
 
         /**
+         * Current loading state flag or Chart module to chain calls
+         */
+        isLoading: PropTypes.bool,
+
+        /**
          * Gets or Sets the keyLabel of the chart
          */
         keyLabel: PropTypes.number,
-
-        /**
-         * Gets or Sets the loading state of the chart
-         */
-        loadingState: PropTypes.string,
 
         /**
          * Pass language tag for the tooltip to localize the date. Feature
@@ -89,11 +99,6 @@ class StackedArea extends React.Component {
             left: PropTypes.number,
             right: PropTypes.number,
         }),
-
-        /**
-         * Gets or Sets whether a loading state will be shown
-         */
-        shouldShowLoadingState: PropTypes.bool,
 
         /**
          * Gets or Sets the minimum width of the graph in order
@@ -137,6 +142,12 @@ class StackedArea extends React.Component {
         xTicks: PropTypes.number,
 
         /**
+         * Gets or Sets the yAxisBaseline - this is the y-value where the area starts from in y-direction (default is 0).
+         * Change this value if you don't want to start your area from y=0.
+         */
+        yAxisBaseline: PropTypes.number,
+
+        /**
          * Gets or Sets the y-axis label of the chart
          */
         yAxisLabel: PropTypes.string,
@@ -173,7 +184,6 @@ class StackedArea extends React.Component {
     static defaultProps = {
         chart: stackedArea,
         createTooltip: () => null,
-        shouldShowLoadingState: false,
     };
 
     constructor(props) {
@@ -183,28 +193,27 @@ class StackedArea extends React.Component {
     }
 
     componentDidMount() {
-        const { data, shouldShowLoadingState } = this.props;
-        if (!shouldShowLoadingState) {
-            if (data !== null) {
-                this.createChart();
-            }
+        const { data } = this.props;
+
+        if (data !== null) {
+            this.createChart();
         }
     }
 
     componentDidUpdate() {
-        const { createTooltip, shouldShowLoadingState } = this.props;
-        if (!shouldShowLoadingState) {
-            if (!this.chart) {
-                this.createChart();
-            } else {
-                this.updateChart();
-                createTooltip();
-            }
+        const { createTooltip } = this.props;
+
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
+            createTooltip();
         }
     }
 
     componentWillUnmount() {
         const { chart } = this.props;
+
         chart.destroy(this.rootNode);
     }
 
@@ -218,7 +227,6 @@ class StackedArea extends React.Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
-        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -249,12 +257,7 @@ class StackedArea extends React.Component {
     }
 
     render() {
-        const { chart } = this.props;
-        return loadingContainerWrapper(
-            this.props,
-            chart.loading(),
-            <div className="stacked-area-container" ref={this.setRef} />
-        );
+        return <div className="stacked-area-container" ref={this.setRef} />;
     }
 }
 

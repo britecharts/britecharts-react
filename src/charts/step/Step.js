@@ -102,11 +102,10 @@ class Step extends React.Component {
     }
 
     componentDidMount() {
-        const { data, shouldShowLoadingState } = this.props;
-        if (!shouldShowLoadingState) {
-            if (data !== null) {
-                this.createChart();
-            }
+        const { data } = this.props;
+
+        if (data !== null) {
+            this.createChart();
         }
     }
 

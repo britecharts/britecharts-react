@@ -147,7 +147,11 @@ export default class Donut extends Component {
     }
 
     componentDidMount() {
-        this.createChart();
+        const { data } = this.props;
+
+        if (data !== null) {
+            this.createChart();
+        }
     }
 
     componentDidUpdate() {

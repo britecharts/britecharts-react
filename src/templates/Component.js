@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {{camelCase componentName}} from './{{camelCase componentName}}Chart';
-import {loadingContainerWrapper} from '../loading/LoadingContainer';
 
 class {{pascalCase componentName}} extends React.Component {
 
@@ -35,7 +34,6 @@ class {{pascalCase componentName}} extends React.Component {
     static defaultProps = {
         chart: {{camelCase componentName}},
         createTooltip: () => null,
-        shouldShowLoadingState: false,
     }
 
     constructor(props) {
@@ -45,21 +43,19 @@ class {{pascalCase componentName}} extends React.Component {
     }
 
     componentDidMount() {
-        if (!this.props.shouldShowLoadingState) {
-            if (this.props.data !== null) {
-                this.createChart();
-            }
+        const { data } = this.props;
+
+        if (data !== null) {
+            this.createChart();
         }
     }
 
     componentDidUpdate() {
-        if (!this.props.shouldShowLoadingState) {
-            if (!this.chart) {
-                this.createChart();
-            } else {
-                this.updateChart();
-                this.props.createTooltip();
-            }
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
+            this.props.createTooltip();
         }
     }
 
@@ -98,7 +94,6 @@ class {{pascalCase componentName}} extends React.Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
-        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -108,11 +103,7 @@ class {{pascalCase componentName}} extends React.Component {
     }
 
     render() {
-        return loadingContainerWrapper(
-            this.props,
-            chart.loading(),
-            <div className="{{dashCase componentName}}-container" ref={this.setRef} />
-        );
+        return <div className="{{dashCase componentName}}-container" ref={this.setRef} />;
     }
 }
 

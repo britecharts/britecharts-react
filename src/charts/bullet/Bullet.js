@@ -93,9 +93,8 @@ class Bullet extends React.Component {
     }
 
     componentDidMount() {
-        const { data, shouldShowLoadingState } = this.props;
+        const { data } = this.props;
 
-        // TODO: Remove or make standard
         if (data !== null) {
             this.createChart();
         }

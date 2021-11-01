@@ -1,7 +1,7 @@
 import stackedAreaData from './stackedAreaChart.fixtures';
 import stackedArea from './stackedAreaChart';
 
-describe.skip('stacked Area Chart', () => {
+describe('stacked Area Chart', () => {
     let anchor;
 
     beforeEach(() => {

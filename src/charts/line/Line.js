@@ -198,7 +198,11 @@ class Line extends React.Component {
     }
 
     componentDidMount() {
-        this.createChart();
+        const { data } = this.props;
+
+        if (data !== null) {
+            this.createChart();
+        }
     }
 
     componentDidUpdate() {

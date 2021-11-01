@@ -40,6 +40,4 @@ const {{camelCase componentName}} = {};
 
 {{camelCase componentName}}.destroy = () => {};
 
-{{camelCase componentName}}.loading = () => {{camelCase componentName}}LoadingState;
-
 export default {{camelCase componentName}};
