@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { transform } from 'babel-core';
+import { transform } from '@babel/core';
 import fs from 'fs';
 import path from 'path';
 import outputFileSync from 'output-file-sync';
@@ -20,6 +20,7 @@ const buildContent = function (
 
         outputFileSync(destination, result.code, { encoding: 'utf8' });
     } catch (e) {
+        console.log('Horror!', e);
         console.error(
             `${e.message} (${filename}:${e.loc.line}:${e.loc.column})`
         );

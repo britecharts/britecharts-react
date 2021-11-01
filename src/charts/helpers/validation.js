@@ -5,6 +5,7 @@ const isNotCustomEvent = (configName) =>
 
 export const validateConfiguration = (chart, configuration) => {
     const configurationProperties = Object.keys(configuration);
+    // eslint-disable-next-line prettier/prettier
     const configurationPropertiesWithoutEvents = configurationProperties.filter(
         isNotCustomEvent
     );

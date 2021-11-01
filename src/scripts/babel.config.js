@@ -2,9 +2,9 @@
 // Duplicated with ../.babelrc for now.
 const baseConfig = {
     presets: [
-        'react',
+        '@babel/preset-react',
         [
-            'env',
+            '@babel/preset-env',
             {
                 targets: {
                     browsers: ['last 2 versions', 'ie >= 10'],
@@ -13,12 +13,13 @@ const baseConfig = {
             },
         ],
     ],
-
-    plugins: ['transform-class-properties', 'transform-object-rest-spread'],
-
+    plugins: [
+        '@babel/plugin-proposal-class-properties',
+        '@babel/plugin-proposal-object-rest-spread',
+    ],
     env: {
         test: {
-            plugins: ['transform-es2015-modules-commonjs'],
+            plugins: ['@babel/plugin-transform-modules-commonjs'],
         },
     },
 };
@@ -27,7 +28,7 @@ module.exports = (type) =>
     ({
         es: {
             babelrc: false,
-            presets: ['react'],
+            presets: ['@babel/preset-react'],
             plugins: baseConfig.plugins,
         },
     }[type] ||
