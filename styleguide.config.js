@@ -39,8 +39,11 @@ module.exports = {
     components: 'src/charts/**/[A-Z]*.js',
 
     require: [
-        resolve('node_modules/britecharts/dist/css/britecharts.min.css'),
-        resolve('src/docs/styles/custom.css'),
+        path.join(
+            __dirname,
+            'node_modules/britecharts/dist/css/britecharts.min.css'
+        ),
+        path.join(__dirname, 'src/docs/styles/custom.css'),
     ],
 
     assetsDir: resolve('src/docs/public'),
@@ -200,6 +203,13 @@ module.exports = {
                 },
                 {
                     test: /\.css$/,
+                    include: [
+                        path.join(
+                            __dirname,
+                            './node_modules/britecharts/dist/css/'
+                        ),
+                        path.join(__dirname, './src/docs/styles/'),
+                    ],
                     loader: ['style-loader', 'css-loader'],
                 },
             ],

@@ -1,6 +1,6 @@
 body,
 .britechart {
-    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+    font-family: 'Rubik', 'Segoe UI', 'Helvetica Neue', sans-serif;
 }
 
 .rsg--body-0 h1,
@@ -11,12 +11,12 @@ body,
 
 /* Sidebar */
 .rsg--sidebar-4 a {
-    color: #D2D6DF !important;
+    color: #d2d6df !important;
 }
 .rsg--sidebar-4 a:hover,
 .rsg--sidebar-4 a:active,
 .rsg--sidebar-4 a:focus {
-    color: #FFFFFF !important;
+    color: #ffffff !important;
 }
 
 .stacked-area-container {
@@ -33,7 +33,6 @@ body,
     max-width: 100%;
 }
 
-
 /* Search */
 .rsg--sidebar-4 .rsg--search-64 {
     padding: 0 16px 16px 16px;
@@ -42,7 +41,6 @@ body,
     border: none;
     border-radius: 2px;
 }
-
 
 /* Body */
 .rsg--body-0 #introduction {
@@ -64,7 +62,6 @@ body,
 .rsg--body-0 .rsg--heading-11 {
     font-weight: 300;
 }
-
 
 .rsg--body-0 .rsg--content-3 {
     padding: 60px 32px;
