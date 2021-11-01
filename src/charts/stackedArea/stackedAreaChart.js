@@ -1,6 +1,5 @@
 import stackedAreaChart from 'britecharts/dist/umd/stackedArea.min';
 import { select } from 'd3-selection';
-import { stackedArea as stackedAreaLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,

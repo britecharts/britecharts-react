@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import stackedBar from './stackedBarChart';
-import { loadingContainerWrapper } from '../loading/LoadingContainer';
 
 class StackedBar extends React.Component {
     static propTypes = {
@@ -11,14 +10,19 @@ class StackedBar extends React.Component {
         data: PropTypes.arrayOf(PropTypes.any),
 
         /**
-         * Gets or Sets the aspect ratio of the chart
+         * Gets or Sets the duration of the animation
          */
-        aspectRatio: PropTypes.number,
+        animationDuration: PropTypes.number,
 
         /**
          * Gets or Sets the padding of the stacked bar chart
          */
         betweenBarsPadding: PropTypes.number,
+
+        /**
+         * Current colorMap or Chart module to chain calls
+         */
+        colorMap: PropTypes.object,
 
         /**
          * Gets or Sets the colorSchema of the chart
@@ -62,16 +66,9 @@ class StackedBar extends React.Component {
         isHorizontal: PropTypes.bool,
 
         /**
-         * Gets or Sets the loading state of the chart
+         * Current loading state flag or Chart module to chain calls
          */
-        loadingState: PropTypes.string,
-
-        /**
-         * Pass language tag for the tooltip to localize the date. Feature
-         * uses Intl.DateTimeFormat, for compatability and support, refer
-         * to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat
-         */
-        locale: PropTypes.string,
+        isLoading: PropTypes.bool,
 
         /**
          * Gets or Sets the margin of the chart
@@ -100,11 +97,6 @@ class StackedBar extends React.Component {
         percentageAxisToMaxRatio: PropTypes.number,
 
         /**
-         * Gets or Sets whether a loading state will be shown
-         */
-        shouldShowLoadingState: PropTypes.bool,
-
-        /**
          * Gets or Sets the stackLabel of the chart
          */
         stackLabel: PropTypes.string,
@@ -121,9 +113,9 @@ class StackedBar extends React.Component {
         valueLabel: PropTypes.number,
 
         /**
-         * Gets or Sets the valueLabelFormat of the chart
+         * Current locale object or Chart module to chain calls
          */
-        valueLabelFormat: PropTypes.arrayOf(PropTypes.string),
+        valueLocale: PropTypes.object,
 
         /**
          * Gets or Sets the width of the chart
@@ -175,7 +167,6 @@ class StackedBar extends React.Component {
     static defaultProps = {
         chart: stackedBar,
         createTooltip: () => null,
-        shouldShowLoadingState: false,
     };
 
     constructor(props) {
@@ -193,19 +184,19 @@ class StackedBar extends React.Component {
     }
 
     componentDidUpdate() {
-        const { createTooltip, shouldShowLoadingState } = this.props;
-        if (!shouldShowLoadingState) {
-            if (!this.chart) {
-                this.createChart();
-            } else {
-                this.updateChart();
-                createTooltip();
-            }
+        const { createTooltip } = this.props;
+
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
+            createTooltip();
         }
     }
 
     componentWillUnmount() {
         const { chart } = this.props;
+
         chart.destroy(this.rootNode);
     }
 
@@ -219,7 +210,6 @@ class StackedBar extends React.Component {
         delete configuration.data;
         delete configuration.chart;
         delete configuration.createTooltip;
-        delete configuration.shouldShowLoadingState;
 
         return configuration;
     }
@@ -250,12 +240,7 @@ class StackedBar extends React.Component {
     }
 
     render() {
-        const { chart } = this.props;
-        return loadingContainerWrapper(
-            this.props,
-            chart.loading(),
-            <div className="stacked-bar-container" ref={this.setRef} />
-        );
+        return <div className="stacked-bar-container" ref={this.setRef} />;
     }
 }
 

@@ -1,6 +1,5 @@
 import stackedBarChart from 'britecharts/dist/umd/stackedBar.min';
 import { select } from 'd3-selection';
-import { bar as stackedBarLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
@@ -40,7 +39,5 @@ stackedBar.update = (el, data, configuration = {}, chart) => {
 };
 
 stackedBar.destroy = () => {};
-
-stackedBar.loading = () => stackedBarLoadingState;
 
 export default stackedBar;

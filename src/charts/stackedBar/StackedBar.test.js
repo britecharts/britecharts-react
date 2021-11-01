@@ -6,7 +6,7 @@ import stackedBarData from './stackedBarChart.fixtures';
 
 import stackedBar from './stackedBarChart';
 
-describe.skip('stacked Bar Chart', () => {
+describe('stacked Bar Chart', () => {
     describe('render', () => {
         describe('when data passed in', () => {
             let createSpy;

@@ -92,7 +92,6 @@ class Step extends React.Component {
     static defaultProps = {
         chart: step,
         createTooltip: () => null,
-        shouldShowLoadingState: false,
     };
 
     constructor(props) {
