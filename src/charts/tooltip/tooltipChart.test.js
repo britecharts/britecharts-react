@@ -1,6 +1,6 @@
 import tooltip from './tooltipChart';
 
-describe.skip('tooltip Chart', () => {
+describe('tooltip Chart', () => {
     let anchor;
 
     beforeEach(() => {

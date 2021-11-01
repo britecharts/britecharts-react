@@ -10,6 +10,12 @@ const tooltipContainerSelector = '.metadata-group';
 export default class Tooltip extends React.Component {
     static propTypes = {
         /**
+         * Exposes the constants to be used to force the x axis to respect a certain granularity current options:
+         *  MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
+         */
+        axisTimeCombinations: PropTypes.string,
+
+        /**
          * Exposes the ability to use a custom date format
          */
         dateCustomFormat: PropTypes.string,
@@ -38,6 +44,11 @@ export default class Tooltip extends React.Component {
          * Gets or Sets the nameLabel of the data
          */
         nameLabel: PropTypes.string,
+
+        /**
+         * Gets or Sets the number format of the line chart
+         */
+        numberFormat: PropTypes.string,
 
         /**
          * Gets or Sets shouldShowDateInTitle
@@ -76,11 +87,6 @@ export default class Tooltip extends React.Component {
          * Updates the position and content of the tooltip
          */
         update: PropTypes.func,
-
-        /**
-         * Gets or Sets the number format for the value displayed on the tooltip
-         */
-        numberFormat: PropTypes.string,
 
         /**
          * Gets or Sets the formatter function for the value displayed on the tooltip.
