@@ -16,14 +16,14 @@ export interface LegendProps {
     clearHighlight?: Function;
 
     /**
-     * Gets or Sets the colorSchema of the chart
-     */
-    colorSchema?: string[];
-
-    /**
      * Current colorMap or Chart module to chain calls
      */
     colorMap?: Record<string, string>;
+
+    /**
+     * Gets or Sets the colorSchema of the chart
+     */
+    colorSchema?: string[];
 
     /**
      * Gets or Sets the height of the legend chart
