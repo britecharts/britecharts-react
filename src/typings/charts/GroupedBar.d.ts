@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { LocalObject } from 'britecharts/src/typings/common/local';
 
 export interface GroupedBarProps {
     /**
@@ -16,19 +17,24 @@ export interface GroupedBarProps {
     animationDuration?: number;
 
     /**
-     * Gets or Sets the aspect ratio of the chart
+     * Gets or Sets the padding of the chart
      */
-    aspectRatio?: number;
+    betweenBarsPadding?: number;
 
     /**
-     * Gets or Sets the colorSchema of the chart
+     * Gets or Sets the padding between groups of bars
      */
-    colorSchema?: string[];
+    betweenGroupsPadding?: number;
 
     /**
      * Current colorMap or Chart module to chain calls
      */
     colorMap?: Record<string, string>;
+
+    /**
+     * Gets or Sets the colorSchema of the chart
+     */
+    colorSchema?: string[];
 
     /**
      * Chart exported to png and a download action is fired
@@ -60,11 +66,11 @@ export interface GroupedBarProps {
      * Gets or Sets the horizontal direction of the chart
      */
     isHorizontal?: boolean;
-
+    
     /**
-     * Gets or Sets the loading state of the chart
+     * Gets or Sets whether a loading state will be shown
      */
-    loadingState?: string;
+    isLoading?: boolean;
 
     /**
      * Gets or Sets the margin of the chart
@@ -82,14 +88,14 @@ export interface GroupedBarProps {
     nameLabel?: number;
 
     /**
+     * Gets or Sets the number format of the bar chart
+     */
+    numberFormat?: string;
+    
+    /**
      * Gets or Sets the minimum width of the graph in order to show the tooltip NOTE: This could also depend on the aspect ratio
      */
     tooltipThreshold?: number;
-
-    /**
-     * Gets or Sets whether a loading state will be shown
-     */
-    isLoading?: boolean;
 
     /**
      * Gets or Sets the valueLabel of the chart
@@ -97,9 +103,9 @@ export interface GroupedBarProps {
     valueLabel?: number;
 
     /**
-     * Gets or Sets the valueLabelFormat of the chart
+     * Current locale object or Chart module to chain calls
      */
-    valueLabelFormat?: string;
+    valueLocale?: LocalObject | null;
 
     /**
      * Gets or Sets the width of the chart

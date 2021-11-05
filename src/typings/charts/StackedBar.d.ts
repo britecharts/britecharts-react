@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { LocalObject } from 'britecharts/src/typings/common/local';
 
 export interface StackedBarProps {
     /**
@@ -129,6 +130,11 @@ export interface StackedBarProps {
      * Gets or Sets the valueLabel of the chart
      */
     valueLabel?: number;
+
+    /**
+     * Current locale object or Chart module to chain calls
+     */
+    valueLocale?: LocalObject | null;
 
     /**
      * Gets or Sets the valueLabelFormat of the chart
