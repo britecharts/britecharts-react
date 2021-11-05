@@ -9,6 +9,12 @@ export interface GroupedBarProps {
         group: string;
         value: number;
     }[];
+
+    /**
+     * Gets or Sets the duration of the animation
+     */
+    animationDuration?: number;
+
     /**
      * Gets or Sets the aspect ratio of the chart
      */
@@ -18,6 +24,11 @@ export interface GroupedBarProps {
      * Gets or Sets the colorSchema of the chart
      */
     colorSchema?: string[];
+
+    /**
+     * Current colorMap or Chart module to chain calls
+     */
+    colorMap?: Record<string, string>;
 
     /**
      * Chart exported to png and a download action is fired
@@ -78,7 +89,7 @@ export interface GroupedBarProps {
     /**
      * Gets or Sets whether a loading state will be shown
      */
-    shouldShowLoadingState?: boolean;
+    isLoading?: boolean;
 
     /**
      * Gets or Sets the valueLabel of the chart

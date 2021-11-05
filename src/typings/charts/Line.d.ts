@@ -14,6 +14,11 @@ export interface LineProps {
     };
 
     /**
+     * Gets or Sets the duration of the animation
+     */
+    animationDuration?: number;
+
+    /**
      * Exposes the constants to be used to force the x axis to respect a
      * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
      */
@@ -29,6 +34,11 @@ export interface LineProps {
      */
 
     colorSchema?: string[];
+
+    /**
+     * Current colorMap or Chart module to chain calls
+     */
+    colorMap?: Record<string, string>;
 
     /**
      * Gets or Sets the dateLabel of the chart
@@ -96,7 +106,7 @@ export interface LineProps {
     /**
      * Gets or Sets whether a loading state will be shown
      */
-    shouldShowLoadingState?: boolean;
+    isLoading?: boolean;
 
     /**
      * Gets or Sets the minimum width of the graph in order

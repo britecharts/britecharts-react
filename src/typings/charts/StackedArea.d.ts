@@ -11,6 +11,11 @@ export interface StackedAreaProps {
     }[];
 
     /**
+     * Gets or Sets the duration of the animation
+     */
+    animationDuration?: number;
+
+    /**
      * Gets or Sets the area curve of the stacked area.
      */
     areaCurve?: string;
@@ -36,6 +41,11 @@ export interface StackedAreaProps {
      * Gets or Sets the colorSchema of the chart
      */
     colorSchema?: string[];
+
+    /**
+     * Current colorMap or Chart module to chain calls
+     */
+    colorMap?: Record<string, string>;
 
     /**
      * Gets or Sets the dateLabel of the chart
@@ -98,7 +108,7 @@ export interface StackedAreaProps {
     /**
      * Gets or Sets whether a loading state will be shown
      */
-    shouldShowLoadingState?: boolean;
+    isLoading?: boolean;
 
     /**
      * Gets or Sets the minimum width of the graph in order

@@ -27,7 +27,7 @@ export interface StepProps {
     /**
      * Gets or Sets whether a loading state will be shown
      */
-    shouldShowLoadingState?: boolean;
+    isLoading?: boolean;
 
     /**
      * Gets or Sets the margin of the chart

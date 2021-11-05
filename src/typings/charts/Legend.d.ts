@@ -21,6 +21,11 @@ export interface LegendProps {
     colorSchema?: string[];
 
     /**
+     * Current colorMap or Chart module to chain calls
+     */
+    colorMap?: Record<string, string>;
+
+    /**
      * Gets or Sets the height of the legend chart
      */
     height?: number;
