@@ -20,16 +20,16 @@ export interface DonutChartProps {
      * Gets or Sets the centeredTextFunction of the chart. If function is provided the format will be changed by the custom function's value format. The default format function value is "${d.percentage}% ${d.name}". The callback will provide the data object with id, name, percentage, and quantity. Also provides the component added by the user in each data entry
      */
     centeredTextFunction?: Function;
+    
+    /**
+     * Current colorMap or Chart module to chain calls
+     */
+    colorMap?: Record<string, string>;
 
     /**
      * Gets or Sets the colorSchema of the chart
      */
     colorSchema?: string[];
-
-    /**
-     * Current colorMap or Chart module to chain calls
-     */
-    colorMap?: Record<string, string>;
 
     /**
      * Gets or Sets the emptyDataConfig of the chart. If set and data is empty (quantity adds up to zero or there are no entries), the chart will render an empty slice with a given color (light gray by default)
@@ -46,6 +46,18 @@ export interface DonutChartProps {
      * to highlight the selected slice id set with `highlightSliceById` all the time.
      */
     hasFixedHighlightedSlice?: boolean;
+
+    /**
+     * Gets or Sets the hasHoverAnimation property of the chart. By default, donut chart highlights the hovered slice. This property explicitly disables this hover behavior.
+     */
+    hasHoverAnimation?: boolean;
+
+    /**
+     * Gets or sets the hasLastHoverSliceHighlighted property.
+     * If property is true, the last hovered slice will be highlighted after 'mouseout` event is triggered.
+     * The last hovered slice will remain in highlight state. Note: if both hasFixedHighlightedSlice and hasLastHoverSliceHighlighted are true, the latter property will override the former.
+     */
+    hasLastHoverSliceHighlighted?: boolean;
 
     /**
      * Gets or Sets the height of the chart
@@ -67,11 +79,11 @@ export interface DonutChartProps {
      * when render. By default this is 'false'
      */
     isAnimated?: boolean;
-
+    
     /**
-     * Gets or Sets the loading state of the chart
+     * Gets or Sets whether a loading state will be shown
      */
-    loadingState?: string;
+    isLoading?: boolean;
 
     /**
      * Gets or Sets the margin of the chart
@@ -102,11 +114,6 @@ export interface DonutChartProps {
      * Gets or Sets the radiusHoverOffset of the chart
      */
     radiusHoverOffset?: number;
-
-    /**
-     * Gets or Sets whether a loading state will be shown
-     */
-    isLoading?: boolean;
 
     /**
      * Gets or Sets the width of the chart

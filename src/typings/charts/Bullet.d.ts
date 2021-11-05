@@ -13,11 +13,6 @@ export interface BulletChartProps {
     }[];
 
     /**
-     * Gets or Sets the aspect ratio of the chart
-     */
-    aspectRatio?: number;
-
-    /**
      * Gets or Sets the colorSchema of the chart. The first color from the array will be applied to range bars (the wider bars). The second color from the array will be applied to measure bars (the narrow bars) and marker lines.
      */
     colorSchema?: string[];
@@ -41,11 +36,6 @@ export interface BulletChartProps {
      * Gets or Sets the isReverse status of the chart. If true, the elements will be rendered in reverse order.
      */
     isReverse?: boolean;
-
-    /**
-     * Gets or Sets the loading state of the chart
-     */
-    loadingState?: string;
 
     /**
      * Gets or Sets the margin of the chart
