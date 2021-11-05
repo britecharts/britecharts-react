@@ -21,8 +21,8 @@
 
 ### With default properties and tooltip
 ```js
+    const Tooltip = require('../tooltip/Tooltip.js').default;
     const stackedBarData = require('./stackedBarChart.fixtures.js').default;
-    const ResponsiveContainer = require('../helpers/responsiveContainer.js').default;
     const margin = {
         top: 60,
         right: 30,
@@ -31,15 +31,9 @@
     };
 
     const renderStackedBar = (props) => (
-        <ResponsiveContainer
-            render={
-                ({width}) =>
-                    <StackedBar
-                        margin={margin}
-                        width={width}
-                        {...props}
-                    />
-            }
+        <StackedBar
+            margin={margin}
+            {...props}
         />
     );
 
@@ -55,8 +49,8 @@
 ### With loading state
 ```js
     <StackedBar
-        data={null}
-        shouldShowLoadingState={true}
+        data={[]}
+        isLoading={true}
     />
 ```
 

@@ -2,11 +2,8 @@
 
 ```js
 const donutData = require('./donutChart.fixtures.js').default;
-const withResponsiveness = require('../helpers/withResponsiveness.js')
-    .default;
-const ResponsiveDonut = withResponsiveness(Donut);
 
-<ResponsiveDonut data={donutData.with4Slices()} />;
+<Donut data={donutData.with4Slices()} />;
 ```
 
 ### With hover event
@@ -31,16 +28,11 @@ const logMouseOver = () => console.log('Mouse Over');
 <Donut data={[]} isLoading={true} />
 ```
 
-### With highlighted Legend and fully responsive
+### With highlighted Legend
 
 ```js
 const donutData = require('./donutChart.fixtures.js').default;
-const withResponsiveness = require('../helpers/withResponsiveness.js')
-    .default;
-const ResponsiveContainer = require('../helpers/responsiveContainer.js')
-    .default;
-const ResponsiveDonut = withResponsiveness(Donut);
-const ResponsiveLegend = withResponsiveness(Legend);
+const Legend = require('../legend/Legend.js').default;
 
 class LegendDonut extends React.PureComponent {
     constructor(props) {
@@ -68,40 +60,37 @@ class LegendDonut extends React.PureComponent {
             left: 0,
             right: 30
         };
+        const width = 500;
 
         return (
-            <ResponsiveContainer
-                render={({ width }) => (
-                    <div>
-                        <Donut
-                            data={donutData.with4Slices()}
-                            height={width}
-                            width={width}
-                            externalRadius={width / 2.5}
-                            internalRadius={width / 5}
-                            isAnimated={false}
-                            highlightSliceById={
-                                this.state.highlightedSlice
-                            }
-                            customMouseOver={this.handleMouseOver.bind(
-                                this
-                            )}
-                            customMouseOut={this.handleMouseOut.bind(
-                                this
-                            )}
-                        />
-                        <Legend
-                            data={donutData.with4Slices()}
-                            height={200}
-                            width={width}
-                            margin={legendMargin}
-                            highlightEntryById={
-                                this.state.highlightedSlice
-                            }
-                        />
-                    </div>
-                )}
-            />
+            <div>
+                <Donut
+                    data={donutData.with4Slices()}
+                    height={width}
+                    width={width}
+                    externalRadius={width / 2.5}
+                    internalRadius={width / 5}
+                    isAnimated={false}
+                    highlightSliceById={
+                        this.state.highlightedSlice
+                    }
+                    customMouseOver={this.handleMouseOver.bind(
+                        this
+                    )}
+                    customMouseOut={this.handleMouseOut.bind(
+                        this
+                    )}
+                />
+                <Legend
+                    data={donutData.with4Slices()}
+                    height={200}
+                    width={width}
+                    margin={legendMargin}
+                    highlightEntryById={
+                        this.state.highlightedSlice
+                    }
+                />
+            </div>
         );
     }
 }

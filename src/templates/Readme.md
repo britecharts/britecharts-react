@@ -4,7 +4,7 @@
     
     <{{pascalCase componentName}}
         data={chartData.firstDataMethod()}
-        shouldShowLoadingState={true}
+        isLoading={true}
     />
 ```
 
@@ -13,7 +13,7 @@
 
     <{{pascalCase componentName}}
         data={null}
-        shouldShowLoadingState={true}
+        isLoading={true}
     />
 ```
 

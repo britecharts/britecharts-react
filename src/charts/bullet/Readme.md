@@ -1,23 +1,17 @@
-### With default properties and responsive
+### With default properties
 
 ```js
 const chartData = require('./bulletChart.fixtures.js').default;
-const withResponsiveness = require('../helpers/withResponsiveness.js')
-    .default;
-const ResponsiveBullet = withResponsiveness(Bullet);
 
-<ResponsiveBullet data={chartData.fullTestData()} />;
+<Bullet data={chartData.fullTestData()} />;
 ```
 
 ### With measure under ranges
 
 ```js
 const chartData = require('./bulletChart.fixtures.js').default;
-const withResponsiveness = require('../helpers/withResponsiveness.js')
-    .default;
-const ResponsiveBullet = withResponsiveness(Bullet);
 
-<ResponsiveBullet data={chartData.underRangeNoMarker()} />;
+<Bullet data={chartData.underRangeNoMarker()} />;
 ```
 
 See more:

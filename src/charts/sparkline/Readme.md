@@ -1,14 +1,13 @@
-### With animation and responsive
+### With animation
 ```js
     const sparklineData = require('./sparklineChart.fixtures.js').default;
-    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveSparkline = withResponsiveness(Sparkline);
     
-    <ResponsiveSparkline
+    <Sparkline
         data={sparklineData.with1Source()}
         isAnimated={true}
-        duration={1000}
-        height={300}
+        width={400}
+        animationDuration={1000}
+        height={100}
     />
 ```
 
@@ -18,9 +17,19 @@
 
     <Sparkline
         data={sparklineData.withLowValues()}
-        height={300}
-        width={600}
+        height={100}
+        width={400}
         titleText="Yearly prediction"
+    />
+```
+
+### With loading state
+```js
+    <Sparkline
+        data={[]}
+        height={100}
+        width={200}
+        isLoading={true}
     />
 ```
 
