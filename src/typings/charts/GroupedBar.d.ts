@@ -66,7 +66,7 @@ export interface GroupedBarProps {
      * Gets or Sets the horizontal direction of the chart
      */
     isHorizontal?: boolean;
-    
+
     /**
      * Gets or Sets whether a loading state will be shown
      */
@@ -91,7 +91,7 @@ export interface GroupedBarProps {
      * Gets or Sets the number format of the bar chart
      */
     numberFormat?: string;
-    
+
     /**
      * Gets or Sets the minimum width of the graph in order to show the tooltip NOTE: This could also depend on the aspect ratio
      */
