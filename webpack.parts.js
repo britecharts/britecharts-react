@@ -2,6 +2,7 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 exports.devServer = ({ host, port } = {}) => ({
     devServer: {
@@ -30,20 +31,8 @@ exports.devServer = ({ host, port } = {}) => ({
     },
 });
 
-exports.lintJavaScript = ({ include, exclude, options }) => ({
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                // ensure that ESLint gets executed before anything else
-                include,
-                exclude,
-                enforce: 'pre',
-                loader: 'eslint-loader',
-                options,
-            },
-        ],
-    },
+exports.lintJavaScript = ({ options }) => ({
+    plugins: [new ESLintPlugin(options)],
 });
 
 exports.babelLoader = () => ({
