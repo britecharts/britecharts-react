@@ -22,23 +22,18 @@ export interface LineProps {
      * Exposes the constants to be used to force the x axis to respect a
      * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
      */
-    axisTimeCombinations?: number;
-
+    axisTimeCombinations?: string;
+    
     /**
-     * Gets or Sets the aspect ratio of the chart
+     * Current colorMap or Chart module to chain calls
      */
-    aspectRatio?: number;
+    colorMap?: Record<string, string>;
 
     /**
      * Gets or Sets the colorSchema of the chart
      */
 
     colorSchema?: string[];
-
-    /**
-     * Current colorMap or Chart module to chain calls
-     */
-    colorMap?: Record<string, string>;
 
     /**
      * Gets or Sets the dateLabel of the chart
@@ -67,6 +62,11 @@ export interface LineProps {
     isAnimated?: boolean;
 
     /**
+     * Current loading state flag or Chart module to chain calls
+     */
+    isLoading?: boolean;
+
+    /**
      * Gets or Sets the curve of the line chart
      */
     lineCurve?: string;
@@ -75,11 +75,6 @@ export interface LineProps {
      * Gets or Sets the gradient colors of the line chart when there is only one line
      */
     lineGradient?: string[];
-
-    /**
-     * Gets or Sets the loading state of the chart
-     */
-    loadingState?: string;
 
     /**
      * Pass language tag for the tooltip to localize the date. Feature
@@ -102,11 +97,6 @@ export interface LineProps {
      * Gets or Sets the number format of the line chart
      */
     numberFormat?: string;
-
-    /**
-     * Gets or Sets whether a loading state will be shown
-     */
-    isLoading?: boolean;
 
     /**
      * Gets or Sets the minimum width of the graph in order
@@ -145,6 +135,18 @@ export interface LineProps {
      * Gets or Sets the label of the X axis of the chart
      */
     xAxisLabel?: string;
+
+    /**
+     * Gets or Sets the `xAxisScale`. Choose between 'linear' and 'logarithmic'.
+     * The setting will only work if `xAxisValueType` is set to 'number' as well, otherwise it won't influence the visualization.
+     */
+    xAxisScale?: string;
+
+    /**
+     * Gets or Sets the `xAxisValueType`. Choose between 'date' and 'number'.
+     * When set to `number` the values of the x-axis must not be dates anymore, but can be arbitrary numbers.
+     */
+    xAxisValueType?: string;
 
     /**
      * Exposes the ability to force the chart to show a certain x ticks. It
