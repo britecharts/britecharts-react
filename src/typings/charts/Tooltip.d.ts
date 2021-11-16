@@ -5,7 +5,7 @@ export interface TooltipProps {
      * Exposes the constants to be used to force the x axis to respect a
      * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
      */
-    axisTimeCombinations?: number;
+    axisTimeCombinations?: string;
 
     /**
      * Exposes the ability to use a custom date format
@@ -36,6 +36,11 @@ export interface TooltipProps {
      * Gets or Sets the nameLabel of the data
      */
     nameLabel?: string;
+
+    /**
+     * Gets or Sets the number format of the bar chart
+     */
+    numberFormat?: string;
 
     /**
      * Gets or Sets shouldShowDateInTitle
@@ -74,11 +79,6 @@ export interface TooltipProps {
      * Updates the position and content of the tooltip
      */
     update?: Function;
-
-    /**
-     * Gets or Sets the number format for the value displayed on the tooltip
-     */
-    numberFormat?: string;
 
     /**
      * Gets or Sets the formatter function for the value displayed on the tooltip.

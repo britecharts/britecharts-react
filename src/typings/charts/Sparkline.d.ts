@@ -42,19 +42,14 @@ export interface SparklineProps {
     isAnimated?: boolean;
 
     /**
-     * Gets or Sets the lineGradient of the chart
-     */
-    lineGradient?: string[];
-
-    /**
-     * Gets or Sets the loading state of the chart
-     */
-    loadingState?: string;
-
-    /**
      * Gets or Sets whether a loading state will be shown
      */
     isLoading?: boolean;
+
+    /**
+     * Gets or Sets the lineGradient of the chart
+     */
+    lineGradient?: string[];
 
     /**
      * Gets or Sets the margin of the chart

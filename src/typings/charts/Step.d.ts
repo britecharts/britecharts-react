@@ -20,11 +20,6 @@ export interface StepProps {
     height?: number;
 
     /**
-     * Gets or Sets the loading state of the chart (string must be markup).
-     */
-    loadingState?: string;
-
-    /**
      * Gets or Sets whether a loading state will be shown
      */
     isLoading?: boolean;

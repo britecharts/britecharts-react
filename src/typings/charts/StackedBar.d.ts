@@ -17,24 +17,19 @@ export interface StackedBarProps {
     animationDuration?: number;
 
     /**
-     * Gets or Sets the aspect ratio of the chart
-     */
-    aspectRatio?: number;
-
-    /**
      * Gets or Sets the padding of the stacked bar chart
      */
     betweenBarsPadding?: number;
 
     /**
-     * Gets or Sets the colorSchema of the chart
-     */
-    colorSchema?: string[];
-    
-    /**
      * Current colorMap or Chart module to chain calls
      */
     colorMap?: Record<string, string>;
+
+    /**
+     * Gets or Sets the colorSchema of the chart
+     */
+    colorSchema?: string[];
 
     /**
      * Chart exported to png and a download action is fired
@@ -73,16 +68,9 @@ export interface StackedBarProps {
     isHorizontal?: boolean;
 
     /**
-     * Gets or Sets the loading state of the chart
+     * Gets or Sets whether a loading state will be shown
      */
-    loadingState?: string;
-
-    /**
-     * Pass language tag for the tooltip to localize the date. Feature
-     * uses Intl.DateTimeFormat, for compatability and support, refer
-     * to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat
-     */
-    locale?: string;
+    isLoading?: boolean;
 
     /**
      * Gets or Sets the margin of the chart
@@ -111,11 +99,6 @@ export interface StackedBarProps {
     percentageAxisToMaxRatio?: number;
 
     /**
-     * Gets or Sets whether a loading state will be shown
-     */
-    isLoading?: boolean;
-
-    /**
      * Gets or Sets the stackLabel of the chart
      */
     stackLabel?: string;
@@ -135,11 +118,6 @@ export interface StackedBarProps {
      * Current locale object or Chart module to chain calls
      */
     valueLocale?: LocalObject | null;
-
-    /**
-     * Gets or Sets the valueLabelFormat of the chart
-     */
-    valueLabelFormat?: string[];
 
     /**
      * Gets or Sets the width of the chart

@@ -23,7 +23,7 @@ export interface LineProps {
      * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
      */
     axisTimeCombinations?: string;
-    
+
     /**
      * Current colorMap or Chart module to chain calls
      */
