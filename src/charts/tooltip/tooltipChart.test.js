@@ -47,14 +47,14 @@ describe('tooltip Chart', () => {
                 expect(actual).toEqual(expected);
             });
 
-            it('should set the numberFormat', () => {
-                const expected = '%s';
+            it('should set the valueLabel', () => {
+                const expected = 'label';
 
                 const chart = tooltip.create(anchor, {
-                    numberFormat: expected,
+                    valueLabel: expected,
                 });
 
-                const actual = chart.numberFormat();
+                const actual = chart.valueLabel();
 
                 expect(actual).toEqual(expected);
             });
