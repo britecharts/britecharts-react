@@ -11,6 +11,17 @@ export interface StackedAreaProps {
     }[];
 
     /**
+     * Gets or Sets the duration of the animation
+     */
+    animationDuration?: number;
+
+    /**
+     * Exposes the constants to be used to force the x axis to respect a
+     * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
+     */
+    axisTimeCombinations?: string;
+
+    /**
      * Gets or Sets the area curve of the stacked area.
      */
     areaCurve?: string;
@@ -22,15 +33,9 @@ export interface StackedAreaProps {
     areaOpacity?: number;
 
     /**
-     * Gets or Sets the aspect ratio of the chart
+     * Current colorMap or Chart module to chain calls
      */
-    aspectRatio?: number;
-
-    /**
-     * Exposes the constants to be used to force the x axis to respect a
-     * certain granularity current options: MINUTE_HOUR, HOUR_DAY, DAY_MONTH, MONTH_YEAR
-     */
-    axisTimeCombinations?: number;
+    colorMap?: Record<string, string>;
 
     /**
      * Gets or Sets the colorSchema of the chart
@@ -69,14 +74,14 @@ export interface StackedAreaProps {
     isAnimated?: boolean;
 
     /**
+     * Gets or Sets whether a loading state will be shown
+     */
+    isLoading?: boolean;
+
+    /**
      * Gets or Sets the keyLabel of the chart
      */
     keyLabel?: number;
-
-    /**
-     * Gets or Sets the loading state of the chart
-     */
-    loadingState?: string;
 
     /**
      * Pass language tag for the tooltip to localize the date. Feature
@@ -94,11 +99,6 @@ export interface StackedAreaProps {
         left?: number;
         right?: number;
     };
-
-    /**
-     * Gets or Sets whether a loading state will be shown
-     */
-    shouldShowLoadingState?: boolean;
 
     /**
      * Gets or Sets the minimum width of the graph in order
@@ -140,6 +140,12 @@ export interface StackedAreaProps {
      * as expected, as D3 decides at the end how many and where the ticks will appear.
      */
     xTicks?: number;
+
+    /**
+     * Gets or Sets the yAxisBaseline - this is the y-value where the area starts from in y-direction (default is 0).
+     * Change this value if you don't want to start your area from y=0.
+     */
+    yAxisBaseline?: number;
 
     /**
      * Gets or Sets the y-axis label of the chart

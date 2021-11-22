@@ -115,11 +115,6 @@ export default class Donut extends Component {
         radiusHoverOffset: PropTypes.number,
 
         /**
-         * Gets or Sets whether a loading state will be shown
-         */
-        shouldShowLoadingState: PropTypes.bool,
-
-        /**
          * Gets or Sets the width of the chart
          */
         width: PropTypes.number,
@@ -207,6 +202,12 @@ export default class Donut extends Component {
     }
 
     render() {
-        return <div className="donut-container" ref={this.setRef} />;
+        return (
+            <div
+                className="donut-container"
+                style={{ textAlign: 'center' }}
+                ref={this.setRef}
+            />
+        );
     }
 }

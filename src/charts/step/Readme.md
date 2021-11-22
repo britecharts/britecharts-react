@@ -1,12 +1,9 @@
 ### With default properties
 ```js
     const chartData = require('./stepChart.fixtures.js').default;
-    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveStepChart = withResponsiveness(Step);
-    
-    <ResponsiveStepChart
+
+    <Step
         data={chartData.firstDataMethod()}
-        shouldShowLoadingState={false}
     />
 ```
 
@@ -14,8 +11,8 @@
 ```js
 
     <Step
-        data={null}
-        shouldShowLoadingState={true}
+        data={[]}
+        isLoading={true}
     />
 ```
 

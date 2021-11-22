@@ -10,6 +10,11 @@ export interface SparklineProps {
     }[];
 
     /**
+     * Gets or Sets the duration of the animation
+     */
+    animationDuration?: number;
+
+    /**
      * Gets or Sets the areaGradient of the chart
      */
     areaGradient?: string[];
@@ -18,11 +23,6 @@ export interface SparklineProps {
      * Gets or Sets the dateLabel of the chart
      */
     dateLabel?: string;
-
-    /**
-     * Gets or Sets the duration of the animation
-     */
-    duration?: number;
 
     /**
      * Chart exported to png and a download action is fired
@@ -42,19 +42,14 @@ export interface SparklineProps {
     isAnimated?: boolean;
 
     /**
+     * Gets or Sets whether a loading state will be shown
+     */
+    isLoading?: boolean;
+
+    /**
      * Gets or Sets the lineGradient of the chart
      */
     lineGradient?: string[];
-
-    /**
-     * Gets or Sets the loading state of the chart
-     */
-    loadingState?: string;
-
-    /**
-     * Gets or Sets whether a loading state will be shown
-     */
-    shouldShowLoadingState?: boolean;
 
     /**
      * Gets or Sets the margin of the chart

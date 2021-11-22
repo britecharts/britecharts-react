@@ -1,24 +1,18 @@
-### Vertical with responsive
+### Vertical
 ```js
     const barData = require('./barChart.fixtures.js').default;
-    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveBarChart = withResponsiveness(Bar);
 
-
-    <ResponsiveBarChart
+    <Bar
         data={barData.withLetters()}
     />
 ```
 
-### Horizontal with responsive and custom color schema
+### Horizontal with custom color schema
 ```js
     const colors = require('britecharts/dist/umd/colors.min');
     const barData = require('./barChart.fixtures.js').default;
-    const withResponsiveness = require('../helpers/withResponsiveness.js').default;
-    const ResponsiveBarChart = withResponsiveness(Bar);
 
-
-    <ResponsiveBarChart
+    <Bar
         data={barData.withColors()}
         isHorizontal={true}
         height={400}
@@ -46,7 +40,6 @@
 See more:
 * [API description][APILink]
 * [Data definition][DataLink]
-
 
 
 [APILink]: http://britecharts.github.io/britecharts/module-Bar.html

@@ -16,6 +16,11 @@ export interface LegendProps {
     clearHighlight?: Function;
 
     /**
+     * Current colorMap or Chart module to chain calls
+     */
+    colorMap?: Record<string, string>;
+
+    /**
      * Gets or Sets the colorSchema of the chart
      */
     colorSchema?: string[];

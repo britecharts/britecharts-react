@@ -1,9 +1,8 @@
 ### With one line with tooltip and basis curve
 
 ```js
+const Tooltip = require('../tooltip/Tooltip.js').default;
 const lineData = require("./lineChart.fixtures").default;
-const ResponsiveContainer = require("../helpers/responsiveContainer.js")
-    .default;
 const margin = {
     top: 60,
     right: 30,
@@ -12,11 +11,7 @@ const margin = {
 };
 
 const renderLine = (props) => (
-    <ResponsiveContainer
-        render={({ width }) => (
-            <Line margin={margin} lineCurve="basis" width={width} {...props} />
-        )}
-    />
+    <Line margin={margin} lineCurve="basis" {...props} />
 );
 
 <Tooltip
@@ -30,9 +25,8 @@ const renderLine = (props) => (
 ### With multiple lines with tooltip
 
 ```js
+const Tooltip = require('../tooltip/Tooltip.js').default;
 const lineData = require("./lineChart.fixtures").default;
-const withResponsiveness = require("../helpers/withResponsiveness.js").default;
-const ResponsiveLineChart = withResponsiveness(Line);
 const margin = {
     top: 60,
     right: 30,
@@ -41,7 +35,7 @@ const margin = {
 };
 
 const renderLine = (props) => (
-    <ResponsiveLineChart tooltipThreshold={0} margin={margin} {...props} />
+    <Line tooltipThreshold={0} margin={margin} {...props} />
 );
 
 <Tooltip
@@ -56,8 +50,6 @@ const renderLine = (props) => (
 
 ```js
 const lineData = require("./lineChart.fixtures").default;
-const withResponsiveness = require("../helpers/withResponsiveness.js").default;
-const ResponsiveLineChart = withResponsiveness(Line);
 const colors = require("../helpers/colors.js");
 const margin = {
     top: 60,
@@ -66,7 +58,7 @@ const margin = {
     left: 70,
 };
 
-<ResponsiveLineChart
+<Line
     data={lineData.fiveTopics()}
     margin={margin}
     lineCurve="stepBefore"

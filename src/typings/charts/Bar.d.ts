@@ -1,19 +1,36 @@
 import { Component } from 'react';
+import { LocalObject } from 'britecharts/src/typings/common/local';
 
 export interface BarChartProps {
     /**
      * Internally used, do not overwrite.
      */
     data: { value: number; name: string }[];
+
+    /**
+     * Gets or Sets the duration of the animation
+     */
+    animationDuration?: number;
+
     /**
      * Gets or Sets the padding of the chart
      */
     betweenBarsPadding?: number;
 
     /**
+     * Gets or Sets the gradient colors of a bar in the chart
+     */
+    chartGradient?: [string, string];
+
+    /**
      * Gets or Sets the colorSchema of the chart
      */
     colorSchema?: string[];
+
+    /**
+     * Current colorMap or Chart module to chain calls
+     */
+    colorMap?: Record<string, string>;
 
     /**
      * If true, adds labels at the end of the bars
@@ -50,6 +67,10 @@ export interface BarChartProps {
      * Gets or Sets the horizontal direction of the chart
      */
     isHorizontal?: boolean;
+    /**
+     * Gets or Sets whether a loading state will be shown
+     */
+    isLoading?: boolean;
 
     /**
      * Offset between end of bar and start of the percentage bars
@@ -98,19 +119,9 @@ export interface BarChartProps {
     percentageAxisToMaxRatio?: number;
 
     /**
-     * Default 10px. Offset between end of bar and start of the percentage bars
-     */
-    percentageLabelMargin?: number;
-
-    /**
      * Gets or Sets whether the color list should be reversed or not
      */
     shouldReverseColorList?: boolean;
-
-    /**
-     * Gets or Sets whether a loading state will be shown
-     */
-    shouldShowLoadingState?: boolean;
 
     /**
      * Gets or Sets the valueLabel of the chart
@@ -118,9 +129,24 @@ export interface BarChartProps {
     valueLabel?: number;
 
     /**
+     * Current locale object or Chart module to chain calls
+     */
+    valueLocale?: LocalObject | null;
+
+    /**
      * Gets or Sets the width of the chart
      */
     width?: number;
+
+    /**
+     * Label or Chart module to chain calls
+     */
+    xAxisLabel?: string;
+
+    /**
+     * Gets or Sets the offset of the xAxisLabel on the chart
+     */
+    xAxisLabelOffset?: number;
 
     /**
      * Gets or Sets the number of ticks of the x axis on the chart (Default is 5)
@@ -128,15 +154,14 @@ export interface BarChartProps {
     xTicks?: number;
 
     /**
-     * Gets or Sets the minimum width of the graph in order
-     * to show the tooltip NOTE: This could also depend on the aspect ratio
+     * Label or Chart module to chain calls
      */
-    tooltipThreshold?: number;
+    yAxisLabel?: string;
 
     /**
-     * Gets or Sets the numberFormat to a percentage format if true (default false)
+     * Gets or Sets the offset of the yAxisLabel on the chart
      */
-    usePercentage?: boolean;
+    yAxisLabelOffset?: number;
 
     /**
      * Space between y axis and chart (Default 10)
