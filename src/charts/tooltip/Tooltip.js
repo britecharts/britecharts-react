@@ -188,7 +188,6 @@ export default class Tooltip extends React.Component {
         const tooltipContainer = this.rootNode.querySelector(
             tooltipContainerSelector
         );
-
         this.childChart = render({
             data,
         });
