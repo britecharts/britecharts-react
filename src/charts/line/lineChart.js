@@ -1,7 +1,6 @@
 import lineChart from 'britecharts/dist/umd/line.min';
 
 import { select } from 'd3-selection';
-import { line as lineLoadingState } from 'britecharts/dist/umd/loading.min';
 import {
     validateConfiguration,
     validateContainer,
@@ -25,6 +24,7 @@ line.create = (el, data, configuration = {}) => {
 
 line.update = (el, data, configuration = {}, chart) => {
     const container = select(el);
+    // TODO: Review this with Version 4
     const shouldUpdateData =
         data &&
         ((data.data && data.data.length) ||
@@ -45,7 +45,5 @@ line.update = (el, data, configuration = {}, chart) => {
 };
 
 line.destroy = () => {};
-
-line.loading = () => lineLoadingState;
 
 export default line;
