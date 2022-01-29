@@ -27,8 +27,7 @@ module.exports = {
             sidebarBackground: '#45494E',
         },
         fontFamily: {
-            base:
-                '"Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif',
+            base: '"Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif',
         },
     },
 
@@ -142,8 +141,7 @@ module.exports = {
                 },
                 {
                     rel: 'stylesheet',
-                    href:
-                        'https://fonts.googleapis.com/css?family=Rubik:300,400',
+                    href: 'https://fonts.googleapis.com/css?family=Rubik:300,400',
                 },
             ],
             raw: `
@@ -186,8 +184,7 @@ module.exports = {
             scripts: [
                 {
                     async: '',
-                    src:
-                        'https://www.googletagmanager.com/gtag/js?id=UA-141520-33',
+                    src: 'https://www.googletagmanager.com/gtag/js?id=UA-141520-33',
                 },
             ],
         },
@@ -203,14 +200,11 @@ module.exports = {
                 },
                 {
                     test: /\.css$/,
-                    include: [
-                        path.join(
-                            __dirname,
-                            './node_modules/britecharts/dist/css/'
-                        ),
-                        path.join(__dirname, './src/docs/styles/'),
-                    ],
-                    loader: ['style-loader', 'css-loader'],
+                    use: ['style-loader', 'css-loader'],
+                },
+                {
+                    test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                    loader: 'url-loader?limit=100000',
                 },
             ],
         },
